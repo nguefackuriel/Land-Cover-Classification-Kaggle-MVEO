@@ -18,5 +18,5 @@ Compile (any LaTeX distribution with `IEEEtran`; we used [tectonic](https://tect
 (rows of `inits/medoids_n10.pt` and `inits/medoids_n120.pt` in `data/train.csv`), so the figure script does not
 need PyTorch.
 
-Still to do: authors and affiliations, a final pass once the challenge is over (final leaderboard, answer of the
-organizers about the evaluation seed).
+Still to do: a final pass once the challenge is over (final leaderboard, answer of the organizers about the
+evaluation seed).

@@ -1,7 +1,8 @@
 # Land cover classification from a handful of training images
 
 This is our entry for the [MVEO 2026 Data-Centric Land Cover Classification Challenge](https://www.kaggle.com/competitions/data-centric-land-cover-classification-challenge-26)
-(team "Nguefack Uriel"). In this challenge the model and the training code are fixed. You only choose the training
+(team "Nguefack Uriel"; Uriel Nguefack Yefou, Concordia University, uriel.nguefackyefou@mail.concordia.ca).
+In this challenge the model and the training code are fixed. You only choose the training
 images. The organizers' script (`baseline.py`) fine-tunes an ImageNet ViT-B/16 on your images for 5 epochs with AdamW
 (lr 3e-5, batch 32), and the score rewards both test accuracy and a small number of images:
 
