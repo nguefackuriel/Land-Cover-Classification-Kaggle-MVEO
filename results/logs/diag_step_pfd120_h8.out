@@ -1,0 +1,15 @@
+{"init": "cache/pfd3_n120_best.pt", "n": 120, "K": 20, "base_ce": 0.7599, "base_acc": 0.8944, "base_per_setup": [0.7506, 0.734, 0.7628, 0.7922]}
+{"kind": "lin", "mean_dx_255": 0.03, "quant": false, "changed_px": 0.0064, "dCE": 0.0003, "dAcc": -0.0001, "dCE_per_setup": [0.0079, -0.0013, -0.0026, -0.0028]}
+{"kind": "lin", "mean_dx_255": 0.03, "quant": true, "changed_px": 0.0064, "dCE": 0.0005, "dAcc": 0.0001, "dCE_per_setup": [0.007, -0.0002, -0.0038, -0.0011]}
+{"kind": "lin", "mean_dx_255": 0.1, "quant": false, "changed_px": 0.0398, "dCE": 0.0105, "dAcc": -0.001, "dCE_per_setup": [0.0278, 0.0016, 0.0054, 0.0071]}
+{"kind": "lin", "mean_dx_255": 0.1, "quant": true, "changed_px": 0.0398, "dCE": 0.0117, "dAcc": -0.0005, "dCE_per_setup": [0.0272, 0.0031, 0.0086, 0.0078]}
+{"kind": "lin", "mean_dx_255": 0.3, "quant": false, "changed_px": 0.1199, "dCE": 0.0605, "dAcc": -0.0073, "dCE_per_setup": [0.0771, 0.0339, 0.0681, 0.063]}
+{"kind": "lin", "mean_dx_255": 0.3, "quant": true, "changed_px": 0.1199, "dCE": 0.0649, "dAcc": -0.0084, "dCE_per_setup": [0.0769, 0.0406, 0.0737, 0.0682]}
+{"kind": "lin", "mean_dx_255": 1, "quant": false, "changed_px": 0.3167, "dCE": 0.1925, "dAcc": -0.0437, "dCE_per_setup": [0.2334, 0.1667, 0.2073, 0.1627]}
+{"kind": "lin", "mean_dx_255": 1, "quant": true, "changed_px": 0.3167, "dCE": 0.1972, "dAcc": -0.0449, "dCE_per_setup": [0.2374, 0.1695, 0.2136, 0.1683]}
+{"kind": "lin", "mean_dx_255": 3, "quant": false, "changed_px": 0.6097, "dCE": 0.3948, "dAcc": -0.1415, "dCE_per_setup": [0.4275, 0.4039, 0.395, 0.353]}
+{"kind": "lin", "mean_dx_255": 3, "quant": true, "changed_px": 0.6097, "dCE": 0.3953, "dAcc": -0.1414, "dCE_per_setup": [0.4266, 0.4051, 0.3942, 0.3552]}
+{"kind": "sign", "mean_dx_255": 1, "quant": false, "changed_px": 0.9999, "dCE": 0.0341, "dAcc": -0.0094, "dCE_per_setup": [0.0685, 0.025, 0.0174, 0.0254]}
+{"kind": "sign", "mean_dx_255": 1, "quant": true, "changed_px": 0.9999, "dCE": 0.0341, "dAcc": -0.0095, "dCE_per_setup": [0.0676, 0.0253, 0.0176, 0.0259]}
+{"kind": "sign", "mean_dx_255": 3, "quant": false, "changed_px": 0.9999, "dCE": 0.2445, "dAcc": -0.0804, "dCE_per_setup": [0.2421, 0.3128, 0.2204, 0.2027]}
+{"kind": "sign", "mean_dx_255": 3, "quant": true, "changed_px": 0.9999, "dCE": 0.245, "dAcc": -0.0804, "dCE_per_setup": [0.242, 0.3135, 0.2215, 0.2028]}

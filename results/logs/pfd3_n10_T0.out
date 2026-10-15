@@ -1,0 +1,20 @@
+{"it": 0, "n": 10, "val_accs": [0.581, 0.6064, 0.6464], "mean": 0.6113, "score_mean": 0.6887}
+{"it": 0, "K": 5, "window": 5, "real_loss_after_K": 1.2177, "T": 0.2371, "sec": 16.54, "peak_gb": 9.4}
+{"it": 5, "K": 5, "window": 5, "real_loss_after_K": 1.2043, "T": 0.2239, "sec": 15.61, "peak_gb": 9.4}
+{"it": 10, "K": 5, "window": 5, "real_loss_after_K": 1.2525, "T": 0.2371, "sec": 15.2, "peak_gb": 9.4}
+{"it": 15, "K": 5, "window": 5, "real_loss_after_K": 1.3422, "T": 0.2512, "sec": 15.27, "peak_gb": 9.4}
+{"it": 20, "K": 5, "window": 5, "real_loss_after_K": 1.1783, "T": 0.2512, "sec": 15.11, "peak_gb": 9.4}
+{"it": 25, "n": 10, "val_accs": [0.5506, 0.6099, 0.6467], "mean": 0.6024, "score_mean": 0.6843}
+{"it": 25, "K": 5, "window": 5, "real_loss_after_K": 1.1801, "T": 0.2239, "sec": 17.52, "peak_gb": 9.4}
+{"it": 30, "K": 5, "window": 5, "real_loss_after_K": 1.1867, "T": 0.2239, "sec": 15.45, "peak_gb": 9.4}
+{"it": 35, "K": 5, "window": 5, "real_loss_after_K": 1.214, "T": 0.2371, "sec": 15.24, "peak_gb": 9.4}
+{"it": 40, "K": 5, "window": 5, "real_loss_after_K": 1.316, "T": 0.2512, "sec": 15.23, "peak_gb": 9.4}
+{"it": 45, "K": 5, "window": 5, "real_loss_after_K": 1.1414, "T": 0.2512, "sec": 15.75, "peak_gb": 9.4}
+{"it": 50, "n": 10, "val_accs": [0.5793, 0.6136, 0.6415], "mean": 0.6115, "score_mean": 0.6888}
+{"it": 50, "K": 5, "window": 5, "real_loss_after_K": 1.1439, "T": 0.2239, "sec": 16.64, "peak_gb": 9.4}
+{"it": 55, "K": 5, "window": 5, "real_loss_after_K": 1.1616, "T": 0.2113, "sec": 15.86, "peak_gb": 9.4}
+{"it": 60, "K": 5, "window": 5, "real_loss_after_K": 1.1887, "T": 0.2239, "sec": 15.81, "peak_gb": 9.4}
+{"it": 65, "K": 5, "window": 5, "real_loss_after_K": 1.2992, "T": 0.2371, "sec": 15.64, "peak_gb": 9.4}
+{"it": 70, "K": 5, "window": 5, "real_loss_after_K": 1.1045, "T": 0.2371, "sec": 15.18, "peak_gb": 9.4}
+{"it": 75, "n": 10, "val_accs": [0.5679, 0.618, 0.6447], "mean": 0.6102, "score_mean": 0.6882}
+{"it": 75, "K": 5, "window": 5, "real_loss_after_K": 1.1175, "T": 0.2239, "sec": 16.28, "peak_gb": 9.4}

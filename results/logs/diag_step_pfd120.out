@@ -1,0 +1,19 @@
+{"init": "cache/pfd3_n120_best.pt", "n": 120, "K": 20, "base_ce": 0.7599, "base_acc": 0.8944, "base_per_setup": [0.7506, 0.734, 0.7628, 0.7922]}
+{"kind": "lin", "mean_dx_255": 0.03, "quant": false, "changed_px": 0.0012, "dCE": -0.0009, "dAcc": -0.0009, "dCE_per_setup": [0.0005, -0.0004, 0.0014, -0.0049]}
+{"kind": "lin", "mean_dx_255": 0.03, "quant": true, "changed_px": 0.0012, "dCE": 0.0012, "dAcc": -0.0011, "dCE_per_setup": [0.0031, 0.0005, 0.0013, -0.0002]}
+{"kind": "lin", "mean_dx_255": 0.1, "quant": false, "changed_px": 0.0223, "dCE": 0.0018, "dAcc": -0.0013, "dCE_per_setup": [0.0098, -0.0021, 0.007, -0.0074]}
+{"kind": "lin", "mean_dx_255": 0.1, "quant": true, "changed_px": 0.0223, "dCE": 0.0054, "dAcc": -0.0011, "dCE_per_setup": [0.0161, -0.0009, 0.0081, -0.0016]}
+{"kind": "lin", "mean_dx_255": 0.3, "quant": false, "changed_px": 0.165, "dCE": 0.041, "dAcc": -0.0096, "dCE_per_setup": [0.0652, 0.0289, 0.0397, 0.0299]}
+{"kind": "lin", "mean_dx_255": 0.3, "quant": true, "changed_px": 0.165, "dCE": 0.0427, "dAcc": -0.0085, "dCE_per_setup": [0.0751, 0.0259, 0.0398, 0.0299]}
+{"kind": "lin", "mean_dx_255": 1, "quant": false, "changed_px": 0.5174, "dCE": 0.2334, "dAcc": -0.0762, "dCE_per_setup": [0.295, 0.264, 0.1991, 0.1756]}
+{"kind": "lin", "mean_dx_255": 1, "quant": true, "changed_px": 0.5174, "dCE": 0.2351, "dAcc": -0.0753, "dCE_per_setup": [0.294, 0.2653, 0.203, 0.1782]}
+{"kind": "lin", "mean_dx_255": 3, "quant": false, "changed_px": 0.7873, "dCE": 0.5838, "dAcc": -0.2266, "dCE_per_setup": [0.5716, 0.6733, 0.5206, 0.5699]}
+{"kind": "lin", "mean_dx_255": 3, "quant": true, "changed_px": 0.7873, "dCE": 0.5852, "dAcc": -0.2277, "dCE_per_setup": [0.5749, 0.6764, 0.5184, 0.5713]}
+{"kind": "lin", "mean_dx_255": 10, "quant": false, "changed_px": 0.9238, "dCE": 1.0242, "dAcc": -0.4939, "dCE_per_setup": [0.9601, 1.1425, 0.9165, 1.0778]}
+{"kind": "lin", "mean_dx_255": 10, "quant": true, "changed_px": 0.9238, "dCE": 1.0243, "dAcc": -0.4935, "dCE_per_setup": [0.9574, 1.1417, 0.9189, 1.0791]}
+{"kind": "sign", "mean_dx_255": 0.3, "quant": false, "changed_px": 0.0, "dCE": -0.0055, "dAcc": -0.0004, "dCE_per_setup": [-0.005, -0.0077, 0.0024, -0.0117]}
+{"kind": "sign", "mean_dx_255": 0.3, "quant": true, "changed_px": 0.0, "dCE": 0.0, "dAcc": 0.0, "dCE_per_setup": [0.0, 0.0, 0.0, 0.0]}
+{"kind": "sign", "mean_dx_255": 1, "quant": false, "changed_px": 0.9941, "dCE": 0.0422, "dAcc": -0.0121, "dCE_per_setup": [0.0589, 0.0309, 0.0459, 0.033]}
+{"kind": "sign", "mean_dx_255": 1, "quant": true, "changed_px": 0.9941, "dCE": 0.0412, "dAcc": -0.0126, "dCE_per_setup": [0.0591, 0.0305, 0.0455, 0.0297]}
+{"kind": "sign", "mean_dx_255": 3, "quant": false, "changed_px": 0.9941, "dCE": 0.2659, "dAcc": -0.0822, "dCE_per_setup": [0.249, 0.3272, 0.2313, 0.2562]}
+{"kind": "sign", "mean_dx_255": 3, "quant": true, "changed_px": 0.9941, "dCE": 0.2644, "dAcc": -0.0831, "dCE_per_setup": [0.2484, 0.3243, 0.2307, 0.2543]}

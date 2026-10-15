@@ -1,0 +1,6 @@
+[chain] n120 run finished Tue Oct 13 16:13:28 UTC 2026
+120 images -> sets/pfd3_n120 (from it=250, accs=[0.8864, 0.9015, 0.8921])
+{"file": "submissions/pfd3_n120.csv", "n": 120, "val_per_epoch": [0.6128, 0.8007, 0.8642, 0.8773, 0.8837], "best_val": 0.8837}
+[chain] official done Tue Oct 13 16:15:14 UTC 2026
+Terminated
+[chain] n97 finished Tue Oct 13 16:51:00 UTC 2026

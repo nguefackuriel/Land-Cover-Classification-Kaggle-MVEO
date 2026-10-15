@@ -1,0 +1,8 @@
+{"it": 0, "n": 120, "val_accs": [0.8709, 0.8763, 0.8654], "mean": 0.8709, "score_mean": 0.6923}
+{"it": 0, "K": 20, "window": 20, "real_loss_after_K": 0.908, "sec": 31.64, "peak_gb": 12.5}
+{"it": 5, "K": 20, "window": 20, "real_loss_after_K": 0.9301, "sec": 20.08, "peak_gb": 12.5}
+{"it": 10, "K": 20, "window": 20, "real_loss_after_K": 0.8954, "sec": 20.15, "peak_gb": 12.5}
+{"it": 15, "K": 20, "window": 20, "real_loss_after_K": 0.8654, "sec": 20.08, "peak_gb": 12.5}
+{"it": 20, "K": 20, "window": 20, "real_loss_after_K": 0.9136, "sec": 20.08, "peak_gb": 12.5}
+{"it": 25, "n": 120, "val_accs": [0.8556, 0.8605, 0.8664], "mean": 0.8608, "score_mean": 0.6873}
+{"it": 25, "K": 20, "window": 20, "real_loss_after_K": 0.8445, "sec": 19.93, "peak_gb": 12.5}

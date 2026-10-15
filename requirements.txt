@@ -1,0 +1,9 @@
+# versions we used (Python 3.10, CUDA 12.1, one A100 80GB)
+torch==2.5.1
+torchvision==0.20.1
+numpy==2.2.6
+pillow==12.3.0
+# only to download the data and to submit
+kaggle
+# only for the figures of the paper
+matplotlib

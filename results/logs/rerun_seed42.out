@@ -1,0 +1,4 @@
+{"set": "pfd3_n120_rerun1", "seed": 42, "best_val": 0.8837}
+{"set": "pfd3_n120_rerun1", "seeds": [42], "mean": 0.8837, "std": 0}
+{"set": "pfd3_n120_rerun2", "seed": 42, "best_val": 0.8837}
+{"set": "pfd3_n120_rerun2", "seeds": [42], "mean": 0.8837, "std": 0}

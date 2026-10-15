@@ -1,0 +1,15 @@
+# competition data, official baseline clone, and everything the scripts write
+/data
+/ext
+/cache
+/runs
+/sets
+__pycache__/
+*.pyc
+kaggle.json
+.venv/
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg

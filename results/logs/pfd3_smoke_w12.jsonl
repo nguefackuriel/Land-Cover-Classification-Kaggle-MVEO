@@ -1,0 +1,2 @@
+{"it": 0, "n": 120, "val_accs": [0.8706, 0.877, 0.8667], "mean": 0.8714, "score_mean": 0.6926}
+{"it": 0, "K": 20, "window": 12, "real_loss_after_K": 0.9134, "sec": 6.66, "peak_gb": 22.3}

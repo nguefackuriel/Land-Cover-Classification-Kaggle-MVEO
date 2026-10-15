@@ -1,0 +1,6 @@
+{"set": "final_n10", "seed": 0, "best_val": 0.5481}
+{"set": "final_n10", "seed": 1, "best_val": 0.5879}
+{"set": "final_n10", "seed": 2, "best_val": 0.5835}
+{"set": "final_n10", "seed": 3, "best_val": 0.4635}
+{"set": "final_n10", "seed": 4, "best_val": 0.4289}
+{"set": "final_n10", "seeds": [0, 1, 2, 3, 4], "mean": 0.5224, "std": 0.0723}

@@ -1,0 +1,4 @@
+{"set": "cache/medoids_n112_km1.pt", "n": 112, "last_batch": 16, "accs": [0.8672, 0.8731, 0.8686, 0.8785, 0.8494, 0.8667], "mean": 0.8672, "score_mean": 0.694}
+{"set": "cache/medoids_n112_km2.pt", "n": 112, "last_batch": 16, "accs": [0.8509, 0.8736, 0.8664, 0.8765, 0.8531, 0.8635], "mean": 0.864, "score_mean": 0.6924}
+{"set": "cache/medoids_n120_km1.pt", "n": 120, "last_batch": 24, "accs": [0.876, 0.8879, 0.8701, 0.8798, 0.8607, 0.8696], "mean": 0.874, "score_mean": 0.6939}
+{"set": "cache/medoids_n120_km2.pt", "n": 120, "last_batch": 24, "accs": [0.8526, 0.8669, 0.8588, 0.8763, 0.8464, 0.8758], "mean": 0.8628, "score_mean": 0.6883}

@@ -1,0 +1,15 @@
+{"set": "pfd3_n120", "seed": 0, "best_val": 0.899}
+{"set": "pfd3_n120", "seed": 1, "best_val": 0.8916}
+{"set": "pfd3_n120", "seed": 2, "best_val": 0.901}
+{"set": "pfd3_n120", "seed": 3, "best_val": 0.8842}
+{"set": "pfd3_n120", "seed": 4, "best_val": 0.8965}
+{"set": "pfd3_n120", "seeds": [0, 1, 2, 3, 4], "mean": 0.8945, "std": 0.0067}
+{"set": "medoids_n120", "seed": 0, "best_val": 0.878}
+{"set": "medoids_n120", "seed": 1, "best_val": 0.8748}
+{"set": "medoids_n120", "seed": 2, "best_val": 0.8844}
+{"set": "medoids_n120", "seed": 3, "best_val": 0.8578}
+{"set": "medoids_n120", "seed": 4, "best_val": 0.8716}
+{"set": "medoids_n120", "seeds": [0, 1, 2, 3, 4], "mean": 0.8733, "std": 0.0099}
+[chain] official seeds done Tue Oct 13 19:39:35 UTC 2026
+[chain] n96 done Tue Oct 13 21:06:27 UTC 2026
+[chain] n64 done Tue Oct 13 22:07:33 UTC 2026

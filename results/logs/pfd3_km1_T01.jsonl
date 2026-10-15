@@ -1,0 +1,25 @@
+{"it": 0, "n": 120, "val_accs": [0.8869, 0.9148, 0.901], "mean": 0.9009, "score_mean": 0.7074}
+{"it": 0, "K": 20, "window": 20, "real_loss_after_K": 0.162, "T": 0.1, "sec": 29.91, "peak_gb": 12.5}
+{"it": 5, "K": 20, "window": 20, "real_loss_after_K": 0.2217, "T": 0.1, "sec": 20.03, "peak_gb": 12.5}
+{"it": 10, "K": 20, "window": 20, "real_loss_after_K": 0.2099, "T": 0.1, "sec": 20.13, "peak_gb": 12.5}
+{"it": 15, "K": 20, "window": 20, "real_loss_after_K": 0.1697, "T": 0.1, "sec": 20.0, "peak_gb": 12.5}
+{"it": 20, "K": 20, "window": 20, "real_loss_after_K": 0.1134, "T": 0.1, "sec": 20.1, "peak_gb": 12.5}
+{"it": 25, "n": 120, "val_accs": [0.8879, 0.9141, 0.9007], "mean": 0.9009, "score_mean": 0.7074}
+{"it": 25, "K": 20, "window": 20, "real_loss_after_K": 0.1335, "T": 0.1, "sec": 19.75, "peak_gb": 12.5}
+{"it": 30, "K": 20, "window": 20, "real_loss_after_K": 0.196, "T": 0.1, "sec": 20.22, "peak_gb": 12.5}
+{"it": 35, "K": 20, "window": 20, "real_loss_after_K": 0.1646, "T": 0.1, "sec": 20.07, "peak_gb": 12.5}
+{"it": 40, "K": 20, "window": 20, "real_loss_after_K": 0.1498, "T": 0.1, "sec": 20.16, "peak_gb": 12.5}
+{"it": 45, "K": 20, "window": 20, "real_loss_after_K": 0.0953, "T": 0.1, "sec": 20.23, "peak_gb": 12.5}
+{"it": 50, "n": 120, "val_accs": [0.8879, 0.9136, 0.9012], "mean": 0.9009, "score_mean": 0.7074}
+{"it": 50, "K": 20, "window": 20, "real_loss_after_K": 0.1075, "T": 0.1, "sec": 20.15, "peak_gb": 12.5}
+{"it": 55, "K": 20, "window": 20, "real_loss_after_K": 0.1711, "T": 0.1, "sec": 20.14, "peak_gb": 12.5}
+{"it": 60, "K": 20, "window": 20, "real_loss_after_K": 0.1385, "T": 0.1, "sec": 20.14, "peak_gb": 12.5}
+{"it": 65, "K": 20, "window": 20, "real_loss_after_K": 0.1248, "T": 0.1, "sec": 20.06, "peak_gb": 12.5}
+{"it": 70, "K": 20, "window": 20, "real_loss_after_K": 0.0802, "T": 0.1, "sec": 19.82, "peak_gb": 12.5}
+{"it": 75, "n": 120, "val_accs": [0.8879, 0.9141, 0.9017], "mean": 0.9012, "score_mean": 0.7075}
+{"it": 75, "K": 20, "window": 20, "real_loss_after_K": 0.1021, "T": 0.1, "sec": 20.04, "peak_gb": 12.5}
+{"it": 80, "K": 20, "window": 20, "real_loss_after_K": 0.1601, "T": 0.1, "sec": 20.13, "peak_gb": 12.5}
+{"it": 85, "K": 20, "window": 20, "real_loss_after_K": 0.1249, "T": 0.1, "sec": 20.11, "peak_gb": 12.5}
+{"it": 90, "K": 20, "window": 20, "real_loss_after_K": 0.109, "T": 0.1, "sec": 20.04, "peak_gb": 12.5}
+{"it": 95, "K": 20, "window": 20, "real_loss_after_K": 0.0691, "T": 0.1, "sec": 19.89, "peak_gb": 12.5}
+{"it": 100, "n": 120, "val_accs": [0.8864, 0.9151, 0.9012], "mean": 0.9009, "score_mean": 0.7074}

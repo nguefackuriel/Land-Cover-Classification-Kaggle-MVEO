@@ -1,0 +1,5 @@
+{"set": "n10_head42b_it400", "seed": 42, "best_val": 0.716}
+{"set": "n10_head42b_it400", "seed": 0, "best_val": 0.582}
+{"set": "n10_head42b_it400", "seed": 1, "best_val": 0.5874}
+{"set": "n10_head42b_it400", "seed": 2, "best_val": 0.6279}
+{"set": "n10_head42b_it400", "seeds": [42, 0, 1, 2], "mean": 0.6283, "std": 0.062}

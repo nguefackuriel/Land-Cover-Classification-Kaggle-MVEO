@@ -1,0 +1,5 @@
+{"set": "cache/pfd3_n10_head42b_it400.pt", "official": 0.7151, "tf32_matmul": 0.7151, "no_tf32_conv": 0.7156, "tf32mm_fp32conv": 0.7156}
+{"set": "cache/pfd3_n10_exact_it20.pt", "official": 0.7373, "tf32_matmul": 0.7375, "no_tf32_conv": 0.7375, "tf32mm_fp32conv": 0.7375}
+{"set": "cache/pfd3_n10_exact50_it20.pt", "official": 0.7393, "tf32_matmul": 0.7395, "no_tf32_conv": 0.739, "tf32mm_fp32conv": 0.739}
+{"set": "cache/pfd3_n10_exact_s2_it280.pt", "official": 0.8064, "tf32_matmul": 0.8067, "no_tf32_conv": 0.8069, "tf32mm_fp32conv": 0.8069}
+{"set": "cache/pfd3_n10_exact_it200.pt", "official": 0.7948, "tf32_matmul": 0.7948, "no_tf32_conv": 0.7946, "tf32mm_fp32conv": 0.7943}

@@ -1,0 +1,8 @@
+{"it": 0, "n": 96, "val_accs": [0.8264, 0.8311, 0.8395], "mean": 0.8323, "score_mean": 0.6844}
+{"it": 0, "K": 15, "real_loss_after_K": 1.1684, "sec": 18.3, "peak_gb": 13.8}
+{"it": 10, "K": 15, "real_loss_after_K": 1.2673, "sec": 16.38, "peak_gb": 13.8}
+{"it": 20, "K": 15, "real_loss_after_K": 1.3987, "sec": 16.47, "peak_gb": 13.8}
+{"it": 30, "K": 15, "real_loss_after_K": 1.3923, "sec": 16.47, "peak_gb": 13.8}
+{"it": 40, "K": 15, "real_loss_after_K": 1.3862, "sec": 16.48, "peak_gb": 13.8}
+{"it": 50, "n": 96, "val_accs": [0.7514, 0.7511, 0.7847], "mean": 0.7624, "score_mean": 0.6494}
+{"it": 50, "K": 15, "real_loss_after_K": 1.3832, "sec": 16.4, "peak_gb": 13.8}

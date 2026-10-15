@@ -1,0 +1,4 @@
+{"set": "n10_exact_it20", "seed": 42, "best_val": 0.7375}
+{"set": "n10_exact_it20", "seeds": [42], "mean": 0.7375, "std": 0}
+{"set": "n10_exact50_it20", "seed": 42, "best_val": 0.741}
+{"set": "n10_exact50_it20", "seeds": [42], "mean": 0.741, "std": 0}

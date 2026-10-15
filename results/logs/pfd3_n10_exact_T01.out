@@ -1,0 +1,18 @@
+{"it": 0, "n": 10, "val_accs": [0.5919, 0.5501, 0.5701], "mean": 0.5707, "score_mean": 0.6684, "exact_seed": 42, "exact_acc": 0.8067, "exact_score": 0.7864}
+{"it": 0, "K": 5, "window": 5, "real_loss_after_K": 0.6693, "T": 0.1, "sec": 10.14, "peak_gb": 9.4}
+{"it": 5, "K": 5, "window": 5, "real_loss_after_K": 0.672, "T": 0.1, "sec": 5.72, "peak_gb": 9.4}
+{"it": 10, "K": 5, "window": 5, "real_loss_after_K": 0.6903, "T": 0.1, "sec": 5.77, "peak_gb": 9.4}
+{"it": 15, "K": 5, "window": 5, "real_loss_after_K": 0.7181, "T": 0.1, "sec": 5.82, "peak_gb": 9.4}
+{"it": 20, "n": 10, "val_accs": [0.5644, 0.5402, 0.5686], "mean": 0.5577, "score_mean": 0.6619, "exact_seed": 42, "exact_acc": 0.7993, "exact_score": 0.7827}
+{"it": 20, "K": 5, "window": 5, "real_loss_after_K": 0.6909, "T": 0.1, "sec": 6.35, "peak_gb": 9.4}
+{"it": 25, "K": 5, "window": 5, "real_loss_after_K": 0.6702, "T": 0.1, "sec": 5.64, "peak_gb": 9.4}
+{"it": 30, "K": 5, "window": 5, "real_loss_after_K": 0.6825, "T": 0.1, "sec": 5.82, "peak_gb": 9.4}
+{"it": 35, "K": 5, "window": 5, "real_loss_after_K": 0.7194, "T": 0.1, "sec": 5.74, "peak_gb": 9.4}
+{"it": 40, "n": 10, "val_accs": [0.561, 0.562, 0.5664], "mean": 0.5631, "score_mean": 0.6646, "exact_seed": 42, "exact_acc": 0.802, "exact_score": 0.7841}
+{"it": 40, "K": 5, "window": 5, "real_loss_after_K": 0.6637, "T": 0.1, "sec": 6.32, "peak_gb": 9.4}
+{"it": 45, "K": 5, "window": 5, "real_loss_after_K": 0.6608, "T": 0.1, "sec": 5.72, "peak_gb": 9.4}
+{"it": 50, "K": 5, "window": 5, "real_loss_after_K": 0.674, "T": 0.1, "sec": 5.84, "peak_gb": 9.4}
+{"it": 55, "K": 5, "window": 5, "real_loss_after_K": 0.6956, "T": 0.1, "sec": 6.0, "peak_gb": 9.4}
+{"it": 60, "n": 10, "val_accs": [0.5452, 0.5565, 0.5654], "mean": 0.5557, "score_mean": 0.6609, "exact_seed": 42, "exact_acc": 0.7963, "exact_score": 0.7812}
+{"it": 60, "K": 5, "window": 5, "real_loss_after_K": 0.667, "T": 0.1, "sec": 5.52, "peak_gb": 9.4}
+{"it": 65, "K": 5, "window": 5, "real_loss_after_K": 0.6551, "T": 0.1, "sec": 6.32, "peak_gb": 9.4}

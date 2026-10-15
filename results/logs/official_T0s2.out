@@ -1,0 +1,7 @@
+{"set": "pfd3_T0s2", "seed": 42, "best_val": 0.884}
+{"set": "pfd3_T0s2", "seed": 0, "best_val": 0.9069}
+{"set": "pfd3_T0s2", "seed": 1, "best_val": 0.8965}
+{"set": "pfd3_T0s2", "seed": 2, "best_val": 0.9116}
+{"set": "pfd3_T0s2", "seed": 3, "best_val": 0.8951}
+{"set": "pfd3_T0s2", "seed": 4, "best_val": 0.9022}
+{"set": "pfd3_T0s2", "seeds": [42, 0, 1, 2, 3, 4], "mean": 0.8994, "std": 0.0098}

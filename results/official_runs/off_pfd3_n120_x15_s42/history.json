@@ -1,0 +1,27 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 2.135584060351054,
+    "validation_accuracy": 0.6125925925925926
+  },
+  {
+    "epoch": 2,
+    "train_loss": 1.254959511756897,
+    "validation_accuracy": 0.8098765432098766
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.7375510573387146,
+    "validation_accuracy": 0.8676543209876543
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.4676076630751292,
+    "validation_accuracy": 0.885679012345679
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.36100734273592633,
+    "validation_accuracy": 0.8888888888888888
+  }
+]

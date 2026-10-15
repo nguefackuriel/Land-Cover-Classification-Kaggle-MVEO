@@ -1,0 +1,5 @@
+{"init": "cache/medoids_ipc12.pt", "n": 120, "K": 20, "base_ce": 0.873, "base_acc": 0.865, "base_per_setup": [0.8872, 0.8321, 0.8698, 0.9028]}
+{"kind": "lp4", "mean_dx_255": 0.3, "quant": true, "changed_px": 0.1538, "dCE": 0.0037, "dAcc": 0.0004, "dCE_per_setup": [0.0288, -0.0079, -0.0082, 0.002]}
+{"kind": "lp4", "mean_dx_255": 1, "quant": true, "changed_px": 0.515, "dCE": 0.0959, "dAcc": -0.0311, "dCE_per_setup": [0.1172, 0.0839, 0.0765, 0.1059]}
+{"kind": "lp4", "mean_dx_255": 3, "quant": true, "changed_px": 0.8024, "dCE": 0.3579, "dAcc": -0.1451, "dCE_per_setup": [0.3872, 0.3379, 0.3305, 0.3761]}
+{"kind": "lp4", "mean_dx_255": 10, "quant": true, "changed_px": 0.9375, "dCE": 0.7843, "dAcc": -0.3949, "dCE_per_setup": [0.7574, 0.8235, 0.7396, 0.817]}
