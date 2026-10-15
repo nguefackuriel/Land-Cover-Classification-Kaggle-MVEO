@@ -9,6 +9,8 @@ Where to find the main numbers:
 
 | Claim | Log |
 |---|---|
+| real images from n = 10 to 160 (medoids, 6 seeds, our copy) and random images | `logs/frontier_medoids.out`, `logs/select_eval.txt`, `logs/random_summary.txt` |
+| oracle (1024 real images per step) and the best network a few steps can reach | `logs/oracle_steps.txt`, `logs/ceiling_linf.txt` |
 | medoids at n = 120, 6 official seeds | `official_runs/sub_medoids_n120`, `official_runs/off_medoids_n120_s*` |
 | PFD at n = 120 with the cross-entropy loss | `logs/pfd3_n120.out`, `official_runs/sub_pfd3_n120`, `official_runs/off_pfd3_n120_s*` |
 | scale-free outer loss at n = 120 | `logs/pfd3_n120_T0_fromopt.out`, `logs/pfd3_n120_T0_stage2.out`, `logs/official_T0s2.out` |

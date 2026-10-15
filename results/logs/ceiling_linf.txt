@@ -1,0 +1,6 @@
+R=9.00e-05 (5 steps) iter=50 loss=1.318 val_acc=0.7640
+R=9.00e-05 (5 steps) iter=100 loss=1.317 val_acc=0.7793
+R=9.00e-05 (5 steps) iter=150 loss=1.234 val_acc=0.7879
+R=1.80e-04 (10 steps) iter=50 loss=0.591 val_acc=0.9190
+R=1.80e-04 (10 steps) iter=100 loss=0.469 val_acc=0.9353
+R=1.80e-04 (10 steps) iter=150 loss=0.368 val_acc=0.9442

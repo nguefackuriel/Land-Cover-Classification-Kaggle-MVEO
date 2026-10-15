@@ -1,0 +1,15 @@
+{"set": "cache/medoids_n10.pt", "n": 10, "last_batch": 10, "accs": [0.4081, 0.5188, 0.5593, 0.5316, 0.4931, 0.4343], "mean": 0.4909, "score_mean": 0.6285}
+{"set": "cache/medoids_n20.pt", "n": 20, "last_batch": 20, "accs": [0.4988, 0.5531, 0.5815, 0.5943, 0.5153, 0.5089], "mean": 0.542, "score_mean": 0.6189}
+{"set": "cache/medoids_n30.pt", "n": 30, "last_batch": 30, "accs": [0.5121, 0.5894, 0.5936, 0.6077, 0.5141, 0.5259], "mean": 0.5571, "score_mean": 0.6059}
+{"set": "cache/medoids_n40.pt", "n": 40, "last_batch": 8, "accs": [0.6568, 0.6662, 0.6983, 0.6637, 0.5459, 0.6188], "mean": 0.6416, "score_mean": 0.6335}
+{"set": "cache/medoids_n60.pt", "n": 60, "last_batch": 28, "accs": [0.7235, 0.7479, 0.743, 0.7447, 0.7099, 0.7432], "mean": 0.7354, "score_mean": 0.6598}
+{"set": "cache/medoids_n64.pt", "n": 64, "last_batch": 32, "accs": [0.7383, 0.7694, 0.7469, 0.7578, 0.6928, 0.7131], "mean": 0.7364, "score_mean": 0.657}
+{"set": "cache/medoids_n96.pt", "n": 96, "last_batch": 32, "accs": [0.8274, 0.8323, 0.84, 0.844, 0.8168, 0.8304], "mean": 0.8318, "score_mean": 0.6841}
+{"set": "cache/medoids_n100.pt", "n": 100, "last_batch": 4, "accs": [0.8128, 0.8215, 0.8326, 0.8281, 0.8244, 0.8331], "mean": 0.8254, "score_mean": 0.6789}
+{"set": "cache/medoids_n104.pt", "n": 104, "last_batch": 8, "accs": [0.8449, 0.8563, 0.8316, 0.8496, 0.856, 0.8311], "mean": 0.8449, "score_mean": 0.6866}
+{"set": "cache/medoids_n108.pt", "n": 108, "last_batch": 12, "accs": [0.8388, 0.8701, 0.8605, 0.8642, 0.837, 0.8563], "mean": 0.8545, "score_mean": 0.6895}
+{"set": "cache/medoids_n112.pt", "n": 112, "last_batch": 16, "accs": [0.8588, 0.8793, 0.8733, 0.8854, 0.8444, 0.8738], "mean": 0.8692, "score_mean": 0.695}
+{"set": "cache/medoids_n116.pt", "n": 116, "last_batch": 20, "accs": [0.8657, 0.8627, 0.8632, 0.8832, 0.858, 0.8765], "mean": 0.8682, "score_mean": 0.6927}
+{"set": "cache/medoids_n120.pt", "n": 120, "last_batch": 24, "accs": [0.8716, 0.8765, 0.8652, 0.8844, 0.8558, 0.8689], "mean": 0.8704, "score_mean": 0.6921}
+{"set": "cache/medoids_n128.pt", "n": 128, "last_batch": 32, "accs": [0.8674, 0.8778, 0.8649, 0.8773, 0.8519, 0.8605], "mean": 0.8666, "score_mean": 0.6869}
+{"set": "cache/medoids_n160.pt", "n": 160, "last_batch": 32, "accs": [0.8835, 0.8953, 0.8933, 0.8948, 0.877, 0.8909], "mean": 0.8891, "score_mean": 0.6869}
