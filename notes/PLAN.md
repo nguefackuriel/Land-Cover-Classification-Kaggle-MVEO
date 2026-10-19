@@ -690,6 +690,11 @@ avec les vues de n=9 (`runs/loop_rounds2.sh ... N9F`). À n=9, 83,45 % suffit po
 **GitHub** : le dépôt est synchronisé par `tools/push.sh "message"` (copie `work/` → `src/`, logs, checkpoints, notes) et
 une tâche cron toutes les heures (:17). Les nouvelles soumissions s'ajoutent dans `tools/submissions.json`.
 
+**n=9 sans Forest** (sign matching, tour 1) : 43,3 → 70,7 %. Par classe : **Forest 0,0 %** (prédite Pasture 207, SeaLake 186,
+HerbVeg 38), les autres classes vers 85 %. Avec des labels durs, une classe sans image n'est jamais prédite : la ligne de la
+tête pour cette classe ne reçoit que des gradients qui l'éloignent. n < 10 est donc plafonné vers 76 %. Arrêté. Résultat net
+pour le papier.
+
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
 pour un coût de score quasi nul :
