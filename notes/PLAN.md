@@ -683,6 +683,13 @@ poolée (val + 8 192 images de train, `exact_eval.py`) : 84,28 → **84,99** (it
 matching tire vers les signes de la cible, la perte réelle garde ce qui marche. Officiel seed 42 : 84,35 %. **Soumis : 0,80567,
 1ᵉʳ.** Suite : hybride prolongé depuis it 120 (hyb4), lignée médoïdes (83,26 après un tour), échange Residential → River.
 
+**19/10 soir** : hybride prolongé avec la même cible (hyb4) : 84,05–84,37, plat. Tour hybride avec une cible proche
+recalculée (`runs/loop_hybrid.sh`, HY1, cible 90,6 %) : 84,40 → 84,07 (it 120). Comme pour les autres méthodes, seule la
+première application rapporte. Lancé : **n=9 sans l'image Forest** (classe la plus facile, 94,7 %), depuis le set à 0,80567,
+avec les vues de n=9 (`runs/loop_rounds2.sh ... N9F`). À n=9, 83,45 % suffit pour battre 0,80567.
+**GitHub** : le dépôt est synchronisé par `tools/push.sh "message"` (copie `work/` → `src/`, logs, checkpoints, notes) et
+une tâche cron toutes les heures (:17). Les nouvelles soumissions s'ajoutent dans `tools/submissions.json`.
+
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
 pour un coût de score quasi nul :
