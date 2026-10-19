@@ -1,0 +1,7 @@
+Device: cuda; train=10, validation=4050
+{"epoch": 1, "train_loss": 2.6686463356018066, "validation_accuracy": 0.21185185185185185}
+{"epoch": 2, "train_loss": 2.418358564376831, "validation_accuracy": 0.5096296296296297}
+{"epoch": 3, "train_loss": 2.2159454822540283, "validation_accuracy": 0.759753086419753}
+{"epoch": 4, "train_loss": 2.090000867843628, "validation_accuracy": 0.8271604938271605}
+{"epoch": 5, "train_loss": 2.006990432739258, "validation_accuracy": 0.8392592592592593}
+Wrote 4,050 predictions to runs/wcheck_SZ1/submission.csv

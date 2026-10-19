@@ -17,6 +17,12 @@ STD = torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)
 # on the official PIL images; matches PIL on 98.7% of output pixels (mean |diff| 0.013 level) vs 0.28 level for the
 # float path. Rounding is straight-through so PFD can differentiate through it.
 PIL_ROUND = os.environ.get('PROTO_PIL', '0') == '1'
+# PROTO_EXACT=1: training batches built exactly like baseline.py's DataLoader (PIL crop/resize/flips of the 8-bit images,
+# ToTensor and Normalize on the CPU), with the gradient taken through the differentiable copy (straight-through), and
+# validation through the official transforms in fp32. The replay then matches the official run (checked: 84.35 and
+# 83.93 for a 64x64 and a 224x224 set, same as baseline.py).
+EXACT = os.environ.get('PROTO_EXACT', '0') == '1'
+_SPLIT_PTR = {}
 
 
 def _st_round(v):
@@ -38,11 +44,14 @@ def load_split(split, cache=Path('cache')):
     cache.mkdir(exist_ok=True)
     f = cache / f'{split}.pt'
     if f.exists():
-        return torch.load(f)
+        x, y = torch.load(f)
+        _SPLIT_PTR[split] = x.data_ptr()
+        return x, y
     rows = list(csv.DictReader(open(DATA / f'{split}.csv')))
     x = torch.from_numpy(np.stack([np.asarray(Image.open(DATA / split / r['filename']).convert('RGB')) for r in rows]))
     y = torch.tensor([CLASSES.index(r['label']) for r in rows]) if split != 'test' else None
     torch.save((x, y), f)
+    _SPLIT_PTR[split] = x.data_ptr()
     return x, y
 
 def to_eval(xu8):
@@ -75,9 +84,37 @@ def augment(x01, gen=None):
     x = torch.cat(out)
     return (x - MEAN.to(x.device)) / STD.to(x.device)
 
+_NMEAN, _NSTD = [0.485, 0.456, 0.406], [0.229, 0.224, 0.225]
+
+
+def _exact_batch(x01, views):
+    """The official training batch, bit for bit: 8-bit images, PIL crop + bilinear resize + flips, ToTensor and
+    Normalize on the CPU (as baseline.py's DataLoader workers do), then moved to x01's device."""
+    from torchvision.transforms import functional as TF
+    u8 = (x01.detach().clamp(0, 1) * 255).round().byte().permute(0, 2, 3, 1).cpu().numpy()
+    out = []
+    for k in range(len(u8)):
+        i, j, h, w, hf, vf = [int(t) for t in views[k]]
+        im = TF.resized_crop(Image.fromarray(u8[k], 'RGB'), i, j, h, w, [224, 224],
+                             interpolation=TF.InterpolationMode.BILINEAR, antialias=True)
+        if hf: im = TF.hflip(im)
+        if vf: im = TF.vflip(im)
+        out.append(TF.normalize(TF.to_tensor(im), _NMEAN, _NSTD))
+    return torch.stack(out).to(x01.device)
+
+
 def augment_views(x01, views):
     """Same as augment() but with given views: rows (top, left, h, w, hflip, vflip) as recorded by record_views.py
-    from baseline.py's own DataLoader (exact official crops and flips)."""
+    from baseline.py's own DataLoader (exact official crops and flips). With PROTO_EXACT=1 the values are the official
+    ones and the gradient is the one of the differentiable copy."""
+    emul = _augment_views_emul(x01, views)
+    if not EXACT:
+        return emul
+    ex = _exact_batch(x01, views)
+    return ex + (emul - emul.detach()) if emul.requires_grad else ex
+
+
+def _augment_views_emul(x01, views):
     out = []
     for k in range(len(x01)):
         i, j, h, w, hf, vf = [int(t) for t in views[k]]
@@ -88,6 +125,31 @@ def augment_views(x01, views):
     x = torch.cat(out)
     return (x - MEAN.to(x.device)) / STD.to(x.device)
 
+def pil_views_u8(x01, views):
+    """The official training inputs, exactly: torchvision's PIL crop + bilinear resize + flips of the uint8 images.
+    Returns float NCHW in [0, 1] on x01's device (no gradient)."""
+    from torchvision.transforms import functional as TF
+    u8 = (x01.detach().clamp(0, 1) * 255).round().byte().permute(0, 2, 3, 1).cpu().numpy()
+    out = []
+    for k in range(len(u8)):
+        i, j, h, w, hf, vf = [int(t) for t in views[k]]
+        im = TF.resized_crop(Image.fromarray(u8[k], 'RGB'), i, j, h, w, [224, 224],
+                             interpolation=TF.InterpolationMode.BILINEAR, antialias=True)
+        if hf: im = TF.hflip(im)
+        if vf: im = TF.vflip(im)
+        out.append(torch.from_numpy(np.asarray(im).copy()).permute(2, 0, 1))
+    return torch.stack(out).float().div(255).to(x01.device)
+
+
+def augment_views_exact(x01, views):
+    """augment_views whose forward value is the exact PIL result (straight-through: the gradient is the one of the
+    differentiable emulation). Also rounds the input to 8 bits in the forward pass, as the PNG files do."""
+    emul = augment_views(x01, views) * STD.to(x01.device) + MEAN.to(x01.device)
+    exact = pil_views_u8(x01, views)
+    x = emul + (exact - emul).detach()
+    return (x - MEAN.to(x.device)) / STD.to(x.device)
+
+
 def fresh_model(seed, device='cuda'):
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
     m = B.build_model(len(CLASSES)).to(device)
@@ -95,8 +157,25 @@ def fresh_model(seed, device='cuda'):
     sch = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=5)
     return m, opt, sch
 
+_VAL = {}
+
+
+def _exact_val():
+    """Validation inputs exactly as baseline.py makes them (PIL + WEIGHTS.transforms()), cached on the CPU."""
+    if not _VAL:
+        rows = list(csv.DictReader(open(DATA / 'validation.csv')))
+        tf = B.WEIGHTS.transforms()
+        _VAL['x'] = torch.stack([tf(Image.open(DATA / 'validation' / r['filename']).convert('RGB')) for r in rows]).pin_memory()
+    return _VAL['x']
+
+
 @torch.no_grad()
 def evaluate(m, xu8, y, bs=256):
+    if EXACT and xu8.data_ptr() == _SPLIT_PTR.get('validation'):
+        xv = _exact_val(); m.eval(); correct = 0
+        for i in range(0, len(xv), bs):
+            correct += (m(xv[i:i + bs].cuda(non_blocking=True)).argmax(1).cpu() == y[i:i + bs]).sum().item()
+        m.train(); return correct / len(xv)
     m.eval(); correct = 0
     for i in range(0, len(xu8), bs):
         with torch.autocast('cuda', dtype=torch.bfloat16):

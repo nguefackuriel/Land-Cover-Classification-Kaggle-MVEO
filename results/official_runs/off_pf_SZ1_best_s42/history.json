@@ -8,5 +8,20 @@
     "epoch": 2,
     "train_loss": 2.418358564376831,
     "validation_accuracy": 0.5096296296296297
+  },
+  {
+    "epoch": 3,
+    "train_loss": 2.2159454822540283,
+    "validation_accuracy": 0.759753086419753
+  },
+  {
+    "epoch": 4,
+    "train_loss": 2.0900015830993652,
+    "validation_accuracy": 0.8271604938271605
+  },
+  {
+    "epoch": 5,
+    "train_loss": 2.0069894790649414,
+    "validation_accuracy": 0.8392592592592593
   }
 ]

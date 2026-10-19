@@ -11,3 +11,7 @@ val 0.8412345679012345
   _sd = torch.load(a.init_state)
 {"tag": "near_SZH1", "init_val": 0.8412}
 {"tag": "near_SZH1", "it": 1, "T": 0.112, "loss": 0.3982, "val_acc": 0.8393, "edge": 0.336}
+{"tag": "near_SZH1", "it": 250, "T": 0.089, "loss": 0.1794, "val_acc": 0.8938, "edge": 0.622}
+{"tag": "near_SZH1", "it": 500, "T": 0.089, "loss": 0.199, "val_acc": 0.8985, "edge": 0.637}
+{"tag": "near_SZH1", "it": 750, "T": 0.112, "loss": 0.2693, "val_acc": 0.9027, "edge": 0.699}
+{"tag": "near_SZH1", "it": 1000, "T": 0.089, "loss": 0.227, "val_acc": 0.9035, "edge": 0.735}
