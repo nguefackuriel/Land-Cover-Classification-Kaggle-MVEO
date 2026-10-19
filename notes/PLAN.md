@@ -729,8 +729,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - `PROTO_EXACT=1` (proto.py) : valeurs exactes dans la passe avant, gradient de la copie différentiable (straight-through),
   validation exacte (cache `cache/validation_exact.pt`, 2,4 Go), 8 threads CPU max. Activé dans tous les scripts de boucle.
   Les `exact_acc` des nouveaux runs sont donc les chiffres officiels. Les loops ne notent plus que la dernière époque.
-- En cours : tour hybride 224 (SZH1, depuis `pfd3_pf_SZ1_best`, cible proche 90,35 %) et lignée 224 SZB (depuis le set
-  64 à 84,35 agrandi, 39,7 % au départ sur la trajectoire 224, PFD exact puis tours et hybride).
+- Tour hybride 224 (SZH1, depuis `pfd3_pf_SZ1_best`, cible proche 90,35 %) : réplique exacte 84,52 à l'it 120, officiel
+  seed 42 **84,57 %** (deux runs, prédictions identiques). Précision poolée 85,29 contre 84,94 pour le set soumis (val
+  84,57 / 84,35, train 8k 85,64 / 85,23). Soumis le 19/10 à 23:20 avec l'accord de l'utilisateur (PNG 224×224) :
+  **0,80777**, 1ᵉʳ (+0,0021). Test implicite 84,94 %. Archive `work/submissions/n10_SZH1_224_*`.
+- En cours : lignée 224 SZB (depuis le set 64 à 84,35 agrandi, 39,7 % au départ sur la trajectoire 224, PFD exact
+  82,12, tour 1 sign matching 83,60, puis polish, tour 2 et hybride).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

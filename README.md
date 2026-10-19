@@ -234,7 +234,7 @@ These are in `results/logs` and in the paper:
 * 4 heads per step instead of 2
 * mixing classes from two optimized sets
 * fewer than 10 images on the seed-42 run (a class with no image is barely learned: n = 5 stayed under 47%)
-* 224x224 images instead of 64x64 (same plateau, about 84%, with sign matching too)
+* 224x224 images instead of 64x64 gave the same plateau (about 84%) with PFD and sign matching alone; only the hybrid round on 224 moved past the 64x64 hybrid (84.57 against 84.35, submitted)
 * pulling the end of the training run toward a good network through the unrolled loop (`pfd3.py --target`)
 * a sigmoid or weighted version of the sign matching loss, and "corner descent" (`cornerdesc.py`)
 * small greedy pixel changes on the 8-bit grid (`polish_sparse.py`): within noise

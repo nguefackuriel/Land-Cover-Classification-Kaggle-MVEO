@@ -2,7 +2,7 @@
 
 Each folder is one Kaggle submission:
 
-    train/                  the exact PNG files (64x64 RGB) we would hand to the organizers
+    train/                  the exact PNG files (64x64 RGB, 224x224 for the 224 sets) we would hand to the organizers
     train.csv               file names and labels, in the order baseline.py reads them
     sha256.txt              sha256 of every PNG
     kaggle_submission.csv   the csv we uploaded (test predictions of baseline.py with its default arguments)
@@ -125,3 +125,19 @@ for the previous set.
     python src/export_synth.py cache/sm_hyb3_it120.pt sets/n10_hyb3_it120
 
 Official validation on seed 42: 84.35 (two runs, identical predictions). Kaggle test is about 84.52.
+
+## 2026-10-19_n10_224_hybrid (0.80777)
+
+Same recipe as the hybrid set above, but with 224x224 PNGs (baseline.py accepts any size; the organizers prefer
+64x64 but do not require it). Start: the 0.78530 set upscaled to 224 (`cache/init_n10_s2_sz224.pt`), with the
+seed-42 crops recorded at 224 (`src/views_for_n.py 10 42 224`). Then exact PFD, one round of near target -> sign
+matching -> PFD polish (`runs/loop_rounds2.sh`, prefix SZ), and one hybrid round (`runs/loop_hybrid2.sh`, prefix
+SZH). We kept step 120 of the hybrid round: pooled 85.29 against 84.94 for the 64x64 hybrid set (validation 84.57 /
+84.35, 8,192 training images 85.64 / 85.23).
+
+    V=cache/views_n10_s42_sz224.pt
+    runs/loop_rounds2.sh cache/pfd3_sz_n10_best.pt $V SZ 1 1
+    runs/loop_hybrid2.sh cache/pfd3_pf_SZ1_best.pt $V SZH 1 1
+    python src/export_synth.py cache/sm_SZH1_best.pt sets/n10_SZH1_224
+
+Official validation on seed 42: 84.57 (two runs, identical predictions). Kaggle test is about 84.94.

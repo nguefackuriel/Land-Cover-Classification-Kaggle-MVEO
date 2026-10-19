@@ -15,3 +15,4 @@ val 0.8362962962962963
 {"tag": "near_SZBR2", "it": 200, "T": 0.112, "loss": 0.303, "val_acc": 0.8899, "edge": 0.6}
 {"tag": "near_SZBR2", "it": 300, "T": 0.089, "loss": 0.2227, "val_acc": 0.8958, "edge": 0.63}
 {"tag": "near_SZBR2", "it": 400, "T": 0.112, "loss": 0.3094, "val_acc": 0.899, "edge": 0.649}
+{"tag": "near_SZBR2", "it": 500, "T": 0.1, "loss": 0.2126, "val_acc": 0.8988, "edge": 0.672}
