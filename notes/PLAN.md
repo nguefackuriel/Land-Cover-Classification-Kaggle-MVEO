@@ -706,8 +706,8 @@ pour le papier.
 4. Papier : section sign matching, plafond ≥ 90 % en 5 pas, coins de la boîte, classe sans image jamais prédite.
 5. Toujours pousser sur GitHub après chaque étape (`tools/push.sh`).
 
-**Variante hybride poids PFD 2** (hybw2) : val 84,49 (it 140) mais précision poolée 84,85–84,90, contre 85,00 pour le set
-soumis. Pas mieux. L'hybride sature vers 85 % (poolé) sur cette lignée.
+**Variantes hybrides** : poids PFD 2 (hybw2) val 84,49 (it 140) mais précision poolée 84,85–84,90, contre 85,00 pour le set
+soumis ; poids 5 (hybw5) val max 84,25. Pas mieux : le poids 3 reste le bon réglage. L'hybride sature vers 85 % (poolé) sur cette lignée.
 
 **Usine à lignées** (`runs/factory.sh`, une tâche GPU à la fois) : les lignées ne finissent pas au même niveau (83,3 contre
 83,9 au même stade), on lance donc la recette complète depuis plusieurs départs et on garde la meilleure (précision poolée).
