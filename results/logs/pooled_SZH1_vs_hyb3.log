@@ -1,0 +1,3 @@
+{"set": "cache/sm_hyb3_best.pt", "val": 0.8435, "train8k": 0.8523, "pooled": 0.8494}
+{"set": "cache/sm_SZH1_best.pt", "val": 0.8457, "train8k": 0.8564, "pooled": 0.8529}
+{"set": "cache/pfd3_pf_SZ1_best.pt", "val": 0.8393, "train8k": 0.8464, "pooled": 0.8441}

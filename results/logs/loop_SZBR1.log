@@ -11,3 +11,8 @@ val 0.8209876543209876
   _sd = torch.load(a.init_state)
 {"tag": "near_SZBR1", "init_val": 0.822}
 {"tag": "near_SZBR1", "it": 1, "T": 0.112, "loss": 0.4749, "val_acc": 0.8232, "edge": 0.242}
+{"tag": "near_SZBR1", "it": 100, "T": 0.126, "loss": 0.3716, "val_acc": 0.8731, "edge": 0.566}
+{"tag": "near_SZBR1", "it": 200, "T": 0.126, "loss": 0.3074, "val_acc": 0.8884, "edge": 0.589}
+{"tag": "near_SZBR1", "it": 300, "T": 0.1, "loss": 0.2333, "val_acc": 0.8946, "edge": 0.618}
+{"tag": "near_SZBR1", "it": 400, "T": 0.126, "loss": 0.3142, "val_acc": 0.8953, "edge": 0.636}
+{"tag": "near_SZBR1", "it": 500, "T": 0.1, "loss": 0.2157, "val_acc": 0.8958, "edge": 0.661}
