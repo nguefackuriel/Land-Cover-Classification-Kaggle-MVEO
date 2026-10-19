@@ -1,0 +1,7 @@
+{"it": 0, "n": 10, "val_accs": [0.5919, 0.5494, 0.5706], "mean": 0.5706, "score_mean": 0.6684, "exact_seed": 42, "exact_acc": 0.8059, "exact_score": 0.786}
+{"it": 0, "K": 5, "window": 5, "real_loss_after_K": 0.6322, "T": 0.1496, "sec": 29.73, "peak_gb": 9.4}
+{"it": 5, "K": 5, "window": 5, "real_loss_after_K": 0.6673, "T": 0.1496, "sec": 22.99, "peak_gb": 9.4}
+{"it": 10, "K": 5, "window": 5, "real_loss_after_K": 0.5832, "T": 0.1496, "sec": 23.87, "peak_gb": 9.4}
+{"it": 15, "K": 5, "window": 5, "real_loss_after_K": 0.6146, "T": 0.1496, "sec": 19.6, "peak_gb": 9.4}
+{"it": 20, "n": 10, "val_accs": [0.5854, 0.5501, 0.5738], "mean": 0.5698, "score_mean": 0.668, "exact_seed": 42, "exact_acc": 0.8025, "exact_score": 0.7843}
+{"it": 20, "K": 5, "window": 5, "real_loss_after_K": 0.6354, "T": 0.1413, "sec": 20.04, "peak_gb": 9.4}

@@ -1,0 +1,10 @@
+/home/ubuntu/Uriel/data_centric/work/proto.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f)
+{"mult": 1, "R": 9e-05, "it": 1, "loss": 2.429, "val_acc": 0.1037, "frac_at_box_edge": 0.0}
+{"mult": 1, "R": 9e-05, "it": 100, "loss": 1.2809, "val_acc": 0.7857, "frac_at_box_edge": 0.624}
+{"mult": 1, "R": 9e-05, "it": 200, "loss": 1.1936, "val_acc": 0.7914, "frac_at_box_edge": 0.647}
+{"mult": 1, "R": 9e-05, "it": 300, "loss": 1.1832, "val_acc": 0.7965, "frac_at_box_edge": 0.676}
+{"mult": 1, "R": 9e-05, "it": 400, "loss": 1.1758, "val_acc": 0.7998, "frac_at_box_edge": 0.674}
+{"mult": 1, "R": 9e-05, "it": 500, "loss": 1.1201, "val_acc": 0.8037, "frac_at_box_edge": 0.668}
+{"mult": 1, "R": 9e-05, "it": 600, "loss": 1.1259, "val_acc": 0.8027, "frac_at_box_edge": 0.669}
+{"mult": 1, "R": 9e-05, "it": 700, "loss": 1.1783, "val_acc": 0.8032, "frac_at_box_edge": 0.67}

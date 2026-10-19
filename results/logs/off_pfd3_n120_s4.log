@@ -1,0 +1,7 @@
+Device: cuda; train=120, validation=4050
+{"epoch": 1, "train_loss": 2.080900502204895, "validation_accuracy": 0.5918518518518519}
+{"epoch": 2, "train_loss": 1.2301199038823445, "validation_accuracy": 0.8251851851851851}
+{"epoch": 3, "train_loss": 0.6990542928377788, "validation_accuracy": 0.871358024691358}
+{"epoch": 4, "train_loss": 0.45239561597506206, "validation_accuracy": 0.8898765432098765}
+{"epoch": 5, "train_loss": 0.3493958652019501, "validation_accuracy": 0.8965432098765432}
+Wrote 4,050 predictions to /home/ubuntu/Uriel/data_centric/work/runs/off_pfd3_n120_s4/submission.csv

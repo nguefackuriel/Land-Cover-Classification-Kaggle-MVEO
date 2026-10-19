@@ -1,0 +1,4 @@
+round 1 start cache/pfd3_n10_exact_med_best.pt 17:06:39
+round 1 start cache/pfd3_n10_exact_med_best.pt 17:14:45
+round 1 done: sm {"it": 160, "exact_acc": 0.8296, "exact_score": 0.7979} | pf best 0.8326 18:06:41
+round 2 start cache/pfd3_pf_MEDP1_best.pt 18:06:41

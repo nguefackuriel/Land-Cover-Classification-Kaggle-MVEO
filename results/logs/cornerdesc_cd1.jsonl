@@ -1,0 +1,12 @@
+{"it": 0, "exact_acc": 0.8388}
+{"it": 0, "corner_ce": 0.552, "T": 0.141, "sec": 6.9, "peak_gb": 11.6}
+{"it": 5, "corner_ce": 0.5543, "T": 0.126, "sec": 6.0, "peak_gb": 11.6}
+{"it": 10, "corner_ce": 0.6593, "T": 0.141, "sec": 5.8, "peak_gb": 11.6}
+{"it": 15, "corner_ce": 0.6068, "T": 0.141, "sec": 5.8, "peak_gb": 11.6}
+{"it": 20, "exact_acc": 0.7558}
+{"it": 20, "corner_ce": 0.6414, "T": 0.141, "sec": 5.6, "peak_gb": 11.6}
+{"it": 25, "corner_ce": 0.6235, "T": 0.141, "sec": 5.8, "peak_gb": 11.6}
+{"it": 30, "corner_ce": 0.607, "T": 0.141, "sec": 5.8, "peak_gb": 11.6}
+{"it": 35, "corner_ce": 0.5859, "T": 0.141, "sec": 6.0, "peak_gb": 11.6}
+{"it": 40, "exact_acc": 0.6928}
+{"it": 40, "corner_ce": 0.6416, "T": 0.141, "sec": 6.0, "peak_gb": 11.6}

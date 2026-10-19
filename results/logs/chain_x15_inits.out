@@ -1,3 +1,7 @@
+  return torch.load(f)
+  x0, y = D.as_x01(torch.load('cache/medoids_ipc12.pt'))
+  d = torch.load('cache/pfd3_n120_best.pt')
+  d = torch.load(src)
 120 images -> sets/pfd3_n120_x15 (from it=x1.5 of it250, accs=None)
 {"set": "pfd3_n120_x15", "seed": 42, "best_val": 0.8889}
 {"set": "pfd3_n120_x15", "seed": 0, "best_val": 0.8983}
@@ -7,6 +11,9 @@
 {"set": "pfd3_n120_x15", "seed": 4, "best_val": 0.8867}
 {"set": "pfd3_n120_x15", "seeds": [42, 0, 1, 2, 3, 4], "mean": 0.8912, "std": 0.0059}
 [chain] x15 official done Tue Oct 13 22:17:54 UTC 2026
+  return torch.load(f)
+  return torch.load(FEAT)
+  print(s, len(idx), len(set(idx.tolist()) & set(torch.load('cache/medoids_ipc12.pt').tolist())), 'shared with km0')
 1 120 35 shared with km0
 2 120 28 shared with km0
 [chain] km1 done Wed Oct 14 00:06:43 UTC 2026

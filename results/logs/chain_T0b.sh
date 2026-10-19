@@ -1,7 +1,7 @@
 #!/bin/bash
 # waits for the stage-2 python (PID given), then official 6 seeds on its best, then the clean from-medoids T-fitted run
-cd work
-PY=python
+cd /home/ubuntu/Uriel/data_centric/work
+PY=/home/ubuntu/vllm-env/bin/python
 while kill -0 $1 2>/dev/null; do sleep 20; done
 $PY export_synth.py cache/pfd3_n120_T0_stage2_best.pt sets/pfd3_n120_T0s2 > runs/export_T0s2.out 2>&1
 $PY official_seeds.py sets/pfd3_n120_T0s2 pfd3_T0s2 42 0 1 2 3 4 > runs/official_T0s2.out 2>&1

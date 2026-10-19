@@ -79,3 +79,49 @@ the official DataLoader. Best step 200.
     python src/export_synth.py cache/pfd3_n10_exact_s2_it280.pt sets/n10_exact42_stage2
 
 Official validation on seed 42: 80.62. On seeds 0 to 4: 54.81, 58.79, 58.35, 46.35, 42.89.
+
+## 2026-10-19_n10_signmatch_r3 (0.80357)
+
+Starts from the 0.78530 set. Rounds of: a target network near where the images end, sign matching toward the edge of
+the box of that target, then PFD again. All on the exact seed-42 run. `V` is the recorded run.
+
+    V=inits/views_n10_seed42.pt
+    # round 1: near target (88.1%), sign matching (best step 120: 82.17), PFD (best step 140: 82.64)
+    PROTO_PIL=1 python src/replay_state.py cache/pfd3_n10_exact_s2_it280.pt $V cache/state_n10_s2.pt
+    python src/ceiling3.py --T 0 --opt adam --iters 300 --lr 0.02 --bs 256 --eval-every 50 --save-every 50 \
+        --init-state cache/state_n10_s2.pt --tag near_s2
+    PROTO_PIL=1 python src/signmatch.py --init cache/pfd3_n10_exact_s2_it280.pt --views $V \
+        --target cache/ceiling3_near_s2.pt --iters 200 --opt adam --lr 1.0 --lr-end 0.1 --tag smA
+    PROTO_PIL=1 python src/pfd3.py --init cache/sm_smA_best.pt --offload --heads 1 --lr 0.02 --lr-end 0.003 \
+        --iters 150 --eval-every 20 --outer-T 0 --fixed-head-seed 42 --views $V --views-prob 1.0 --select-exact \
+        --fp32-inner --no-seed-eval --save-every-eval --tag pf_smA
+    # round 2 (no gain) is in results/logs (signmatch_r2*). Round 3: a stronger target (1000 search steps, 90.3%),
+    # sign matching (best step 160: 83.31), PFD (best step 120: 83.88)
+    PROTO_PIL=1 python src/replay_state.py cache/pfd3_pf_smA_best.pt $V cache/state_smA.pt
+    python src/ceiling3.py --T 0 --opt adam --iters 1000 --lr 0.02 --bs 256 --eval-every 100 --save-every 250 \
+        --init-state cache/state_smA.pt --tag near_smA_1k
+    PROTO_PIL=1 python src/signmatch.py --init cache/pfd3_pf_smA_best.pt --views $V \
+        --target cache/ceiling3_near_smA_1k_it500.pt --iters 200 --opt adam --lr 0.7 --lr-end 0.07 --warmup 20 --tag r3n
+    PROTO_PIL=1 python src/pfd3.py --init cache/sm_r3n_best.pt --offload --heads 1 --lr 0.02 --lr-end 0.003 \
+        --iters 120 --eval-every 20 --outer-T 0 --fixed-head-seed 42 --views $V --views-prob 1.0 --select-exact \
+        --fp32-inner --no-seed-eval --tag pf_r3n
+    python src/export_synth.py cache/pfd3_pf_r3n_best.pt sets/n10_sm_r3_pf
+
+Official validation on seed 42: 83.88 (two runs, identical predictions). Kaggle test is about 84.10.
+
+## 2026-10-19_n10_signmatch_hybrid (0.80567)
+
+The previous set, then sign matching and the PFD gradient together. Both gradients are scaled to the same size and
+the PFD part counts 3 times more. The target is searched from the end of the previous set's run, with the PIL-exact
+evaluation. We picked step 120 with `src/exact_eval.py` (validation plus 8,192 training images): 84.99 against 84.28
+for the previous set.
+
+    PROTO_PIL=1 python src/replay_state.py cache/pfd3_pf_r3n_best.pt $V cache/state_pf_r3n.pt
+    PROTO_PIL=1 python src/ceiling3.py --T 0 --opt adam --iters 1500 --lr 0.03 --bs 256 --eval-every 250 \
+        --save-every 500 --init-state cache/state_pf_r3n.pt --tag fn_r3n
+    PROTO_PIL=1 python src/signmatch.py --init cache/pfd3_pf_r3n_best.pt --views $V \
+        --target cache/ceiling3_fn_r3n_it1000.pt --iters 150 --opt adam --lr 0.2 --lr-end 0.02 --warmup 10 \
+        --pfd-w 3.0 --real-bs 1024 --tag hyb3
+    python src/export_synth.py cache/sm_hyb3_it120.pt sets/n10_hyb3_it120
+
+Official validation on seed 42: 84.35 (two runs, identical predictions). Kaggle test is about 84.52.

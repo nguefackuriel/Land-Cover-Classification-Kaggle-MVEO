@@ -1,0 +1,21 @@
+/home/ubuntu/Uriel/data_centric/work/proto.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f)
+/home/ubuntu/Uriel/data_centric/work/pfd3.py:69: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init = torch.load(a.init)
+/home/ubuntu/Uriel/data_centric/work/pfd3.py:99: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  VIEWS = torch.load(a.views) if a.views else None
+{"kind": "base", "ce": 0.642, "train_acc": 0.7874, "val": 0.8062}
+{"tau": 0.03, "k": 10, "ce": 0.6418, "d_ce": -0.0002, "train_acc": 0.7893, "val": 0.8067}
+{"tau": 0.03, "k": 30, "ce": 0.6417, "d_ce": -0.0003, "train_acc": 0.7876, "val": 0.8064}
+{"tau": 0.03, "k": 100, "ce": 0.6413, "d_ce": -0.0007, "train_acc": 0.7866, "val": 0.8042}
+{"tau": 0.03, "k": 300, "ce": 0.6413, "d_ce": -0.0007, "train_acc": 0.7891, "val": 0.8049}
+{"tau": 0.1, "k": 10, "ce": 0.6415, "d_ce": -0.0005, "train_acc": 0.7886, "val": 0.8072}
+{"tau": 0.1, "k": 30, "ce": 0.6416, "d_ce": -0.0004, "train_acc": 0.7878, "val": 0.8067}
+{"tau": 0.1, "k": 100, "ce": 0.641, "d_ce": -0.001, "train_acc": 0.7886, "val": 0.804}
+{"tau": 0.1, "k": 300, "ce": 0.6419, "d_ce": -0.0001, "train_acc": 0.7896, "val": 0.804}
+{"tau": 0.3, "k": 10, "ce": 0.6418, "d_ce": -0.0002, "train_acc": 0.7881, "val": 0.8069}
+{"tau": 0.3, "k": 30, "ce": 0.6412, "d_ce": -0.0008, "train_acc": 0.7878, "val": 0.8074}
+{"tau": 0.3, "k": 100, "ce": 0.6422, "d_ce": 0.0002, "train_acc": 0.7893, "val": 0.8049}
+{"tau": 0.3, "k": 300, "ce": 0.6434, "d_ce": 0.0014, "train_acc": 0.7896, "val": 0.8059}
+{"tau": 1.0, "k": 10, "ce": 0.6425, "d_ce": 0.0005, "train_acc": 0.7871, "val": 0.8062}
+{"tau": 1.0, "k": 30, "ce": 0.6431, "d_ce": 0.0011, "train_acc": 0.7876, "val": 0.8047}

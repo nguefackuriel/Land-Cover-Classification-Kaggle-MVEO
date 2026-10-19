@@ -1,0 +1,23 @@
+/home/ubuntu/Uriel/data_centric/work/proto.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f)
+/home/ubuntu/Uriel/data_centric/work/pfd3.py:69: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init = torch.load(a.init)
+/home/ubuntu/Uriel/data_centric/work/pfd3.py:99: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  VIEWS = torch.load(a.views) if a.views else None
+{"kind": "base", "ce": 0.6423, "train_acc": 0.7888, "val": 0.8064}
+{"kind": "lin", "size": 0.1, "float": [0.7809, 0.7515, 0.7593]}
+{"kind": "sign", "size": 0.1, "float": [0.6539, 0.7913, 0.796]}
+{"kind": "rand0", "size": 0.1, "float": [0.6422, 0.7883, 0.8072]}
+{"kind": "rand1", "size": 0.1, "float": [0.6424, 0.7886, 0.8062]}
+{"kind": "lin", "size": 0.3, "float": [1.1973, 0.5942, 0.5919]}
+{"kind": "sign", "size": 0.3, "float": [0.7984, 0.7468, 0.7472]}
+{"kind": "rand0", "size": 0.3, "float": [0.6474, 0.7881, 0.8047]}
+{"kind": "rand1", "size": 0.3, "float": [0.6463, 0.7893, 0.8037]}
+{"kind": "lin", "size": 1.0, "float": [1.718, 0.4399, 0.4435], "u8": [1.7163, 0.4409, 0.4464]}
+{"kind": "sign", "size": 1.0, "float": [1.3354, 0.5581, 0.556], "u8": [1.3354, 0.5581, 0.5553]}
+{"kind": "rand0", "size": 1.0, "float": [0.7533, 0.7573, 0.7706], "u8": [0.7532, 0.7568, 0.7704]}
+{"kind": "rand1", "size": 1.0, "float": [0.7597, 0.7542, 0.7694], "u8": [0.7603, 0.7529, 0.7694]}
+{"kind": "lin", "size": 3.0, "float": [2.0453, 0.2847, 0.2872], "u8": [2.0426, 0.2903, 0.2881]}
+{"kind": "sign", "size": 3.0, "float": [1.8117, 0.356, 0.3664], "u8": [1.8118, 0.3572, 0.3659]}
+{"kind": "rand0", "size": 3.0, "float": [1.4148, 0.498, 0.5198], "u8": [1.416, 0.4961, 0.519]}
+{"kind": "rand1", "size": 3.0, "float": [1.4127, 0.5056, 0.5131], "u8": [1.4129, 0.5059, 0.5136]}

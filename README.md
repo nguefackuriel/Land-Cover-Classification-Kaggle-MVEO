@@ -22,7 +22,9 @@ All validation numbers below come from the unmodified `baseline.py`. Kaggle scor
 | 14 Oct | 120 | same, then the scale-free outer loss | 88.40 | 89.94 ± 0.98 (6 seeds) | 0.70344 |
 | 15 Oct | 10 | PFD with the seed-42 classifier head fixed | 71.60 | 59.9 (seeds 0, 1, 2: 58.2, 58.7, 62.8) | 0.74258 |
 | 15 Oct | 10 | PFD on the exact seed-42 training run | 79.38 | not measured | 0.78135 |
-| 15 Oct | 10 | same, longer | **80.62** | 52.2 (seeds 0 to 4: 54.8, 58.8, 58.4, 46.4, 42.9) | **0.78530** |
+| 15 Oct | 10 | same, longer | 80.62 | 52.2 (seeds 0 to 4: 54.8, 58.8, 58.4, 46.4, 42.9) | 0.78530 |
+| 19 Oct | 10 | sign matching toward a reachable network, 3 rounds, each followed by PFD | 83.88 | not measured | 0.80357 |
+| 19 Oct | 10 | same, then sign matching and the PFD gradient together | **84.35** | not measured | **0.80567** |
 
 "Val, other seeds" means `baseline.py --seed s` for other values of `s`. For the 120-image sets it is the mean over
 seeds 42 and 0 to 4. The last three sets are tuned to the run that `baseline.py` makes with its default settings, so
@@ -35,6 +37,9 @@ they only work for that run. Please read [About the seed-42 sets](#about-the-see
     inits/         small starting files: k-means medoid indices and the recorded seed-42 training views
     results/       logs of every run we cite (results/logs) and the history.json of every official run
     paper/         the paper draft, its figures and the script that draws them
+    checkpoints/   small saved image sets (.pt) and recorded views, so a run can restart from where it stopped
+    notes/         our working notes (PLAN.md, in French), updated as we go
+    tools/         sync_from_work.py, which copies our working folder into this repo
 
 ## Setup
 
@@ -140,6 +145,40 @@ that replica's validation accuracy. `val_accs` shows the same images trained wit
 The submitted n = 10 sets came from a longer chain. The full list of commands for each submission is in
 [submissions/README.md](submissions/README.md).
 
+### Sign matching (the 19 Oct sets)
+
+With 10 images the official run makes 5 AdamW steps. Each step moves a weight by at most its learning rate, so after
+5 steps every weight stays within R = 9e-5 of its ImageNet value (R is the sum of the 5 learning rates). PFD stopped
+near 80.6% on the seed-42 run. To see how far from the limit that is, `src/ceiling3.py` searches that box directly,
+with no images at all: it moves the weights to lower the loss on training images, and clips them to the box. It finds
+networks at 88 to 91% validation accuracy. So the protocol is not the limit. Our images were.
+
+Two facts made the next step possible:
+
+* If we move every weight of such a network to the edge of the box (exactly +R or -R, same direction), it keeps its
+  accuracy (88.3% against 88.1%). Only the sign of each weight's move matters.
+* Early Adam steps are sign steps. If the batch gradient has the opposite sign of a weight's target move at all 5
+  steps, Adam walks that weight straight to the edge.
+
+`src/signmatch.py` changes the pixels so that, at each official step, the sign of the batch gradient matches the
+target. Since the path to the target is known in advance, each step is scored at its own point of that path with its
+recorded crops and flips. There is no unrolled loop, so the gradient is smooth and reliable, unlike the PFD
+meta-gradient near its optimum. The loss is a softplus of the sign mismatch, summed over all weights.
+
+What worked best, in order:
+
+1. Compute the target near where our images already end (`src/replay_state.py`, then `src/ceiling3.py
+   --init-state`). A target far away (from the ImageNet weights) or too close (few search steps) works less well.
+2. Sign matching with Adam on the pixels (80.6 -> 82.2), then PFD again (82.6). PFD is useless at its own optimum, but
+   it helps again after sign matching.
+3. Repeat with a stronger target (83.3, then 83.9 after PFD).
+4. Both gradients together (`--pfd-w 3`): sign matching pulls toward the target, the real loss keeps what already
+   works (84.35 official).
+
+The 10 images reach about 85% sign agreement with these targets, and that seems to be the limit we hit now.
+`src/loop_rounds2.sh` and `src/loop_hybrid.sh` run the rounds. `src/exact_eval.py` scores candidate sets on
+validation plus 8,192 training images, which is less noisy than validation alone, and we use it to pick sets.
+
 ### Randomness
 
 The distillation runs are not seeded and use non-deterministic GPU kernels. Running them again gives images of the
@@ -156,8 +195,10 @@ images get 43 to 59% (mean 52.2%). The 120-image sets do not have this problem. 
 seed.
 
 So the seed-42 sets reproduce exactly if `baseline.py` runs with its default arguments, which is how we ran it and
-how we understand the challenge protocol. They do not reproduce with another seed or another number of workers. We
-asked the organizers which settings the final check uses. The repo keeps both kinds of sets.
+how we understand the challenge protocol. They do not reproduce with another seed or another number of workers. On
+19 Oct the organizers answered on the Kaggle forum: the final check runs `baseline.py` with its default settings,
+seed 42 included, and a difference of a few tenths of a point is fine. They also said 64x64 PNG is preferred (not
+required) and that images derived from the training set are fine. The repo keeps both kinds of sets.
 
 ## Scripts
 
@@ -175,6 +216,12 @@ asked the organizers which settings the final check uses. The repo keeps both ki
 | `diag_metagrad.py`, `diag_step.py`, `diag_tau.py` | checks of the meta-gradient and of the step size |
 | `confusion.py`, `alloc_search.py`, `nsweep_eval.py`, `train_val_gap.py`, `basin_mix.py`, `delta_mix.py`, `mosaic_eval.py` | analyses and things that did not help |
 | `pfd.py`, `pfd2.py`, `pfd_fo.py`, `make_x15.py` | earlier versions (`pfd.py` made the start of the n = 10 chain) |
+| `ceiling3.py` | best network inside the 5-step box (fitted temperature, eval transform), from ImageNet or from a given state |
+| `signmatch.py` | sign matching toward the edge of the box of a target network, optionally mixed with the PFD gradient (`--pfd-w`) |
+| `replay_state.py`, `exact_eval.py`, `views_confusion.py` | replay the exact seed-42 run: final weights, val + 8k train accuracy, per-class results |
+| `views_for_n.py` | records the seed-42 views for any n and any image size |
+| `loop_rounds2.sh`, `loop_hybrid.sh` | the round pipelines (near target, sign matching, PFD) |
+| `rough_exact.py`, `sparse_exact.py`, `tau_probe.py`, `corner_eval.py`, `agree_layers.py`, `cornerdesc.py`, `polish_sparse.py`, `subset_exact.py`, `upsample_init.py`, `ceiling2.py` | analyses and things that did not help |
 
 ## Things that did not help
 
@@ -186,5 +233,10 @@ These are in `results/logs` and in the paper:
 * fp32 instead of bf16 inside the unrolled training
 * 4 heads per step instead of 2
 * mixing classes from two optimized sets
+* fewer than 10 images on the seed-42 run (a class with no image is barely learned: n = 5 stayed under 47%)
+* 224x224 images instead of 64x64 (same plateau, about 84%, with sign matching too)
+* pulling the end of the training run toward a good network through the unrolled loop (`pfd3.py --target`)
+* a sigmoid or weighted version of the sign matching loss, and "corner descent" (`cornerdesc.py`)
+* small greedy pixel changes on the 8-bit grid (`polish_sparse.py`): within noise
 
 At n = 120 every variant of the method ends near 90% (6 official seeds).

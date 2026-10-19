@@ -1,0 +1,46 @@
+Device: cuda; train=20, validation=4050
+{"epoch": 1, "train_loss": 2.3419370651245117, "validation_accuracy": 0.1797530864197531}
+Traceback (most recent call last):
+  File "/home/ubuntu/Uriel/data_centric/ext/challenge_2026_public/baseline.py", line 215, in <module>
+    main()
+  File "/home/ubuntu/Uriel/data_centric/ext/challenge_2026_public/baseline.py", line 211, in main
+    (train if args.command == 'train' else predict)(args)
+  File "/home/ubuntu/Uriel/data_centric/ext/challenge_2026_public/baseline.py", line 151, in train
+    loss = loss_fn(model(images), labels)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torchvision/models/vision_transformer.py", line 298, in forward
+    x = self.encoder(x)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torchvision/models/vision_transformer.py", line 157, in forward
+    return self.ln(self.layers(self.dropout(input)))
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torchvision/models/vision_transformer.py", line 118, in forward
+    y = self.mlp(y)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/vllm-env/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 48.00 MiB. GPU 0 has a total capacity of 79.15 GiB of which 18.56 MiB is free. Process 55074 has 64.54 GiB memory in use. Process 62951 has 10.74 GiB memory in use. Including non-PyTorch memory, this process has 3.83 GiB memory in use. Of the allocated memory 3.04 GiB is allocated by PyTorch, and 300.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

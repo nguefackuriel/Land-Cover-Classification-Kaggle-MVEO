@@ -1,0 +1,20 @@
+{"it": 0, "n": 33, "val_accs": [0.2689, 0.3111, 0.4133], "mean": 0.3311, "score_mean": 0.488, "exact_seed": 42, "exact_acc": 0.2217, "exact_score": 0.4333}
+{"it": 0, "K": 10, "window": 10, "real_loss_after_K": 1.9719, "T": 0.7943, "sec": 39.54, "peak_gb": 15.3}
+{"it": 5, "K": 10, "window": 10, "real_loss_after_K": 1.6299, "T": 0.4217, "sec": 29.6, "peak_gb": 15.3}
+{"it": 10, "K": 10, "window": 10, "real_loss_after_K": 1.2726, "T": 0.2818, "sec": 30.39, "peak_gb": 15.3}
+{"it": 15, "K": 10, "window": 10, "real_loss_after_K": 1.2089, "T": 0.2661, "sec": 25.73, "peak_gb": 15.3}
+{"it": 20, "n": 33, "val_accs": [0.2815, 0.317, 0.4126], "mean": 0.337, "score_mean": 0.491, "exact_seed": 42, "exact_acc": 0.6521, "exact_score": 0.6485}
+{"it": 20, "K": 10, "window": 10, "real_loss_after_K": 1.0201, "T": 0.2239, "sec": 22.56, "peak_gb": 15.3}
+{"it": 25, "K": 10, "window": 10, "real_loss_after_K": 0.955, "T": 0.2113, "sec": 22.79, "peak_gb": 15.3}
+{"it": 30, "K": 10, "window": 10, "real_loss_after_K": 0.831, "T": 0.1995, "sec": 14.8, "peak_gb": 15.3}
+{"it": 35, "K": 10, "window": 10, "real_loss_after_K": 0.9037, "T": 0.2113, "sec": 14.26, "peak_gb": 15.3}
+{"it": 40, "n": 33, "val_accs": [0.2862, 0.3247, 0.4067], "mean": 0.3392, "score_mean": 0.4921, "exact_seed": 42, "exact_acc": 0.7141, "exact_score": 0.6795}
+{"it": 40, "K": 10, "window": 10, "real_loss_after_K": 0.8916, "T": 0.1995, "sec": 14.98, "peak_gb": 15.3}
+{"it": 45, "K": 10, "window": 10, "real_loss_after_K": 0.9258, "T": 0.2239, "sec": 13.76, "peak_gb": 15.3}
+{"it": 50, "K": 10, "window": 10, "real_loss_after_K": 0.6779, "T": 0.1884, "sec": 13.91, "peak_gb": 15.3}
+{"it": 55, "K": 10, "window": 10, "real_loss_after_K": 0.7836, "T": 0.1884, "sec": 13.93, "peak_gb": 15.3}
+{"it": 60, "n": 33, "val_accs": [0.2748, 0.3264, 0.3889], "mean": 0.33, "score_mean": 0.4875, "exact_seed": 42, "exact_acc": 0.7679, "exact_score": 0.7064}
+{"it": 60, "K": 10, "window": 10, "real_loss_after_K": 0.7258, "T": 0.1884, "sec": 14.44, "peak_gb": 15.3}
+{"it": 65, "K": 10, "window": 10, "real_loss_after_K": 0.7289, "T": 0.1778, "sec": 13.75, "peak_gb": 15.3}
+{"it": 70, "K": 10, "window": 10, "real_loss_after_K": 0.6433, "T": 0.1585, "sec": 15.03, "peak_gb": 15.3}
+{"it": 75, "K": 10, "window": 10, "real_loss_after_K": 0.7018, "T": 0.1884, "sec": 19.7, "peak_gb": 15.3}

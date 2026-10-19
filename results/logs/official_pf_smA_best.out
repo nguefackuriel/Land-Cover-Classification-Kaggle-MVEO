@@ -1,0 +1,2 @@
+{"set": "pf_smA_best", "seed": 42, "best_val": 0.8274}
+{"set": "pf_smA_best", "seeds": [42], "mean": 0.8274, "std": 0}

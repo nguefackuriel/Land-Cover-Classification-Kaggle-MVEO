@@ -14,6 +14,7 @@ import argparse, contextlib, json, math, random, sys, time
 import torch, torch.nn.functional as F
 from torch.func import functional_call
 from torch.nn.attention import SDPBackend, sdpa_kernel
+
 import dd_lib as D
 import proto as P
 
@@ -36,10 +37,16 @@ ap.add_argument('--tf32', action='store_true')
 ap.add_argument('--save-every-eval', action='store_true')
 ap.add_argument('--views', default='')                     # record_views.py file: exact official batches + crops/flips
 ap.add_argument('--views-prob', type=float, default=1.)    # share of meta-gradient samples using them (rest: random)
-ap.add_argument('--select-exact', action='store_true')      # best checkpoint = exact-view accuracy, not the 3-seed mean    # also keep cache/pfd3_<tag>_it<it>.pt at each eval
+ap.add_argument('--select-exact', action='store_true')
+ap.add_argument('--line-search', default='')    # e.g. "0,0.5,1,2,4": try these multiples of the step, keep the best
+ap.add_argument('--ls-real', type=int, default=2048)   # fixed training images that score the line-search candidates      # best checkpoint = exact-view accuracy, not the 3-seed mean    # also keep cache/pfd3_<tag>_it<it>.pt at each eval
 ap.add_argument('--fixed-head-seed', type=int, default=-1)  # >= 0: always the head baseline.py draws for this seed
                                                             # (analysis of seed-specific overfitting, not for submissions)               # with --fp32-inner: TF32 matmuls (10-bit mantissa vs 7 for bf16)
 ap.add_argument('--tag', default='check')
+ap.add_argument('--no-seed-eval', action='store_true')   # exact runs: skip the 3 random-seed evals, keep only the exact one
+ap.add_argument('--target', default='')        # state dict of a good reachable network (ceiling3.py): pull theta_K to it
+ap.add_argument('--target-mode', default='l2', choices=['l2', 'lin'])   # l2: |theta_K - t|^2 ; lin: -<t - theta_0, theta_K>
+ap.add_argument('--target-w', type=float, default=-1.)  # <0: target only; >=0: real grad + w * (target grad scaled to its norm)
 ap.add_argument('--outer-T', type=float, default=1.)       # outer CE on logits / T; 0: T fitted on each real batch
                                                            # (scale-free: no credit for merely sharper logits)
 a = ap.parse_args()
@@ -173,6 +180,27 @@ def fit_T(th, ridx):
     return Ts[ce.argmin()].item()
 
 
+@torch.no_grad()
+def scalefree_ce(th, ridx):
+    """Outer loss value (no gradient) on fixed real images: CE at the best temperature (or at --outer-T)."""
+    with torch.autocast('cuda', dtype=torch.bfloat16):
+        o = torch.cat([functional_call(base, th, (P.to_eval(D.xtr[ridx[j:j + 256]].to(dev)),)).float()
+                       for j in range(0, len(ridx), 256)])
+    yb = D.ytr[ridx].to(dev)
+    Ts = torch.logspace(-2, 1, 121, device=dev) if a.outer_T <= 0 else torch.tensor([a.outer_T], device=dev)
+    return min(F.cross_entropy(o / T, yb).item() for T in Ts)
+
+
+def ls_score(zc, head):
+    """Line-search objective of candidate pixels: exact forward run (no stored states), then the outer loss."""
+    w = a.window; a.window = 0
+    USE_VIEWS[0] = bool(VIEWS)
+    with torch.enable_grad():          # the inner training needs gradients even inside the no_grad update block
+        th, _, _ = forward(pixels(zc.detach()), head)
+    a.window = w
+    return scalefree_ce(th, LS_IDX)
+
+
 def real_grad(th, ridx):
     det = {k: t.detach().requires_grad_(True) for k, t in th.items()}
     G = {k: torch.zeros_like(t) for k, t in det.items()}
@@ -229,6 +257,28 @@ def backward(x_leaf, saved, G):
     return xg
 
 
+TGT = None
+if a.target:
+    _sd = torch.load(a.target)
+    TGT = {k: _sd[k].to(dev).float() for k in theta0}
+    TGT['heads.head.weight'], TGT['heads.head.bias'] = _sd['heads.head.weight'].to(dev), _sd['heads.head.bias'].to(dev)
+
+
+def target_grad(th, G):
+    """Outer gradient wrt theta_K that pulls the trajectory end point toward the target network."""
+    if a.target_mode == 'l2':
+        Gt = {k: (th[k].float() - TGT[k]) for k in th}
+    else:
+        h0 = sample_head()
+        ref = dict(theta0); ref['heads.head.weight'], ref['heads.head.bias'] = h0
+        Gt = {k: -(TGT[k] - ref[k].float()) for k in th}
+    if a.target_w < 0:
+        return Gt
+    nr = math.sqrt(sum((g.float() ** 2).sum().item() for g in G.values()))
+    nt = math.sqrt(sum((g ** 2).sum().item() for g in Gt.values()))
+    return {k: G[k] + a.target_w * nr / max(nt, 1e-30) * Gt[k] for k in G}
+
+
 def meta_grad(head, ridx):
     """d CE_real(theta_K) / d z for one head (checkpointed). Returns (grad, real loss, K)."""
     USE_VIEWS[0] = bool(VIEWS) and random.random() < a.views_prob
@@ -236,6 +286,9 @@ def meta_grad(head, ridx):
     xs = (x01 + a.pixel_noise / 255 * torch.randn_like(x01)).clamp(0, 1) if a.pixel_noise else x01
     thK, saved, K = forward(xs, head)
     G, rl = real_grad(thK, ridx)
+    if TGT is not None:
+        G = target_grad(thK, G)
+        meta_grad.tdist = math.sqrt(sum(((thK[k].float() - TGT[k]) ** 2).sum().item() for k in thK))
     del thK
     x_leaf = xs.clone().requires_grad_(True)       # grad at x + delta = grad of E_delta L(x + delta) wrt x
     xg = backward(x_leaf, saved, G)
@@ -303,13 +356,16 @@ if __name__ == '__main__':      # importable: diag scripts reuse forward/real_gr
                   f'norm ratio={(c.norm() / f.norm()).item():.4f}  rel_err={((c - f).norm() / f.norm()).item():.4f}')
         sys.exit()
 
+    LS_MULT = [float(v) for v in a.line_search.split(',')] if a.line_search else []
+    LS_IDX = torch.randperm(len(D.xtr), generator=torch.Generator().manual_seed(7))[:a.ls_real]
+    ls_log = []
     log = open(f'runs/pfd3_{a.tag}.jsonl', 'w')
     best = -1
     for it in range(a.iters + 1):
         if it % a.eval_every == 0:
             xq = (pixels(z.detach()) * 255).round().div(255).cpu()
-            accs = [round(D.train_eval(xq, y.cpu(), s), 4) for s in (42, 0, 1)]
-            mean = sum(accs) / 3
+            accs = [] if a.no_seed_eval else [round(D.train_eval(xq, y.cpu(), s), 4) for s in (42, 0, 1)]
+            mean = sum(accs) / 3 if accs else 0.
             rec = {'it': it, 'n': n, 'val_accs': accs, 'mean': round(mean, 4), 'score_mean': round(D.score(mean, n), 4)}
             if VIEWS:
                 ex = D.train_eval_views(xq, y.cpu(), VIEWS['seed'], VIEWS)[-1]
@@ -338,12 +394,20 @@ if __name__ == '__main__':      # importable: diag scripts reuse forward/real_gr
                     vh = vo / (1 - B2O ** (it + 1))
                     z -= eps / 255 * (mo / (1 - B1O ** (it + 1))) / (vh.sqrt() + 1e-8 * vh.sqrt().mean())
                     z.clamp_(0, 1)
+                elif a.line_search:
+                    d = g / g.abs().max().clamp_min(1e-12)
+                    head = sample_head()
+                    cands = [(ls_score(z - mlt * eps * d, head), mlt) for mlt in LS_MULT]
+                    best_l, best_m = min(cands)
+                    z -= best_m * eps * d
+                    ls_log.append(best_m)
                 else:
                     z -= eps * g / g.abs().max().clamp_min(1e-12)
         else:
             print(json.dumps({'it': it, 'skipped': 'non-finite grad'}), flush=True)
         if it % 5 == 0:
             rec = {'it': it, 'K': K, 'window': min(a.window, K), 'real_loss_after_K': round(real_loss, 4),
-                   'T': round(getattr(real_grad, 'last_T', 1.), 4),
+                   'tdist': round(getattr(meta_grad, 'tdist', 0.), 6),
+                   'T': round(getattr(real_grad, 'last_T', 1.), 4), 'ls_mult': ls_log[-5:],
                    'sec': round(time.time() - t0, 2), 'peak_gb': round(torch.cuda.max_memory_allocated() / 2**30, 1)}
             print(json.dumps(rec), flush=True); log.write(json.dumps(rec) + '\n'); log.flush()

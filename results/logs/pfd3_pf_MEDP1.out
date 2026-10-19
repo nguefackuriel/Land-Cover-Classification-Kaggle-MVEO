@@ -1,0 +1,37 @@
+/home/ubuntu/Uriel/data_centric/work/proto.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f)
+/home/ubuntu/Uriel/data_centric/work/pfd3.py:69: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init = torch.load(a.init)
+/home/ubuntu/Uriel/data_centric/work/pfd3.py:99: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  VIEWS = torch.load(a.views) if a.views else None
+{"it": 0, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8306, "exact_score": 0.7984}
+{"it": 0, "K": 5, "window": 5, "real_loss_after_K": 0.5412, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 13.99, "peak_gb": 9.4}
+{"it": 5, "K": 5, "window": 5, "real_loss_after_K": 0.5244, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 7.76, "peak_gb": 9.4}
+{"it": 10, "K": 5, "window": 5, "real_loss_after_K": 0.5154, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 8.52, "peak_gb": 9.4}
+{"it": 15, "K": 5, "window": 5, "real_loss_after_K": 0.5783, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 8.77, "peak_gb": 9.4}
+{"it": 20, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8319, "exact_score": 0.799}
+{"it": 20, "K": 5, "window": 5, "real_loss_after_K": 0.5452, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 8.95, "peak_gb": 9.4}
+{"it": 25, "K": 5, "window": 5, "real_loss_after_K": 0.5305, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 9.05, "peak_gb": 9.4}
+{"it": 30, "K": 5, "window": 5, "real_loss_after_K": 0.5103, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 8.8, "peak_gb": 9.4}
+{"it": 35, "K": 5, "window": 5, "real_loss_after_K": 0.5699, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 7.72, "peak_gb": 9.4}
+{"it": 40, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8264, "exact_score": 0.7963}
+{"it": 40, "K": 5, "window": 5, "real_loss_after_K": 0.5544, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 8.19, "peak_gb": 9.4}
+{"it": 45, "K": 5, "window": 5, "real_loss_after_K": 0.5158, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 7.91, "peak_gb": 9.4}
+{"it": 50, "K": 5, "window": 5, "real_loss_after_K": 0.506, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 8.82, "peak_gb": 9.4}
+{"it": 55, "K": 5, "window": 5, "real_loss_after_K": 0.5466, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 8.56, "peak_gb": 9.4}
+{"it": 60, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8319, "exact_score": 0.799}
+{"it": 60, "K": 5, "window": 5, "real_loss_after_K": 0.5259, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 8.92, "peak_gb": 9.4}
+{"it": 65, "K": 5, "window": 5, "real_loss_after_K": 0.5131, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 9.01, "peak_gb": 9.4}
+{"it": 70, "K": 5, "window": 5, "real_loss_after_K": 0.5011, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 8.44, "peak_gb": 9.4}
+{"it": 75, "K": 5, "window": 5, "real_loss_after_K": 0.542, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 7.75, "peak_gb": 9.4}
+{"it": 80, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8323, "exact_score": 0.7993}
+{"it": 80, "K": 5, "window": 5, "real_loss_after_K": 0.523, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 8.2, "peak_gb": 9.4}
+{"it": 85, "K": 5, "window": 5, "real_loss_after_K": 0.5027, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 6.13, "peak_gb": 9.4}
+{"it": 90, "K": 5, "window": 5, "real_loss_after_K": 0.4988, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 8.77, "peak_gb": 9.4}
+{"it": 95, "K": 5, "window": 5, "real_loss_after_K": 0.5351, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 9.01, "peak_gb": 9.4}
+{"it": 100, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8316, "exact_score": 0.7989}
+{"it": 100, "K": 5, "window": 5, "real_loss_after_K": 0.5164, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 8.96, "peak_gb": 9.4}
+{"it": 105, "K": 5, "window": 5, "real_loss_after_K": 0.4998, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 9.06, "peak_gb": 9.4}
+{"it": 110, "K": 5, "window": 5, "real_loss_after_K": 0.494, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 8.81, "peak_gb": 9.4}
+{"it": 115, "K": 5, "window": 5, "real_loss_after_K": 0.5332, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 8.95, "peak_gb": 9.4}
+{"it": 120, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8326, "exact_score": 0.7994}

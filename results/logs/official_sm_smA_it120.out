@@ -1,0 +1,2 @@
+{"set": "sm_smA_it120", "seed": 42, "best_val": 0.8232}
+{"set": "sm_smA_it120", "seeds": [42], "mean": 0.8232, "std": 0}

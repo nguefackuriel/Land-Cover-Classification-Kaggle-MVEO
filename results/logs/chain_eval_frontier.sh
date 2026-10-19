@@ -1,7 +1,7 @@
 #!/bin/bash
 # one GPU job at a time: official multi-seed eval of the submitted set + medoids, then PFD3 frontier points n=96, n=64
-cd work
-PY=python
+cd /home/ubuntu/Uriel/data_centric/work
+PY=/home/ubuntu/vllm-env/bin/python
 $PY official_seeds.py sets/pfd3_n120 pfd3_n120 0 1 2 3 4 2>&1 | grep -v -i warn
 $PY official_seeds.py sets/medoids_n120 medoids_n120 0 1 2 3 4 2>&1 | grep -v -i warn
 echo "[chain] official seeds done $(date)"
