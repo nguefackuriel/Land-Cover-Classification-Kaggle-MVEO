@@ -695,6 +695,17 @@ HerbVeg 38), les autres classes vers 85 %. Avec des labels durs, une classe sans
 tête pour cette classe ne reçoit que des gradients qui l'éloignent. n < 10 est donc plafonné vers 76 %. Arrêté. Résultat net
 pour le papier.
 
+**Polissage PFD après l'hybride** (pf_hyb3) : 84,37 → 84,02–84,12, aucun gain (l'hybride contient déjà ce gradient).
+
+**Prochaines étapes (état au 19/10, 21:00 UTC)**
+1. Variantes de l'hybride depuis le set d'avant (poids PFD 2 et 5, en cours) ; garder la meilleure à la précision poolée.
+2. Vérifier la robustesse numérique du set soumis (TF32 on/off, `views_robust.py`) : la tolérance des organisateurs est de
+   quelques dixièmes.
+3. Option de repli si vinicius repasse devant : hybride sur la lignée 224×224 (84,2 % après un tour). Le 64×64 est
+   « préféré » par les organisateurs : décision de l'utilisateur.
+4. Papier : section sign matching, plafond ≥ 90 % en 5 pas, coins de la boîte, classe sans image jamais prédite.
+5. Toujours pousser sur GitHub après chaque étape (`tools/push.sh`).
+
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
 pour un coût de score quasi nul :
