@@ -15,3 +15,4 @@ val 0.8338271604938272
 {"tag": "near_MEDP2", "it": 200, "T": 0.112, "loss": 0.2956, "val_acc": 0.8899, "edge": 0.596}
 {"tag": "near_MEDP2", "it": 300, "T": 0.1, "loss": 0.2338, "val_acc": 0.8956, "edge": 0.622}
 {"tag": "near_MEDP2", "it": 400, "T": 0.126, "loss": 0.2932, "val_acc": 0.8973, "edge": 0.64}
+{"tag": "near_MEDP2", "it": 500, "T": 0.089, "loss": 0.2053, "val_acc": 0.898, "edge": 0.664}

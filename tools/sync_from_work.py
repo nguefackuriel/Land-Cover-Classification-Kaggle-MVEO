@@ -88,12 +88,43 @@ for f in sorted((W / 'runs').iterdir()):
         put(f / 'history.json', f'results/official_runs/{f.name}/history.json')
 
 # 4. small checkpoints
+try:
+    import numpy as np, torch
+    from PIL import Image
+    TORCH = True
+except ImportError:                            # cron may run without torch: then the big sets are skipped
+    TORCH = False
+CLASSES = json.loads((ROOT / 'data' / 'classes.json').read_text()) if (ROOT / 'data' / 'classes.json').exists() else \
+    json.loads((W.parent / 'data' / 'classes.json').read_text())
+
+
+def put_png_set(f, out):
+    """Write a .pt image set (x01 float, y) as train/*.png + train.csv (what dd_lib.load_set reads back)."""
+    d = torch.load(f, map_location='cpu')
+    x = (d['x01'].clamp(0, 1) * 255).round().to(torch.uint8).permute(0, 2, 3, 1).numpy()
+    rows = 'filename,label\n' + ''.join(f'distilled_{i:04d}.png,{CLASSES[int(l)]}\n' for i, l in enumerate(d['y'].tolist()))
+    dst = ROOT / out
+    if (dst / 'train.csv').exists() and (dst / 'source_mtime').exists() and \
+            (dst / 'source_mtime').read_text() == str(int(f.stat().st_mtime)):
+        return
+    copied.append(out)
+    if a.dry_run:
+        return
+    (dst / 'train').mkdir(parents=True, exist_ok=True)
+    for i, img in enumerate(x):
+        Image.fromarray(img, 'RGB').save(dst / 'train' / f'distilled_{i:04d}.png')
+    (dst / 'train.csv').write_text(rows)
+    (dst / 'source_mtime').write_text(str(int(f.stat().st_mtime)))
+
 keep = re.compile(r'^(init_\w+|views_\w+|sm_\w+_best|sm_hyb3_it120|cd_\w+_best|pfd3_pf_\w+_best|pfd3_n10_exact_med_best'
                   r'|pfd3_n10_exact_s2_it280|pfd3_sz_n10_best)\.pt$')
 for f in sorted((W / 'cache').glob('*.pt')):
-    big224 = re.search(r'sz224|_SZ\d|sz_n10', f.name) and f.name != 'pfd3_pf_SZ1_best.pt'   # 6 MB each, keep the best only
-    if keep.match(f.name) and not big224 and f.stat().st_size < 20_000_000 and not f.name.startswith(('ceiling', 'state_')):
+    if not keep.match(f.name) or f.name.startswith(('ceiling', 'state_')) or f.stat().st_size > 20_000_000:
+        continue
+    if f.stat().st_size < 2_000_000:          # 64x64 sets, views, inits: as they are
         put(f, f'checkpoints/{f.name}')
+    elif TORCH:                                # 224x224 sets (6 MB as float): 8-bit PNG folders, about 1 MB
+        put_png_set(f, f'checkpoints/png/{f.stem}')
 
 # 5. submissions
 subs = json.loads((ROOT / 'tools' / 'submissions.json').read_text())
