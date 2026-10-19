@@ -706,6 +706,15 @@ pour le papier.
 4. Papier : section sign matching, plafond ≥ 90 % en 5 pas, coins de la boîte, classe sans image jamais prédite.
 5. Toujours pousser sur GitHub après chaque étape (`tools/push.sh`).
 
+**Variante hybride poids PFD 2** (hybw2) : val 84,49 (it 140) mais précision poolée 84,85–84,90, contre 85,00 pour le set
+soumis. Pas mieux. L'hybride sature vers 85 % (poolé) sur cette lignée.
+
+**Usine à lignées** (`runs/factory.sh`, une tâche GPU à la fois) : les lignées ne finissent pas au même niveau (83,3 contre
+83,9 au même stade), on lance donc la recette complète depuis plusieurs départs et on garde la meilleure (précision poolée).
+Ordre : fin de la lignée médoïdes (tour 2 + hybride), puis 4 lignées `runs/lineage.sh` depuis `cache/init_c4j{0..3}.pt`
+(médoïde du j-ième cluster k-means de chaque classe, 4 par classe) : PFD exact 400 it → 2 tours (cible proche → sign
+matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `runs/lineage_C4J*.log`. Environ 3 h 30 par lignée.
+
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
 pour un coût de score quasi nul :
