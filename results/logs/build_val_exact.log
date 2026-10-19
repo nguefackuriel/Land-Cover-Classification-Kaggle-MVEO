@@ -1,0 +1,1 @@
+torch.Size([4050, 3, 224, 224]) torch.float32 14.1 s

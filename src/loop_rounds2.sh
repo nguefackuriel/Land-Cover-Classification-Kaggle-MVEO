@@ -8,12 +8,12 @@ SET=$1; V=$2; PFX=$3; R0=$4; R1=$5
 for r in $(seq $R0 $R1); do
   T=${PFX}$r
   echo "round $r start $SET $(date +%T)" >> runs/loop_${PFX}.log
-  PROTO_PIL=1 $PY src/replay_state.py $SET $V cache/state_$T.pt > runs/loop_$T.log 2>&1
+  PROTO_PIL=1 PROTO_EXACT=1 $PY src/replay_state.py $SET $V cache/state_$T.pt > runs/loop_$T.log 2>&1
   $PY src/ceiling3.py --T 0 --opt adam --iters 500 --lr 0.02 --bs 256 --eval-every 100 --save-every 500 \
       --init-state cache/state_$T.pt --tag near_$T >> runs/loop_$T.log 2>&1
-  PROTO_PIL=1 $PY src/signmatch.py --init $SET --views $V --target cache/ceiling3_near_${T}_it500.pt --iters 160 --opt adam \
+  PROTO_PIL=1 PROTO_EXACT=1 $PY src/signmatch.py --init $SET --views $V --target cache/ceiling3_near_${T}_it500.pt --iters 160 --opt adam \
       --lr 0.7 --lr-end 0.07 --warmup 20 --tag $T > runs/signmatch_$T.out 2>&1
-  PROTO_PIL=1 $PY src/pfd3.py --init cache/sm_${T}_best.pt --offload --heads 1 --lr 0.02 --lr-end 0.003 --iters 120 \
+  PROTO_PIL=1 PROTO_EXACT=1 $PY src/pfd3.py --init cache/sm_${T}_best.pt --offload --heads 1 --lr 0.02 --lr-end 0.003 --iters 120 \
       --eval-every 20 --outer-T 0 --fixed-head-seed 42 --views $V --views-prob 1.0 --select-exact --fp32-inner \
       --no-seed-eval --tag pf_$T > runs/pfd3_pf_$T.out 2>&1
   SET=cache/pfd3_pf_${T}_best.pt

@@ -30,15 +30,17 @@ def train_eval(x01, y, seed):
         sch.step(); best = max(best, P.evaluate(m, xva, yva))
     return best
 
-def train_eval_views(x01, y, seed, views):
-    """train_eval with the exact official batches and views of one seed (record_views.py output); per-epoch val."""
+def train_eval_views(x01, y, seed, views, last_only=False):
+    """train_eval with the exact official batches and views of one seed (record_views.py output); per-epoch val
+    (last_only: only the last epoch is scored, the others are None)."""
     m, opt, sch = P.fresh_model(seed); accs = []
     x01, y = x01.cuda(), y.cuda()
-    for batches in views['epochs']:
+    E = len(views['epochs'])
+    for e, batches in enumerate(views['epochs']):
         for idx, vw in batches:
             opt.zero_grad(set_to_none=True)
             F.cross_entropy(m(P.augment_views(x01[idx.cuda()], vw)), y[idx.cuda()]).backward(); opt.step()
-        sch.step(); accs.append(P.evaluate(m, xva, yva))
+        sch.step(); accs.append(P.evaluate(m, xva, yva) if (not last_only or e == E - 1) else None)
     return accs
 
 def load_set(path):

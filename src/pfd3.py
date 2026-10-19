@@ -368,7 +368,7 @@ if __name__ == '__main__':      # importable: diag scripts reuse forward/real_gr
             mean = sum(accs) / 3 if accs else 0.
             rec = {'it': it, 'n': n, 'val_accs': accs, 'mean': round(mean, 4), 'score_mean': round(D.score(mean, n), 4)}
             if VIEWS:
-                ex = D.train_eval_views(xq, y.cpu(), VIEWS['seed'], VIEWS)[-1]
+                ex = D.train_eval_views(xq, y.cpu(), VIEWS['seed'], VIEWS, last_only=True)[-1]
                 rec.update({'exact_seed': VIEWS['seed'], 'exact_acc': round(ex, 4), 'exact_score': round(D.score(ex, n), 4)})
             print(json.dumps(rec), flush=True); log.write(json.dumps(rec) + '\n'); log.flush()
             if a.save_every_eval:

@@ -22,6 +22,8 @@ PIL_ROUND = os.environ.get('PROTO_PIL', '0') == '1'
 # validation through the official transforms in fp32. The replay then matches the official run (checked: 84.35 and
 # 83.93 for a 64x64 and a 224x224 set, same as baseline.py).
 EXACT = os.environ.get('PROTO_EXACT', '0') == '1'
+if EXACT:                      # many tiny CPU tensors per batch: a big thread pool only spins
+    torch.set_num_threads(min(8, torch.get_num_threads()))
 _SPLIT_PTR = {}
 
 
@@ -163,9 +165,15 @@ _VAL = {}
 def _exact_val():
     """Validation inputs exactly as baseline.py makes them (PIL + WEIGHTS.transforms()), cached on the CPU."""
     if not _VAL:
-        rows = list(csv.DictReader(open(DATA / 'validation.csv')))
-        tf = B.WEIGHTS.transforms()
-        _VAL['x'] = torch.stack([tf(Image.open(DATA / 'validation' / r['filename']).convert('RGB')) for r in rows]).pin_memory()
+        f = Path('cache/validation_exact.pt')    # 2.4 GB, made once
+        if f.exists():
+            x = torch.load(f)
+        else:
+            rows = list(csv.DictReader(open(DATA / 'validation.csv')))
+            tf = B.WEIGHTS.transforms()
+            x = torch.stack([tf(Image.open(DATA / 'validation' / r['filename']).convert('RGB')) for r in rows])
+            torch.save(x, f)
+        _VAL['x'] = x.pin_memory()
     return _VAL['x']
 
 

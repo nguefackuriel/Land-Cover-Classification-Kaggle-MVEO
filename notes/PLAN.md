@@ -715,6 +715,23 @@ Ordre : fin de la lignée médoïdes (tour 2 + hybride), puis 4 lignées `runs/l
 (médoïde du j-ième cluster k-means de chaque classe, 4 par classe) : PFD exact 400 it → 2 tours (cible proche → sign
 matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `runs/lineage_C4J*.log`. Environ 3 h 30 par lignée.
 
+### 2.5 nonies 19/10 nuit : piste 224×224 (demande de l'utilisateur) et réplique exacte
+- Officiel seed 42 du meilleur set 224 (`pfd3_pf_SZ1_best`) : **83,93 %** contre 84,20 en réplique (−0,27). En 64×64 la
+  réplique tombait juste (83,88 = 83,88 ; 84,35 contre 84,37).
+- Diagnostic : l'émulation PIL de l'entraînement est même meilleure en 224 (0,6 % de pixels à ±1 niveau contre 2 % en 64),
+  remplacer les entrées par les sorties PIL exactes ne change rien (84,20), la taille des batches d'éval non plus. Les poids
+  finaux officiels et réplique diffèrent de ~1e-6 sur 99 % des paramètres (max 1,6e-4) en 64 comme en 224 : bruit numérique
+  amplifié par une trajectoire chaotique.
+- **Réplique exacte** : en construisant les batches d'entraînement sur le CPU exactement comme le DataLoader officiel
+  (crop/resize PIL, ToTensor, Normalize CPU) et la validation avec les transformations officielles en fp32, on retrouve
+  l'historique officiel époque par époque : 21,19 / 50,96 / 75,98 / 82,72 / **83,93** (224) et 19,93 / 48,57 / 74,99 /
+  82,96 / **84,35** (64). Poids : écart max 8e-9 en 64 (bit-exact à l'ulp près), 6e-6 en 224.
+- `PROTO_EXACT=1` (proto.py) : valeurs exactes dans la passe avant, gradient de la copie différentiable (straight-through),
+  validation exacte (cache `cache/validation_exact.pt`, 2,4 Go), 8 threads CPU max. Activé dans tous les scripts de boucle.
+  Les `exact_acc` des nouveaux runs sont donc les chiffres officiels. Les loops ne notent plus que la dernière époque.
+- En cours : tour hybride 224 (SZH1, depuis `pfd3_pf_SZ1_best`, cible proche 90,35 %) et lignée 224 SZB (depuis le set
+  64 à 84,35 agrandi, 39,7 % au départ sur la trajectoire 224, PFD exact puis tours et hybride).
+
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
 pour un coût de score quasi nul :

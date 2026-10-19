@@ -87,7 +87,7 @@ best = -1
 for it in range(a.iters + 1):
     if it % a.eval_every == 0:
         xq = (z.detach().clamp(0, 1) * 255).round().div(255).cpu()
-        ex = D.train_eval_views(xq, y.cpu(), 42, V)[-1]
+        ex = D.train_eval_views(xq, y.cpu(), 42, V, last_only=True)[-1]
         rec = {'it': it, 'exact_acc': round(ex, 4)}
         print(json.dumps(rec), flush=True); log.write(json.dumps(rec) + '\n'); log.flush()
         torch.save({'x01': xq, 'y': y.cpu(), 'it': it}, f'cache/cd_{a.tag}_it{it}.pt')

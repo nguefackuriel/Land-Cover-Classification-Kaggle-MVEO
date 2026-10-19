@@ -8,10 +8,10 @@ V=cache/views_n10_s42.pt
 for r in $(seq $R0 $R1); do
   T=${PFX}$r
   echo "round $r start $SET $(date +%T)" >> runs/loop_${PFX}.log
-  PROTO_PIL=1 $PY src/replay_state.py $SET $V cache/state_$T.pt > runs/loop_$T.log 2>&1
-  PROTO_PIL=1 $PY src/ceiling3.py --T 0 --opt adam --iters 1000 --lr 0.02 --bs 256 --eval-every 250 --save-every 1000 \
+  PROTO_PIL=1 PROTO_EXACT=1 $PY src/replay_state.py $SET $V cache/state_$T.pt > runs/loop_$T.log 2>&1
+  PROTO_PIL=1 PROTO_EXACT=1 $PY src/ceiling3.py --T 0 --opt adam --iters 1000 --lr 0.02 --bs 256 --eval-every 250 --save-every 1000 \
       --init-state cache/state_$T.pt --tag near_$T >> runs/loop_$T.log 2>&1
-  PROTO_PIL=1 $PY src/signmatch.py --init $SET --views $V --target cache/ceiling3_near_${T}_it1000.pt --iters 160 --opt adam \
+  PROTO_PIL=1 PROTO_EXACT=1 $PY src/signmatch.py --init $SET --views $V --target cache/ceiling3_near_${T}_it1000.pt --iters 160 --opt adam \
       --lr 0.2 --lr-end 0.02 --warmup 10 --pfd-w 3.0 --real-bs 1024 --tag $T > runs/signmatch_$T.out 2>&1
   SET=cache/sm_${T}_best.pt
   echo "round $r done: $(grep exact_acc runs/signmatch_$T.out | python3 -c "
