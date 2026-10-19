@@ -699,8 +699,8 @@ pour le papier.
 
 **Prochaines étapes (état au 19/10, 21:00 UTC)**
 1. Variantes de l'hybride depuis le set d'avant (poids PFD 2 et 5, en cours) ; garder la meilleure à la précision poolée.
-2. Vérifier la robustesse numérique du set soumis (TF32 on/off, `views_robust.py`) : la tolérance des organisateurs est de
-   quelques dixièmes.
+2. ~~Robustesse numérique du set soumis~~ (`views_robust.py`) : 84,44 en fp32, 84,42 avec TF32 sur les matmuls ou les
+   convolutions (±0,02). Bien dans la tolérance des organisateurs (quelques dixièmes).
 3. Option de repli si vinicius repasse devant : hybride sur la lignée 224×224 (84,2 % après un tour). Le 64×64 est
    « préféré » par les organisateurs : décision de l'utilisateur.
 4. Papier : section sign matching, plafond ≥ 90 % en 5 pas, coins de la boîte, classe sans image jamais prédite.
