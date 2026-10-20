@@ -775,6 +775,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - **Usine 224 lancée le 20/10 à 16:22** (`runs/factory224.sh 0 3`, accord de l'utilisateur) : médoïdes c4j0..3 agrandis
   en 224 (bicubique), une lignée complète chacune (`lineage2.sh`, PFD 400 it), `DD_HOLDOUT=4096`, ~2 h par lignée,
   résultats dans `runs/lineage_C2J*.log`. C2J0 part de 39,1 %. Ne soumettre que si val + hold battent nettement SZH2.
+- **C2J0** (finie à 17:53, `exact_eval` val / hold / poolé) : PFD 79,58 / 79,91 / 79,74 ; tour 1 83,58 / 83,35 / 83,46 ;
+  tour 2 83,83 / 83,50 / 83,66 ; hybride **85,06 / 84,55 / 84,80** (encore en hausse à l'it 160). **Meilleure val jamais vue.**
+  Officiel seed 42 : **85,06 %** (deux runs identiques), archivé `work/submissions/n10_C2J0H1_224_*`, pas soumis.
+  Prédictions test différentes de SZH2 sur 639 images sur 4050 (16 %) : c'est un tout autre set, bruit d'un écart test
+  entre les deux ≈ ±0,6 point. Le hold n'est pas comparable entre familles : la famille SZH a vu le bloc avant DD_HOLDOUT
+  (hold − val ≈ +1,0 pour SZK et S4), C2J0 jamais (hold − val = −0,5). Pour SZH, test ≈ val + 0,2. Seule la val compare
+  les deux familles : +0,32 pour C2J0, moins d'un écart-type.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
