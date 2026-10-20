@@ -165,3 +165,17 @@ noise. We keep the 0.80801 set as the final one.
     python src/export_synth.py cache/sm_SZH3_best.pt sets/n10_SZH3_224
 
 Official validation on seed 42: 84.81 (two runs, identical predictions).
+
+## 2026-10-20_n10_224_medoid_lineage (0.80666, worse than the 0.80801 set)
+
+A new lineage on the 224 track from real images: the medoids of the first of four k-means clusters per class
+(`cache/init_c4j0.pt`), upscaled to 224 (bicubic). Exact PFD 400 steps, two rounds, one hybrid round, with 4,096
+train rows held out of everything the distillation samples (`DD_HOLDOUT=4096`).
+
+    DD_HOLDOUT=4096 runs/factory224.sh 0 0       # = runs/lineage2.sh cache/init_c4j0_sz224.pt $V C2J0 400
+    python src/export_synth.py cache/sm_C2J0H1_best.pt sets/n10_C2J0H1_224
+
+Official validation on seed 42: 85.06 (two runs, identical predictions), the best validation we had, against 84.74
+for the 0.80801 set. Held-out train rows: 84.55. Kaggle test is about 84.72, closer to the held-out score than to
+validation. Its test predictions differ from the 0.80801 set on 639 of 4,050 images, so a validation gap of 0.3
+between two lineages says little.

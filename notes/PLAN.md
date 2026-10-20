@@ -782,6 +782,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   entre les deux ≈ ±0,6 point. Le hold n'est pas comparable entre familles : la famille SZH a vu le bloc avant DD_HOLDOUT
   (hold − val ≈ +1,0 pour SZK et S4), C2J0 jamais (hold − val = −0,5). Pour SZH, test ≈ val + 0,2. Seule la val compare
   les deux familles : +0,32 pour C2J0, moins d'un écart-type.
+- **C2J0 soumis le 20/10 à 18:50 (demande de l'utilisateur) : 0,80666**, test implicite 84,72 contre 84,99 pour SZH2.
+  La val (+0,32) s'est trompée de sens ; le hold propre (84,55) et le poolé propre (84,80) étaient bien plus près du test.
+  Leçon : la val est biaisée par la sélection en cours de lignée (meilleur checkpoint à chaque étape), le hold ne l'est
+  pas. Pour comparer des lignées propres entre elles, utiliser le hold (ou val + hold), jamais la val seule.
+  Le classement garde 0,80801 (2ᵉ, vinicius 0,80814).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
