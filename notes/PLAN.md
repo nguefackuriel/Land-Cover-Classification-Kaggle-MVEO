@@ -792,6 +792,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   donc vers 84,7 en test d'après C2J0 : sous SZH2 (84,99). C2J2 lancée à 19:24.
 - **C2J2** (finie à 20:53) : PFD 79,88 / 80,20 ; tour 1 83,51 / 82,81 ; tour 2 83,56 / 82,89 ; hybride **84,49 / 83,74 /
   84,11**. Hold le plus bas des trois. C2J3 lancée à 20:53.
+- **C2J3** (finie à 22:23) : PFD 80,40 / 80,62 ; tour 1 83,60 / 83,11 ; tour 2 83,65 / 83,18 ; hybride **84,74 / 84,40 /
+  84,57**. Bilan des 4 médoïdes en hold : 84,55 / 84,45 / 83,74 / 84,40, moyenne 84,29. C2J0 reste le meilleur ; aucune
+  lignée ne dépasse SZH2 (test 84,99). Les deux tours en plus sur C2J0 ont démarré à 22:23.
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
