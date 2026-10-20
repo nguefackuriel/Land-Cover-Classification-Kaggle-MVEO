@@ -37,7 +37,7 @@ mo = [torch.zeros_like(p) for p in params]; vo = [torch.zeros_like(p) for p in p
 g = torch.Generator().manual_seed(a.data_seed)
 Ts = torch.logspace(-2, 1, 61, device='cuda')
 for it in range(a.iters):
-    idx = torch.randperm(len(D.xtr), generator=g)[:a.bs]
+    idx = D.sample_train(a.bs, g)
     m.zero_grad(set_to_none=True)
     if a.T <= 0:
         with torch.no_grad(), torch.autocast('cuda', dtype=torch.bfloat16):

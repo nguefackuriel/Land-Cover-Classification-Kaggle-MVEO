@@ -1,10 +1,21 @@
 """Shared helpers: ViT features of the train set, coreset selectors, fast multi-seed scoring with proto."""
-import math, sys, torch, torch.nn.functional as F
+import math, os, sys, torch, torch.nn.functional as F
 from pathlib import Path
 import proto as P
 
 xtr, ytr = P.load_split('train'); xva, yva = P.load_split('validation')
 FEAT = Path('cache/train_feats.pt')
+
+# DD_HOLDOUT=k keeps the first k rows of a fixed train permutation (seed 33, the order exact_eval.py uses) out of
+# everything distillation samples, so val + HOLD is a clean selection set. Unset: POOL is all rows, same draws as before.
+_HK = int(os.environ.get('DD_HOLDOUT', '0'))
+_PERM = torch.randperm(len(xtr), generator=torch.Generator().manual_seed(33))
+HOLD = _PERM[:_HK]
+POOL = _PERM[_HK:].sort().values if _HK else torch.arange(len(xtr))
+
+def sample_train(k, generator=None):
+    """k random train row indices drawn from POOL."""
+    return POOL[torch.randperm(len(POOL), generator=generator)[:k]]
 
 @torch.no_grad()
 def features():

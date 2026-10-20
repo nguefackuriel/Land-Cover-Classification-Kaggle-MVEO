@@ -341,7 +341,7 @@ def meta_grad_fullgraph(head, ridx):
 if __name__ == '__main__':      # importable: diag scripts reuse forward/real_grad/backward
     if a.check:
         head = sample_head()
-        ridx = torch.randperm(len(D.xtr))[:a.real_bs]
+        ridx = D.sample_train(a.real_bs)
         out = {}
         for name, fn in (('ckpt', meta_grad), ('ckpt2', meta_grad), ('full', meta_grad_fullgraph), ('full2', meta_grad_fullgraph)):
             torch.manual_seed(123); random.seed(123)
@@ -357,7 +357,7 @@ if __name__ == '__main__':      # importable: diag scripts reuse forward/real_gr
         sys.exit()
 
     LS_MULT = [float(v) for v in a.line_search.split(',')] if a.line_search else []
-    LS_IDX = torch.randperm(len(D.xtr), generator=torch.Generator().manual_seed(7))[:a.ls_real]
+    LS_IDX = D.sample_train(a.ls_real, torch.Generator().manual_seed(7))
     ls_log = []
     log = open(f'runs/pfd3_{a.tag}.jsonl', 'w')
     best = -1
@@ -384,7 +384,7 @@ if __name__ == '__main__':      # importable: diag scripts reuse forward/real_gr
         t0 = time.time()
         g, real_loss = torch.zeros_like(z), 0.0
         for _ in range(a.heads):
-            gh, rl, K = meta_grad(sample_head(), torch.randperm(len(D.xtr))[:a.real_bs])
+            gh, rl, K = meta_grad(sample_head(), D.sample_train(a.real_bs))
             g += gh; real_loss += rl / a.heads
         if torch.isfinite(g).all():
             eps = a.lr_end + (a.lr - a.lr_end) * (1 + math.cos(math.pi * it / a.iters)) / 2

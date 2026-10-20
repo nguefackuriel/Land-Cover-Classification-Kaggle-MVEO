@@ -70,7 +70,7 @@ if a.weight == 'delta':     # how decided the target is about each weight's sign
 if a.weight == 'grad':      # how much the real loss cares about each weight at the end of the target path
     corner = {k: t * (1 - LRS[-1] * WD) + LRS[-1] * S[k] for k, t in path[-1].items()}
     det = {k: t.detach().requires_grad_(True) for k, t in corner.items()}
-    ridx = torch.randperm(len(D.xtr), generator=torch.Generator().manual_seed(9))[:2048]
+    ridx = D.sample_train(2048, torch.Generator().manual_seed(9))
     with torch.no_grad(), torch.autocast('cuda', dtype=torch.bfloat16):
         o = torch.cat([functional_call(base, corner, (P.to_eval(D.xtr[ridx[j:j + 256]].to(dev)),)).float() for j in range(0, 2048, 256)])
     yb = D.ytr[ridx].to(dev)
@@ -142,7 +142,7 @@ if a.pfd_w > 0:
 
 def pfd_grad(x):
     thK, saved, K = Q.forward(x.detach(), QHEAD)
-    G, rl = Q.real_grad(thK, torch.randperm(len(D.xtr))[:a.real_bs])
+    G, rl = Q.real_grad(thK, D.sample_train(a.real_bs))
     del thK
     gx = Q.backward(x.detach().clone().requires_grad_(True), saved, G)
     return gx, rl

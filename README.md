@@ -178,6 +178,10 @@ What worked best, in order:
 The 10 images reach about 85% sign agreement with these targets, and that seems to be the limit we hit now.
 `src/loop_rounds2.sh` and `src/loop_hybrid.sh` run the rounds. `src/exact_eval.py` scores candidate sets on
 validation plus 8,192 training images, which is less noisy than validation alone, and we use it to pick sets.
+Those training images are not held out by default: the near target and the real-data gradients sample the whole
+train split, so after a few rounds the train score goes up without test following (the third 224 round). With
+`DD_HOLDOUT=k` (see `src/dd_lib.py`) the first k of those rows are never sampled by `ceiling3.py`, `signmatch.py` or
+`pfd3.py`, and `exact_eval.py` scores them as `hold` instead.
 
 ### Randomness
 

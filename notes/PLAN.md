@@ -747,9 +747,16 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   84,99). **Le train 8k n'est pas tenu à part** : `ceiling3.py` (cible proche) et `signmatch.py`/`pfd3.py` (gradient réel)
   tirent dans tout `D.xtr`, donc chaque tour gonfle la précision sur le train sans aider le test. La val (4050 images,
   bruit ~±0,15 sur un écart entre deux sets) bouge moins que son bruit. Set final à garder : **SZH2 (0,80801)**.
-- Pour la suite : retirer un bloc fixe du train (par ex. les 8192 de `exact_eval`) de tout ce que voient la cible et
-  le gradient réel, pour avoir une sélection propre sur ~12k images (val + bloc tenu à part). Sinon, les tours ne valent
-  plus la peine sur cette lignée.
+- Bruit : SZH2 et SZH3 diffèrent sur 91 images test sur 4050 (SZH1/SZH2 : 67), donc un écart de test entre deux sets
+  proches a un écart-type d'environ ±0,23 point. La baisse de SZH3 (−0,12) est elle-même dans le bruit.
+- **Bloc tenu à part (20/10, 02:50)** : `DD_HOLDOUT=k` dans `dd_lib.py` retire les k premières lignes de la permutation
+  seed 33 du train (les mêmes que le train 8k de `exact_eval`) de tout tirage de la distillation : `D.sample_train()`
+  dans `ceiling3.py` (cible proche), `signmatch.py` (coin + gradient réel) et `pfd3.py` (gradient réel, LS). Sans la
+  variable, mêmes tirages qu'avant (vérifié). `exact_eval.py` note alors `hold` (les k lignes) au lieu de `train8k`.
+  k = 4096 (22 % du train, classes équilibrées), pool de 14 804 images.
+- En cours : `runs/queue_SZK.sh 2`, deux tours hybrides depuis SZH2 avec `DD_HOLDOUT=4096`. Chaque tour note les
+  checkpoints it 60–160 sur val + hold (`runs/pooled_SZK.log`) et le tour suivant part du meilleur. Réserve : SZH2
+  a déjà vu le bloc pendant ses propres tours, donc seul le gain d'un tour SZK sur SZH2 est propre.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
