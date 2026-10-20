@@ -1,0 +1,3 @@
+{"set": "cache/sm_SZH1_best.pt", "val": 0.8457, "train8k": 0.8561, "pooled": 0.8526}
+{"set": "cache/sm_SZH2_best.pt", "val": 0.8474, "train8k": 0.8579, "pooled": 0.8544}
+done 01:22:39

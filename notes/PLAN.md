@@ -738,7 +738,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   84,61 ; hybride **84,22 / 85,79 / 85,27**. Même plateau poolé que SZH1 (85,29) par un autre chemin, val plus basse : pas
   soumis. Le `exact_acc` de signmatch.py (84,44 à l'it 140) diffère de `exact_eval` (84,22) : se fier à `exact_eval`,
   qui retombe sur l'officiel (84,35 et 84,57).
-- En cours (20/10 00:27) : 2ᵉ tour hybride depuis SZH1 (`runs/queue_SZH2.sh`), score poolé dans `runs/pooled_SZH2.log`.
+- 2ᵉ tour hybride depuis SZH1 (SZH2, it 120) : val 84,74 / train 8k 85,79 / poolé 85,44 (SZH1 relu au même moment :
+  84,57 / 85,61 / 85,26 ; le train 8k bouge de ±0,03 d'un appel à l'autre, la val non). Officiel seed 42 **84,74 %** (deux
+  runs identiques). Soumis le 20/10 à 01:30 : **0,80801** (+0,00024, test implicite 84,99 %). Le gain test (+0,05) est bien
+  plus petit que le gain val (+0,17) : on approche du plateau.
+- En cours (20/10 01:35) : 3ᵉ tour hybride depuis SZH2 (`runs/queue_SZH3.sh`, résultat dans `runs/pooled_SZH3.log`).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

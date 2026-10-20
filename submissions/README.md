@@ -141,3 +141,14 @@ SZH). We kept step 120 of the hybrid round: pooled 85.29 against 84.94 for the 6
     python src/export_synth.py cache/sm_SZH1_best.pt sets/n10_SZH1_224
 
 Official validation on seed 42: 84.57 (two runs, identical predictions). Kaggle test is about 84.94.
+
+## 2026-10-20_n10_224_hybrid2 (0.80801)
+
+A second hybrid round from the 0.80777 set, same settings (fresh near target from the end of its run, then sign
+matching + exact PFD, weight 3). We kept step 120: pooled 85.44 against 85.26 for the previous set (validation 84.74
+/ 84.57, 8,192 training images 85.79 / 85.61).
+
+    runs/loop_hybrid2.sh cache/sm_SZH1_best.pt $V SZH 2 2
+    python src/export_synth.py cache/sm_SZH2_best.pt sets/n10_SZH2_224
+
+Official validation on seed 42: 84.74 (two runs, identical predictions). Kaggle test is about 84.99.
