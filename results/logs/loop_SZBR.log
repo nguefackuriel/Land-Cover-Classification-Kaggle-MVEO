@@ -1,3 +1,4 @@
 round 1 start cache/pfd3_SZB_pfd_best.pt 22:33:04
 round 1 done: sm {"it": 140, "exact_acc": 0.836, "exact_score": 0.8011} | pf best 0.837 22:55:31
 round 2 start cache/pfd3_pf_SZBR1_best.pt 22:55:31
+round 2 done: sm {"it": 140, "exact_acc": 0.8336, "exact_score": 0.7999} | pf best 0.8383 23:31:26
