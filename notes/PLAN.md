@@ -787,6 +787,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   Leçon : la val est biaisée par la sélection en cours de lignée (meilleur checkpoint à chaque étape), le hold ne l'est
   pas. Pour comparer des lignées propres entre elles, utiliser le hold (ou val + hold), jamais la val seule.
   Le classement garde 0,80801 (2ᵉ, vinicius 0,80814).
+- **C2J1** (finie à 19:24, val / hold / poolé) : PFD 78,35 / 78,22 ; tour 1 83,01 / 83,03 ; tour 2 83,83 / 83,94 ;
+  hybride **84,44 / 84,45 / 84,45**. Hold un peu sous C2J0 (84,55). Les lignées médoïdes finissent vers 84,5 en hold,
+  donc vers 84,7 en test d'après C2J0 : sous SZH2 (84,99). C2J2 lancée à 19:24.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
