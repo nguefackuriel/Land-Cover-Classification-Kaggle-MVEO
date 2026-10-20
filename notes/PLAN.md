@@ -772,6 +772,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - **Piste 448 : échec.** Lignée S4 finie à 15:36 (`exact_eval`, val / hold / poolé) : PFD 81,48 / 81,88 / 81,68 ; tour 1
   83,23 / 84,08 / 83,66 ; tour 2 83,23 / 84,03 / 83,64 ; hybride **83,83 / 84,91 / 84,37**. En retrait d'environ 0,4–0,5
   point sur la lignée 224 SZB à chaque étape. Plus de pixels au-delà de 224 n'aide pas (le RRC réduit alors l'image).
+- **Usine 224 lancée le 20/10 à 16:22** (`runs/factory224.sh 0 3`, accord de l'utilisateur) : médoïdes c4j0..3 agrandis
+  en 224 (bicubique), une lignée complète chacune (`lineage2.sh`, PFD 400 it), `DD_HOLDOUT=4096`, ~2 h par lignée,
+  résultats dans `runs/lineage_C2J*.log`. C2J0 part de 39,1 %. Ne soumettre que si val + hold battent nettement SZH2.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
