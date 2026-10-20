@@ -761,6 +761,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   contre SZH2 84,74 / 86,13 / 85,44 (hold de SZH2 un peu optimiste, mais la val baisse aussi). Même allure que les tours
   SZH (chute à l'it 20, remontée), sans repasser au-dessus du départ. Lecture : les gains des tours SZH2/SZH3 étaient
   du bruit ou venaient du train vu. Tour 2 (depuis SZK1_it160) lancé à 12:58 pour confirmer.
+- Tour SZK2 (depuis SZK1_it160) : meilleur it 160, val 84,52 / hold 85,55 / poolé 85,04. Plat. **Les tours hybrides sont
+  au plateau sur la piste 224** quand on les mesure proprement. Set final : SZH2.
+- **Classement 20/10 13:51** : vinicius simm **0,80814** (soumis à 12:58), nous 0,80801. Écart 0,00013 = une seule image
+  test sur 4051 (si n=10, test 85,01 contre 84,99). Bien plus petit que le bruit entre deux sets proches (±0,23 point).
+- Pistes restantes avec un signal : (1) capacité en pixels (64 → 224 : plateau 84,35 → 84,7), donc **piste 448×448**
+  lancée à 13:53 (`runs/queue_S4.sh` : vues seed 42 en 448, SZH2 agrandi en bicubique comme départ, 36,2 % à l'it 0,
+  lignée complète avec `DD_HOLDOUT=4096`, ~4 h) ; (2) usine à lignées depuis d'autres départs (l'écart entre lignées,
+  ~0,6 point en 64, dépasse le gain d'un tour), sélection sur val + hold.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
