@@ -1,1 +1,6 @@
 start cache/init_c4j2_sz224.pt cache/views_n10_s42_sz224.pt 19:24:00
+{"set": "cache/pfd3_C2J2_pfd_best.pt", "val": 0.7988, "hold": 0.802, "pooled": 0.8004}
+{"set": "cache/pfd3_pf_C2J2R1_best.pt", "val": 0.8351, "hold": 0.8281, "pooled": 0.8316}
+{"set": "cache/pfd3_pf_C2J2R2_best.pt", "val": 0.8356, "hold": 0.8289, "pooled": 0.8322}
+{"set": "cache/sm_C2J2H1_best.pt", "val": 0.8449, "hold": 0.8374, "pooled": 0.8411}
+done 20:53:12

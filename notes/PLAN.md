@@ -790,6 +790,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - **C2J1** (finie à 19:24, val / hold / poolé) : PFD 78,35 / 78,22 ; tour 1 83,01 / 83,03 ; tour 2 83,83 / 83,94 ;
   hybride **84,44 / 84,45 / 84,45**. Hold un peu sous C2J0 (84,55). Les lignées médoïdes finissent vers 84,5 en hold,
   donc vers 84,7 en test d'après C2J0 : sous SZH2 (84,99). C2J2 lancée à 19:24.
+- **C2J2** (finie à 20:53) : PFD 79,88 / 80,20 ; tour 1 83,51 / 82,81 ; tour 2 83,56 / 82,89 ; hybride **84,49 / 83,74 /
+  84,11**. Hold le plus bas des trois. C2J3 lancée à 20:53.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

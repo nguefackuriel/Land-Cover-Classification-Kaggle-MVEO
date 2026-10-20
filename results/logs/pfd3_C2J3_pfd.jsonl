@@ -1,0 +1,2 @@
+{"it": 0, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.3632, "exact_score": 0.5647}
+{"it": 0, "K": 5, "window": 5, "real_loss_after_K": 1.8989, "tdist": 0.0, "T": 0.4467, "ls_mult": [], "sec": 8.38, "peak_gb": 9.5}
