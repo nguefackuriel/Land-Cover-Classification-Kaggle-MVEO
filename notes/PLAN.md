@@ -795,6 +795,16 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - **C2J3** (finie à 22:23) : PFD 80,40 / 80,62 ; tour 1 83,60 / 83,11 ; tour 2 83,65 / 83,18 ; hybride **84,74 / 84,40 /
   84,57**. Bilan des 4 médoïdes en hold : 84,55 / 84,45 / 83,74 / 84,40, moyenne 84,29. C2J0 reste le meilleur ; aucune
   lignée ne dépasse SZH2 (test 84,99). Les deux tours en plus sur C2J0 ont démarré à 22:23.
+- **Tours en plus sur C2J0** (finis à 23:16, ~27 min par tour, meilleur checkpoint en val + hold) : départ C2J0H1
+  85,06 / 84,47 / 84,77 (réévalué) ; tour 2 it140 **85,43 / 85,11 / 85,27** ; tour 3 it140 **85,60 / 85,23 / 85,42**.
+  Le hold propre monte de +0,76 en deux tours (+0,64 puis +0,12). En tour 3, it120..160 sont tous à ≥ 85,18 en hold :
+  c'est un vrai décalage, pas un seul checkpoint chanceux. Il reste un léger biais de sélection, car le choix se fait
+  aussi sur le hold.
+- Officiel seed 42 de C2J0H3 it140 : **85,60 %** (deux runs identiques), archivé `work/submissions/n10_C2J0H3_224_*`,
+  pas soumis. Test : 147 / 4050 prédictions diffèrent de C2J0H1, 643 de SZH2. Estimation : test ≈ 84,72 + 0,76 ≈ 85,5,
+  moins le biais de sélection, soit ~85,3 ± 0,4. Ça donnerait un score ~0,8096, au-dessus de vinicius (0,80814 = test 85,01).
+- Tours 4 et 5 lancés à 23:20 (`runs/queue_C2J0H.sh cache/sm_C2J0H3_it140.pt 4 5`, le script prend maintenant le set de
+  départ et les tours en arguments), pour voir si le hold continue de monter.
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
