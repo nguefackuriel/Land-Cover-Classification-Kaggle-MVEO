@@ -749,7 +749,7 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   bruit ~±0,15 sur un écart entre deux sets) bouge moins que son bruit. Set final à garder : **SZH2 (0,80801)**.
 - Bruit : SZH2 et SZH3 diffèrent sur 91 images test sur 4050 (SZH1/SZH2 : 67), donc un écart de test entre deux sets
   proches a un écart-type d'environ ±0,23 point. La baisse de SZH3 (−0,12) est elle-même dans le bruit.
-- **Bloc tenu à part (20/10, 02:50)** : `DD_HOLDOUT=k` dans `dd_lib.py` retire les k premières lignes de la permutation
+- **Bloc tenu à part (20/10, 12:09)** : `DD_HOLDOUT=k` dans `dd_lib.py` retire les k premières lignes de la permutation
   seed 33 du train (les mêmes que le train 8k de `exact_eval`) de tout tirage de la distillation : `D.sample_train()`
   dans `ceiling3.py` (cible proche), `signmatch.py` (coin + gradient réel) et `pfd3.py` (gradient réel, LS). Sans la
   variable, mêmes tirages qu'avant (vérifié). `exact_eval.py` note alors `hold` (les k lignes) au lieu de `train8k`.
@@ -757,6 +757,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - En cours : `runs/queue_SZK.sh 2`, deux tours hybrides depuis SZH2 avec `DD_HOLDOUT=4096`. Chaque tour note les
   checkpoints it 60–160 sur val + hold (`runs/pooled_SZK.log`) et le tour suivant part du meilleur. Réserve : SZH2
   a déjà vu le bloc pendant ses propres tours, donc seul le gain d'un tour SZK sur SZH2 est propre.
+- Tour SZK1 (12:09–12:55) : aucun checkpoint ne bat SZH2. Meilleur it 160 : val 84,42 / hold 85,64 / poolé 85,04,
+  contre SZH2 84,74 / 86,13 / 85,44 (hold de SZH2 un peu optimiste, mais la val baisse aussi). Même allure que les tours
+  SZH (chute à l'it 20, remontée), sans repasser au-dessus du départ. Lecture : les gains des tours SZH2/SZH3 étaient
+  du bruit ou venaient du train vu. Tour 2 (depuis SZK1_it160) lancé à 12:58 pour confirmer.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

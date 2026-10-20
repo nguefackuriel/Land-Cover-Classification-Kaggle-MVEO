@@ -1,0 +1,8 @@
+{"set": "cache/sm_SZH2_best.pt", "val": 0.8474, "hold": 0.8613, "pooled": 0.8544}
+{"set": "cache/sm_SZK1_it60.pt", "val": 0.8385, "hold": 0.8486, "pooled": 0.8436}
+{"set": "cache/sm_SZK1_it80.pt", "val": 0.8383, "hold": 0.8508, "pooled": 0.8446}
+{"set": "cache/sm_SZK1_it100.pt", "val": 0.8437, "hold": 0.8555, "pooled": 0.8496}
+{"set": "cache/sm_SZK1_it120.pt", "val": 0.8442, "hold": 0.8562, "pooled": 0.8502}
+{"set": "cache/sm_SZK1_it140.pt", "val": 0.8432, "hold": 0.8545, "pooled": 0.8489}
+{"set": "cache/sm_SZK1_it160.pt", "val": 0.8442, "hold": 0.8564, "pooled": 0.8504}
+round 1 best cache/sm_SZK1_it160.pt 12:58:45
