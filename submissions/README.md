@@ -152,3 +152,16 @@ matching + exact PFD, weight 3). We kept step 120: pooled 85.44 against 85.26 fo
     python src/export_synth.py cache/sm_SZH2_best.pt sets/n10_SZH2_224
 
 Official validation on seed 42: 84.74 (two runs, identical predictions). Kaggle test is about 84.99.
+
+## 2026-10-20_n10_224_hybrid3 (0.80740, worse than the set before)
+
+A third hybrid round from the 0.80801 set, same settings, step 160. Validation 84.81 against 84.74 and 8,192
+training images 86.18 against 85.75, but Kaggle went down (test about 84.86 against 84.99). The 8,192 training
+images are not held out: the near target and the real-data gradient of the hybrid both sample the whole train
+split, so each round pushes accuracy on train up without helping test. Validation alone moved by less than its
+noise. We keep the 0.80801 set as the final one.
+
+    runs/loop_hybrid2.sh cache/sm_SZH2_best.pt $V SZH 3 3
+    python src/export_synth.py cache/sm_SZH3_best.pt sets/n10_SZH3_224
+
+Official validation on seed 42: 84.81 (two runs, identical predictions).

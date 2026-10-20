@@ -742,7 +742,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   84,57 / 85,61 / 85,26 ; le train 8k bouge de ±0,03 d'un appel à l'autre, la val non). Officiel seed 42 **84,74 %** (deux
   runs identiques). Soumis le 20/10 à 01:30 : **0,80801** (+0,00024, test implicite 84,99 %). Le gain test (+0,05) est bien
   plus petit que le gain val (+0,17) : on approche du plateau.
-- En cours (20/10 01:35) : 3ᵉ tour hybride depuis SZH2 (`runs/queue_SZH3.sh`, résultat dans `runs/pooled_SZH3.log`).
+- 3ᵉ tour hybride depuis SZH2 (SZH3, it 160) : val 84,81 / train 8k 86,18 / poolé 85,73 (SZH2 : 84,74 / 85,75 / 85,42).
+  Officiel 84,81 (identique deux fois). Soumis le 20/10 vers 02:35 : **0,80740**, en baisse (test implicite 84,86 contre
+  84,99). **Le train 8k n'est pas tenu à part** : `ceiling3.py` (cible proche) et `signmatch.py`/`pfd3.py` (gradient réel)
+  tirent dans tout `D.xtr`, donc chaque tour gonfle la précision sur le train sans aider le test. La val (4050 images,
+  bruit ~±0,15 sur un écart entre deux sets) bouge moins que son bruit. Set final à garder : **SZH2 (0,80801)**.
+- Pour la suite : retirer un bloc fixe du train (par ex. les 8192 de `exact_eval`) de tout ce que voient la cible et
+  le gradient réel, pour avoir une sélection propre sur ~12k images (val + bloc tenu à part). Sinon, les tours ne valent
+  plus la peine sur cette lignée.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
