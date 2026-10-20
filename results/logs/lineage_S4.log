@@ -1,1 +1,6 @@
 start cache/init_SZH2_sz448.pt cache/views_n10_s42_sz448.pt 13:53:29
+{"set": "cache/pfd3_S4_pfd_best.pt", "val": 0.8148, "hold": 0.8188, "pooled": 0.8168}
+{"set": "cache/pfd3_pf_S4R1_best.pt", "val": 0.8323, "hold": 0.8408, "pooled": 0.8366}
+{"set": "cache/pfd3_pf_S4R2_best.pt", "val": 0.8323, "hold": 0.8403, "pooled": 0.8364}
+{"set": "cache/sm_S4H1_best.pt", "val": 0.8383, "hold": 0.8491, "pooled": 0.8437}
+done 15:36:00

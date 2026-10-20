@@ -769,6 +769,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   lancée à 13:53 (`runs/queue_S4.sh` : vues seed 42 en 448, SZH2 agrandi en bicubique comme départ, 36,2 % à l'it 0,
   lignée complète avec `DD_HOLDOUT=4096`, ~4 h) ; (2) usine à lignées depuis d'autres départs (l'écart entre lignées,
   ~0,6 point en 64, dépasse le gain d'un tour), sélection sur val + hold.
+- **Piste 448 : échec.** Lignée S4 finie à 15:36 (`exact_eval`, val / hold / poolé) : PFD 81,48 / 81,88 / 81,68 ; tour 1
+  83,23 / 84,08 / 83,66 ; tour 2 83,23 / 84,03 / 83,64 ; hybride **83,83 / 84,91 / 84,37**. En retrait d'environ 0,4–0,5
+  point sur la lignée 224 SZB à chaque étape. Plus de pixels au-delà de 224 n'aide pas (le RRC réduit alors l'image).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
