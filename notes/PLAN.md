@@ -792,6 +792,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   donc vers 84,7 en test d'après C2J0 : sous SZH2 (84,99). C2J2 lancée à 19:24.
 - **C2J2** (finie à 20:53) : PFD 79,88 / 80,20 ; tour 1 83,51 / 82,81 ; tour 2 83,56 / 82,89 ; hybride **84,49 / 83,74 /
   84,11**. Hold le plus bas des trois. C2J3 lancée à 20:53.
+- En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
+  `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
+  de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
