@@ -733,8 +733,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   seed 42 **84,57 %** (deux runs, prédictions identiques). Précision poolée 85,29 contre 84,94 pour le set soumis (val
   84,57 / 84,35, train 8k 85,64 / 85,23). Soumis le 19/10 à 23:05 avec l'accord de l'utilisateur (PNG 224×224) :
   **0,80777**, 1ᵉʳ (+0,0021). Test implicite 84,94 %. Archive `work/submissions/n10_SZH1_224_*`.
-- En cours : lignée 224 SZB (depuis le set 64 à 84,35 agrandi, 39,7 % au départ sur la trajectoire 224, PFD exact
-  82,12, tour 1 sign matching 83,60, puis polish, tour 2 et hybride).
+- Lignée 224 SZB (depuis le set 64 à 84,35 agrandi, 39,7 % au départ sur la trajectoire 224), finie le 20/10 à 00:26.
+  `exact_eval` (val / train 8k / poolé) : PFD 82,15 / 83,44 / 83,01 ; tour 1 83,65 / 85,07 / 84,60 ; tour 2 83,60 / 85,11 /
+  84,61 ; hybride **84,22 / 85,79 / 85,27**. Même plateau poolé que SZH1 (85,29) par un autre chemin, val plus basse : pas
+  soumis. Le `exact_acc` de signmatch.py (84,44 à l'it 140) diffère de `exact_eval` (84,22) : se fier à `exact_eval`,
+  qui retombe sur l'officiel (84,35 et 84,57).
+- En cours (20/10 00:27) : 2ᵉ tour hybride depuis SZH1 (`runs/queue_SZH2.sh`), score poolé dans `runs/pooled_SZH2.log`.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

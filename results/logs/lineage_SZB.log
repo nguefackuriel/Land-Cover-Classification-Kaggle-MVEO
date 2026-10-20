@@ -1,1 +1,6 @@
 start cache/init_hyb3_sz224.pt cache/views_n10_s42_sz224.pt 21:33:57
+{"set": "cache/pfd3_SZB_pfd_best.pt", "val": 0.8215, "train8k": 0.8344, "pooled": 0.8301}
+{"set": "cache/pfd3_pf_SZBR1_best.pt", "val": 0.8365, "train8k": 0.8507, "pooled": 0.846}
+{"set": "cache/pfd3_pf_SZBR2_best.pt", "val": 0.836, "train8k": 0.8511, "pooled": 0.8461}
+{"set": "cache/sm_SZBH1_best.pt", "val": 0.8422, "train8k": 0.8579, "pooled": 0.8527}
+done 00:26:46
