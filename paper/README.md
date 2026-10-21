@@ -18,5 +18,6 @@ Compile (any LaTeX distribution with `IEEEtran`; we used [tectonic](https://tect
 (rows of `inits/medoids_n10.pt` and `inits/medoids_n120.pt` in `data/train.csv`), so the figure script does not
 need PyTorch.
 
-Still to do: a final pass once the challenge is over (final leaderboard, answer of the organizers about the
-evaluation seed).
+Status (21 October 2026): the draft covers the 120-image sets for all seeds, exact unrolling on the seed-42 run,
+sign matching, the 224x224 sets, the held-out block used for selection and the serial rounds. Still to do: a final
+pass once the challenge is over (final leaderboard, results of the lineage screen still running).

@@ -850,6 +850,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   C8J1, avec des médoïdes k-means à 8 clusters (seed 1) pris seulement dans le pool (`make_inits.py`, aucune ligne
   du hold ; `kmeans_medoids` prend maintenant `rows`). Ensuite, tours 6 à 9 sur le meilleur après le tour 5. Durée
   ~10 h (fin vers 05:30).
+- **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
+  refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
+  hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
+  checkpoints, tours en série avec la figure `rounds.pdf`, ce qui n'a pas aidé à n=10) ; tableau des 15 soumissions ;
+  discussion et conclusion. Autres seeds du meilleur set C2J0H7 (officiel) : 42,42 / 50,27 / 47,53 / 37,93 / 38,64,
+  moyenne 43,36 (contre 86,44 au seed 42 ; runs `work/runs/off_n10_C2J0H7_s*`).
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.

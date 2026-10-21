@@ -133,7 +133,7 @@ def fig_seeds():
     axs[0].set_xticks(range(6)); axs[0].set_xticklabels([str(s) for s in seeds])
     axs[0].set_ylim(84, 92); axs[0].set_xlabel('seed of baseline.py'); axs[0].set_ylabel('validation accuracy (%)')
     axs[0].set_title('$n = 120$, built for all seeds', fontsize=8)
-    axs[0].legend(frameon=False, ncol=3, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
+    axs[0].legend(frameon=False, ncol=2, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
     head = [best_val('off_n10_head42b_it400_s42')] + [best_val(f'off_n10_head42b_it400_s{s}') for s in (0, 1, 2)] + [None, None]
     exact = [best_val('off_n10_exact_s2_it280_s42')] + [best_val(f'off_final_n10_s{s}') for s in (0, 1, 2, 3, 4)]
     best = [best_val('sub_n10_C2J0H7_224')] + [best_val(f'off_n10_C2J0H7_s{s}') for s in (0, 1, 2, 3, 4)]
@@ -145,7 +145,7 @@ def fig_seeds():
     axs[1].set_xticks(range(6)); axs[1].set_xticklabels([str(s) for s in seeds])
     axs[1].set_ylim(30, 90); axs[1].set_xlabel('seed of baseline.py')
     axs[1].set_title('$n = 10$, built for the seed-42 run', fontsize=8)
-    axs[1].legend(frameon=False, ncol=3, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
+    axs[1].legend(frameon=False, ncol=2, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
     fig.tight_layout(w_pad=1.0)
     fig.savefig(OUT / 'per_seed.pdf'); plt.close(fig)
 
