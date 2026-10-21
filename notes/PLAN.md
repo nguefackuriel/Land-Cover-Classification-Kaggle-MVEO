@@ -816,6 +816,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - **C2J0H5 soumis le 21/10 à 12:09 (accord de l'utilisateur) : 0,81184, 1er** (vinicius 0,80814, écart +0,0037).
   Test implicite 85,75, soit +0,71 sur C2J0H3 pour +0,59 en hold. Cette fois, le test suit le hold, et même un
   peu plus. Avec C2J0H3 (+0,32 pour +0,76), on retient : test ≈ gain en hold, à ±0,4 près. Les tours en plus aident.
+- **Tours 6 et 7** (finis à 12:57) : tour 6 it160 86,27 / 85,86 / 86,07 ; tour 7 it160 **86,44 / 86,23 / 86,34**.
+  Gains en hold : +0,07 puis +0,37. Aux deux tours, le meilleur checkpoint est le dernier (it160) : des tours plus
+  longs aideraient peut-être. Officiel seed 42 de C2J0H7 : **86,44 %** (deux runs identiques), archivé
+  `work/submissions/n10_C2J0H7_224_*`, pas soumis. Test : 89 / 4050 prédictions diffèrent de C2J0H5. Test attendu
+  ~85,75 + 0,4 ≈ 86,1 (score ~0,8135). Tours 8 et 9 démarrés à 13:00 (`runs/queue_C2J0H89.out`).
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
