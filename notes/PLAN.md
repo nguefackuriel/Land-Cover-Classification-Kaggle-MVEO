@@ -838,7 +838,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   84,63 ; tour 3 it100 84,99 / 84,62 / 84,80. Monte plus lentement que C2J0 (85,23 en hold après le tour 3).
   Tour 4 it100 85,11 / 84,74 / 84,93 (réévalué 84,55 en hold) ; tour 5 it140 85,09 / 84,91 / 85,00. Environ +0,15
   en hold par tour. Attention : `exact_eval` donne jusqu'à 0,2 d'écart en hold quand on réévalue le même set.
-  Tour 6 it160 85,26 / 84,96 / 85,11 ; tour 7 it100 85,26 / 85,13 / 85,20. Tours 8 et 9 en cours (fin ~18:55).
+  Tour 6 it160 85,26 / 84,96 / 85,11 ; tour 7 it100 85,26 / 85,13 / 85,20 ; tour 8 it140 85,16 / 85,13 / 85,15 ;
+  tour 9 it160 85,26 / 85,03 / 85,15. **Plateau vers 85,1–85,2 en hold** dès le tour 7 (fini à 18:50).
+- Bilan des deux lignées propres avec 8 tours en série : C2J0 84,47 → 86,2 en hold (+1,7, test 84,72 → 86,10),
+  C2J3 84,35 → 85,15 (+0,8). Les tours aident toujours, mais le plafond dépend beaucoup de la lignée (1 point
+  d'écart). Pas de meilleur set que C2J0H7.
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
