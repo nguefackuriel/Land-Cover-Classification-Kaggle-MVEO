@@ -1,0 +1,31 @@
+{"it": 0, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8316, "exact_score": 0.7989}
+{"it": 0, "K": 5, "window": 5, "real_loss_after_K": 0.4713, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 7.75, "peak_gb": 9.5}
+{"it": 5, "K": 5, "window": 5, "real_loss_after_K": 0.4961, "tdist": 0.0, "T": 0.1189, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 10, "K": 5, "window": 5, "real_loss_after_K": 0.4724, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.49, "peak_gb": 9.5}
+{"it": 15, "K": 5, "window": 5, "real_loss_after_K": 0.4624, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 20, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8304, "exact_score": 0.7983}
+{"it": 20, "K": 5, "window": 5, "real_loss_after_K": 0.472, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 25, "K": 5, "window": 5, "real_loss_after_K": 0.4927, "tdist": 0.0, "T": 0.1259, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 30, "K": 5, "window": 5, "real_loss_after_K": 0.4774, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.47, "peak_gb": 9.5}
+{"it": 35, "K": 5, "window": 5, "real_loss_after_K": 0.4551, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.49, "peak_gb": 9.5}
+{"it": 40, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8294, "exact_score": 0.7978}
+{"it": 40, "K": 5, "window": 5, "real_loss_after_K": 0.4741, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.47, "peak_gb": 9.5}
+{"it": 45, "K": 5, "window": 5, "real_loss_after_K": 0.5021, "tdist": 0.0, "T": 0.1259, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 50, "K": 5, "window": 5, "real_loss_after_K": 0.4786, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 55, "K": 5, "window": 5, "real_loss_after_K": 0.4516, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 60, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8326, "exact_score": 0.7994}
+{"it": 60, "K": 5, "window": 5, "real_loss_after_K": 0.4643, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.53, "peak_gb": 9.5}
+{"it": 65, "K": 5, "window": 5, "real_loss_after_K": 0.4872, "tdist": 0.0, "T": 0.1259, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 70, "K": 5, "window": 5, "real_loss_after_K": 0.471, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.47, "peak_gb": 9.5}
+{"it": 75, "K": 5, "window": 5, "real_loss_after_K": 0.4464, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.56, "peak_gb": 9.5}
+{"it": 80, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8314, "exact_score": 0.7988}
+{"it": 80, "K": 5, "window": 5, "real_loss_after_K": 0.4642, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.48, "peak_gb": 9.5}
+{"it": 85, "K": 5, "window": 5, "real_loss_after_K": 0.487, "tdist": 0.0, "T": 0.1259, "ls_mult": [], "sec": 3.47, "peak_gb": 9.5}
+{"it": 90, "K": 5, "window": 5, "real_loss_after_K": 0.4697, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.47, "peak_gb": 9.5}
+{"it": 95, "K": 5, "window": 5, "real_loss_after_K": 0.4428, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.53, "peak_gb": 9.5}
+{"it": 100, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8343, "exact_score": 0.8002}
+{"it": 100, "K": 5, "window": 5, "real_loss_after_K": 0.4606, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.55, "peak_gb": 9.5}
+{"it": 105, "K": 5, "window": 5, "real_loss_after_K": 0.4792, "tdist": 0.0, "T": 0.1189, "ls_mult": [], "sec": 3.53, "peak_gb": 9.5}
+{"it": 110, "K": 5, "window": 5, "real_loss_after_K": 0.4655, "tdist": 0.0, "T": 0.1122, "ls_mult": [], "sec": 3.72, "peak_gb": 9.5}
+{"it": 115, "K": 5, "window": 5, "real_loss_after_K": 0.4433, "tdist": 0.0, "T": 0.1059, "ls_mult": [], "sec": 3.53, "peak_gb": 9.5}
+{"it": 120, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8346, "exact_score": 0.8004}
