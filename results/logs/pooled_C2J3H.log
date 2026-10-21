@@ -1,0 +1,16 @@
+{"set": "cache/sm_C2J3H1_best.pt", "val": 0.8474, "hold": 0.8435, "pooled": 0.8454}
+{"set": "cache/sm_C2J3H2_it60.pt", "val": 0.842, "hold": 0.834, "pooled": 0.838}
+{"set": "cache/sm_C2J3H2_it80.pt", "val": 0.843, "hold": 0.8384, "pooled": 0.8407}
+{"set": "cache/sm_C2J3H2_it100.pt", "val": 0.8432, "hold": 0.8445, "pooled": 0.8438}
+{"set": "cache/sm_C2J3H2_it120.pt", "val": 0.8474, "hold": 0.8438, "pooled": 0.8456}
+{"set": "cache/sm_C2J3H2_it140.pt", "val": 0.8479, "hold": 0.844, "pooled": 0.8459}
+{"set": "cache/sm_C2J3H2_it160.pt", "val": 0.8491, "hold": 0.8435, "pooled": 0.8463}
+round 2 best cache/sm_C2J3H2_it160.pt 15:39:21
+{"set": "cache/sm_C2J3H2_it160.pt", "val": 0.8491, "hold": 0.8438, "pooled": 0.8464}
+{"set": "cache/sm_C2J3H3_it60.pt", "val": 0.8402, "hold": 0.8362, "pooled": 0.8382}
+{"set": "cache/sm_C2J3H3_it80.pt", "val": 0.8474, "hold": 0.8435, "pooled": 0.8454}
+{"set": "cache/sm_C2J3H3_it100.pt", "val": 0.8499, "hold": 0.8462, "pooled": 0.848}
+{"set": "cache/sm_C2J3H3_it120.pt", "val": 0.8486, "hold": 0.8462, "pooled": 0.8474}
+{"set": "cache/sm_C2J3H3_it140.pt", "val": 0.8454, "hold": 0.8464, "pooled": 0.8459}
+{"set": "cache/sm_C2J3H3_it160.pt", "val": 0.8491, "hold": 0.8462, "pooled": 0.8477}
+round 3 best cache/sm_C2J3H3_it100.pt 16:08:38

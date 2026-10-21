@@ -834,6 +834,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   lignée). But : voir si une deuxième lignée propre monte aussi vers 86 en hold (résultat pour le papier, et
   peut-être un meilleur set). Un job QA tourne en même temps sur le GPU (57 Go), donc les tours seront plus lents.
 - Le 21/10 à 14:43, vinicius passe à 0,80950 (+0,00136). On reste 1ers avec 0,81357 (écart 0,0041, ~33 images de test).
+- **C2J3, tours en série** (val / hold / poolé du meilleur) : départ 84,74 / 84,35 / 84,54 ; tour 2 it160 84,91 / 84,35 /
+  84,63 ; tour 3 it100 84,99 / 84,62 / 84,80. Monte plus lentement que C2J0 (85,23 en hold après le tour 3).
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
