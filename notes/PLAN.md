@@ -843,6 +843,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - Bilan des deux lignées propres avec 8 tours en série : C2J0 84,47 → 86,2 en hold (+1,7, test 84,72 → 86,10),
   C2J3 84,35 → 85,15 (+0,8). Les tours aident toujours, mais le plafond dépend beaucoup de la lignée (1 point
   d'écart). Pas de meilleur set que C2J0H7.
+- **Criblage de lignées lancé le 21/10 à 19:21** (accord de l'utilisateur, `runs/screen224.sh`, progrès dans
+  `runs/screen224.log`). Comme le plafond dépend de la lignée et que le hold de départ ne le prédit pas (C2J0 et
+  C2J3 partaient de 84,4–84,5), on juge chaque candidat sur ses tours 2 à 5. À titre de repère, C2J0 était à 85,94
+  en poolé et C2J3 à 85,00 après le tour 5. Candidats : C2J1 (lignée déjà faite), puis deux nouvelles lignées C8J0 et
+  C8J1, avec des médoïdes k-means à 8 clusters (seed 1) pris seulement dans le pool (`make_inits.py`, aucune ligne
+  du hold ; `kmeans_medoids` prend maintenant `rows`). Ensuite, tours 6 à 9 sur le meilleur après le tour 5. Durée
+  ~10 h (fin vers 05:30).
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.

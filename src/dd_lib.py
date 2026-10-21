@@ -72,11 +72,15 @@ def load_set(path):
 def as_x01(idx):
     return xtr[idx].permute(0, 3, 1, 2).float().div(255), ytr[idx]
 
-def kmeans_medoids(f, per_class, iters=50, seed=0):
-    """per_class: list of 10 counts. k-means (cosine) per class, return the real image nearest each centroid."""
+def kmeans_medoids(f, per_class, iters=50, seed=0, rows=None):
+    """per_class: list of 10 counts. k-means (cosine) per class, return the real image nearest each centroid.
+    rows: only these train rows are used (e.g. POOL, to keep the held-out rows out)."""
     g = torch.Generator().manual_seed(seed); sel = []
     for c in range(10):
-        k = per_class[c]; ids = (ytr == c).nonzero().squeeze(1); fc = f[ids]
+        k = per_class[c]; ids = (ytr == c).nonzero().squeeze(1)
+        if rows is not None:
+            ids = ids[torch.isin(ids, rows)]
+        fc = f[ids]
         cent = fc[torch.randperm(len(fc), generator=g)[:k]].clone()
         for _ in range(iters):
             a = (fc @ cent.T).argmax(1)
