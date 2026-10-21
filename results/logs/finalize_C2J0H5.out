@@ -2,3 +2,5 @@
   d = torch.load(src)
 10 images -> sets/n10_C2J0H5_224 (from it=140, accs=None)
 {"file": "/home/ubuntu/Uriel/data_centric/work/submissions/n10_C2J0H5_224.csv", "n": 10, "val_per_epoch": [0.1681, 0.3933, 0.7316, 0.8469, 0.8607], "best_val": 0.8607}
+RECHECK identical predictions
+archived submissions/n10_C2J0H5_224_images
