@@ -850,6 +850,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   C8J1, avec des médoïdes k-means à 8 clusters (seed 1) pris seulement dans le pool (`make_inits.py`, aucune ligne
   du hold ; `kmeans_medoids` prend maintenant `rows`). Ensuite, tours 6 à 9 sur le meilleur après le tour 5. Durée
   ~10 h (fin vers 05:30).
+  C2J1 (val / hold / poolé du meilleur) : départ 84,44 / 84,45 ; tour 2 it120 84,42 / 84,91 / 84,67 ; tour 3 it160
+  84,67 / 84,86 / 84,77 ; tour 4 it160 84,84 / 85,21 / 85,02 ; tour 5 it160 **85,09 / 85,42 / 85,26** (fini à
+  21:13). Entre C2J3 (85,00) et C2J0 (85,94). Lignée C8J0 lancée à 21:13.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
