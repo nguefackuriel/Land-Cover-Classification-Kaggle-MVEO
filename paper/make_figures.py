@@ -136,13 +136,16 @@ def fig_seeds():
     axs[0].legend(frameon=False, ncol=3, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
     head = [best_val('off_n10_head42b_it400_s42')] + [best_val(f'off_n10_head42b_it400_s{s}') for s in (0, 1, 2)] + [None, None]
     exact = [best_val('off_n10_exact_s2_it280_s42')] + [best_val(f'off_final_n10_s{s}') for s in (0, 1, 2, 3, 4)]
-    for k, (lab, vals, c) in enumerate([('seed-42 head', head, 'C4'), ('exact seed-42 run', exact, 'C3')]):
-        xs = [i + (k - 0.5) * 0.36 for i, v in enumerate(vals) if v is not None]
-        axs[1].bar(xs, [100 * v for v in vals if v is not None], 0.36, color=c, label=lab)
+    best = [best_val('sub_n10_C2J0H7_224')] + [best_val(f'off_n10_C2J0H7_s{s}') for s in (0, 1, 2, 3, 4)]
+    w = 0.27
+    for k, (lab, vals, c) in enumerate([('seed-42 head', head, 'C4'), ('exact seed-42 run', exact, 'C3'),
+                                        ('best set, 224 px', best, 'C2')]):
+        xs = [i + (k - 1) * w for i, v in enumerate(vals) if v is not None]
+        axs[1].bar(xs, [100 * v for v in vals if v is not None], w, color=c, label=lab)
     axs[1].set_xticks(range(6)); axs[1].set_xticklabels([str(s) for s in seeds])
-    axs[1].set_ylim(35, 85); axs[1].set_xlabel('seed of baseline.py')
+    axs[1].set_ylim(30, 90); axs[1].set_xlabel('seed of baseline.py')
     axs[1].set_title('$n = 10$, built for the seed-42 run', fontsize=8)
-    axs[1].legend(frameon=False, ncol=2, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
+    axs[1].legend(frameon=False, ncol=3, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
     fig.tight_layout(w_pad=1.0)
     fig.savefig(OUT / 'per_seed.pdf'); plt.close(fig)
 
@@ -240,8 +243,36 @@ def fig_steps():
     fig.savefig(OUT / 'step_size.pdf'); plt.close(fig)
 
 
+# ---------------------------------------------------------------- Fig. 8: serial rounds with held-out rows
+def round_curve(lineage):
+    """(round, val, hold) of the set kept after each hybrid round: round 1 from the lineage log, rounds 2.. from the
+    checkpoint with the best val + held-out mean of each round (first row of each pooled log is the start set)."""
+    h1 = [r for r in jsonl(f'lineage_{lineage}.log') if 'hold' in r][-1]
+    pts = [(1, 100 * h1['val'], 100 * h1['hold'])]
+    r = 2
+    while (LOGS / f'pooled_{lineage}H{r}.log').exists():
+        b = max(jsonl(f'pooled_{lineage}H{r}.log')[1:], key=lambda d: d['pooled'])
+        pts.append((r, 100 * b['val'], 100 * b['hold'])); r += 1
+    return pts
+
+
+def fig_rounds():
+    fig, ax = plt.subplots(figsize=(ONE, 2.5))
+    for lin, c in [('C2J0', 'C3'), ('C2J3', 'C0')]:
+        pts = round_curve(lin)
+        ax.plot([p[0] for p in pts], [p[2] for p in pts], 'o-', ms=3, color=c, label=f'lineage {lin[-1]}: held-out rows')
+        ax.plot([p[0] for p in pts], [p[1] for p in pts], ':', color=c, lw=0.9, label=f'lineage {lin[-1]}: validation')
+    subs = {s['name']: s['score'] for s in json.load(open('tools/submissions.json'))}
+    test = [(r, 200 * (subs[f'n10_C2J0H{r}_224'] - SIZE(10))) for r in (1, 3, 5, 7)]
+    ax.plot([t[0] for t in test], [t[1] for t in test], 'k*', ms=7, label='lineage 0: Kaggle test')
+    ax.set_xlabel('hybrid round'); ax.set_ylabel('accuracy (%)')
+    ax.set_xticks(range(1, 10))
+    ax.legend(frameon=False, fontsize=6, ncol=2, loc='upper center', bbox_to_anchor=(0.5, -0.2))
+    fig.savefig(OUT / 'rounds.pdf'); plt.close(fig)
+
+
 if __name__ == '__main__':
-    for f in [fig_score, fig_frontier, fig_curves120, fig_seeds, fig_images, fig_seed42, fig_steps]:
+    for f in [fig_score, fig_frontier, fig_curves120, fig_seeds, fig_images, fig_seed42, fig_steps, fig_rounds]:
         try:
             f(); print('ok', f.__name__)
         except Exception as e:          # keep going: some logs may be missing while runs are in progress

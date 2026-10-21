@@ -1,0 +1,7 @@
+Device: cuda; train=10, validation=4050
+{"epoch": 1, "train_loss": 2.330786943435669, "validation_accuracy": 0.19753086419753085}
+{"epoch": 2, "train_loss": 1.760495901107788, "validation_accuracy": 0.2967901234567901}
+{"epoch": 3, "train_loss": 1.467419981956482, "validation_accuracy": 0.3562962962962963}
+{"epoch": 4, "train_loss": 1.300710678100586, "validation_accuracy": 0.37925925925925924}
+{"epoch": 5, "train_loss": 1.1232903003692627, "validation_accuracy": 0.38641975308641974}
+Wrote 4,050 predictions to runs/seeds_C2J0H7_s4/submission.csv
