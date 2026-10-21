@@ -26,7 +26,8 @@ All validation numbers below come from the unmodified `baseline.py`. Kaggle scor
 | 19 Oct | 10 | sign matching toward a reachable network, 3 rounds, each followed by PFD | 83.88 | not measured | 0.80357 |
 | 19 Oct | 10 | same, then sign matching and the PFD gradient together | 84.35 | not measured | 0.80567 |
 | 20 Oct | 10 | same method on 224x224 images, two combined rounds | 84.74 | not measured | 0.80801 |
-| 21 Oct | 10 | 224x224, from k-means medoids, three combined rounds, 4,096 train rows held out | **85.60** | not measured | **0.80826** |
+| 21 Oct | 10 | 224x224, from k-means medoids, three combined rounds, 4,096 train rows held out | 85.60 | not measured | 0.80826 |
+| 21 Oct | 10 | same, five combined rounds | **86.07** | not measured | **0.81184** |
 
 "Val, other seeds" means `baseline.py --seed s` for other values of `s`. For the 120-image sets it is the mean over
 seeds 42 and 0 to 4. The last three sets are tuned to the run that `baseline.py` makes with its default settings, so

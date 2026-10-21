@@ -180,7 +180,7 @@ for the 0.80801 set. Held-out train rows: 84.55. Kaggle test is about 84.72, clo
 validation. Its test predictions differ from the 0.80801 set on 639 of 4,050 images, so a validation gap of 0.3
 between two lineages says little.
 
-## 2026-10-21_n10_224_medoid_lineage_r3 (0.80826, best so far)
+## 2026-10-21_n10_224_medoid_lineage_r3 (0.80826)
 
 The medoid lineage above (C2J0) with two more combined rounds, still with the same 4,096 train rows held out. After
 each round we keep the checkpoint (iteration 60 to 160) with the best mean of validation and held-out accuracy, and
@@ -193,3 +193,14 @@ Held-out train rows: 84.47 at the start, 85.11 after round 2, 85.23 after round 
 85.60 (two runs, identical predictions). Kaggle test is about 85.04, up 0.32 from the start set. The held-out gain
 was 0.76, so part of it comes from picking the checkpoint on those same rows. Its test predictions differ from the
 start set on 147 of 4,050 images and from the 0.80801 set on 643.
+
+## 2026-10-21_n10_224_medoid_lineage_r5 (0.81184, best so far)
+
+The same lineage after two more combined rounds (rounds 4 and 5), picked the same way.
+
+    DD_HOLDOUT=4096 runs/queue_C2J0H.sh cache/sm_C2J0H3_it140.pt 4 5
+    python src/export_synth.py cache/sm_C2J0H5_it140.pt sets/n10_C2J0H5_224
+
+Held-out train rows: 85.42 after round 4, 85.82 after round 5. Official validation on seed 42: 86.07 (two runs,
+identical predictions). Kaggle test is about 85.75, up 0.71 from the round-3 set, for a held-out gain of 0.59. Its
+test predictions differ from the round-3 set on 101 of 4,050 images.
