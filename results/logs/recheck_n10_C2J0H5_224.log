@@ -1,0 +1,1 @@
+Device: cuda; train=10, validation=4050

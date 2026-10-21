@@ -24,7 +24,9 @@ All validation numbers below come from the unmodified `baseline.py`. Kaggle scor
 | 15 Oct | 10 | PFD on the exact seed-42 training run | 79.38 | not measured | 0.78135 |
 | 15 Oct | 10 | same, longer | 80.62 | 52.2 (seeds 0 to 4: 54.8, 58.8, 58.4, 46.4, 42.9) | 0.78530 |
 | 19 Oct | 10 | sign matching toward a reachable network, 3 rounds, each followed by PFD | 83.88 | not measured | 0.80357 |
-| 19 Oct | 10 | same, then sign matching and the PFD gradient together | **84.35** | not measured | **0.80567** |
+| 19 Oct | 10 | same, then sign matching and the PFD gradient together | 84.35 | not measured | 0.80567 |
+| 20 Oct | 10 | same method on 224x224 images, two combined rounds | 84.74 | not measured | 0.80801 |
+| 21 Oct | 10 | 224x224, from k-means medoids, three combined rounds, 4,096 train rows held out | **85.60** | not measured | **0.80826** |
 
 "Val, other seeds" means `baseline.py --seed s` for other values of `s`. For the 120-image sets it is the mean over
 seeds 42 and 0 to 4. The last three sets are tuned to the run that `baseline.py` makes with its default settings, so
@@ -33,7 +35,7 @@ they only work for that run. Please read [About the seed-42 sets](#about-the-see
 ## What is in the repo
 
     src/           all our code (scripts, run from the repo root)
-    submissions/   the 6 sets we submitted: the exact PNG files, train.csv, sha256 sums, the Kaggle csv and scores
+    submissions/   the sets we submitted: the exact PNG files, train.csv, sha256 sums, the Kaggle csv and scores
     inits/         small starting files: k-means medoid indices and the recorded seed-42 training views
     results/       logs of every run we cite (results/logs) and the history.json of every official run
     paper/         the paper draft, its figures and the script that draws them

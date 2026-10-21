@@ -4,5 +4,6 @@
  {"name": "n10_SZH1_224", "folder": "2026-10-19_n10_224_hybrid", "n": 10, "val": 0.8457, "score": 0.80777},
  {"name": "n10_SZH2_224", "folder": "2026-10-20_n10_224_hybrid2", "n": 10, "val": 0.8474, "score": 0.80801},
  {"name": "n10_SZH3_224", "folder": "2026-10-20_n10_224_hybrid3", "n": 10, "val": 0.8481, "score": 0.8074},
- {"name": "n10_C2J0H1_224", "folder": "2026-10-20_n10_224_medoid_lineage", "n": 10, "val": 0.8506, "score": 0.80666}
+ {"name": "n10_C2J0H1_224", "folder": "2026-10-20_n10_224_medoid_lineage", "n": 10, "val": 0.8506, "score": 0.80666},
+ {"name": "n10_C2J0H3_224", "folder": "2026-10-21_n10_224_medoid_lineage_r3", "n": 10, "val": 0.856, "score": 0.80826}
 ]
