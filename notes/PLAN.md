@@ -826,6 +826,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   hold et 86,31 en poolé, H8 86,22 et 86,28. Égalité dans le bruit (~0,1). Choix : **H7** (val officielle la plus
   haute, 86,44, déjà vérifié, un tour de moins). Montée du hold de la lignée : 84,47 → 85,11 → 85,23 → 85,42 →
   85,82 → 85,86 → 86,23 → 86,2 → 86,2.
+- **C2J0H7 soumis le 21/10 à 14:40 (accord de l'utilisateur) : 0,81357, 1er** (vinicius 0,80814). Test implicite
+  86,10, exactement l'estimation (85,75 + gain en hold). Sur la lignée C2J0, le test suit le hold : 84,72 → 85,04 →
+  85,75 → 86,10 pour un hold de 84,5 → 85,2 → 85,8 → 86,2.
 - En file (accord de l'utilisateur, 21:10) : `runs/queue_C2J0H.sh`, deux tours hybrides de plus sur C2J0 après C2J3, avec
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
