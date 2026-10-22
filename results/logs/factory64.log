@@ -2,3 +2,5 @@ start 13:09:50 (queue_fine stopped after F3)
 M64H rounds 2-5 done 13:37:03
 (M64H stopped by hand after round 2: val 84.35 -> 84.07 best it160, hold 85.64 -> 84.99, like HY1 on 19/10)
 P8J0 lineage done 15:06:20
+P8J0 rounds 2-5 done 16:53:43
+(factory64 stopped by hand 17:0x: rounds 6-9 replaced by more lineages, runs/factory64b.sh)

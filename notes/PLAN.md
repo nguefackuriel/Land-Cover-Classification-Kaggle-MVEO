@@ -899,6 +899,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   **M64H tour 2** (depuis hyb3, lr 0,2) : val 84,35 → 84,07 (it160), hold 85,64 → 84,99 (une partie de la baisse du hold
   est la contamination qui s'en va). Comme HY1 le 19/10 : sur cette lignée 64, un tour de plus recule. Arrêté à la main
   à 13:37 pour passer tout de suite aux lignées propres P8J0 / P8J1.
+  **P8J0 (64×64 propre)** : PFD 79,85 → tour 1 82,49 → tour 2 82,91 → hybride H1 val 83,36 / hold 83,98 / poolé 83,67
+  (les lignées 224 étaient à 84,5–84,8 au même stade : ~1 point de moins en 64). Tours en série (val / hold / poolé) :
+  H2 83,41 / 84,57 / 83,99 ; H3 83,46 / 84,72 / 84,09 ; H4 83,73 / 84,86 / 84,30 ; H5 83,68 / 84,86 / 84,27.
+  **Plateau dès le tour 4, hold ~84,9** (test estimé ~84,9 → ~0,8076, sous vinicius 0,80950 qui demande 85,28).
+  À 17:0x, `factory64.sh` arrêté avant ses tours 6–9 ; `runs/factory64b.sh` prend la suite : tours 2–5 de P8J1 (lignée en
+  cours), puis lignées P8J2..P8J5 avec tours 2–5 chacune (~3 h 20 par lignée, fin vers 09:00 le 23/10). Pari : comme en
+  224 (C2J0 +0,6 au-dessus des autres), une lignée chanceuse peut passer 85,3.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
