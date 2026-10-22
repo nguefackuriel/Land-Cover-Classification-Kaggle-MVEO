@@ -876,6 +876,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   cible proche que le tour 8 (calculée depuis sm_C2J0H7_it160) : F1 lr 0,05→0,005 ; F2 lr 0,02→0,002 ; F3 lr
   0,05→0,005 avec pfd_w 10 et real_bs 2048. Étape 2 : 4 tours en série (FS1..FS4, cible proche fraîche à chaque
   tour) avec la meilleure variante en poolé. Référence : C2J0H7 poolé 86,28 (val 86,44, hold 86,11 en réévaluation).
+  **F1 : rien** (meilleur checkpoint poolé 86,23, hold 86,25 à it160). Même à lr 0,05 le run exact tombe à 69,7 % à
+  it20 avant de remonter : la chute ne vient pas de la taille du pas, le set est sur un point très instable (un
+  niveau de pixel suffit à casser la trajectoire). F2 pareil à mi-parcours.
+- **File suivante `runs/queue_knobs.sh`** (attend la fin de queue_fine, journal `runs/knobs.log`) : depuis C2J0H7,
+  tours hybrides standard (lr 0,2) avec K1 `--weight delta`, K2 `--weight grad`, K3 consensus de deux cibles proches
+  (data seeds 0 et 1), K4 cible proche de 2 000 pas ; puis deux nouvelles lignées C8J2, C8J3 avec les tours 2 à 5.
+  Référence : le tour 8 (même cible, hybride simple) fait 86,24–86,32 en poolé.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
