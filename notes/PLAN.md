@@ -870,6 +870,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   (86,2 en hold, 86,10 en test). Hold final des 5 lignées : C2J0 86,2 ; C8J0 85,55 ; C2J1 85,42 (5 tours) ; C8J1
   85,30 (5 tours) ; C2J3 85,13. Toutes à 84,4–84,7 après le tour hybride 1 : C2J0 était un bon tirage.
   Papier : figure `rounds.pdf` et section « Serial rounds » mises à jour avec les 5 lignées.
+- **22/10 12:08 : tours fins depuis C2J0H7** (demande de l'utilisateur : « creuser l'écart », `runs/queue_fine.sh`,
+  progrès dans `runs/fine.log`, scores dans `runs/pooled_F*.log`). Constat : à lr 0,2 chaque tour fait d'abord
+  chuter le run exact (86,4 → 82,6 à it20) puis remonte, donc le redémarrage jette une partie du gain. Étape 1, même
+  cible proche que le tour 8 (calculée depuis sm_C2J0H7_it160) : F1 lr 0,05→0,005 ; F2 lr 0,02→0,002 ; F3 lr
+  0,05→0,005 avec pfd_w 10 et real_bs 2048. Étape 2 : 4 tours en série (FS1..FS4, cible proche fraîche à chaque
+  tour) avec la meilleure variante en poolé. Référence : C2J0H7 poolé 86,28 (val 86,44, hold 86,11 en réévaluation).
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
