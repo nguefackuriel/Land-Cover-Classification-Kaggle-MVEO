@@ -896,6 +896,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   P8J0, P8J1 (médoïdes du pool, `init_c8s1j{0,1}.pt`) avec tours 2–5, puis tours 6–9 sur la meilleure. ~14 h.
   `queue_C2J0H.sh` prend maintenant `V=...` en variable d'environnement. Note : les inits `init_c4j*` contiennent des
   lignes du bloc tenu à part (distance 0) : effet négligeable (≤ 1 image sur 4 096) mais C2J0 n'était pas 100 % propre.
+  **M64H tour 2** (depuis hyb3, lr 0,2) : val 84,35 → 84,07 (it160), hold 85,64 → 84,99 (une partie de la baisse du hold
+  est la contamination qui s'en va). Comme HY1 le 19/10 : sur cette lignée 64, un tour de plus recule. Arrêté à la main
+  à 13:37 pour passer tout de suite aux lignées propres P8J0 / P8J1.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
