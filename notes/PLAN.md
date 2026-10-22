@@ -856,6 +856,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   C8J0 (lignée finie à 22:43, val / hold / poolé) : PFD 80,40 / 81,57 ; tour 1 83,46 / 84,13 ; tour 2 83,70 / 83,81 ;
   hybride **84,64 / 84,72 / 84,68**, le meilleur hold des lignées médoïdes après le tour hybride 1 (C2J0 84,55).
   Tours 2 à 5 lancés à 22:43.
+  C8J0 tours (val / hold / poolé du meilleur) : tour 2 it140 85,04 / 84,96 / 85,00 ; tour 3 it140 85,14 / 85,11 /
+  85,12 ; tour 4 it160 85,36 / 85,33 / 85,34 ; tour 5 it160 **85,51 / 85,52 / 85,51** (fini à 00:30). Après le tour 5 :
+  C2J0 85,94, C8J0 85,51, C2J1 85,26, C2J3 85,00 (poolé). Lignée C8J1 lancée à 00:30.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
