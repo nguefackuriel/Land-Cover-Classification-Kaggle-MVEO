@@ -185,7 +185,10 @@ the same images gave identical predictions. Asked on the challenge forum, the or
 submissions by running the script with its default arguments, seed included, and accept differences of a few tenths
 of a point. They prefer $64\times64$ PNG files but accept other sizes, and images taken from the training set,
 selected or modified. The script reads any image size, since the training crop and the evaluation resize both
-output $224\times224$.
+output $224\times224$. Later they added that composite images (several training images tiled in a grid) are not
+accepted, and that $64\times64$ sets get priority in the final checks unless larger images are justified. Each of our
+images is a single synthetic image, one per class; Section~\ref{sec:exp10} compares $64\times64$ and $224\times224$
+sets built the same way.
 
 \begin{figure}[t]
 \centering
@@ -672,7 +675,13 @@ $224\times224$, so the network sees each pixel about twelve times. With $224\tim
 64-pixel set upscaled with a bicubic filter, exact unrolling alone stopped at the same level (80.5\%), but the first
 round of sign matching and polish gained 3.4 points instead of 2.1, and the hybrid reached 84.57\%. More pixels help
 sign matching, not unrolling. Going further was worse: a full lineage with $448\times448$ images stayed 0.4 to 0.5
-point below the $224\times224$ lineage at every stage, since the crop then has to shrink the image.
+point below the $224\times224$ lineage at every stage, since the crop then has to shrink the image. To compare
+the two sizes cleanly, we built one lineage at each size from the same ten medoids, with the same recipe, seeds and
+held-out block. After the first hybrid round the $64\times64$ set scored 84.0\% on the held-out block against
+84.7\% for the $224\times224$ one. After five rounds the gap had grown to 1.2 points on validation and held-out
+together (84.3\% against 85.5\%), and the $64\times64$ lineage stopped improving after its fourth round, near 84.9\%
+on the held-out block. The pipeline upsamples every image to $224\times224$ anyway, so a $64\times64$ image can only
+use 12\,288 of the 150\,528 input values the network sees. In our runs this limit cost about a point.
 
 \subsection{Choosing checkpoints}
 \label{sec:selection}
