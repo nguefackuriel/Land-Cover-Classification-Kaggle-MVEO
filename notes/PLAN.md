@@ -883,7 +883,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   tours hybrides standard (lr 0,2) avec K1 `--weight delta`, K2 `--weight grad`, K3 consensus de deux cibles proches
   (data seeds 0 et 1), K4 cible proche de 2 000 pas ; puis deux nouvelles lignées C8J2, C8J3 avec les tours 2 à 5.
   Référence : le tour 8 (même cible, hybride simple) fait 86,24–86,32 en poolé.
-  F2 : rien non plus (poolé 86,20–86,30). F3 (pfd_w 10, real_bs 2048) : val exacte 86,52 à it160, le meilleur val vu.
+  F2 : rien non plus (poolé 86,20–86,30). F3 (pfd_w 10, real_bs 2048) : it160 val 86,52 / hold 86,18 / poolé 86,35,
+  contre 86,28 pour C2J0H7 : +0,07, dans le bruit. **Le 224 est au plateau vers 86,2–86,3 en poolé.**
 - **22/10 ~13:10, commentaire de l'organisateur (Keiller Nogueira) sous le post de l'utilisateur** : les images
   composites (grilles de plusieurs images) ne sont pas acceptées ; **le 64×64 est préféré et aura la priorité lors des
   vérifications après le challenge, sauf justification scientifique pour des images plus grandes.** Notre meilleur
