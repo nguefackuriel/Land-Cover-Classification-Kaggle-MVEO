@@ -85,3 +85,17 @@
 {"it": 335, "K": 5, "window": 5, "real_loss_after_K": 0.5889, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 3.79, "peak_gb": 9.4}
 {"it": 340, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.7931, "exact_score": 0.7796}
 {"it": 340, "K": 5, "window": 5, "real_loss_after_K": 0.6536, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 3.51, "peak_gb": 9.4}
+{"it": 345, "K": 5, "window": 5, "real_loss_after_K": 0.6212, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 3.71, "peak_gb": 9.4}
+{"it": 350, "K": 5, "window": 5, "real_loss_after_K": 0.6629, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 3.57, "peak_gb": 9.4}
+{"it": 355, "K": 5, "window": 5, "real_loss_after_K": 0.5857, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 3.5, "peak_gb": 9.4}
+{"it": 360, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.7931, "exact_score": 0.7796}
+{"it": 360, "K": 5, "window": 5, "real_loss_after_K": 0.6479, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 3.5, "peak_gb": 9.4}
+{"it": 365, "K": 5, "window": 5, "real_loss_after_K": 0.6124, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 3.55, "peak_gb": 9.4}
+{"it": 370, "K": 5, "window": 5, "real_loss_after_K": 0.6558, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 3.5, "peak_gb": 9.4}
+{"it": 375, "K": 5, "window": 5, "real_loss_after_K": 0.5797, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 3.56, "peak_gb": 9.4}
+{"it": 380, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.7916, "exact_score": 0.7789}
+{"it": 380, "K": 5, "window": 5, "real_loss_after_K": 0.6477, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 3.73, "peak_gb": 9.4}
+{"it": 385, "K": 5, "window": 5, "real_loss_after_K": 0.6106, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 3.65, "peak_gb": 9.4}
+{"it": 390, "K": 5, "window": 5, "real_loss_after_K": 0.6659, "tdist": 0.0, "T": 0.1496, "ls_mult": [], "sec": 3.42, "peak_gb": 9.4}
+{"it": 395, "K": 5, "window": 5, "real_loss_after_K": 0.5735, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 3.45, "peak_gb": 9.4}
+{"it": 400, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.7953, "exact_score": 0.7807}
