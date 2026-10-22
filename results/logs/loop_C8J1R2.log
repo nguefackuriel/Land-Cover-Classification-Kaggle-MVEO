@@ -13,3 +13,8 @@ val 0.8291358024691358
   _sd = torch.load(a.init_state)
 {"tag": "near_C8J1R2", "init_val": 0.8274}
 {"tag": "near_C8J1R2", "it": 1, "T": 0.112, "loss": 0.4657, "val_acc": 0.8296, "edge": 0.296}
+{"tag": "near_C8J1R2", "it": 100, "T": 0.112, "loss": 0.3585, "val_acc": 0.8723, "edge": 0.565}
+{"tag": "near_C8J1R2", "it": 200, "T": 0.089, "loss": 0.1958, "val_acc": 0.8859, "edge": 0.585}
+{"tag": "near_C8J1R2", "it": 300, "T": 0.112, "loss": 0.2514, "val_acc": 0.8928, "edge": 0.6}
+{"tag": "near_C8J1R2", "it": 400, "T": 0.112, "loss": 0.2819, "val_acc": 0.8951, "edge": 0.625}
+{"tag": "near_C8J1R2", "it": 500, "T": 0.112, "loss": 0.3112, "val_acc": 0.8965, "edge": 0.645}
