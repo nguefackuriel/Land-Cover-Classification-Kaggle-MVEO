@@ -48,6 +48,7 @@ ap.add_argument('--target', default='')        # state dict of a good reachable 
 ap.add_argument('--target-mode', default='l2', choices=['l2', 'lin'])   # l2: |theta_K - t|^2 ; lin: -<t - theta_0, theta_K>
 ap.add_argument('--target-w', type=float, default=-1.)  # <0: target only; >=0: real grad + w * (target grad scaled to its norm)
 ap.add_argument('--outer-T', type=float, default=1.)       # outer CE on logits / T; 0: T fitted on each real batch
+ap.add_argument('--outer-T-mult', type=float, default=1.)  # with --outer-T 0: use the fitted T times this (<1: sharper, closer to 0-1 loss)
                                                            # (scale-free: no credit for merely sharper logits)
 a = ap.parse_args()
 
@@ -205,7 +206,7 @@ def real_grad(th, ridx):
     det = {k: t.detach().requires_grad_(True) for k, t in th.items()}
     G = {k: torch.zeros_like(t) for k, t in det.items()}
     total = 0.0
-    T = a.outer_T if a.outer_T > 0 else fit_T(th, ridx)
+    T = a.outer_T if a.outer_T > 0 else fit_T(th, ridx) * a.outer_T_mult
     real_grad.last_T = T
     for j in range(0, len(ridx), 128):
         xb = P.to_eval(D.xtr[ridx[j:j + 128]].to(dev))

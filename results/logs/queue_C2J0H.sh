@@ -7,7 +7,7 @@
 cd /home/ubuntu/Uriel/data_centric/work
 PY=/home/ubuntu/vllm-env/bin/python
 export DD_HOLDOUT=4096
-V=cache/views_n10_s42_sz224.pt
+V=${V:-cache/views_n10_s42_sz224.pt}   # V=cache/views_n10_s42.pt for 64x64 sets
 while pgrep -f "runs/factory22[4]" > /dev/null; do sleep 30; done
 SET=${1:-cache/sm_C2J0H1_best.pt}
 T=${4:-C2J0H}

@@ -1,6 +1,7 @@
 #!/bin/bash
 # Hybrid-round knobs from C2J0H7 at the usual lr 0.2 -> 0.02 (round 8 = same near target, plain hybrid: pooled ~86.28).
-# K1 weight delta, K2 weight grad, K3 consensus sign of two near targets (data seeds 0 and 1), K4 near target 2000 steps.
+# K1 weight delta, K5 PFD term at half the fitted temperature (closer to the 0-1 loss), K2 weight grad, K3 consensus
+# sign of two near targets (data seeds 0 and 1), K4 near target 2000 steps.
 # Then two new lineages (C8J2, C8J3) with hybrid rounds 2..5. usage: queue_knobs.sh [pid to wait for]
 # Logs runs/knobs.log, scores runs/pooled_K*.log.
 cd /home/ubuntu/Uriel/data_centric/work
@@ -33,6 +34,7 @@ near() {  # tag iters data_seed -> cache/ceiling3_near_<tag>_it<iters>.pt from t
 }
 
 hyb K1 $NEAR0 --weight delta
+hyb K5 $NEAR0 --pfd-tmult 0.5
 hyb K2 $NEAR0 --weight grad
 near K3 1000 1
 hyb K3 $NEAR0,cache/ceiling3_near_K3_it1000.pt

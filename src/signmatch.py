@@ -28,6 +28,7 @@ ap.add_argument('--tag', default='sm')
 ap.add_argument('--warmup', type=int, default=0)
 ap.add_argument('--loss', default='softplus', choices=['softplus', 'sigmoid'])   # sigmoid: smooth agreement count
 ap.add_argument('--pfd-w', type=float, default=0.)      # >0: add the exact PFD meta-gradient (real loss), both RMS-normalised
+ap.add_argument('--pfd-tmult', type=float, default=1.)   # PFD term: real CE at the fitted temperature times this
 ap.add_argument('--real-bs', type=int, default=512)        # linear lr warmup over this many iterations
 ap.add_argument('--path', default='target', choices=['target', 'actual'])  # actual: score each step where the real run is
 ap.add_argument('--opt', default='maxnorm', choices=['maxnorm', 'adam'])   # adam: pixels directly, lr in 1/255 levels
@@ -133,7 +134,7 @@ def step_loss(x, e, states=None):
 if a.pfd_w > 0:
     _argv = sys.argv
     sys.argv = ['pfd3.py', '--init', a.init, '--offload', '--fixed-head-seed', '42', '--views', a.views, '--fp32-inner',
-                '--outer-T', '0', '--real-bs', str(a.real_bs)]
+                '--outer-T', '0', '--outer-T-mult', str(a.pfd_tmult), '--real-bs', str(a.real_bs)]
     import pfd3 as Q
     sys.argv = _argv
     Q.USE_VIEWS[0] = True

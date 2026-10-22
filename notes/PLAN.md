@@ -883,6 +883,18 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   tours hybrides standard (lr 0,2) avec K1 `--weight delta`, K2 `--weight grad`, K3 consensus de deux cibles proches
   (data seeds 0 et 1), K4 cible proche de 2 000 pas ; puis deux nouvelles lignées C8J2, C8J3 avec les tours 2 à 5.
   Référence : le tour 8 (même cible, hybride simple) fait 86,24–86,32 en poolé.
+  F2 : rien non plus (poolé 86,20–86,30). F3 (pfd_w 10, real_bs 2048) : val exacte 86,52 à it160, le meilleur val vu.
+- **22/10 ~13:10, commentaire de l'organisateur (Keiller Nogueira) sous le post de l'utilisateur** : les images
+  composites (grilles de plusieurs images) ne sont pas acceptées ; **le 64×64 est préféré et aura la priorité lors des
+  vérifications après le challenge, sauf justification scientifique pour des images plus grandes.** Notre meilleur
+  64×64 est hyb3 (0,80567), derrière vinicius (0,80950) si nos sets 224 sont écartés. Nos images ne sont pas des
+  composites (une image synthétique par classe, partie d'un médoïde). Mais à étape égale le 224 n'apportait que
+  +0,2–0,5 point ; l'essentiel du gain 224 vient des tours hybrides propres en série, jamais essayés en 64.
+  Donc : file 224 « knobs » arrêtée, **`runs/factory64.sh` lancé** (journal `runs/factory64.log`) : tours 2–5 depuis
+  hyb3 (hold biaisé : sa lignée a vu le bloc tenu à part, juger surtout sur la val), puis deux lignées propres 64×64
+  P8J0, P8J1 (médoïdes du pool, `init_c8s1j{0,1}.pt`) avec tours 2–5, puis tours 6–9 sur la meilleure. ~14 h.
+  `queue_C2J0H.sh` prend maintenant `V=...` en variable d'environnement. Note : les inits `init_c4j*` contiennent des
+  lignes du bloc tenu à part (distance 0) : effet négligeable (≤ 1 image sur 4 096) mais C2J0 n'était pas 100 % propre.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

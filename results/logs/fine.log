@@ -1,3 +1,5 @@
 F1 start cache/sm_C2J0H7_it160.pt lr 0.05-0.005 pfd_w 3 real_bs 1024 iters 160 12:08:44
 F1 done best 0.8625 cache/sm_C2J0H7_it160.pt 12:27:46
 F2 start cache/sm_C2J0H7_it160.pt lr 0.02-0.002 pfd_w 3 real_bs 1024 iters 160 12:27:46
+F2 done best 0.863 cache/sm_F2_it20.pt 12:46:39
+F3 start cache/sm_C2J0H7_it160.pt lr 0.05-0.005 pfd_w 10 real_bs 2048 iters 160 12:46:39
