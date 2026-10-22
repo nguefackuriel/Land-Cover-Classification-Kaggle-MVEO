@@ -865,6 +865,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   84,70 ; tour 5 it160 **84,37 / 85,30 / 84,84**. Hold correct, mais la val reste bloquée vers 84,2–84,4.
   **Bilan du criblage après le tour 5 (poolé)** : C2J0 85,94 (déjà fait), C8J0 85,51, C2J1 85,26, C2J3 85,00,
   C8J1 84,84. Le script choisit C8J0 (sm_C8J0H5_it160) et lance ses tours 6 à 9 à 03:47.
+  C8J0 tours 6 à 9 (finis à 05:34) : 85,56 / 85,55 / 85,55 ; 85,36 / 85,42 / 85,39 ; 85,38 / 85,38 / 85,38 ;
+  85,26 / 85,52 / 85,39. **Plateau vers 85,5 en hold** dès le tour 5. **Bilan du criblage : rien ne bat C2J0H7**
+  (86,2 en hold, 86,10 en test). Hold final des 5 lignées : C2J0 86,2 ; C8J0 85,55 ; C2J1 85,42 (5 tours) ; C8J1
+  85,30 (5 tours) ; C2J3 85,13. Toutes à 84,4–84,7 après le tour hybride 1 : C2J0 était un bon tirage.
+  Papier : figure `rounds.pdf` et section « Serial rounds » mises à jour avec les 5 lignées.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

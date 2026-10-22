@@ -693,22 +693,27 @@ Here and below, test accuracy is computed from the Kaggle score with (\ref{eq:sc
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/rounds.pdf}
-\caption{Serial hybrid rounds on two lineages started from k-means medoids, with 4\,096 training images held out.
+\caption{Serial hybrid rounds on five lineages started from k-means medoids, with 4\,096 training images held out.
 After each round we keep the checkpoint with the best mean of validation and held-out accuracy (exact replay of the
-seed-42 run). Stars: test accuracy of the four sets of lineage 0 that we submitted, computed from the Kaggle score.}
+seed-42 run). Stars: test accuracy of the four sets of the first lineage that we submitted, computed from the
+Kaggle score.}
 \label{fig:rounds}
 \end{figure}
 
 \subsection{Serial rounds}
 \label{sec:rounds}
-With a clean selection rule, we ran more hybrid rounds on two lineages (Fig.~\ref{fig:rounds}). On lineage 0 the
-held-out accuracy rose from 84.55 to 86.23\% in six rounds, then stopped. Each of the four sets we submitted along
-the way was better on the test set than the previous one: 84.72, 85.04, 85.75 and 86.10\%, against 84.55, 85.23,
-85.82 and 86.23\% on the held-out block. Part of the gain on the block comes from choosing the checkpoint on it, but
-the test accuracy followed it within a few tenths of a point. Lineage 3 rose by 0.7 point only, from 84.40 to
-85.13\%. Four medoid lineages had ended their first hybrid round close together (84.55, 84.45, 83.74 and 84.40\% on
-the block), so the start of a lineage says little about where its rounds will take it. Our best set, after seven
-hybrid rounds on lineage 0, has an official validation accuracy of 86.44\% and a test accuracy of 86.10\% (score
+With a clean selection rule, we ran more hybrid rounds on five lineages (Fig.~\ref{fig:rounds}). Three start from
+the medoids of four k-means clusters per class (the $j$-th medoid of every class), and two from the medoids of
+eight clusters, taken only outside the held-out block. On the first lineage the held-out accuracy rose from 84.55
+to 86.23\% in six rounds, then stopped. Each of the four sets we submitted along the way was better on the test
+set than the previous one: 84.72, 85.04, 85.75 and 86.10\%, against 84.55, 85.23, 85.82 and 86.23\% on the
+held-out block. Part of the gain on the block comes from choosing the checkpoint on it, but the test accuracy
+followed it within a few tenths of a point. The other lineages rose too, by 0.6 to 1.0 point, but ended lower,
+between 85.1 and 85.6\% (two of them after five rounds only). After the first hybrid round all five were within
+about 0.3 point of each other (84.40 to 84.72\% on the block), and the best of them at that point ended 0.7 point
+below the best lineage. The start of a lineage says little about where its rounds will take it, so it pays to run
+several and keep the best one on the held-out block. Our best set, after seven
+hybrid rounds on the first lineage, has an official validation accuracy of 86.44\% and a test accuracy of 86.10\% (score
 0.8136).
 
 \subsection{What did not help with ten images}

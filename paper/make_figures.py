@@ -257,17 +257,20 @@ def round_curve(lineage):
 
 
 def fig_rounds():
-    fig, ax = plt.subplots(figsize=(ONE, 2.5))
-    for lin, c in [('C2J0', 'C3'), ('C2J3', 'C0')]:
+    fig, ax = plt.subplots(figsize=(ONE, 2.6))
+    lines = [('C2J0', 'C3', '4 clusters, #0'), ('C8J0', 'C2', '8 clusters, #0'), ('C2J1', 'C4', '4 clusters, #1'),
+             ('C8J1', 'C1', '8 clusters, #1'), ('C2J3', 'C0', '4 clusters, #3')]
+    for lin, c, lab in lines:
         pts = round_curve(lin)
-        ax.plot([p[0] for p in pts], [p[2] for p in pts], 'o-', ms=3, color=c, label=f'lineage {lin[-1]}: held-out rows')
-        ax.plot([p[0] for p in pts], [p[1] for p in pts], ':', color=c, lw=0.9, label=f'lineage {lin[-1]}: validation')
+        ax.plot([p[0] for p in pts], [p[2] for p in pts], 'o-', ms=2.5, lw=1.0, color=c, label=f'{lab}: held-out')
+    pts = round_curve('C2J0')
+    ax.plot([p[0] for p in pts], [p[1] for p in pts], ':', color='C3', lw=0.9, label='4 clusters, #0: validation')
     subs = {s['name']: s['score'] for s in json.load(open('tools/submissions.json'))}
     test = [(r, 200 * (subs[f'n10_C2J0H{r}_224'] - SIZE(10))) for r in (1, 3, 5, 7)]
-    ax.plot([t[0] for t in test], [t[1] for t in test], 'k*', ms=7, label='lineage 0: Kaggle test')
+    ax.plot([t[0] for t in test], [t[1] for t in test], 'k*', ms=7, label='4 clusters, #0: Kaggle test')
     ax.set_xlabel('hybrid round'); ax.set_ylabel('accuracy (%)')
     ax.set_xticks(range(1, 10))
-    ax.legend(frameon=False, fontsize=6, ncol=2, loc='upper center', bbox_to_anchor=(0.5, -0.2))
+    ax.legend(frameon=False, fontsize=5.8, ncol=2, loc='upper center', bbox_to_anchor=(0.5, -0.2))
     fig.savefig(OUT / 'rounds.pdf'); plt.close(fig)
 
 
