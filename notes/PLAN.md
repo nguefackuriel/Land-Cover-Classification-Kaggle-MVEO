@@ -962,6 +962,7 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   **DS1** (graines 1) : it200 val 86,69 / hold 86,79 / poolé 86,74 = DR3 it160 (réévalué 86,69). **DS2** : max 86,72. Le
   plateau vers 86,7 tient aussi avec d'autres graines. Deux candidats équivalents : DR3 it160 et DS1 it200. Classement
   13:00 inchangé (vinicius 0,81517, nous 0,81357).
+  **DL1** (400 it, graines 2) : pas mieux (le départ DR3 it160 reste le meilleur, 86,68 en réévaluation). D64_1..3 (64×64) en cours.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
