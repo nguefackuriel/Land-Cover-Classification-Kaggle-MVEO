@@ -1,0 +1,7 @@
+{"set": "cache/sm_P8J4H1_best.pt", "val": 0.8358, "hold": 0.8362, "pooled": 0.836}
+{"set": "cache/sm_P8J4H2_it60.pt", "val": 0.8333, "hold": 0.8359, "pooled": 0.8346}
+{"set": "cache/sm_P8J4H2_it80.pt", "val": 0.836, "hold": 0.8408, "pooled": 0.8384}
+{"set": "cache/sm_P8J4H2_it100.pt", "val": 0.836, "hold": 0.8413, "pooled": 0.8387}
+{"set": "cache/sm_P8J4H2_it120.pt", "val": 0.8363, "hold": 0.8416, "pooled": 0.8389}
+{"set": "cache/sm_P8J4H2_it140.pt", "val": 0.8383, "hold": 0.843, "pooled": 0.8407}
+{"set": "cache/sm_P8J4H2_it160.pt", "val": 0.8378, "hold": 0.8406, "pooled": 0.8392}
