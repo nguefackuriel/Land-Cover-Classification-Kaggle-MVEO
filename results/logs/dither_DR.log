@@ -5,3 +5,6 @@ round 2 done best cache/sm_DR2_it200.pt pooled 0.8668 10:37:43
 round 3 start cache/sm_DR2_it200.pt  10:37:43
 round 3 done best cache/sm_DR3_it160.pt pooled 0.8672 11:10:21
 round 4 start cache/sm_DR3_it160.pt  11:10:21
+round 4 done best cache/sm_DR3_it160.pt pooled 0.8674 11:42:56
+round 5 start cache/sm_DR3_it160.pt  11:42:56
+(DR5 stopped by hand 11:45: DR4 = no gain, DR5 would repeat DR4 from the same start and seeds)

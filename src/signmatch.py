@@ -29,6 +29,7 @@ ap.add_argument('--warmup', type=int, default=0)
 ap.add_argument('--loss', default='softplus', choices=['softplus', 'sigmoid'])   # sigmoid: smooth agreement count
 ap.add_argument('--pfd-w', type=float, default=0.)      # >0: add the exact PFD meta-gradient (real loss), both RMS-normalised
 ap.add_argument('--dither', type=float, default=0.)   # adam: start each pixel at a random point of its 8-bit bin (width in levels, <1)
+ap.add_argument('--dither-seed', type=int, default=0)
 ap.add_argument('--disp', action='store_true')   # loss on each weight's final AdamW displacement (momentum included), not per step
 ap.add_argument('--tau-d', type=float, default=0.25)   # --disp: softplus(-q / tau_d), q = s * displacement / R in [-1, 1]
 ap.add_argument('--pfd-tmult', type=float, default=1.)   # PFD term: real CE at the fitted temperature times this
@@ -63,7 +64,7 @@ ADAM = a.opt == 'adam'
 z = (x0.clone() if ADAM else torch.logit(x0.clamp(0.02, 0.98))).requires_grad_(True)
 if ADAM and a.dither > 0:   # same PNG at the start, but pixels no longer cross a rounding edge all at the same iteration
     with torch.no_grad():
-        _r = torch.rand(z.shape, generator=torch.Generator().manual_seed(0)).to(dev)
+        _r = torch.rand(z.shape, generator=torch.Generator().manual_seed(a.dither_seed)).to(dev)
         z += (_r - 0.5) * a.dither / 255
         z.clamp_(0, 1)
 pix = (lambda t: t.clamp(0, 1)) if ADAM else torch.sigmoid
