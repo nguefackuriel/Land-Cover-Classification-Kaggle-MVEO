@@ -950,6 +950,7 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   **K7** (`--disp`) : poolé max 85,91, moins bien (accord des déplacements 84,8 → 82,6 → 84,4, ne dépasse pas le départ).
   **K8** (`--disp --dither`) : poolé max 86,23 (it160, val 86,47). Le dither aide, la perte de déplacement non.
   09:32 : DR1..DR6 lancés depuis sm_K6_it160 (dither seul), ~40 min par tour.
+  **DR1** (200 it) : it200 val 86,40 / hold **86,57** / poolé **86,48**, nouveau record 224, monte jusqu'à la fin.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
