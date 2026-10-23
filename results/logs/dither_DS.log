@@ -1,1 +1,5 @@
 round 1 start cache/sm_DR3_it160.pt --dither-seed 1 11:43:54
+round 1 done best cache/sm_DS1_it200.pt pooled 0.8674 12:21:38
+round 2 start cache/sm_DS1_it200.pt --dither-seed 1 12:21:38
+round 2 done best cache/sm_DS1_it200.pt pooled 0.8675 13:00:29
+done 13:00:29

@@ -959,6 +959,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   `signmatch.py --dither-seed`, et `queue_dither.sh` prend `V`, `IT` (itérations) et `NS` (graine des données de la cible
   proche) en variables d'environnement. `runs/queue_after_dr.sh` (11:50) : DS1–DS2 (graines 1 depuis DR3 it160), DL1
   (400 it, graines 2), puis 3 tours avec dither sur la meilleure lignée 64 (D64_1..3 depuis sm_P8J3H4_it160).
+  **DS1** (graines 1) : it200 val 86,69 / hold 86,79 / poolé 86,74 = DR3 it160 (réévalué 86,69). **DS2** : max 86,72. Le
+  plateau vers 86,7 tient aussi avec d'autres graines. Deux candidats équivalents : DR3 it160 et DS1 it200. Classement
+  13:00 inchangé (vinicius 0,81517, nous 0,81357).
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
