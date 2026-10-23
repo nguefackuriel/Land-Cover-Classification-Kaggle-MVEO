@@ -963,6 +963,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   plateau vers 86,7 tient aussi avec d'autres graines. Deux candidats équivalents : DR3 it160 et DS1 it200. Classement
   13:00 inchangé (vinicius 0,81517, nous 0,81357).
   **DL1** (400 it, graines 2) : pas mieux (le départ DR3 it160 reste le meilleur, 86,68 en réévaluation). D64_1..3 (64×64) en cours.
+- **23/10 14:13 : DR3 it160 soumis (accord de l'utilisateur « soumets ce qui est à soumettre ») → 0,81394**, 2es (vinicius
+  0,81517). Officiel seed 42 : val 86,49 (deux runs identiques), archive `work/submissions/n10_DR3_224_*`. Test implicite
+  **86,17**, seulement +0,07 sur C2J0H7 (201 prédictions de test différentes). **Le hold a beaucoup trop promis** (+0,7) ;
+  la val (+0,05) a dit juste. Historique : C2J0H1 val 85,06 / hold 84,47 / test 84,72 ; H7 86,44 / 86,23 / 86,10 ; DR3
+  86,49 / 86,9 / 86,17. Les gains de test suivent les gains de val (C2J0 H1→H7 : val +1,38, test +1,38), pas ceux du hold.
+  Hypothèses : sélection répétée sur le poolé (des dizaines de checkpoints, plusieurs tours) qui biaise le hold, et/ou les
+  tours avec dither ajustent la distribution du train (perte réelle PFD sur le POOL), que le hold partage mais pas
+  val/test. **Leçon : juger les gains sur la val (ou un bloc vraiment neuf), pas sur le hold seul.**
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

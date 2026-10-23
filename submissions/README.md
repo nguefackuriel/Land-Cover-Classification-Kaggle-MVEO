@@ -205,7 +205,7 @@ Held-out train rows: 85.42 after round 4, 85.82 after round 5. Official validati
 identical predictions). Kaggle test is about 85.75, up 0.71 from the round-3 set, for a held-out gain of 0.59. Its
 test predictions differ from the round-3 set on 101 of 4,050 images.
 
-## 2026-10-21_n10_224_medoid_lineage_r7 (0.81357, best so far)
+## 2026-10-21_n10_224_medoid_lineage_r7 (0.81357)
 
 Two more combined rounds (6 and 7) on the same lineage, picked the same way. Rounds 8 and 9 gave nothing more
 (held-out 86.2 for both), so the lineage has stopped improving here.
@@ -216,3 +216,22 @@ Two more combined rounds (6 and 7) on the same lineage, picked the same way. Rou
 Held-out train rows: 85.86 after round 6, 86.23 after round 7 (86.11 when scored again). Official validation on
 seed 42: 86.44 (two runs, identical predictions). Kaggle test is about 86.10, up 0.35 from the round-5 set. Its test
 predictions differ from the round-5 set on 89 of 4,050 images.
+
+## 2026-10-23_n10_224_dithered_rounds_r3 (0.81394, best so far)
+
+Three more combined rounds from the round-7 set, each one started from a dithered copy of the images: every pixel
+starts at a random point inside its 8-bit rounding bin (same PNG), so the pixels no longer all cross a rounding edge
+in the same iteration. Without this, each round first dropped the exact run by about 4 points and spent half its
+iterations climbing back. One round from the round-7 set with the round-8 target (K6), then rounds DR1 to DR3 with
+a fresh near target each, 200 iterations each.
+
+    DD_HOLDOUT=4096 python src/signmatch.py --init cache/sm_C2J0H7_it160.pt --views cache/views_n10_s42_sz224.pt \
+        --target cache/ceiling3_near_C2J0H8_it1000.pt --iters 160 --opt adam --lr 0.2 --lr-end 0.02 --warmup 10 \
+        --pfd-w 3.0 --real-bs 1024 --dither 0.98 --tag K6
+    runs/queue_dither.sh cache/sm_K6_it160.pt DR 1 3 0
+    python src/export_synth.py cache/sm_DR3_it160.pt sets/n10_DR3_224
+
+Held-out train rows: 86.43 (K6), 86.57 (DR1), 86.74 (DR2), 86.9 (DR3, it160). Official validation on seed 42: 86.49
+(two runs, identical predictions). Kaggle test is about 86.17, up only 0.07 from the round-7 set: the held-out block
+promised 0.7 more, the validation set 0.05. Its test predictions differ from the round-7 set on 201 of 4,051 images.
+

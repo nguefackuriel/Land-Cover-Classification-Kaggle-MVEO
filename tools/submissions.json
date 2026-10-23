@@ -1,11 +1,72 @@
 [
- {"name": "n10_sm_r3_pf", "folder": "2026-10-19_n10_signmatch_r3", "n": 10, "val": 0.8388, "score": 0.80357},
- {"name": "n10_hyb3_it120", "folder": "2026-10-19_n10_signmatch_hybrid", "n": 10, "val": 0.8435, "score": 0.80567},
- {"name": "n10_SZH1_224", "folder": "2026-10-19_n10_224_hybrid", "n": 10, "val": 0.8457, "score": 0.80777},
- {"name": "n10_SZH2_224", "folder": "2026-10-20_n10_224_hybrid2", "n": 10, "val": 0.8474, "score": 0.80801},
- {"name": "n10_SZH3_224", "folder": "2026-10-20_n10_224_hybrid3", "n": 10, "val": 0.8481, "score": 0.8074},
- {"name": "n10_C2J0H1_224", "folder": "2026-10-20_n10_224_medoid_lineage", "n": 10, "val": 0.8506, "score": 0.80666},
- {"name": "n10_C2J0H3_224", "folder": "2026-10-21_n10_224_medoid_lineage_r3", "n": 10, "val": 0.856, "score": 0.80826},
- {"name": "n10_C2J0H5_224", "folder": "2026-10-21_n10_224_medoid_lineage_r5", "n": 10, "val": 0.8607, "score": 0.81184},
- {"name": "n10_C2J0H7_224", "folder": "2026-10-21_n10_224_medoid_lineage_r7", "n": 10, "val": 0.8644, "score": 0.81357}
+ {
+  "name": "n10_sm_r3_pf",
+  "folder": "2026-10-19_n10_signmatch_r3",
+  "n": 10,
+  "val": 0.8388,
+  "score": 0.80357
+ },
+ {
+  "name": "n10_hyb3_it120",
+  "folder": "2026-10-19_n10_signmatch_hybrid",
+  "n": 10,
+  "val": 0.8435,
+  "score": 0.80567
+ },
+ {
+  "name": "n10_SZH1_224",
+  "folder": "2026-10-19_n10_224_hybrid",
+  "n": 10,
+  "val": 0.8457,
+  "score": 0.80777
+ },
+ {
+  "name": "n10_SZH2_224",
+  "folder": "2026-10-20_n10_224_hybrid2",
+  "n": 10,
+  "val": 0.8474,
+  "score": 0.80801
+ },
+ {
+  "name": "n10_SZH3_224",
+  "folder": "2026-10-20_n10_224_hybrid3",
+  "n": 10,
+  "val": 0.8481,
+  "score": 0.8074
+ },
+ {
+  "name": "n10_C2J0H1_224",
+  "folder": "2026-10-20_n10_224_medoid_lineage",
+  "n": 10,
+  "val": 0.8506,
+  "score": 0.80666
+ },
+ {
+  "name": "n10_C2J0H3_224",
+  "folder": "2026-10-21_n10_224_medoid_lineage_r3",
+  "n": 10,
+  "val": 0.856,
+  "score": 0.80826
+ },
+ {
+  "name": "n10_C2J0H5_224",
+  "folder": "2026-10-21_n10_224_medoid_lineage_r5",
+  "n": 10,
+  "val": 0.8607,
+  "score": 0.81184
+ },
+ {
+  "name": "n10_C2J0H7_224",
+  "folder": "2026-10-21_n10_224_medoid_lineage_r7",
+  "n": 10,
+  "val": 0.8644,
+  "score": 0.81357
+ },
+ {
+  "name": "n10_DR3_224",
+  "folder": "2026-10-23_n10_224_dithered_rounds_r3",
+  "n": 10,
+  "val": 0.8649,
+  "score": 0.81394
+ }
 ]
