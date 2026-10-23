@@ -947,6 +947,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   **poolé 86,39**, le meilleur 224 (H7 86,28 ; tour 8 86,32). Gain petit mais la courbe monte encore à la fin.
   `runs/after_k8.sh` : après K8, arrête queue_knobs2 et lance `runs/queue_dither.sh` (tours en série avec dither, 200 it,
   cible proche fraîche, DR1..DR6) depuis le meilleur de K6/K7/K8 (avec `--disp` si c'est K7 ou K8).
+  **K7** (`--disp`) : poolé max 85,91, moins bien (accord des déplacements 84,8 → 82,6 → 84,4, ne dépasse pas le départ).
+  **K8** (`--disp --dither`) : poolé max 86,23 (it160, val 86,47). Le dither aide, la perte de déplacement non.
+  09:32 : DR1..DR6 lancés depuis sm_K6_it160 (dither seul), ~40 min par tour.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

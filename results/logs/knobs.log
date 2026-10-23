@@ -7,3 +7,6 @@ K6 done best 0.8639 cache/sm_K6_it160.pt 08:48:13
 K7 start target cache/ceiling3_near_C2J0H8_it1000.pt --disp 08:48:13
 K7 done best 0.8628 cache/sm_C2J0H7_it160.pt 09:09:56
 K8 start target cache/ceiling3_near_C2J0H8_it1000.pt --disp --dither 0.98 09:09:56
+K8 done best 0.8628 cache/sm_C2J0H7_it160.pt 09:31:56
+K2 start target cache/ceiling3_near_C2J0H8_it1000.pt --weight grad 09:31:56
+after K8: best cache/sm_K6_it160.pt pooled 0.8639, dithered rounds DR1..DR6  09:32:00
