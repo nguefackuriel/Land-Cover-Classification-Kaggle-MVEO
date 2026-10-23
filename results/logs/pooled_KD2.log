@@ -1,0 +1,11 @@
+{"set": "cache/sm_DR3_it160.pt", "val": 0.8649, "hold": 0.8699, "pooled": 0.8674}
+{"set": "cache/sm_KD2_it20.pt", "val": 0.8622, "hold": 0.8616, "pooled": 0.8619}
+{"set": "cache/sm_KD2_it40.pt", "val": 0.8632, "hold": 0.8589, "pooled": 0.861}
+{"set": "cache/sm_KD2_it60.pt", "val": 0.8637, "hold": 0.8652, "pooled": 0.8645}
+{"set": "cache/sm_KD2_it80.pt", "val": 0.8657, "hold": 0.8655, "pooled": 0.8656}
+{"set": "cache/sm_KD2_it100.pt", "val": 0.8664, "hold": 0.8655, "pooled": 0.8659}
+{"set": "cache/sm_KD2_it120.pt", "val": 0.8662, "hold": 0.8721, "pooled": 0.8691}
+{"set": "cache/sm_KD2_it140.pt", "val": 0.8681, "hold": 0.8718, "pooled": 0.87}
+{"set": "cache/sm_KD2_it160.pt", "val": 0.8679, "hold": 0.8721, "pooled": 0.87}
+{"set": "cache/sm_KD2_it180.pt", "val": 0.8684, "hold": 0.8728, "pooled": 0.8706}
+{"set": "cache/sm_KD2_it200.pt", "val": 0.8701, "hold": 0.8713, "pooled": 0.8707}

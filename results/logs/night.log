@@ -1,1 +1,4 @@
 KD2 start --weight grad 22:18:54
+KD2 done best pooled cache/sm_KD2_it200.pt 0.8701 0.8713 0.8707 | best val cache/sm_KD2_it200.pt 0.8701 0.8713 22:53:07
+KD3 start  22:53:07
+(queue_night stopped by hand 22:55 after KD2: chaining weight-grad dithered rounds instead, runs/queue_night2.sh)

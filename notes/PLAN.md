@@ -980,6 +980,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - **22:20 : `runs/queue_night.sh`** depuis DR3 it160, tours de 200 it avec dither : KD2 `--weight grad`, KD3 consensus des
   3 cibles proches déjà calculées depuis DR3 (graines 0, 1, 2), KD5 PFD poids 5 et lots réels de 2 048 ; puis lignées 224
   C8J2, C8J3 avec 4 tours dither chacune. Journal `runs/night.log`. Juger d'abord sur la val.
+  **KD2 (`--dither 0.98 --weight grad`, depuis DR3 it160) : val 86,49 → 87,01 (it200), hold 87,13, poolé 87,07.** La val
+  monte régulièrement tout le tour (86,2 → 87,0) ; it200 = dernier point. Premier vrai gain de val depuis H7. Test
+  attendu ~86,7 si le test suit la val (→ ~0,8166 > vinicius 0,81517). `finalize_sub.sh` de nouveau bloqué par le
+  classifieur sans accord explicite : en attente de l'utilisateur pour préparer et soumettre KD2 it200.
+  22:55 : queue_night arrêtée (KD3 coupé), **`runs/queue_night2.sh`** : tours DG1..DG4 (dither + weight grad) depuis KD2
+  it200, puis lignées C8J2, C8J3 avec tours dither + weight grad.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
