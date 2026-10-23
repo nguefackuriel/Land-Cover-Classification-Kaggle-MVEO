@@ -941,6 +941,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
      pas. Essai à sec : 11 s/it, accord des déplacements 84,84 % (comme l'accord mesuré sur le run exact).
   `runs/queue_knobs2.sh` (remplace la fin de queue_knobs.sh à 08:15, attend K5) : K6 dither, K7 disp, K8 les deux, puis
   K2, K3, K4 et les lignées 224 C8J2, C8J3.
+  **K5** (PFD à T/2) : poolé max 85,59, **moins bien** : la température ajustée est la bonne.
+  **K6 (dither) : ça marche.** Plus de chute au départ (accord 82 % au lieu de 72 % à it10, perte réelle 0,40 au lieu
+  de 1,00, run exact 85,21 à it20 au lieu de 82,57) et montée régulière jusqu'à it160 : val 86,35 / **hold 86,43** /
+  **poolé 86,39**, le meilleur 224 (H7 86,28 ; tour 8 86,32). Gain petit mais la courbe monte encore à la fin.
+  `runs/after_k8.sh` : après K8, arrête queue_knobs2 et lance `runs/queue_dither.sh` (tours en série avec dither, 200 it,
+  cible proche fraîche, DR1..DR6) depuis le meilleur de K6/K7/K8 (avec `--disp` si c'est K7 ou K8).
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
