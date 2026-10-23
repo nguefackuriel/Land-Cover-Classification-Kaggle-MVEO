@@ -989,6 +989,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
 - **23/10 23:05 : KD2 it200 soumis (accord « ok envoie le ») → 0,81875, 1ers à nouveau** (vinicius 0,81517). Officiel
   seed 42 : val 87,01 (deux runs identiques), archive `work/submissions/n10_KD2_224_*`. Test implicite **87,13** (+0,96
   sur DR3 avec seulement 59 prédictions de test changées). La val (+0,52) a sous-estimé le gain, le hold (+0,14) aussi.
+- **24/10 00:00** : DG1 arrêté à it40 : la machine est saturée par les autres jobs de l'utilisateur (cti_eval, modèles
+  w2vec trace/clearscope/optc/cadets, run_baselines alertxia ; load 56) et nos runs exacts construisent chaque lot sur
+  le CPU → 657 s/it au lieu de ~11. `runs/wait_load.sh runs/queue_night2.sh` relance la file quand la charge 1 min reste
+  sous 16 pendant 10 minutes. Ne pas toucher aux jobs de l'utilisateur.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
