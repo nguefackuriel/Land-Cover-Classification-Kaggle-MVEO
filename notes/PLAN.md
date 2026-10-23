@@ -922,6 +922,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   `runs/queue_knobs.sh` lancé à 07:50 (K1 weight delta, K5 PFD à T/2, K2 weight grad, K3 consensus de 2 cibles, K4 cible
   2 000 pas, puis lignées 224 C8J2, C8J3). Meilleur candidat 224 sur validation : F3 it160 (poolé 86,35 contre 86,28 pour
   H7, écart dans le bruit).
+  K1 (`--weight delta`) : poolé max 86,08 (it160), **moins bien** qu'un tour normal (86,24–86,32).
+- **Diagnostic 23/10** (`work/corner_acc.py`, `work/mix_layers.py`, cible proche du tour 8 et état final du run exact de
+  C2J0H7) : la cible fait 92,27 % en val et **son coin de signes 92,47 %**. Le run exact (86,1 % sur cette éval) a 84,9 %
+  de signes d'accord avec le coin. Remplacer un groupe de couches par le coin : blocs 0–2 → 87,4 ; 3–5 → 88,4 ; 6–8 →
+  88,5 ; 9–11 → 88,4 ; embedding, ln final, tête : rien. Toutes les attentions → 89,2 (accord 81,8 %) ; tous les MLP →
+  90,6 (accord 86,5 %). La perte (6 points) est répartie sur toutes les couches : il faut plus d'accord partout, pas une
+  pondération par couche.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
