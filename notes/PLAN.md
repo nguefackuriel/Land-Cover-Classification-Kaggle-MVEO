@@ -971,6 +971,15 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   Hypothèses : sélection répétée sur le poolé (des dizaines de checkpoints, plusieurs tours) qui biaise le hold, et/ou les
   tours avec dither ajustent la distribution du train (perte réelle PFD sur le POOL), que le hold partage mais pas
   val/test. **Leçon : juger les gains sur la val (ou un bloc vraiment neuf), pas sur le hold seul.**
+- **D64_1..3** (dither sur la meilleure lignée 64, P8J3) : rien (poolé 84,64 → 84,75 → 84,74 → 84,72, val 84,3). Fini à
+  16:48 ; **le GPU est resté libre de 16:48 à 22:20** (surveillance pas relancée, erreur de ma part).
+- Vérification 22:20 (`shift_check.py`) : les cibles proches font **la même précision sur le hold et sur la val** (92,14 /
+  92,27 ; 92,26 / 92,20), l'état final du run exact aussi (86,08 / 86,10). Pas de décalage de distribution train/val.
+  L'écart hold 86,9 → test 86,17 de DR3 vient donc du biais de sélection et du bruit du test (écart-type ~0,55 point
+  sur 4 050 images pour un set seul). Tailles : train 18 900, val 4 050, hold 4 096.
+- **22:20 : `runs/queue_night.sh`** depuis DR3 it160, tours de 200 it avec dither : KD2 `--weight grad`, KD3 consensus des
+  3 cibles proches déjà calculées depuis DR3 (graines 0, 1, 2), KD5 PFD poids 5 et lots réels de 2 048 ; puis lignées 224
+  C8J2, C8J3 avec 4 tours dither chacune. Journal `runs/night.log`. Juger d'abord sur la val.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
