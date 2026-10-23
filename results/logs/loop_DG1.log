@@ -14,3 +14,7 @@ val 0.8701234567901235
 /home/ubuntu/Uriel/data_centric/work/proto.py:170: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   x = torch.load(f)
 {"tag": "near_DG1", "init_val": 0.8701}
+{"tag": "near_DG1", "it": 1, "T": 0.089, "loss": 0.3724, "val_acc": 0.8652, "edge": 0.31}
+{"tag": "near_DG1", "it": 250, "T": 0.071, "loss": 0.1719, "val_acc": 0.9121, "edge": 0.599}
+{"tag": "near_DG1", "it": 500, "T": 0.071, "loss": 0.2019, "val_acc": 0.9202, "edge": 0.614}
+{"tag": "near_DG1", "it": 750, "T": 0.079, "loss": 0.2007, "val_acc": 0.9244, "edge": 0.665}

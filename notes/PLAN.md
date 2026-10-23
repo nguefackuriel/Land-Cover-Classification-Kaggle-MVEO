@@ -986,6 +986,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   classifieur sans accord explicite : en attente de l'utilisateur pour préparer et soumettre KD2 it200.
   22:55 : queue_night arrêtée (KD3 coupé), **`runs/queue_night2.sh`** : tours DG1..DG4 (dither + weight grad) depuis KD2
   it200, puis lignées C8J2, C8J3 avec tours dither + weight grad.
+- **23/10 23:05 : KD2 it200 soumis (accord « ok envoie le ») → 0,81875, 1ers à nouveau** (vinicius 0,81517). Officiel
+  seed 42 : val 87,01 (deux runs identiques), archive `work/submissions/n10_KD2_224_*`. Test implicite **87,13** (+0,96
+  sur DR3 avec seulement 59 prédictions de test changées). La val (+0,52) a sous-estimé le gain, le hold (+0,14) aussi.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

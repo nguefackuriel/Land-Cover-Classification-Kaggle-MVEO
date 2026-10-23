@@ -1,0 +1,7 @@
+Device: cuda; train=10, validation=4050
+{"epoch": 1, "train_loss": 2.6605777740478516, "validation_accuracy": 0.15012345679012346}
+{"epoch": 2, "train_loss": 2.4852371215820312, "validation_accuracy": 0.34271604938271605}
+{"epoch": 3, "train_loss": 2.3762874603271484, "validation_accuracy": 0.7125925925925926}
+{"epoch": 4, "train_loss": 2.2807984352111816, "validation_accuracy": 0.8528395061728395}
+{"epoch": 5, "train_loss": 2.20914888381958, "validation_accuracy": 0.8701234567901235}
+Wrote 4,050 predictions to runs/recheck_n10_KD2_224/submission.csv

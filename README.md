@@ -29,7 +29,8 @@ All validation numbers below come from the unmodified `baseline.py`. Kaggle scor
 | 21 Oct | 10 | 224x224, from k-means medoids, three combined rounds, 4,096 train rows held out | 85.60 | not measured | 0.80826 |
 | 21 Oct | 10 | same, five combined rounds | 86.07 | not measured | 0.81184 |
 | 21 Oct | 10 | same, seven combined rounds | 86.44 | not measured | 0.81357 |
-| 23 Oct | 10 | same, three more rounds from a dithered start | **86.49** | not measured | **0.81394** |
+| 23 Oct | 10 | same, three more rounds from a dithered start | 86.49 | not measured | 0.81394 |
+| 23 Oct | 10 | same, one more round with the sign loss weighted by the real-loss gradient | **87.01** | not measured | **0.81875** |
 
 "Val, other seeds" means `baseline.py --seed s` for other values of `s`. For the 120-image sets it is the mean over
 seeds 42 and 0 to 4. The last three sets are tuned to the run that `baseline.py` makes with its default settings, so

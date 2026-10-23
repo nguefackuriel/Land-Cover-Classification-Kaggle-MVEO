@@ -217,7 +217,7 @@ Held-out train rows: 85.86 after round 6, 86.23 after round 7 (86.11 when scored
 seed 42: 86.44 (two runs, identical predictions). Kaggle test is about 86.10, up 0.35 from the round-5 set. Its test
 predictions differ from the round-5 set on 89 of 4,050 images.
 
-## 2026-10-23_n10_224_dithered_rounds_r3 (0.81394, best so far)
+## 2026-10-23_n10_224_dithered_rounds_r3 (0.81394)
 
 Three more combined rounds from the round-7 set, each one started from a dithered copy of the images: every pixel
 starts at a random point inside its 8-bit rounding bin (same PNG), so the pixels no longer all cross a rounding edge
@@ -234,4 +234,19 @@ a fresh near target each, 200 iterations each.
 Held-out train rows: 86.43 (K6), 86.57 (DR1), 86.74 (DR2), 86.9 (DR3, it160). Official validation on seed 42: 86.49
 (two runs, identical predictions). Kaggle test is about 86.17, up only 0.07 from the round-7 set: the held-out block
 promised 0.7 more, the validation set 0.05. Its test predictions differ from the round-7 set on 201 of 4,051 images.
+
+## 2026-10-23_n10_224_dithered_grad_weighted (0.81875, best so far)
+
+One more dithered round from the DR3 set, with each weight's sign term weighted by how much the real loss cares about
+that weight (`--weight grad`: |dCE/dtheta| on 2,048 training images at the end of the target path, normalised to
+mean 1). The near target is the one round DR4 computed from DR3.
+
+    DD_HOLDOUT=4096 python src/signmatch.py --init cache/sm_DR3_it160.pt --views cache/views_n10_s42_sz224.pt \
+        --target cache/ceiling3_near_DR4_it1000.pt --iters 200 --opt adam --lr 0.2 --lr-end 0.02 --warmup 10 \
+        --pfd-w 3.0 --real-bs 1024 --dither 0.98 --weight grad --tag KD2
+    python src/export_synth.py cache/sm_KD2_it200.pt sets/n10_KD2_224
+
+Validation rose steadily through the round, from 86.2 to 87.01 at the last step. Held-out train rows: 87.13. Official
+validation on seed 42: 87.01 (two runs, identical predictions). Kaggle test is about 87.13, up 0.96 from the DR3 set,
+although only 59 of 4,051 test predictions changed.
 

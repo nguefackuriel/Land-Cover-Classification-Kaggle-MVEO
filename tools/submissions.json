@@ -68,5 +68,12 @@
   "n": 10,
   "val": 0.8649,
   "score": 0.81394
+ },
+ {
+  "name": "n10_KD2_224",
+  "folder": "2026-10-23_n10_224_dithered_grad_weighted",
+  "n": 10,
+  "val": 0.8701,
+  "score": 0.81875
  }
 ]
