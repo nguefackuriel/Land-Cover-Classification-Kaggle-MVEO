@@ -911,6 +911,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   **P8J2** : H1 val 83,83 / hold 83,76 / poolé 83,81 ; tours 2–5 : 84,02 / 84,15 / 84,29 / **84,36** (H5 it160 : val 84,20,
   hold 84,52). **P8J3** : H1 val 84,02 / hold 84,33 / poolé 84,18 (meilleur H1 en 64), tour 2 it160 val exacte 84,37.
   Les autres tâches GPU de l'utilisateur (alertxia run_cti) ralentissent un peu les lignées (P8J3 : 2 h au lieu de 1 h 30).
+  P8J3 tours 2–5 : 84,43 / 84,43 / **84,59** (H4 it160 : val 84,37, hold 84,81) / 84,59 (H5 it120). **Meilleure lignée 64**
+  (+0,2 sur les autres), plateau au tour 4–5. `runs/factory64c.sh` (lancé 04:30, attend factory64b) : tours 6–9 sur la
+  meilleure lignée 64 après le tour 5 (tous P8J*).
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
