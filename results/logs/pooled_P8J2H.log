@@ -22,3 +22,12 @@ round 3 best cache/sm_P8J2H3_it160.pt 23:21:19
 {"set": "cache/sm_P8J2H4_it140.pt", "val": 0.8395, "hold": 0.8445, "pooled": 0.842}
 {"set": "cache/sm_P8J2H4_it160.pt", "val": 0.8402, "hold": 0.8455, "pooled": 0.8429}
 round 4 best cache/sm_P8J2H4_it160.pt 23:58:40
+{"set": "cache/sm_P8J2H4_it160.pt", "val": 0.8402, "hold": 0.8452, "pooled": 0.8427}
+{"set": "cache/sm_P8J2H5_it60.pt", "val": 0.84, "hold": 0.8389, "pooled": 0.8394}
+{"set": "cache/sm_P8J2H5_it80.pt", "val": 0.8375, "hold": 0.8396, "pooled": 0.8386}
+{"set": "cache/sm_P8J2H5_it100.pt", "val": 0.842, "hold": 0.8447, "pooled": 0.8434}
+{"set": "cache/sm_P8J2H5_it120.pt", "val": 0.839, "hold": 0.8438, "pooled": 0.8414}
+{"set": "cache/sm_P8J2H5_it140.pt", "val": 0.8405, "hold": 0.8464, "pooled": 0.8435}
+{"set": "cache/sm_P8J2H5_it160.pt", "val": 0.842, "hold": 0.8452, "pooled": 0.8436}
+round 5 best cache/sm_P8J2H5_it160.pt 00:35:58
+done 00:35:58
