@@ -5,3 +5,5 @@ K5 done best 0.8628 cache/sm_C2J0H7_it160.pt 08:28:16
 K6 start target cache/ceiling3_near_C2J0H8_it1000.pt --dither 0.98 08:28:16
 K6 done best 0.8639 cache/sm_K6_it160.pt 08:48:13
 K7 start target cache/ceiling3_near_C2J0H8_it1000.pt --disp 08:48:13
+K7 done best 0.8628 cache/sm_C2J0H7_it160.pt 09:09:56
+K8 start target cache/ceiling3_near_C2J0H8_it1000.pt --disp --dither 0.98 09:09:56
