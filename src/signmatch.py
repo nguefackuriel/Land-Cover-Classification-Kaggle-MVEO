@@ -28,6 +28,9 @@ ap.add_argument('--tag', default='sm')
 ap.add_argument('--warmup', type=int, default=0)
 ap.add_argument('--loss', default='softplus', choices=['softplus', 'sigmoid'])   # sigmoid: smooth agreement count
 ap.add_argument('--pfd-w', type=float, default=0.)      # >0: add the exact PFD meta-gradient (real loss), both RMS-normalised
+ap.add_argument('--dither', type=float, default=0.)   # adam: start each pixel at a random point of its 8-bit bin (width in levels, <1)
+ap.add_argument('--disp', action='store_true')   # loss on each weight's final AdamW displacement (momentum included), not per step
+ap.add_argument('--tau-d', type=float, default=0.25)   # --disp: softplus(-q / tau_d), q = s * displacement / R in [-1, 1]
 ap.add_argument('--pfd-tmult', type=float, default=1.)   # PFD term: real CE at the fitted temperature times this
 ap.add_argument('--real-bs', type=int, default=512)        # linear lr warmup over this many iterations
 ap.add_argument('--path', default='target', choices=['target', 'actual'])  # actual: score each step where the real run is
@@ -58,6 +61,11 @@ x0, y = D.load_set(a.init)
 x0, y = x0.to(dev), y.to(dev)
 ADAM = a.opt == 'adam'
 z = (x0.clone() if ADAM else torch.logit(x0.clamp(0.02, 0.98))).requires_grad_(True)
+if ADAM and a.dither > 0:   # same PNG at the start, but pixels no longer cross a rounding edge all at the same iteration
+    with torch.no_grad():
+        _r = torch.rand(z.shape, generator=torch.Generator().manual_seed(0)).to(dev)
+        z += (_r - 0.5) * a.dither / 255
+        z.clamp_(0, 1)
 pix = (lambda t: t.clamp(0, 1)) if ADAM else torch.sigmoid
 mo, vo = torch.zeros_like(z), torch.zeros_like(z)
 NT = sum(t.numel() for t in th0.values())
@@ -109,6 +117,48 @@ def actual_path(x):
             nth[k] = p.detach() * (1 - lr * WD) - lr * (m[k] / (1 - B1 ** t)) / ((v[k] / (1 - B2 ** t)).sqrt() + EPS)
         th = nth
     return out
+
+
+def grads_at(x, e, create_graph):
+    """Batch gradient of the official loss at step e of the target path (recorded view)."""
+    (idx, vw), = V['epochs'][e]
+    params = {k: t.detach().requires_grad_(True) for k, t in path[e].items()}
+    xa = P.augment_views(x[idx.to(dev)], vw)
+    with sdpa_kernel(SDPBackend.MATH), torch.autocast('cuda', dtype=torch.bfloat16, enabled=a.bf16):
+        ce = F.cross_entropy(functional_call(base, params, (xa,)).float(), y[idx.to(dev)])
+    return torch.autograd.grad(ce, list(params.values()), create_graph=create_graph)
+
+
+R = sum(LRS)
+
+
+def disp_grad(x):
+    """--disp: pixel gradient of mean softplus(-q / tau_d), where q = s * d / R and d = -sum_k lr_k mhat_k / (sqrt(vhat_k) + eps)
+    is the AdamW displacement of each weight, from the batch gradients g_k at the target path points. A late step that
+    disagrees with s but is small next to the first one costs little, because the momentum keeps the first sign.
+    Two passes: plain gradients give dL/dg_k (weight by weight), then one double backward per step."""
+    G = [[g.float() for g in grads_at(x.detach(), e, False)] for e in range(5)]
+    C = [[None] * len(th0) for _ in range(5)]
+    loss, agree = 0., 0
+    for j, k in enumerate(th0):
+        gl = [G[e][j].requires_grad_(True) for e in range(5)]
+        m = v = d = 0.
+        for e, lr in enumerate(LRS):
+            m = B1 * m + (1 - B1) * gl[e]; v = B2 * v + (1 - B2) * gl[e] * gl[e]
+            d = d - lr * (m / (1 - B1 ** (e + 1))) / ((v / (1 - B2 ** (e + 1))).clamp_min(1e-30).sqrt() + EPS)
+        q = d * S[k] / R
+        lk = F.softplus(-q / a.tau_d).sum() / NT
+        for e, c in enumerate(torch.autograd.grad(lk, gl)):
+            C[e][j] = c
+        loss += lk.item(); agree += (q > 0).sum().item()
+    del G
+    gx = torch.zeros_like(z)
+    for e in range(5):
+        gs = grads_at(x, e, True)
+        lin = sum((g.float() * c).sum() for g, c in zip(gs, C[e]))
+        gx += torch.autograd.grad(lin, z, retain_graph=True)[0]
+        del gs, lin
+    return gx, loss, agree / NT
 
 
 def step_loss(x, e, states=None):
@@ -168,7 +218,10 @@ for it in range(a.iters + 1):
     g = torch.zeros_like(z)
     agrees, losses = [], []
     states = actual_path(x.detach()) if a.path == 'actual' else None
-    for e in STEPS:
+    if a.disp:
+        g, l, ag = disp_grad(x)
+        agrees.append(round(ag, 4)); losses.append(round(l, 6))
+    for e in ([] if a.disp else STEPS):
         l, ag = step_loss(x, e, states)
         w = LRS[e] / LRS[0] if a.wlr else 1.
         g += torch.autograd.grad(l * w, z, retain_graph=True)[0]

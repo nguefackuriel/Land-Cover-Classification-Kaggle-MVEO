@@ -929,6 +929,18 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   88,5 ; 9–11 → 88,4 ; embedding, ln final, tête : rien. Toutes les attentions → 89,2 (accord 81,8 %) ; tous les MLP →
   90,6 (accord 86,5 %). La perte (6 points) est répartie sur toutes les couches : il faut plus d'accord partout, pas une
   pondération par couche.
+- **Deux idées nouvelles (23/10 matin, `signmatch.py`)** :
+  1. `--dither 0.98` : au début de chaque tour, tous les pixels sont pile sur un niveau entier, et Adam les déplace tous du
+     même pas : ils franchissent l'arrondi 8 bits **au même moment** (vers it10–20), d'où la chute du run exact (accord des
+     signes 83 % → 72 % à it10, perte réelle 0,40 → 1,00). Le dither place chaque pixel au hasard dans son intervalle
+     d'arrondi (même PNG au départ), pour étaler ces franchissements.
+  2. `--disp` (`--tau-d 0.25`) : au lieu de noter chaque pas séparément, on note le **déplacement final AdamW de chaque
+     poids** (élan et normalisation compris), d = −Σ_k lr_k m̂_k/(√v̂_k + ε), calculé depuis les gradients g_k aux points du
+     chemin cible ; perte softplus(−s·d/(R·τ_d)). Un pas tardif de travers mais petit devant le premier coûte peu, car
+     l'élan garde le premier signe. Deux passes : gradients simples → dL/dg_k poids par poids, puis une double rétro par
+     pas. Essai à sec : 11 s/it, accord des déplacements 84,84 % (comme l'accord mesuré sur le run exact).
+  `runs/queue_knobs2.sh` (remplace la fin de queue_knobs.sh à 08:15, attend K5) : K6 dither, K7 disp, K8 les deux, puis
+  K2, K3, K4 et les lignées 224 C8J2, C8J3.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
