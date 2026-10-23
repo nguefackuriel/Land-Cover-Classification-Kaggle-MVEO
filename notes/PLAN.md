@@ -952,6 +952,7 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   09:32 : DR1..DR6 lancés depuis sm_K6_it160 (dither seul), ~40 min par tour.
   **DR1** (200 it) : it200 val 86,40 / hold **86,57** / poolé **86,48**, nouveau record 224, monte jusqu'à la fin.
   **DR2** : it200 val 86,54 / hold **86,82** / poolé **86,68** (+0,2), monte encore à la fin. Candidat à soumettre (accord de l'utilisateur requis).
+  **DR3** : it160 val 86,49 / hold **86,94** / poolé **86,72** (it140–200 tous à 86,66–86,72, hold ~86,9) ; DR2 it200 réévalué 86,64. Le gain par tour ralentit. **Candidat conseillé : DR3 it160** (test attendu ~86,7–86,9). `finalize_sub.sh` bloqué par le classifieur de permissions (« transaction réelle ») alors qu'il est local : accord de l'utilisateur demandé.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
