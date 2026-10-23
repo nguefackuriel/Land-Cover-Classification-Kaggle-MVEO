@@ -914,6 +914,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   P8J3 tours 2–5 : 84,43 / 84,43 / **84,59** (H4 it160 : val 84,37, hold 84,81) / 84,59 (H5 it120). **Meilleure lignée 64**
   (+0,2 sur les autres), plateau au tour 4–5. `runs/factory64c.sh` (lancé 04:30, attend factory64b) : tours 6–9 sur la
   meilleure lignée 64 après le tour 5 (tous P8J*).
+  P8J4 : H1 83,69 → tours 2–5 : 84,07 / 84,18 / 84,30 / 84,40 (H5 it140 : val 84,22, hold 84,57).
+  **Bilan 64×64 (5 lignées propres, meilleur poolé après 5 tours)** : P8J0 84,31 ; P8J1 84,32 ; P8J2 84,36 ; P8J3 **84,59** ;
+  P8J4 84,40. Le 64 plafonne vers 84,4–84,6 (test estimé ~84,8, score ~0,807), ~1 point sous le 224.
+- **23/10 07:47 : vinicius simm passe 1er à 0,81517** (soumis le 22/10 19:27 ; test implicite 86,42). Nous 2es à 0,81357
+  (86,10). Le 64 ne peut pas rattraper ça : factory64b/64c arrêtés à 07:50 (P8J5 coupé au début), GPU rendu au 224 :
+  `runs/queue_knobs.sh` lancé à 07:50 (K1 weight delta, K5 PFD à T/2, K2 weight grad, K3 consensus de 2 cibles, K4 cible
+  2 000 pas, puis lignées 224 C8J2, C8J3). Meilleur candidat 224 sur validation : F3 it160 (poolé 86,35 contre 86,28 pour
+  H7, écart dans le bruit).
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

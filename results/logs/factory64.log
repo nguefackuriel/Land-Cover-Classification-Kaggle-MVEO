@@ -11,3 +11,5 @@ P8J2 rounds 2-5 done, best cache/sm_P8J2H5_it160.pt 0.842 0.8452 0.8436 00:35:58
 P8J3 lineage done 02:33:35
 P8J3 rounds 2-5 done, best cache/sm_P8J3H4_it160.pt 0.8437 0.8481 0.8459 04:25:08
 P8J4 lineage done 05:57:44
+P8J4 rounds 2-5 done, best cache/sm_P8J4H5_it140.pt 0.8422 0.8457 0.844 07:46:42
+(factory64b/64c stopped by hand 07:50 23/10: vinicius passed us at 0.81517; 64 lineages cap ~84.4-84.6 pooled; GPU back to 224 knobs)
