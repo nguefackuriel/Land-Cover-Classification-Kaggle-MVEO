@@ -996,6 +996,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   Relancé à la main à 01:00 (la machine a 30 cœurs, load ~20 suffit ; seuil de `wait_load.sh` mis à 24) : ~16 s/it.
   **DG1** (depuis KD2 it200) : it180 val 86,99 / hold 87,48 / poolé 87,23 ; it200 val 87,11 / hold 87,30. Gain de val
   +0,1 seulement (bruit) : pas de soumission.
+  **DG2** (depuis DG1 it180) : val 86,89–87,11, hold jusqu'à 87,62 (it140), poolé 87,31. **Val au plateau vers 87,0–87,1**
+  avec cette recette. DG3/DG4 sautés à 03:42 ; la file passe aux lignées 224 C8J2 puis C8J3 (H1 standard, puis tours
+  2–5 dither + weight grad, `runs/dither_C8J{2,3}G.log`).
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
