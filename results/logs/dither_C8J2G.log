@@ -3,3 +3,5 @@ round 2 done best cache/sm_C8J2G2_it160.pt pooled 0.8506 08:47:05
 round 3 start cache/sm_C8J2G2_it160.pt --weight grad 08:47:05
 round 3 done best cache/sm_C8J2G3_it160.pt pooled 0.8544 10:37:36
 round 4 start cache/sm_C8J2G3_it160.pt --weight grad 10:37:36
+round 4 done best cache/sm_C8J2G4_it160.pt pooled 0.8556 12:27:17
+round 5 start cache/sm_C8J2G4_it160.pt --weight grad 12:27:17

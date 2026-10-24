@@ -6,3 +6,4 @@ KD3 start  22:53:07
 relaunch by hand 01:00 (load ~20 of 30 cores)
 DG rounds done: round 1 done best cache/sm_DG1_it180.pt pooled 0.8723 02:21:02 round 2 done best cache/sm_DG2_it140.pt pooled 0.8731 03:40:04  03:40:26
 C8J2 lineage done {"set": "cache/sm_C8J2H1_best.pt", "val": 0.8449, "hold": 0.8374, "pooled": 0.8411} 07:20:20
+(C8J2 stopped by hand 12:30 after G4: pooled 85.56, val 85.6, plateau far below KD2; C8J3 skipped; testing --weight-pow from KD2)

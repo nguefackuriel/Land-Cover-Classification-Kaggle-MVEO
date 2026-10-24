@@ -1002,6 +1002,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   **C8J2 (224)** : PFD 79,06 → tour 1 83,48 → tour 2 83,95 → H1 val 84,49 / hold 83,74 / poolé 84,11 ; tours dither + grad :
   G2 85,06 (val 85,38) ; G3 85,44 (val 85,43, hold 85,45). Au niveau de C2J0 au même stade (H3 85,42), loin de KD2 (87,07).
   GPU partagé (98 %, 8 processus dont cadets) : 18–30 s/it. Classement 08:15 : nous 0,81875, vinicius 0,81517.
+  G4 85,56 (val 85,63–85,78) : plateau vers 85,7. Arrêté à 12:30 ; C8J3 sauté. `signmatch.py --weight-pow p` (poids
+  |dCE/dθ|^p). `runs/queue_wpow.sh` : WP2 (p=2) et WP05 (p=0,5) depuis KD2 it200 avec la cible de DG1 (DG1 = p=1 :
+  val max 87,11, poolé 87,23) ; journal `runs/wpow.log`.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

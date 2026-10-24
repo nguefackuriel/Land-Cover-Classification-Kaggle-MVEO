@@ -30,6 +30,7 @@ ap.add_argument('--loss', default='softplus', choices=['softplus', 'sigmoid'])  
 ap.add_argument('--pfd-w', type=float, default=0.)      # >0: add the exact PFD meta-gradient (real loss), both RMS-normalised
 ap.add_argument('--dither', type=float, default=0.)   # adam: start each pixel at a random point of its 8-bit bin (width in levels, <1)
 ap.add_argument('--dither-seed', type=int, default=0)
+ap.add_argument('--weight-pow', type=float, default=1.)   # --weight grad: use |dCE/dtheta| ** this (2: focus harder on the weights that matter)
 ap.add_argument('--disp', action='store_true')   # loss on each weight's final AdamW displacement (momentum included), not per step
 ap.add_argument('--tau-d', type=float, default=0.25)   # --disp: softplus(-q / tau_d), q = s * displacement / R in [-1, 1]
 ap.add_argument('--pfd-tmult', type=float, default=1.)   # PFD term: real CE at the fitted temperature times this
@@ -92,9 +93,11 @@ if a.weight == 'grad':      # how much the real loss cares about each weight at 
             l = F.cross_entropy(functional_call(base, det, (P.to_eval(D.xtr[ridx[j:j + 128]].to(dev)),)).float() / T, yb[j:j + 128])
         for (k, _), g in zip(det.items(), torch.autograd.grad(l, list(det.values()))):
             W[k] += g.float().abs()
+    if a.weight_pow != 1:
+        W = {k: w.pow(a.weight_pow) for k, w in W.items()}
     mean_w = sum(w.sum().item() for w in W.values()) / NT
     W = {k: w / mean_w for k, w in W.items()}
-    print(json.dumps({'weight': 'grad', 'T_corner': T}), flush=True)
+    print(json.dumps({'weight': 'grad', 'T_corner': T, 'pow': a.weight_pow}), flush=True)
 
 
 B1, B2, EPS = 0.9, 0.999, 1e-8
