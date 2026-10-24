@@ -1009,6 +1009,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   meilleur.** 15:30 : `runs/queue_kg.sh` (dither + grad, depuis KD2 it200) : KG3 consensus de 3 cibles proches (graines
   0, 1, 2), KG5 PFD poids 5 + lots 2 048, KGt τ 0,15 ; journal `runs/kg.log`.
   **KG3** (consensus de 3 cibles) : val max 87,04, poolé max 87,16 : rien de mieux. KG5 en cours (40 s/it, GPU partagé).
+  **18:31 : KG5 et `queue_kg.sh` ont disparu** à it35, sans erreur dans les journaux ni trace d'OOM dans dmesg (pas un
+  plantage de notre code). Pas relancé : demander à l'utilisateur. KGt pas lancé.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des

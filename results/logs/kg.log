@@ -1,3 +1,4 @@
 KG3 start  16:27:07
 KG3 done best pooled cache/sm_KG3_it160.pt 0.8701 0.873 0.8716 | best val cache/sm_KG3_it120.pt 0.8704 0.8696 18:02:54
 KG5 start --pfd-w 5.0 --real-bs 2048 18:02:54
+(KG5 and queue_kg.sh vanished at 18:31 without any error or OOM kill in the logs; not relaunched, asked the user)
