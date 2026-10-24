@@ -1005,6 +1005,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   G4 85,56 (val 85,63–85,78) : plateau vers 85,7. Arrêté à 12:30 ; C8J3 sauté. `signmatch.py --weight-pow p` (poids
   |dCE/dθ|^p). `runs/queue_wpow.sh` : WP2 (p=2) et WP05 (p=0,5) depuis KD2 it200 avec la cible de DG1 (DG1 = p=1 :
   val max 87,11, poolé 87,23) ; journal `runs/wpow.log`.
+  **WP2** (p=2) : rien au-dessus de KD2 (val ~86,6–86,7). **WP05** (p=0,5) : val max 87,06, poolé ≤ KD2. **p=1 reste le
+  meilleur.** 15:30 : `runs/queue_kg.sh` (dither + grad, depuis KD2 it200) : KG3 consensus de 3 cibles proches (graines
+  0, 1, 2), KG5 PFD poids 5 + lots 2 048, KGt τ 0,15 ; journal `runs/kg.log`.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
