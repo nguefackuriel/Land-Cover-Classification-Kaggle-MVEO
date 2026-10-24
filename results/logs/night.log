@@ -3,3 +3,4 @@ KD2 done best pooled cache/sm_KD2_it200.pt 0.8701 0.8713 0.8707 | best val cache
 KD3 start  22:53:07
 (queue_night stopped by hand 22:55 after KD2: chaining weight-grad dithered rounds instead, runs/queue_night2.sh)
 (DG1 stopped by hand 00:00 24/10 at it40: machine overloaded by other jobs, load 56, 657 s/it; relaunch when load drops, runs/wait_load.sh)
+relaunch by hand 01:00 (load ~20 of 30 cores)
