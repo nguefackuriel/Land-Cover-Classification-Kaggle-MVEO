@@ -29,3 +29,5 @@ val 0.8701234567901235
 {"tag": "near_KGs2", "it": 1, "T": 0.1, "loss": 0.3894, "val_acc": 0.8667, "edge": 0.311}
 {"tag": "near_KGs2", "it": 250, "T": 0.089, "loss": 0.2193, "val_acc": 0.9163, "edge": 0.591}
 {"tag": "near_KGs2", "it": 500, "T": 0.079, "loss": 0.2138, "val_acc": 0.9195, "edge": 0.633}
+{"tag": "near_KGs2", "it": 750, "T": 0.089, "loss": 0.2419, "val_acc": 0.923, "edge": 0.657}
+{"tag": "near_KGs2", "it": 1000, "T": 0.063, "loss": 0.14, "val_acc": 0.9227, "edge": 0.703}
