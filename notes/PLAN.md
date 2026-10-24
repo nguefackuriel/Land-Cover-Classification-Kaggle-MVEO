@@ -999,6 +999,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   **DG2** (depuis DG1 it180) : val 86,89–87,11, hold jusqu'à 87,62 (it140), poolé 87,31. **Val au plateau vers 87,0–87,1**
   avec cette recette. DG3/DG4 sautés à 03:42 ; la file passe aux lignées 224 C8J2 puis C8J3 (H1 standard, puis tours
   2–5 dither + weight grad, `runs/dither_C8J{2,3}G.log`).
+  **C8J2 (224)** : PFD 79,06 → tour 1 83,48 → tour 2 83,95 → H1 val 84,49 / hold 83,74 / poolé 84,11 ; tours dither + grad :
+  G2 85,06 (val 85,38) ; G3 85,44 (val 85,43, hold 85,45). Au niveau de C2J0 au même stade (H3 85,42), loin de KD2 (87,07).
+  GPU partagé (98 %, 8 processus dont cadets) : 18–30 s/it. Classement 08:15 : nous 0,81875, vinicius 0,81517.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
