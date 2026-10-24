@@ -1,2 +1,4 @@
 round 1 start cache/sm_KD2_it200.pt --weight grad 22:53:36
 round 1 start cache/sm_KD2_it200.pt --weight grad 00:59:24
+round 1 done best cache/sm_DG1_it180.pt pooled 0.8723 02:21:02
+round 2 start cache/sm_DG1_it180.pt --weight grad 02:21:02

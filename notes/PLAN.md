@@ -993,6 +993,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   w2vec trace/clearscope/optc/cadets, run_baselines alertxia ; load 56) et nos runs exacts construisent chaque lot sur
   le CPU → 657 s/it au lieu de ~11. `runs/wait_load.sh runs/queue_night2.sh` relance la file quand la charge 1 min reste
   sous 16 pendant 10 minutes. Ne pas toucher aux jobs de l'utilisateur.
+  Relancé à la main à 01:00 (la machine a 30 cœurs, load ~20 suffit ; seuil de `wait_load.sh` mis à 24) : ~16 s/it.
+  **DG1** (depuis KD2 it200) : it180 val 86,99 / hold 87,48 / poolé 87,23 ; it200 val 87,11 / hold 87,30. Gain de val
+  +0,1 seulement (bruit) : pas de soumission.
 - **Papier mis à jour le 21/10 au soir** (`paper/main.tex`, 11 pages, compile sans erreur) : résumé et intro
   refaits ; nouvelles sections méthode (réplique exacte, sign matching vers un réseau atteignable, cible proche,
   hybride, tours, bloc tenu à part) ; nouvelles sections expériences (de 80,6 à 86,4 avec 10 images, choix des
