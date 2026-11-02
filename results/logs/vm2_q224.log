@@ -5,3 +5,6 @@ vm2_q224.sh stopped after KGt start, rest moved to vm2_q224b.sh 21:01:13
 KGt done best pooled cache/sm_KGt_it200.pt 0.8728 0.877 0.8749 | best val cache/sm_KGt_it180.pt 0.8728 0.874 22:12:12
 KR1 stopped at its near target (KGt better), vm2_q224c.sh takes over 22:13:37
 KGc start cache/sm_KD2_it200.pt cache/ceiling3_near_DG1_it1000.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 22:13:37
+KGt8 start cache/sm_KD2_it200.pt near_DG1 --weight grad --tau 0.08 23:50:17
+KGc done best pooled cache/sm_KGc_it140.pt 0.8726 0.8774 0.875 | best val cache/sm_KGc_it160.pt 0.8736 0.875 23:55:40
+KT start cache/sm_KGc_it140.pt knobs --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 23:55:40

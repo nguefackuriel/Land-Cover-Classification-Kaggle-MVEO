@@ -22,6 +22,7 @@ ap.add_argument('--lr-end', type=float, default=0.005)
 ap.add_argument('--tau', type=float, default=0.3)
 ap.add_argument('--steps', default='0,1,2,3,4')
 ap.add_argument('--wlr', action='store_true')          # weight step k by lr_k
+ap.add_argument('--step-w', default='')   # comma list, one weight per step (e.g. how much g_k's sign moves the final AdamW displacement)
 ap.add_argument('--bf16', action='store_true')
 ap.add_argument('--eval-every', type=int, default=20)
 ap.add_argument('--tag', default='sm')
@@ -227,7 +228,7 @@ for it in range(a.iters + 1):
         agrees.append(round(ag, 4)); losses.append(round(l, 6))
     for e in ([] if a.disp else STEPS):
         l, ag = step_loss(x, e, states)
-        w = LRS[e] / LRS[0] if a.wlr else 1.
+        w = float(a.step_w.split(',')[e]) if a.step_w else (LRS[e] / LRS[0] if a.wlr else 1.)
         g += torch.autograd.grad(l * w, z, retain_graph=True)[0]
         agrees.append(round(ag, 4)); losses.append(round(l.item(), 5))
     rl = None

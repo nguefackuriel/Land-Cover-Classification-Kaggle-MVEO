@@ -1078,6 +1078,15 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     plafonne dès le tour 1**, comme DG1/DG2 en 224. Tours W64_3–4 arrêtés à 23:00. **K64f6** (PFD 6) : val max 84,30 (=
     départ), moins bien que W64_1 (PFD 3) → PFD plus fort nuit en 64. K64lr lancé tout de suite dans la place libérée.
     `runs/vm2_kt8.sh` : KGt8 (224, τ 0,08, même protocole que KGt) quand K64t libère sa place.
+  - **3/11 00:00.** **KGc** (224, τ 0,15 + PFD 5 + batch 2 048, depuis KD2, cible DG1) : val 87,01–87,36 (max it160),
+    moyenne des 4 derniers checkpoints 87,28 contre 87,21 pour KGt : les réglages s'ajoutent à peine (bruit ~0,1). Les
+    tours KT partent de KGc it140 (val 87,26, hold 87,74) avec tous les réglages. **K64t** (64, τ 0,15) : val max 84,64
+    (it180) = W64_1 (84,59) : τ n'aide pas en 64. **K64lr** (pixels lr ×2,5) : OOM à it50 (4 jobs de ~20 Go), mais it20
+    / it40 à 83,06 / 83,48 contre 84,12 / 84,32 pour W64_1 : abandon. Sur VM2, **3 jobs signmatch au plus** en même temps.
+  - **Pondération des pas** (`signmatch.py --step-w`, nouveau). La perte compte les 5 pas officiels à égalité, alors que
+    le déplacement final AdamW en dépend très inégalement : lr_k/lr_0 = 1 / 0,905 / 0,655 / 0,345 / 0,095, et par le
+    premier moment corrigé du biais, le signe de g_j pèse 1 / 0,462 / 0,205 / 0,071 / 0,014 sur θ5 (le pas 0 fixe m̂
+    seul). `runs/vm2_k64c.sh` (après KGt8) : K64a (poids Adam) puis K64w (`--wlr`), même protocole que W64_1.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
