@@ -683,6 +683,15 @@ together (84.3\% against 85.5\%), and the $64\times64$ lineage stopped improving
 on the held-out block. The pipeline upsamples every image to $224\times224$ anyway, so a $64\times64$ image can only
 use 12\,288 of the 150\,528 input values the network sees. In our runs this limit cost about a point.
 
+Two checks show that the $224\times224$ sets really use the extra pixels, and are not $64\times64$ images in disguise.
+First, bringing our best $224\times224$ set down to $64\times64$ drops its validation accuracy from 87.0\% to 43\% (box
+filter), 43\% (bilinear filter) and 30\% (least-squares fit of the official training views). What the set encodes
+lives in fine detail that a $64\times64$ image cannot carry. Second, the two sizes lead the official run to different
+places. The update signs $\mathrm{sign}(\theta_5-\theta_0)$ of the runs on our best $64\times64$ and $224\times224$
+sets agree on only 62\% of the weights, where chance gives 50\%. Each run agrees with its own near target on 84\%
+($64\times64$) or 86\% ($224\times224$) of the weights, and the gap between the two sizes is spread over all blocks
+(1.5 to 3 points each), not concentrated in one layer.
+
 \subsection{Choosing checkpoints}
 \label{sec:selection}
 Late in the challenge, our sets differed by tenths of a point, and selection became the main difficulty. The sets of
