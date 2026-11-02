@@ -1,0 +1,12 @@
+{"set": "cache/sm_KD2_it200.pt", "val": 0.8701, "hold": 0.8713, "pooled": 0.8707}
+{"set": "cache/sm_D64_1_it180.pt", "val": 0.843, "hold": 0.8521, "pooled": 0.8475}
+ls it 0 rmse (levels) 18.79706305379453
+ls it 100 rmse (levels) 14.460990569096138
+ls it 200 rmse (levels) 14.226929086230886
+ls it 300 rmse (levels) 14.1983227902974
+ls it 399 rmse (levels) 14.19354065122757
+saved cache/proj64_KD2
+{"set": "cache/proj64_KD2_box.pt", "val": 0.4321, "hold": 0.4199, "pooled": 0.426}
+{"set": "cache/proj64_KD2_bil.pt", "val": 0.4314, "hold": 0.4236, "pooled": 0.4274}
+{"set": "cache/proj64_KD2_ls.pt", "val": 0.3005, "hold": 0.2952, "pooled": 0.2978}
+done 19:02:21

@@ -1,0 +1,2 @@
+start set cache/sm_D64_1_it180.pt
+round 1 start cache/sm_D64_1_it180.pt --weight grad 19:02:49
