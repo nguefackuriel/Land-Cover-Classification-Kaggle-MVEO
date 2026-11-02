@@ -1021,6 +1021,34 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   `DD_HOLDOUT=4096`, checkpoints notés sur val + hold (`runs/pooled_C2J0H.log`). C2J0 n'a jamais vu le hold : test propre
   de l'utilité des tours supplémentaires. Sinon, plateau de la méthode vers 84,7–85 en test, et on passe au papier.
 
+- **2/11 (reprise après 9 jours sans run)** : classement 0,81875 **à égalité avec vinicius simm** (il nous a rejoints le
+  26/10), Lynch James 3e (0,80184). Forum lu par l'API interne de Kaggle (la page web est vide sans JavaScript).
+  Organisateur le 26/10 : seeds du code officiel, plusieurs runs, quelques dixièmes tolérés ; features ViT figées et
+  teachers externes permis ; patchs/crops permis ; grilles refusées ; **64×64 préféré et prioritaire aux vérifications**
+  sauf justification scientifique. Il a aussi proposé un budget fixe de ~3 000 pas au lieu de 5 epochs (deux équipes
+  contre, pas de décision) : à surveiller. Décision de l'utilisateur : **ne rien poster sur le forum** ; sélection finale
+  = un set 224 + un set 64.
+  Deuxième machine **VM2** (A100 80 Go, 30 cœurs, mêmes chemins, env `~/dd-env` lié en `/home/ubuntu/vllm-env`) : le
+  rejeu exact redonne KD2 87,01 / hold 87,13 et D64_1 84,30 ; `baseline.py` officiel y donne les **mêmes 4 050
+  prédictions** que la soumission KD2. Rapatriement des résultats : `data_centric/pull_vm2.sh` puis `tools/push.sh`.
+  **Projection du 224 vers le 64** (`work/proj64.py`, KD2 → 64 par box, bilinéaire, ou moindres carrés sur les vues
+  officielles) : val 43,2 / 43,1 / 30,1 %. Le gain du 224 est dans les hautes fréquences, qu'une image 64 agrandie ne
+  peut pas porter (argument pour la justification du 224, avec le 448 moins bon que le 224).
+  Lancé sur VM2 : `vm2_q64.sh` (tours W64_1..4 dither + weight grad depuis D64_1 it180, la recette KD2 jamais faite en
+  64), `vm2_q64b.sh` (lignée 64 Q4J0 depuis les médoïdes de C2J0), `vm2_k64.sh` (64 : poids grad², PFD 6, τ 0,15, même
+  cible que W64_1), `vm2_q224.sh` (KG5, KGt, NL1 = cible proche de 3 000 pas depuis DG2 it200).
+  **Idée nouvelle : cibles à retournements minimaux** (`work/flip_target.py`). Le run exact ne reprend que ~85 % des
+  signes de la cible proche (coin 92,5 %) et finit à 87 : les 15 % de retournements demandés ne valent pas tous la peine.
+  La cible garde les signes de notre fin de run et ne prend ceux de la cible proche que sur la fraction f des désaccords
+  les plus utiles (gain au premier ordre g·(s_act − s_near)·R au coin proche). Diagnostic : précision du coin selon f.
+  **Résultat (224, fin du run KD2 + cible near_DG1)** : coin de notre run 87,46, coin de la cible 92,52, 14,2 % de
+  désaccords. Rangés au coin de la cible, les retournements partiels **font chuter** le coin : f = 5 / 10 / 20 / 50 % →
+  83,9 / 81,9 / 80,3 / 80,6, et 92,5 seulement à f = 100 %. Les retournements de la cible ne marchent qu'ensemble (comme
+  le mélange de bassins). Rangés au **coin de notre run** (mode `act`) : f = 0,5 / 1 / 2 % (0,07–0,28 % des poids) →
+  87,93 / 87,85 / **88,00**, puis 85,9 / 83,8 / 81,2 pour 5 / 10 / 25 %. Le paysage en signes est très accidenté : seuls
+  de tout petits pas au premier ordre aident. Test lancé (`runs/vm2_fl224.sh`, après vm2_q224) : sign matching depuis
+  KD2 vers la cible « petit pas » flipA224_f0.02 (coin 88,0), à comparer à DG1 (val max 87,11).
+
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
 pour un coût de score quasi nul :
