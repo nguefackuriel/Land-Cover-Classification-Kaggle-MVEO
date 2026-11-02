@@ -1,1 +1,4 @@
 KG5 start cache/sm_KD2_it200.pt --pfd-w 5.0 --real-bs 2048 19:01:22
+KG5 done best pooled cache/sm_KG5_it200.pt 0.8714 0.8762 0.8738 | best val cache/sm_KG5_it160.pt 0.8714 0.8711 20:46:10
+KGt start cache/sm_KD2_it200.pt --tau 0.15 20:46:10
+vm2_q224.sh stopped after KGt start, rest moved to vm2_q224b.sh 21:01:13

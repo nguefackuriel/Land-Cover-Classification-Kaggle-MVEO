@@ -1048,6 +1048,19 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   87,93 / 87,85 / **88,00**, puis 85,9 / 83,8 / 81,2 pour 5 / 10 / 25 %. Le paysage en signes est très accidenté : seuls
   de tout petits pas au premier ordre aident. Test lancé (`runs/vm2_fl224.sh`, après vm2_q224) : sign matching depuis
   KD2 vers la cible « petit pas » flipA224_f0.02 (coin 88,0), à comparer à DG1 (val max 87,11).
+  En 64 (fin D64_1 it180 + cible near_W64_1) : 16,4 % de désaccords, coin 84,6 → 90,6, même échec des retournements
+  partiels rangés au coin de la cible (f = 5–50 % → 82,6–84,5).
+- **2/11 soir, résultats VM2** :
+  - **W64_1** (64, recette KD2 dither + weight grad, depuis D64_1 it180) : val 84,30 → **84,59** (it200, hold 85,40).
+    La val monte encore à it200 (84,47 à it180). Premier gain en 64 depuis des jours ; tours 2–4 en cours.
+  - **K64p2** (64, poids grad²) : rien ne bat le départ → abandon. K64f6 (PFD 6) puis K64t (τ 0,15) en cours.
+  - **KG5** (224, PFD 5, batch réel 2048, depuis KD2 it200, cible near_DG1) : val **87,14** à it160 et it200, hold
+    87,62 à it200 (KD2 : 87,01 / 87,13 ; DG1 : val max 87,11). Petit gain, meilleur set 224 en val.
+  - Nouvelle file 224 `runs/vm2_q224b.sh` (remplace la fin de vm2_q224.sh) : KGt (déjà lancé) → **KR1** = round frais
+    depuis KG5 it200 avec PFD 5 / batch 2048 → **NLK** = même départ et réglages, cible proche de 3 000 it (à comparer
+    à KR1) → FL0.02.
+  - Remarque : le hold du même set D64_1 it180 vaut 85,06 ou 85,21 selon le run (val identique, 84,30). Le hold
+    bouge de quelques images d'un run à l'autre sur VM2 ; encore une raison de juger sur la val.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
