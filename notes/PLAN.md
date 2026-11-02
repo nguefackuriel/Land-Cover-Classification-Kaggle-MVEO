@@ -1069,6 +1069,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     79,5, mlp 84,4 / 86,3 ; blocs 3–5 79,8 / 81,7, 84,5 / 86,3 ; blocs 6–8 81,3 / 83,6, 84,7 / 86,6 ; blocs 9–11
     83,4 / 86,4, 86,5 / 89,8 ; embedding 83,1 / 88,8 (images lisses) ; tête 90,5 / 92,7. Manque de capacité général,
     pas une couche à viser.
+  - **KGt** (224, τ 0,15 au lieu de 0,3, depuis KD2 it200, cible near_DG1) : val **87,28** à it180 et it200 (it140
+    87,26), hold 87,70 : **meilleur 224 en val** (+0,27 sur KD2, +0,14 sur KG5). KR1 arrêté pendant sa cible proche ;
+    `runs/vm2_q224c.sh` : **KGc** = τ 0,15 + PFD 5 + batch 2 048 (mêmes départ et cible : les réglages s'ajoutent-ils ?),
+    puis tours KT1–KT2 depuis le meilleur de KGt / KGc (moyenne de val des 4 derniers checkpoints) avec ses réglages, puis
+    NLK (cible de 3 000 it). FL0.02 abandonné. K64t (τ 0,15 en 64) reste dans vm2_k64.sh après K64f6.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

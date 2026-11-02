@@ -1,0 +1,2 @@
+round 1 start cache/sm_KG5_it200.pt --weight grad --pfd-w 5.0 --real-bs 2048 22:12:12
+stopped (replaced by KT rounds) 22:13:37
