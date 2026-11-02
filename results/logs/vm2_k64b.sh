@@ -3,7 +3,7 @@
 # a 64 pixel feeds ~12 view pixels, and a round only moves pixels by 0.6 level on average, so maybe 64 needs bigger
 # steps. Same start (D64_1 it180) and near target as W64_1 (reference val 84.59). Log runs/vm2_k64.log.
 cd /home/ubuntu/Uriel/data_centric/work
-while pgrep -f "runs/vm2_k64.sh" > /dev/null; do sleep 60; done
+# (2/11 23:00: started at once in the slot freed by stopping the W64 rounds)
 PY=/home/ubuntu/vllm-env/bin/python
 export DD_HOLDOUT=4096 PROTO_PIL=1 PROTO_EXACT=1
 V=cache/views_n10_s42.pt; S=cache/sm_D64_1_it180.pt; TG=cache/ceiling3_near_W64_1_it1000.pt; L=runs/vm2_k64.log

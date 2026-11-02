@@ -1074,6 +1074,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     `runs/vm2_q224c.sh` : **KGc** = τ 0,15 + PFD 5 + batch 2 048 (mêmes départ et cible : les réglages s'ajoutent-ils ?),
     puis tours KT1–KT2 depuis le meilleur de KGt / KGc (moyenne de val des 4 derniers checkpoints) avec ses réglages, puis
     NLK (cible de 3 000 it). FL0.02 abandonné. K64t (τ 0,15 en 64) reste dans vm2_k64.sh après K64f6.
+  - **W64_2** (tour 2, depuis W64_1 it200) : val 84,52–84,54 à it180–200, pas mieux (poolé 85,02 contre 85,00). **Le 64
+    plafonne dès le tour 1**, comme DG1/DG2 en 224. Tours W64_3–4 arrêtés à 23:00. **K64f6** (PFD 6) : val max 84,30 (=
+    départ), moins bien que W64_1 (PFD 3) → PFD plus fort nuit en 64. K64lr lancé tout de suite dans la place libérée.
+    `runs/vm2_kt8.sh` : KGt8 (224, τ 0,08, même protocole que KGt) quand K64t libère sa place.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

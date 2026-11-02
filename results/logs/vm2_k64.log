@@ -1,3 +1,6 @@
 K64p2 start --weight-pow 2 19:30:39
 K64p2 done best pooled cache/sm_D64_1_it180.pt 0.843 0.8521 0.8475 | best val cache/sm_D64_1_it180.pt 0.843 0.8521 20:57:57
 K64f6 start --pfd-w 6.0 20:57:57
+K64f6 done best pooled cache/sm_D64_1_it180.pt 0.843 0.8511 0.847 | best val cache/sm_D64_1_it180.pt 0.843 0.8511 22:25:40
+K64t start --tau 0.15 22:25:40
+K64lr start --lr 0.5 --lr-end 0.05 22:54:46
