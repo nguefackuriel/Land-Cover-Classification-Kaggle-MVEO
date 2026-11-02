@@ -15,3 +15,4 @@ val 0.845925925925926
   x = torch.load(f)
 {"tag": "near_W64_2", "init_val": 0.8459}
 {"tag": "near_W64_2", "it": 1, "T": 0.112, "loss": 0.4359, "val_acc": 0.8405, "edge": 0.298}
+{"tag": "near_W64_2", "it": 250, "T": 0.089, "loss": 0.216, "val_acc": 0.8963, "edge": 0.624}

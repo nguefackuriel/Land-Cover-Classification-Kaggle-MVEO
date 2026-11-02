@@ -1,0 +1,5 @@
+{"it": 0, "n": 10, "val_accs": [], "mean": 0.0, "score_mean": 0.3831, "exact_seed": 42, "exact_acc": 0.8212, "exact_score": 0.7937}
+{"it": 0, "K": 5, "window": 5, "real_loss_after_K": 0.5531, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 15.11, "peak_gb": 9.4}
+{"it": 5, "K": 5, "window": 5, "real_loss_after_K": 0.5294, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 11.8, "peak_gb": 9.4}
+{"it": 10, "K": 5, "window": 5, "real_loss_after_K": 0.5366, "tdist": 0.0, "T": 0.1413, "ls_mult": [], "sec": 11.34, "peak_gb": 9.4}
+{"it": 15, "K": 5, "window": 5, "real_loss_after_K": 0.5091, "tdist": 0.0, "T": 0.1334, "ls_mult": [], "sec": 11.79, "peak_gb": 9.4}

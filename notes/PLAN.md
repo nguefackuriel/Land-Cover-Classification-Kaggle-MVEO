@@ -1061,6 +1061,16 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     à KR1) → FL0.02.
   - Remarque : le hold du même set D64_1 it180 vaut 85,06 ou 85,21 selon le run (val identique, 84,30). Le hold
     bouge de quelques images d'un run à l'autre sur VM2 ; encore une raison de juger sur la val.
+  - **Le 64 et le 224 sont dans deux bassins différents.** Accord des signes (θ − θ0) : fin du run 64 / fin du run 224
+    62,3 % (le hasard donne 50 %) ; fin 64 / cible proche 224 61,4 % ; fin 64 / sa cible 83,6 % ; fin 224 / sa cible
+    85,8 % ; les deux cibles proches entre elles 63,7 %. Viser la cible 224 depuis un set 64 demanderait de retourner
+    ~39 % des signes : inutile d'essayer (les cibles lointaines ont toujours perdu contre les cibles proches).
+  - **Le déficit du 64 est réparti sur toutes les couches** (accord fin / cible, 64 contre 224) : blocs 0–2 attn 78,4 /
+    79,5, mlp 84,4 / 86,3 ; blocs 3–5 79,8 / 81,7, 84,5 / 86,3 ; blocs 6–8 81,3 / 83,6, 84,7 / 86,6 ; blocs 9–11
+    83,4 / 86,4, 86,5 / 89,8 ; embedding 83,1 / 88,8 (images lisses) ; tête 90,5 / 92,7. Manque de capacité général,
+    pas une couche à viser.
+  - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
+    en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
