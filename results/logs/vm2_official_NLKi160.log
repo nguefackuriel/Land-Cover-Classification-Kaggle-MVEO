@@ -1,0 +1,10 @@
+/home/ubuntu/Uriel/data_centric/work/export_synth.py:11: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  d = torch.load(src)
+10 images -> sets/n10_NLKi160_224 (from it=160, accs=None)
+Device: cuda; train=10, validation=4050
+{"epoch": 1, "train_loss": 2.569359302520752, "validation_accuracy": 0.14938271604938272}
+{"epoch": 2, "train_loss": 2.401292085647583, "validation_accuracy": 0.33185185185185184}
+{"epoch": 3, "train_loss": 2.2386415004730225, "validation_accuracy": 0.7108641975308642}
+{"epoch": 4, "train_loss": 2.094438076019287, "validation_accuracy": 0.8597530864197531}
+{"epoch": 5, "train_loss": 1.9822918176651, "validation_accuracy": 0.8782716049382716}
+Wrote 4,050 predictions to runs/vm2_official_NLKi160/submission.csv

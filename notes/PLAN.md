@@ -1112,6 +1112,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     `runs/vm2_ks.sh` : attend NLK, part du meilleur de KTa / NLK (moyenne des 4 derniers), tours **KS1–3** avec tous les
     réglages + `--step-w`. Cible NLK (3 000 it) : val 92,67 (contre ~89 à 1 000 it). Q4J0G4 (64) : val ~84,3, plafonne
     sous K64a ; tour 5 en cours, la lignée s'arrête après.
+  - **3/11 06:05.** **NLK** (depuis KT2 it160, cible 3 000 it, tous les réglages, sans step-w) : it140 87,65 / hold
+    88,23 (poolé 87,95) ; **it160 val 87,83 / hold 87,96** ; it180–200 87,41–87,46 ; moyenne des 4 derniers 87,59.
+    La cible longue monte le pic, step-w tient la fin. **`baseline.py` officiel : NLK it160 val 87,827** (= rejeu
+    exact) ; prédictions de test différentes : 122 de KD2, 56 de KT1 it160, 40 de KT2 it160. **Nouveau candidat 224 :
+    NLK it160** (`sets/n10_NLKi160_224` sur VM2), accord requis. KS (step-w, cibles 1 000 it) est parti de KTa it180
+    (règle des 4 derniers). `runs/vm2_ns.sh` + `runs/queue_dither_n.sh` (copie avec `NIT`) : tours **NS1–2** depuis NLK
+    it160 avec cible 3 000 it + step-w, après la fin de Q4J0G5.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
