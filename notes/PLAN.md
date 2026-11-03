@@ -1159,6 +1159,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   - **3/11 14:05.** **KS4** : max val 88,15 (it200), moyenne des 4 derniers 87,97 (KS3 87,90). **NS3** : max val 88,15
     (it140), moyenne des 4 derniers 88,04 (= NS2). La lignée NS plafonne ; KS la rattrape lentement. Le 224 se tasse
     vers 88,0–88,2 de val. KS5–6 et NS4 continuent (fin vers 17–18 UTC).
+    Les meilleurs points tombent presque toujours à it200 (KS1–4, NS2) : les tours sont peut-être trop courts. NS4
+    arrêté après le lancement de sa cible ; `runs/vm2_nl.sh` : **NL1** = même départ (NS3 it140) et même cible
+    (near_NS4, 3 000 it) avec **300 itérations pixels** au lieu de 200.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
