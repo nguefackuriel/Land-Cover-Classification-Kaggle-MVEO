@@ -1132,6 +1132,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   - **3/11 08:55.** **NS1** (depuis NLK it160, cible 3 000 it + step-w) : it140 87,90 / hold 88,40 (poolé 88,15) ;
     it160 val 87,95 ; it180 87,85 ; it200 87,90 ; moyenne des 4 derniers 87,90. À égalité avec KS1 (87,98 / 87,87) :
     l'écart vaut 1–2 images de val. Candidat inchangé (KS1 it200). NS2 en cours depuis NS1 it140.
+  - **3/11 09:55.** **KS2** (depuis KS1 it200) : it140 87,88 ; it160 87,90 ; it180 87,85 / hold 88,31 ; **it200 val
+    88,07 / hold 88,13** ; moyenne des 4 derniers 87,93 (KS1 87,87). **`baseline.py` officiel : KS2 it200 val 88,074** ;
+    prédictions de test différentes : 132 de KD2, 11 de KS1 it200, 57 de NLK it160. **Nouveau candidat 224 : KS2
+    it200** (`sets/n10_KS2i200_224`), accord requis. KS3 en cours.
+    **N641** (64, depuis K64a it180, cible 3 000 it + step-w) : val max 84,42, ne bat pas son départ (84,81). N642
+    repartait du même set avec la même graine de cible (doublon) : arrêté. **A64** = même départ et même cible que N641
+    + `--tau 0.15 --pfd-w 5.0 --real-bs 2048` (les réglages 224 testés ensemble en 64).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

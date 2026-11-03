@@ -1,1 +1,3 @@
 round 1 start cache/sm_K64a_it180.pt --weight grad --step-w 1,0.462,0.205,0.071,0.014 06:44:56
+round 1 done best cache/sm_K64a_it180.pt pooled 0.8517 09:06:13
+round 2 start cache/sm_K64a_it180.pt --weight grad --step-w 1,0.462,0.205,0.071,0.014 09:06:13

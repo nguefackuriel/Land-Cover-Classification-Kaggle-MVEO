@@ -17,3 +17,5 @@ W64a start cache/sm_K64a_it180.pt cache/ceiling3_near_W64a_it1000.pt --step-w 1,
 W64a done best pooled cache/sm_W64a_it200.pt 0.8462 0.8577 0.852 | best val cache/sm_K64a_it180.pt 0.8481 0.8555 | last4 val 0.8456 06:41:01
 sw done 06:41:01
 N64 start cache/sm_K64a_it180.pt NIT=3000 --step-w 06:44:56
+N642 stopped (same start and target seed as N641 = duplicate) 09:51:25
+A64 start cache/sm_K64a_it180.pt near_N641 all knobs + step-w 09:51:34

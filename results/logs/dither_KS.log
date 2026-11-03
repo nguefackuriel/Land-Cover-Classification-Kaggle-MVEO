@@ -1,3 +1,5 @@
 round 1 start cache/sm_KTa_it180.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 05:57:28
 round 1 done best cache/sm_KS1_it200.pt pooled 0.8804 07:54:59
 round 2 start cache/sm_KS1_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 07:54:59
+round 2 done best cache/sm_KS2_it200.pt pooled 0.881 09:49:20
+round 3 start cache/sm_KS2_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 09:49:20
