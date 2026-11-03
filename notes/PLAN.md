@@ -1091,7 +1091,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     0,15. **KT1** (tour frais depuis KGc it140, τ 0,15 + PFD 5 + batch 2 048 + weight grad) : it120 87,43 ; **it140 val
     87,46 / hold 87,94 / poolé 87,70** ; it160 val **87,58** / hold 87,65 ; it180–200 87,23–87,31. Moyenne des 4 derniers
     87,40. **Meilleur 224** (+0,45 en val sur KD2, soumis à 87,01). Les tours reprennent avec les nouveaux réglages,
-    contrairement à DG1/DG2. KT2 en cours. Vérification officielle de KT1 it140 et it160 lancée (`runs/vm2_offKT1.sh`).
+    contrairement à DG1/DG2. KT2 en cours. **`baseline.py` officiel (VM2)** : KT1 it140 val 87,457, it160 val **87,580**
+    (= rejeu exact). Prédictions de test différentes de KD2 : 133 (it140), 87 (it160) ; entre elles 84. Sets PNG dans
+    `sets/n10_KT1i{140,160}_224` sur VM2. Candidat proposé : **KT1 it160** (val la plus haute), accord de l'utilisateur
+    requis avant toute soumission. Q4J0G2 (64) : val 83,70 → 84,25.
     **Lignée 64 Q4J0** (médoïdes de C2J0) : tours 1–2 82,30 / 82,84 → H1 val 83,70 / hold 84,30, au niveau des lignées
     P8J ; tours Q4J0G2–5 (dither + weight grad) en cours.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
