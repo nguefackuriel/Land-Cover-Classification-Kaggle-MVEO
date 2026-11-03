@@ -1186,6 +1186,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     gain. Le 224 plafonne vers 88,4–88,5 (NL1 it300 reste le meilleur). **A64R5** (graine 5) : max 85,01, ne bat pas
     A64R3 it200 ; A64R6 (graine 6) en cours. `runs/vm2_np.sh` : **NP1** = polissage de NL1 it300 sur near_NL2 (lr 0,05 →
     0,005, 100 it) ; **NLs1** = tour frais depuis NL1 it300 avec une cible de graine 1 (3 000 it), 300 it.
+  - **3/11 22:45.** **NP1** (polissage) : val 88,15–88,27, sous son départ (88,47). Le polissage seul n'apporte rien ;
+    NL1 it300 est un pic local sur cette cible.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

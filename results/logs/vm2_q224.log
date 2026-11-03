@@ -33,3 +33,4 @@ NL2x done best val cache/sm_NL1_it300.pt 0.8847 0.8853 | best pooled cache/sm_NL
 NL2 all done 21:54:09
 NP1 start cache/sm_NL1_it300.pt near_NL2 lr .05->.005 100 it 21:59:41
 NLs1 start cache/sm_NL1_it300.pt near-target seed 1 21:59:41
+NP1 done best val cache/sm_NL1_it300.pt 0.8847 0.885 | best pooled cache/sm_NP1_it80.pt 0.8857 | last4 val 0.8818 22:46:05
