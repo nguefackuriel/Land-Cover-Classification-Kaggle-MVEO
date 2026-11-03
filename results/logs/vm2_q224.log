@@ -20,3 +20,6 @@ official NLK it160: {"epoch": 5, "train_loss": 1.9822918176651, "validation_accu
 NS start cache/sm_NLK_it160.pt NIT=3000 06:15:27
 official KS1 it200: {"epoch": 5, "train_loss": 2.0858373641967773, "validation_accuracy": 0.8797530864197531} 07:59:24
 official KS2 it200: {"epoch": 5, "train_loss": 2.068276882171631, "validation_accuracy": 0.8807407407407407} 09:55:52
+NS done 11:24:46
+KS done 11:39:30
+official NS2 it200: {"epoch": 5, "train_loss": 2.0327932834625244, "validation_accuracy": 0.8817283950617284} 11:47:57

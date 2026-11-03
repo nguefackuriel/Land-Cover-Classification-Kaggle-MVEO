@@ -1144,6 +1144,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     85,72** ; moyenne des 4 derniers **84,74** (N641, même départ et même cible : ~84,40). Les réglages 224 ensemble
     aident aussi en 64 (seuls, tau ou pfd-w 6 ne faisaient rien) et le run monte encore à it200. Meilleure val 64.
     `runs/vm2_a64r.sh` : tours **A64R1–3** depuis A64 it200, tous les réglages + step-w, cibles 1 000 it.
+  - **3/11 11:50.** **KS3** : it200 val 88,12 / hold 88,21 ; moyenne des 4 derniers 87,90 (KS2 87,93). **NS2** (depuis
+    NS1 it140, cible 3 000 it) : it160 88,12 ; it180 88,00 ; **it200 val 88,17 / hold 88,43 (poolé 88,30)** ; moyenne
+    des 4 derniers **88,04**. La lignée NS (cible longue) passe devant. **`baseline.py` officiel : NS2 it200 val
+    88,173** ; prédictions de test différentes : 152 de KD2, 44 de KS2 it200, 74 de NLK it160. **Nouveau candidat 224 :
+    NS2 it200** (`sets/n10_NS2i200_224`), accord requis. KS4 et NS3 en cours.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
