@@ -16,3 +16,8 @@ val 0.8817283950617284
 {"tag": "near_NS3", "init_val": 0.8817}
 {"tag": "near_NS3", "it": 1, "T": 0.089, "loss": 0.3329, "val_acc": 0.8738, "edge": 0.302}
 {"tag": "near_NS3", "it": 500, "T": 0.063, "loss": 0.1897, "val_acc": 0.9244, "edge": 0.601}
+{"tag": "near_NS3", "it": 1000, "T": 0.063, "loss": 0.1458, "val_acc": 0.9274, "edge": 0.625}
+{"tag": "near_NS3", "it": 1500, "T": 0.063, "loss": 0.1683, "val_acc": 0.9272, "edge": 0.659}
+{"tag": "near_NS3", "it": 2000, "T": 0.063, "loss": 0.1799, "val_acc": 0.9254, "edge": 0.686}
+{"tag": "near_NS3", "it": 2500, "T": 0.04, "loss": 0.0997, "val_acc": 0.9262, "edge": 0.747}
+{"tag": "near_NS3", "it": 3000, "T": 0.035, "loss": 0.0701, "val_acc": 0.9262, "edge": 0.798}

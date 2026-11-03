@@ -15,3 +15,7 @@ val 0.8812345679012346
   x = torch.load(f)
 {"tag": "near_KS4", "init_val": 0.8812}
 {"tag": "near_KS4", "it": 1, "T": 0.089, "loss": 0.3333, "val_acc": 0.8751, "edge": 0.311}
+{"tag": "near_KS4", "it": 250, "T": 0.071, "loss": 0.1653, "val_acc": 0.9146, "edge": 0.598}
+{"tag": "near_KS4", "it": 500, "T": 0.063, "loss": 0.1905, "val_acc": 0.9259, "edge": 0.607}
+{"tag": "near_KS4", "it": 750, "T": 0.071, "loss": 0.1828, "val_acc": 0.9254, "edge": 0.659}
+{"tag": "near_KS4", "it": 1000, "T": 0.071, "loss": 0.1811, "val_acc": 0.9252, "edge": 0.708}

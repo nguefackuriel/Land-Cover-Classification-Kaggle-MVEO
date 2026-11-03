@@ -1149,6 +1149,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     des 4 derniers **88,04**. La lignée NS (cible longue) passe devant. **`baseline.py` officiel : NS2 it200 val
     88,173** ; prédictions de test différentes : 152 de KD2, 44 de KS2 it200, 74 de NLK it160. **Nouveau candidat 224 :
     NS2 it200** (`sets/n10_NS2i200_224`), accord requis. KS4 et NS3 en cours.
+  - **3/11 13:20. Soumission NS2 it200 (accord de l'utilisateur) : public 0,82320, 1ᵉʳ seul** (vinicius 0,81875, Lynch
+    James 0,80184). Test ≈ 88,02 (val 88,17). finalize_sub.sh lancé sur VM2 : trois runs officiels identiques ;
+    `submissions/n10_NS2_224{.csv,_images,_manifest.txt}` copiés sur la machine principale (sha256 OK), 152 prédictions
+    de test différentes de KD2. Envoi avec `work/.kenv/bin/kaggle` (KAGGLE_CONFIG_DIR = data_centric).
+    **A64R1** (64) : val 84,79–84,81 de it140 à it200, moyenne des 4 derniers **84,80** (A64 84,74), max 84,81 (A64
+    84,89). Égalité de poolé avec le départ (85,33) → queue_dither renvoyait le tour 2 au même départ et à la même
+    graine de cible (doublon, comme N642) : relancé à la main depuis A64R1 it200 (tours 2–3). À surveiller pour KS/NS.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
