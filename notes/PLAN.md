@@ -1175,6 +1175,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     Suite : `runs/vm2_a64l.sh` = A64R4–6 à **300 itérations** (A64R4 réutilise la cible déjà entraînée) ;
     `runs/vm2_nl2.sh` = **NL2** depuis NL1 it300, nouvelle cible 3 000 it, deux longueurs sur la même cible : NL2 = 400
     itérations, NL2x = 600.
+  - **3/11 19:20.** **A64R4** (64, 300 it) : max val 85,01 (it260), it220 hold 86,04, moyenne des 4 derniers 84,93 ; ne bat
+    pas son départ A64R3 it200 (poolé 85,45). Le tour 5 repartait du même set avec la même graine de cible (doublon) :
+    arrêté. `runs/vm2_a64s.sh` : tours **A64R5–7** à 300 it avec **graine de cible = numéro du tour**, pour qu'un départ
+    répété reçoive quand même une nouvelle cible.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
