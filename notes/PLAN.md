@@ -1129,6 +1129,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     val 87,975** (= rejeu exact) ; prédictions de test différentes : 125 de KD2, 58 de KT2 it160, 54 de NLK it160.
     **Nouveau candidat 224 : KS1 it200** (`sets/n10_KS1i200_224` sur VM2), accord requis. `runs/vm2_off.sh <tag> <it>`
     = vérification officielle d'un set. KS2 en cours depuis KS1 it200.
+  - **3/11 08:55.** **NS1** (depuis NLK it160, cible 3 000 it + step-w) : it140 87,90 / hold 88,40 (poolé 88,15) ;
+    it160 val 87,95 ; it180 87,85 ; it200 87,90 ; moyenne des 4 derniers 87,90. À égalité avec KS1 (87,98 / 87,87) :
+    l'écart vaut 1–2 images de val. Candidat inchangé (KS1 it200). NS2 en cours depuis NS1 it140.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
