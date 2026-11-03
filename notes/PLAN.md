@@ -1106,6 +1106,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     KT1 it160. **Nouveau candidat proposé : KT2 it160** (`sets/n10_KT2i160_224` sur VM2), accord requis.
     **Lignée 64 Q4J0** (médoïdes de C2J0) : tours 1–2 82,30 / 82,84 → H1 val 83,70 / hold 84,30, au niveau des lignées
     P8J ; tours Q4J0G2–5 (dither + weight grad) en cours.
+  - **3/11 05:10.** **KTa** (= KT2 + `--step-w`) : it140 87,65 ; **it160 val 87,70** ; it180 87,65 / hold 87,96 ;
+    it200 87,68 / hold 87,94 (poolé 87,81). Même pic que KT2 mais **moyenne des 4 derniers 87,67 contre 87,49** : la
+    pondération des pas stabilise la fin du run, en 224 comme en 64. Elle passe dans les tours suivants.
+    `runs/vm2_ks.sh` : attend NLK, part du meilleur de KTa / NLK (moyenne des 4 derniers), tours **KS1–3** avec tous les
+    réglages + `--step-w`. Cible NLK (3 000 it) : val 92,67 (contre ~89 à 1 000 it). Q4J0G4 (64) : val ~84,3, plafonne
+    sous K64a ; tour 5 en cours, la lignée s'arrête après.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

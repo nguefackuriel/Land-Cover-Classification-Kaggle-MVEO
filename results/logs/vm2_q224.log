@@ -11,3 +11,5 @@ KT start cache/sm_KGc_it140.pt knobs --weight grad --tau 0.15 --pfd-w 5.0 --real
 KGt8 done best pooled cache/sm_KGt8_it200.pt 0.8738 0.8772 0.8755 | best val cache/sm_KGt8_it120.pt 0.8738 0.8752 01:01:09
 KT round 2 done best cache/sm_KT2_it160.pt pooled 0.8777 03:28:34 done 03:28:34 
 KTa start cache/sm_KT1_it140.pt cache/ceiling3_near_KT2_it1000.pt --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 03:36:31
+NLK start cache/sm_KT2_it160.pt cache/ceiling3_near_NLK_it3000.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 04:30:33
+KTa done best pooled cache/sm_KTa_it180.pt 0.8765 0.8796 0.8781 | best val cache/sm_KTa_it160.pt 0.877 0.8782 | last4 val 0.8767 05:04:55
