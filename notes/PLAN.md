@@ -1095,6 +1095,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     (= rejeu exact). Prédictions de test différentes de KD2 : 133 (it140), 87 (it160) ; entre elles 84. Sets PNG dans
     `sets/n10_KT1i{140,160}_224` sur VM2. Candidat proposé : **KT1 it160** (val la plus haute), accord de l'utilisateur
     requis avant toute soumission. Q4J0G2 (64) : val 83,70 → 84,25.
+  - **3/11 03:30.** **KT2** (tour 2, depuis KT1 it140) : it120 87,41 ; it140 87,53 ; **it160 val 87,70 / hold 87,84 /
+    poolé 87,77** ; it180–200 87,36. Moyenne des 4 derniers 87,49 (KT1 87,40) : +0,1 par tour, ça monte encore.
+    **K64a** (64, `--step-w 1,.462,.205,.071,.014`) : it160 84,52, **it180 84,81** / hold 85,64, it200 84,69 ; moyenne des
+    4 derniers 84,56 contre 84,33 (W64_1) et 84,51 (K64t) : **meilleure val 64**, gain petit. **K64w** (`--wlr`) : val
+    max 84,52, moins bien. Q4J0G3 poolé 84,69. vm2_q224c.sh est passé à NLK (cible 3 000 it depuis KT2 it160).
+    `runs/vm2_sw.sh` : vérification officielle de KT2 it160, puis **KTa** (= KT2 + `--step-w`, même départ et même
+    cible : test propre en 224), puis **W64a** (tour frais 64 depuis K64a it180 avec `--step-w`).
     **Lignée 64 Q4J0** (médoïdes de C2J0) : tours 1–2 82,30 / 82,84 → H1 val 83,70 / hold 84,30, au niveau des lignées
     P8J ; tours Q4J0G2–5 (dither + weight grad) en cours.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9

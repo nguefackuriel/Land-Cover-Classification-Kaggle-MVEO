@@ -1,3 +1,5 @@
 round 1 start cache/sm_KGc_it140.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 23:55:40
 round 1 done best cache/sm_KT1_it140.pt pooled 0.877 01:41:30
 round 2 start cache/sm_KT1_it140.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 01:41:30
+round 2 done best cache/sm_KT2_it160.pt pooled 0.8777 03:28:34
+done 03:28:34

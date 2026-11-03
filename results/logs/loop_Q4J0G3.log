@@ -17,3 +17,5 @@ val 0.8424691358024692
 {"tag": "near_Q4J0G3", "it": 1, "T": 0.112, "loss": 0.4281, "val_acc": 0.8388, "edge": 0.292}
 {"tag": "near_Q4J0G3", "it": 250, "T": 0.1, "loss": 0.2208, "val_acc": 0.8951, "edge": 0.621}
 {"tag": "near_Q4J0G3", "it": 500, "T": 0.1, "loss": 0.2668, "val_acc": 0.9027, "edge": 0.65}
+{"tag": "near_Q4J0G3", "it": 750, "T": 0.1, "loss": 0.2152, "val_acc": 0.901, "edge": 0.687}
+{"tag": "near_Q4J0G3", "it": 1000, "T": 0.1, "loss": 0.2664, "val_acc": 0.9035, "edge": 0.738}
