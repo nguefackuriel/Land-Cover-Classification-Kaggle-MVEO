@@ -1166,6 +1166,15 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     moyenne des 4 derniers **84,89** (A64R1 84,80, A64 84,74) : la lignée 64 monte enfin d'un tour à l'autre.
     **`baseline.py` officiel : A64R2 it200 val 84,988** (PNG 64×64, `sets/n10_A64R2i200_64` sur VM2). Meilleur 64,
     pas soumis. A64R3 en cours.
+  - **3/11 17:30.** **NL1 (300 itérations pixels)** : it200 88,10 ; it240 88,10 ; it260 88,32 ; it280 88,17 ;
+    **it300 val 88,47 / hold 88,70 (poolé 88,58)** ; moyenne des 4 derniers 88,27. Les tours de 200 étaient trop
+    courts : +0,30 sur NS2, et ça monte encore à la fin. **`baseline.py` officiel : NL1 it300 val 88,469** ; 175
+    prédictions de test différentes de KD2, 46 de NS2 (soumis). **Meilleur 224, pas soumis.**
+    KS5 max 88,02, KS6 max 88,10 : lignée KS (200 it) terminée. **A64R3** (64) : it160 85,04 ; it200 85,01 / hold 85,96 ;
+    moyenne des 4 derniers 84,96 (A64R2 84,89).
+    Suite : `runs/vm2_a64l.sh` = A64R4–6 à **300 itérations** (A64R4 réutilise la cible déjà entraînée) ;
+    `runs/vm2_nl2.sh` = **NL2** depuis NL1 it300, nouvelle cible 3 000 it, deux longueurs sur la même cible : NL2 = 400
+    itérations, NL2x = 600.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

@@ -5,3 +5,7 @@ round 2 restarted from A64R1 it200 (pooled tie with A64 it200 sent round 2 back 
 round 2 start cache/sm_A64R1_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 13:20:12
 round 2 done best cache/sm_A64R2_it200.pt pooled 0.854 15:14:01
 round 3 start cache/sm_A64R2_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 15:14:01
+round 3 done best cache/sm_A64R3_it200.pt pooled 0.8549 17:05:08
+done 17:05:08
+round 4 start cache/sm_A64R3_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 17:05:21
+round 4 restarted with --iters 300 on near_A64R4 17:26:03
