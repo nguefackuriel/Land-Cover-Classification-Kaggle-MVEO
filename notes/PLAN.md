@@ -1162,6 +1162,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     Les meilleurs points tombent presque toujours à it200 (KS1–4, NS2) : les tours sont peut-être trop courts. NS4
     arrêté après le lancement de sa cible ; `runs/vm2_nl.sh` : **NL1** = même départ (NS3 it140) et même cible
     (near_NS4, 3 000 it) avec **300 itérations pixels** au lieu de 200.
+  - **3/11 15:20.** **A64R2** (64, depuis A64R1 it200) : it160 84,89 ; it180 84,91 ; **it200 val 84,99 / hold 85,82** ;
+    moyenne des 4 derniers **84,89** (A64R1 84,80, A64 84,74) : la lignée 64 monte enfin d'un tour à l'autre.
+    **`baseline.py` officiel : A64R2 it200 val 84,988** (PNG 64×64, `sets/n10_A64R2i200_64` sur VM2). Meilleur 64,
+    pas soumis. A64R3 en cours.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
