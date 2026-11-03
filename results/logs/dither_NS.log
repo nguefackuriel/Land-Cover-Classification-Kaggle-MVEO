@@ -4,3 +4,5 @@ round 2 start cache/sm_NS1_it140.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-
 round 2 done best cache/sm_NS2_it200.pt pooled 0.883 11:24:46
 done 11:24:46
 round 3 start cache/sm_NS2_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 11:25:22
+round 3 done best cache/sm_NS3_it140.pt pooled 0.8831 14:02:54
+round 4 start cache/sm_NS3_it140.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 14:02:54

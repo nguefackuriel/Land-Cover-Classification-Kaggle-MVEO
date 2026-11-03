@@ -1156,6 +1156,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     **A64R1** (64) : val 84,79–84,81 de it140 à it200, moyenne des 4 derniers **84,80** (A64 84,74), max 84,81 (A64
     84,89). Égalité de poolé avec le départ (85,33) → queue_dither renvoyait le tour 2 au même départ et à la même
     graine de cible (doublon, comme N642) : relancé à la main depuis A64R1 it200 (tours 2–3). À surveiller pour KS/NS.
+  - **3/11 14:05.** **KS4** : max val 88,15 (it200), moyenne des 4 derniers 87,97 (KS3 87,90). **NS3** : max val 88,15
+    (it140), moyenne des 4 derniers 88,04 (= NS2). La lignée NS plafonne ; KS la rattrape lentement. Le 224 se tasse
+    vers 88,0–88,2 de val. KS5–6 et NS4 continuent (fin vers 17–18 UTC).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
