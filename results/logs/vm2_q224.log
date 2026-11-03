@@ -29,3 +29,7 @@ more done 17:21:11
 NL2 start cache/sm_NL1_it300.pt 17:23:33
 official NL1 it300: {"epoch": 5, "train_loss": 2.0081982612609863, "validation_accuracy": 0.8846913580246913} 17:25:49
 NL2 done best val cache/sm_NL1_it300.pt 0.8847 0.8857 | best pooled cache/sm_NL2_it340.pt 0.8857 | last4 val 0.8833 20:55:45
+NL2x done best val cache/sm_NL1_it300.pt 0.8847 0.8853 | best pooled cache/sm_NL2x_it440.pt 0.8866 | last4 val 0.8840 21:54:09
+NL2 all done 21:54:09
+NP1 start cache/sm_NL1_it300.pt near_NL2 lr .05->.005 100 it 21:59:41
+NLs1 start cache/sm_NL1_it300.pt near-target seed 1 21:59:41

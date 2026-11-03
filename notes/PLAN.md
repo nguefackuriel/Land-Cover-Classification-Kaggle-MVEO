@@ -1182,6 +1182,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   - **3/11 21:00.** **NL2** (400 it depuis NL1 it300, cible near_NL2) : it280 88,27 ; it340 88,30 (poolé 88,57) ; it380
     88,35 ; **it400 val 88,47** = NL1 it300 ; moyenne des 4 derniers 88,33. Égalité, pas de gain. Encore une montée en
     toute fin de run, quand le lr arrive à 0,02 : la fin du schedule compte plus que la longueur. NL2x (600 it) en cours.
+  - **3/11 22:00.** **NL2x** (600 it) : max val 88,42, moyenne des 4 derniers 88,40, poolé max 88,66 (it440) : pas de
+    gain. Le 224 plafonne vers 88,4–88,5 (NL1 it300 reste le meilleur). **A64R5** (graine 5) : max 85,01, ne bat pas
+    A64R3 it200 ; A64R6 (graine 6) en cours. `runs/vm2_np.sh` : **NP1** = polissage de NL1 it300 sur near_NL2 (lr 0,05 →
+    0,005, 100 it) ; **NLs1** = tour frais depuis NL1 it300 avec une cible de graine 1 (3 000 it), 300 it.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

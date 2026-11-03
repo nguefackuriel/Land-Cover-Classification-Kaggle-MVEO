@@ -13,3 +13,7 @@ round 4 done best cache/sm_A64R3_it200.pt 19:14:39
 round 5 start cache/sm_A64R3_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 19:14:39
 round 5 (same start + same seed as round 4 = duplicate) stopped; vm2_a64s.sh: rounds 5-7 with near-target seed = round 19:17:33
 round 5 start cache/sm_A64R3_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 19:17:33
+round 5 done best cache/sm_A64R3_it200.pt pooled 0.8551 21:29:07
+done 21:29:07
+round 5 start for next: cache/sm_A64R3_it200.pt (seed 5) 21:29:07
+round 6 start cache/sm_A64R3_it200.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 21:29:07
