@@ -1119,6 +1119,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     NLK it160** (`sets/n10_NLKi160_224` sur VM2), accord requis. KS (step-w, cibles 1 000 it) est parti de KTa it180
     (règle des 4 derniers). `runs/vm2_ns.sh` + `runs/queue_dither_n.sh` (copie avec `NIT`) : tours **NS1–2** depuis NLK
     it160 avec cible 3 000 it + step-w, après la fin de Q4J0G5.
+  - **3/11 06:45.** **W64a** (tour 64 depuis K64a it180, step-w, cible 1 000 it) : val max 84,72 (it180), hold 85,77
+    à it200, moyenne des 4 derniers 84,56 : ne bat pas K64a (84,81). Q4J0G5 : val max 84,44, la lignée Q4J0 s'arrête.
+    `runs/vm2_n64.sh` : **N641–2** = tours 64 depuis K64a it180 avec cible 3 000 it + step-w (la recette NLK en 64).
+    NS1 (224) a démarré à 06:15.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

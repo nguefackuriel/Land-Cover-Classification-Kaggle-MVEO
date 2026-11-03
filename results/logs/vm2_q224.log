@@ -17,3 +17,4 @@ NLK done best pooled cache/sm_NLK_it140.pt 0.8765 0.8823 0.8795 | best val cache
 all done 05:57:14
 KS start cache/sm_KTa_it180.pt (KTa_last4=0.8767 KTa=0.8767 NLK=0.8759) 05:57:28
 official NLK it160: {"epoch": 5, "train_loss": 1.9822918176651, "validation_accuracy": 0.8782716049382716} 06:03:27
+NS start cache/sm_NLK_it160.pt NIT=3000 06:15:27

@@ -1,0 +1,1 @@
+round 1 start cache/sm_K64a_it180.pt --weight grad --step-w 1,0.462,0.205,0.071,0.014 06:44:56
