@@ -1123,6 +1123,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     à it200, moyenne des 4 derniers 84,56 : ne bat pas K64a (84,81). Q4J0G5 : val max 84,44, la lignée Q4J0 s'arrête.
     `runs/vm2_n64.sh` : **N641–2** = tours 64 depuis K64a it180 avec cible 3 000 it + step-w (la recette NLK en 64).
     NS1 (224) a démarré à 06:15.
+  - **3/11 08:00.** **KS1** (depuis KTa it180, cible 1 000 it, tous les réglages + step-w) : it140 87,83 ; it160 87,88 ;
+    it180 87,80 ; **it200 val 87,98 / hold 88,11 (poolé 88,04)** ; moyenne des 4 derniers **87,87** (KTa 87,67, KT2
+    87,49). La lignée step-w monte d'un tour à l'autre sans retomber en fin de run. **`baseline.py` officiel : KS1 it200
+    val 87,975** (= rejeu exact) ; prédictions de test différentes : 125 de KD2, 58 de KT2 it160, 54 de NLK it160.
+    **Nouveau candidat 224 : KS1 it200** (`sets/n10_KS1i200_224` sur VM2), accord requis. `runs/vm2_off.sh <tag> <it>`
+    = vérification officielle d'un set. KS2 en cours depuis KS1 it200.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
