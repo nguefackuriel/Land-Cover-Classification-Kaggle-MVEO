@@ -1139,6 +1139,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     **N641** (64, depuis K64a it180, cible 3 000 it + step-w) : val max 84,42, ne bat pas son départ (84,81). N642
     repartait du même set avec la même graine de cible (doublon) : arrêté. **A64** = même départ et même cible que N641
     + `--tau 0.15 --pfd-w 5.0 --real-bs 2048` (les réglages 224 testés ensemble en 64).
+    `runs/vm2_more.sh` : KS4–6 après KS3, NS3–4 (cible 3 000 it) après NS2.
+  - **3/11 11:20.** **A64** : it120 84,52 ; it140 84,62 ; it160 84,67 ; it180 84,79 ; **it200 val 84,89 / hold
+    85,72** ; moyenne des 4 derniers **84,74** (N641, même départ et même cible : ~84,40). Les réglages 224 ensemble
+    aident aussi en 64 (seuls, tau ou pfd-w 6 ne faisaient rien) et le run monte encore à it200. Meilleure val 64.
+    `runs/vm2_a64r.sh` : tours **A64R1–3** depuis A64 it200, tous les réglages + step-w, cibles 1 000 it.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
