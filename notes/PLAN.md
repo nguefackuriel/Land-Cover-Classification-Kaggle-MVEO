@@ -1179,6 +1179,9 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     pas son départ A64R3 it200 (poolé 85,45). Le tour 5 repartait du même set avec la même graine de cible (doublon) :
     arrêté. `runs/vm2_a64s.sh` : tours **A64R5–7** à 300 it avec **graine de cible = numéro du tour**, pour qu'un départ
     répété reçoive quand même une nouvelle cible.
+  - **3/11 21:00.** **NL2** (400 it depuis NL1 it300, cible near_NL2) : it280 88,27 ; it340 88,30 (poolé 88,57) ; it380
+    88,35 ; **it400 val 88,47** = NL1 it300 ; moyenne des 4 derniers 88,33. Égalité, pas de gain. Encore une montée en
+    toute fin de run, quand le lr arrive à 0,02 : la fin du schedule compte plus que la longueur. NL2x (600 it) en cours.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
