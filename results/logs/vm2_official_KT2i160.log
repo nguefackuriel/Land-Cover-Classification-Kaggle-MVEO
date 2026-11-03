@@ -6,3 +6,5 @@ Device: cuda; train=10, validation=4050
 {"epoch": 2, "train_loss": 2.4353206157684326, "validation_accuracy": 0.3330864197530864}
 {"epoch": 3, "train_loss": 2.298737049102783, "validation_accuracy": 0.7120987654320987}
 {"epoch": 4, "train_loss": 2.187697410583496, "validation_accuracy": 0.8592592592592593}
+{"epoch": 5, "train_loss": 2.066073417663574, "validation_accuracy": 0.8770370370370371}
+Wrote 4,050 predictions to runs/vm2_official_KT2i160/submission.csv

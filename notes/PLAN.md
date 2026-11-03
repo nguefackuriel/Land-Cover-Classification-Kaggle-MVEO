@@ -1102,6 +1102,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     max 84,52, moins bien. Q4J0G3 poolé 84,69. vm2_q224c.sh est passé à NLK (cible 3 000 it depuis KT2 it160).
     `runs/vm2_sw.sh` : vérification officielle de KT2 it160, puis **KTa** (= KT2 + `--step-w`, même départ et même
     cible : test propre en 224), puis **W64a** (tour frais 64 depuis K64a it180 avec `--step-w`).
+    **`baseline.py` officiel : KT2 it160 val 87,704** (= rejeu exact) ; 96 prédictions de test différentes de KD2, 30 de
+    KT1 it160. **Nouveau candidat proposé : KT2 it160** (`sets/n10_KT2i160_224` sur VM2), accord requis.
     **Lignée 64 Q4J0** (médoïdes de C2J0) : tours 1–2 82,30 / 82,84 → H1 val 83,70 / hold 84,30, au niveau des lignées
     P8J ; tours Q4J0G2–5 (dither + weight grad) en cours.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
