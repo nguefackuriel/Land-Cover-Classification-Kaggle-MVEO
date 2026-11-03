@@ -1087,6 +1087,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     le déplacement final AdamW en dépend très inégalement : lr_k/lr_0 = 1 / 0,905 / 0,655 / 0,345 / 0,095, et par le
     premier moment corrigé du biais, le signe de g_j pèse 1 / 0,462 / 0,205 / 0,071 / 0,014 sur θ5 (le pas 0 fixe m̂
     seul). `runs/vm2_k64c.sh` (après KGt8) : K64a (poids Adam) puis K64w (`--wlr`), même protocole que W64_1.
+  - **3/11 01:45.** **KGt8** (τ 0,08) : val max 87,38 (it120, it200), moyenne des 4 derniers 87,22 = KGt : τ 0,08 ≈
+    0,15. **KT1** (tour frais depuis KGc it140, τ 0,15 + PFD 5 + batch 2 048 + weight grad) : it120 87,43 ; **it140 val
+    87,46 / hold 87,94 / poolé 87,70** ; it160 val **87,58** / hold 87,65 ; it180–200 87,23–87,31. Moyenne des 4 derniers
+    87,40. **Meilleur 224** (+0,45 en val sur KD2, soumis à 87,01). Les tours reprennent avec les nouveaux réglages,
+    contrairement à DG1/DG2. KT2 en cours. Vérification officielle de KT1 it140 et it160 lancée (`runs/vm2_offKT1.sh`).
+    **Lignée 64 Q4J0** (médoïdes de C2J0) : tours 1–2 82,30 / 82,84 → H1 val 83,70 / hold 84,30, au niveau des lignées
+    P8J ; tours Q4J0G2–5 (dither + weight grad) en cours.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

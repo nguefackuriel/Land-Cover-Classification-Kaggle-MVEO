@@ -8,3 +8,4 @@ K64lr done best pooled cache/sm_D64_1_it180.pt 0.843 0.8503 0.8467 | best val ca
 k64b done 23:25:21
 K64t done best pooled cache/sm_K64t_it180.pt 0.8464 0.8535 0.85 | best val cache/sm_K64t_it180.pt 0.8464 0.8535 23:49:30
 all done 23:49:30
+K64a start --step-w 1,0.462,0.205,0.071,0.014 01:01:20
