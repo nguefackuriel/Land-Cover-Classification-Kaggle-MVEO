@@ -1209,6 +1209,17 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
        **E11m** = NL1 it300 + un vrai médoïde PermCrop (bilinéaire 224) ; **E64c** = A64R3 it200 + copie de son image
        Highway. Vues officielles n = 11 enregistrées (`cache/views_n11_s42{,_sz224}.pt` : un lot de 11 par epoch, 5 pas).
        Chaque essai a sa cible de 3 000 it, puis 300 it avec tous les réglages + step-w.
+  - **4/11 02:40.** **Soupe de pixels : rien.** 224 : NL1 it300 88,47 ; soupe des 4 sets 88,42 ; NL1 + NLs1 88,47 ;
+    NLs1 it260–300 88,25. 64 : A64R3 it200 85,01 ; soupe des 4 sets 85,04 ; A64R3 it160–200 85,01. Égalité, abandon.
+    **n = 11 : le set s'effondre à 24 % de val à l'it 0** (E11c 23,98, E11m 22,49, E64c 24,52). Avec 11 images, le
+    chargeur officiel tire **les mêmes recadrages/retournements par position de lot à l'epoch 0** (un seul lot, un seul
+    worker), mais le mélange diffère, et les epochs 1–4 sont tirées tout autrement (randperm(11) ne consomme pas le
+    générateur comme randperm(10)). `make_n11.py` range maintenant les lignes pour que chaque ancienne image garde sa
+    vue de l'epoch 0 : **44,6 %** (copie), 40,2 % (médoïde), 39,1 % (64). Le set dépend donc aussi fortement des vues
+    des epochs 1–4 : n = 11 demande une redistillation presque complète. Premier run vm2_n11.sh arrêté.
+    `runs/vm2_t6.sh` (3 jobs en parallèle, une cible ceiling3 prend ~11 Go) : **E11c** = n = 11 rangé, cible 3 000 it,
+    300 it (mesure de la vitesse de remontée) ; **NT6** = 224 depuis NL1 it300, **cible de 6 000 it** (graine 2) ;
+    **A64T6** = 64 depuis A64R3 it200, cible de 6 000 it (graine 8). Journal `runs/vm2_t6.log`.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

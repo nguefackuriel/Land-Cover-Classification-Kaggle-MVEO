@@ -1,0 +1,4 @@
+{"set": "cache/sm_NL1_it300.pt", "val": 0.8847, "hold": 0.8855, "pooled": 0.8851}
+{"set": "cache/soup_NL4.pt", "val": 0.8842, "hold": 0.8838, "pooled": 0.884}
+{"set": "cache/soup_NL2.pt", "val": 0.8847, "hold": 0.885, "pooled": 0.8849}
+{"set": "cache/soup_NLs1t.pt", "val": 0.8825, "hold": 0.8862, "pooled": 0.8844}

@@ -1,0 +1,3 @@
+{"set": "cache/sm_A64R3_it200.pt", "val": 0.8501, "hold": 0.8596, "pooled": 0.8549}
+{"set": "cache/soup_A4.pt", "val": 0.8504, "hold": 0.8586, "pooled": 0.8545}
+{"set": "cache/soup_A3t.pt", "val": 0.8501, "hold": 0.8577, "pooled": 0.8539}
