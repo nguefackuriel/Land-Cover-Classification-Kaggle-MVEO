@@ -5,3 +5,5 @@ E11c target ready {"tag": "near_E11c", "it": 3000, "T": 0.04, "loss": 0.0718, "v
 NT6 target ready {"tag": "near_NT6", "it": 6000, "T": 0.04, "loss": 0.0877, "val_acc": 0.9259, "edge": 0.837} 05:03:34
 A64T6 target ready {"tag": "near_A64T6", "it": 6000, "T": 0.079, "loss": 0.1692, "val_acc": 0.9091, "edge": 0.87} 05:04:26
 E11c done best val cache/sm_E11c_it300.pt 0.8714 0.8743 | best pooled cache/sm_E11c_it300.pt 0.8728 | last4 val 0.8701 06:08:46
+NT6 done best val cache/sm_NL1_it300.pt 0.8847 0.8855 | best pooled cache/sm_NL1_it300.pt 0.8851 | last4 val 0.8821 07:10:30
+A64T6 done best val cache/sm_A64R3_it200.pt 0.8501 0.8599 | best pooled cache/sm_A64R3_it200.pt 0.855 | last4 val 0.8493 07:11:16

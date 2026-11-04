@@ -1229,6 +1229,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     lignes mélangées (`work/perm_set.py`, graine 1 : chaque image reçoit d'autres vues aux 5 epochs, it0 34,2 %),
     jumeau n = 10 du test n = 11, après NT6 ; **E64c** (n = 11 en 64, rangé, it0 39,1 %) après A64T6. Le set 64
     mélangé (`cache/p10_A64R3.pt`) part de 38,5 %.
+  - **4/11 07:15.** **NT6** (cible 6 000 it) : val max 88,40 (it300), moyenne des 4 derniers 88,21 ; **A64T6** : max
+    85,01, moyenne 84,93. **Une cible plus longue que 3 000 it n'aide pas** (NLs1 : 88,47 / 88,23).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
