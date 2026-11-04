@@ -1231,6 +1231,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     mélangé (`cache/p10_A64R3.pt`) part de 38,5 %.
   - **4/11 07:15.** **NT6** (cible 6 000 it) : val max 88,40 (it300), moyenne des 4 derniers 88,21 ; **A64T6** : max
     85,01, moyenne 84,93. **Une cible plus longue que 3 000 it n'aide pas** (NLs1 : 88,47 / 88,23).
+  - **4/11 09:36.** **E11c2** (n = 11, tour 2, cible 92,57) : it200 87,43 ; **it260 val 87,75 / hold 88,04** ; it300
+    87,68 ; moyenne des 4 derniers 87,65 (+0,6 sur le tour 1). E11c3 lancé depuis it260 (graine 2). En cours à it180 :
+    P10 (n = 10 mélangé) 83,06, plus lent qu'E11c (86,74 au même point ; sa cible ne fait que 90,07 car elle part d'un
+    état à 34 %) ; E64c (n = 11 en 64) 84,17, déjà près du plafond 64 (85,04 ; il faut 86,01 à n = 11).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
