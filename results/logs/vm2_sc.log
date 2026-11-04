@@ -1,0 +1,8 @@
+sc start 13:39:48
+SC2a start cache/sm_NL1_it300.pt target cache/selfNL1.pt 13:41:04
+SC2b start cache/sm_NL1_it300.pt target cache/flipNL1_f0.005.pt 13:42:04
+SC64 start cache/sm_A64R3_it200.pt target cache/selfA64R3.pt 13:43:04
+SC2a done best val cache/sm_NL1_it300.pt 0.8847 0.886 | best pooled cache/sm_NL1_it300.pt 0.8853 | last4 val 0.8783 15:49:36
+SC64 done best val cache/sm_A64R3_it200.pt 0.8501 0.8589 | best pooled cache/sm_A64R3_it200.pt 0.8545 | last4 val 0.8468 15:50:23
+SC2b done best val cache/sm_NL1_it300.pt 0.8847 0.886 | best pooled cache/sm_NL1_it300.pt 0.8853 | last4 val 0.8792 15:50:25
+sc done 15:50:25

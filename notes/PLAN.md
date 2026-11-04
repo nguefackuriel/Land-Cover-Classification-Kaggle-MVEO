@@ -1268,6 +1268,15 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     `runs/vm2_sc.sh` : **cible = notre propre coin** (l'état rejoué sert directement de `--target`) pour que les 5 pas
     suivent le signe final du run. **SC2a** = 224 soi-même ; **SC2b** = 224 soi-même + 0,5 % de retournements (coin
     89,06) ; **SC64** = 64 soi-même. 300 it, tous les réglages, après E11d3 et E64c2.
+  - **4/11 16:00. Cible = notre propre coin : rien.** SC2a : chute dès it20 (88,47 → 87,31), max 87,98 (it300), moyenne
+    des 4 derniers 87,83 ; SC2b : max 88,07, moyenne 87,92 (NLs1 : 88,47 / 88,23) ; SC64 : 85,01 → 84,15 à it20, max
+    84,79, moyenne 84,68 (A64T6 : 85,01 / 84,93). Même schéma que tous les tours depuis un plateau : le premier pas
+    (lr 0,2) fait perdre ~1 point et le tour remonte sans dépasser le départ. Fin de série n = 11 : E11d3 max 87,98,
+    E64c2 max 84,69.
+    Rappel `baseline.py` : le test est prédit avec `best.pt` (meilleure val sur les 5 époques). Pour nos sets la val monte
+    jusqu'au bout (NL1 : 14,4 / 31,0 / 70,1 / 86,4 / 88,5 ; A64R3 : 18,3 / 46,7 / 74,3 / 83,8 / 85,0), donc époque 5.
+    Lancé : `corner_mix.py` (diagnostic) : retournements **au hasard** entre notre coin et le coin de la cible, puis bloc
+    par bloc, pour savoir si le paysage est accidenté partout ou seulement pour les retournements classés.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

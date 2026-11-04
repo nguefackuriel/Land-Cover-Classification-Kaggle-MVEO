@@ -14,3 +14,5 @@ E11d3 start cache/sm_E11c2_it300.pt views cache/views_n11_s42_sz224.pt target 30
 E64c2 target ready {"tag": "near_E64c2", "it": 3000, "T": 0.071, "loss": 0.1461, "val_acc": 0.9059, "edge": 0.835} 11:46:52
 E11d3 target ready {"tag": "near_E11d3", "it": 3000, "T": 0.045, "loss": 0.1056, "val_acc": 0.9264, "edge": 0.792} 11:47:24
 E11c3 done best val cache/sm_E11c3_it300.pt 0.88 0.8831 | best pooled cache/sm_E11c3_it300.pt 0.8815 | last4 val 0.8787 12:55:17
+E64c2 done best val cache/sm_E64c2_it200.pt 0.8469 0.8501 | best pooled cache/sm_E64c2_it280.pt 0.8496 | last4 val 0.8452 13:50:43
+E11d3 done best val cache/sm_E11d3_it300.pt 0.8798 0.8845 | best pooled cache/sm_E11d3_it300.pt 0.8822 | last4 val 0.8780 13:51:36
