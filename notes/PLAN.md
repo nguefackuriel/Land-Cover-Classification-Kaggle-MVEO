@@ -1193,6 +1193,22 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     **A64R6** (graine 6) : max 84,99, sous A64R3 (85,04) ; A64R7 en cours. `runs/vm2_nf.sh` : méta-gradient exact plus
     fort, même départ et même cible que NLs1, 300 it : **NF1** = `--pfd-w 10 --real-bs 2048`, **NF2** = `--pfd-w 10
     --real-bs 4096` (real_grad découpe par 128 : pas de mémoire en plus, seulement du temps).
+  - **4/11 02:30.** **NF1** (pfd-w 10) : val max 88,00, moyenne des 4 derniers 87,92. **NF2** (pfd-w 10, lots de 4 096) :
+    val max 87,93, moyenne 87,81. NLs1 (pfd-w 5, même départ et même cible) : 88,47 / 88,23. **Un méta-gradient plus
+    fort nuit** ; pfd-w 5 reste le réglage. **A64R7** (graine 7) : max 84,94 ; les graines 5–7 ne battent pas A64R3
+    it200. Les deux pistes plafonnent (224 : 88,47 ; 64 : 85,04).
+    Précision par classe (`views_confusion.py`) : NL1 it300 → PermCrop 78,1 % (82 erreurs de val), Highway 78,9 % (79),
+    River 81,6 % (69), AnnualCrop 87,6 % (56) ; confusions River↔Highway 29 + 28, PermCrop → HerbVeg 25. A64R3 it200 →
+    Highway 73,9 % (98 erreurs), PermCrop 74,9 % (94), River 75,5 % (92), AnnualCrop 82,2 % (80).
+    Deux nouvelles pistes (VM2) :
+    1. **Soupe de pixels** (`work/soup_set.py`, `runs/vm2_n11prep.sh`) : moyenne des pixels de sets d'une même lignée,
+       arrondie en 8 bits (224 : NL1 it300 + NL2 it400 + NLs1 it300 + NL2x it600 ; NL1 + NLs1 ; NLs1 it260–300 ;
+       64 : A64R3 it200 + A64R4 it260 + A64R5 it300 + A64R6 it260 ; A64R3 it160–200).
+    2. **n = 11** (`work/make_n11.py`, `runs/vm2_n11.sh 6 3`) : une image de plus pour la classe la plus faible. Coût en
+       score 0,0048, soit 0,97 point de précision test à regagner. **E11c** = NL1 it300 + copie de son image PermCrop ;
+       **E11m** = NL1 it300 + un vrai médoïde PermCrop (bilinéaire 224) ; **E64c** = A64R3 it200 + copie de son image
+       Highway. Vues officielles n = 11 enregistrées (`cache/views_n11_s42{,_sz224}.pt` : un lot de 11 par epoch, 5 pas).
+       Chaque essai a sa cible de 3 000 it, puis 300 it avec tous les réglages + step-w.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

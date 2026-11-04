@@ -37,3 +37,7 @@ NP1 done best val cache/sm_NL1_it300.pt 0.8847 0.885 | best pooled cache/sm_NP1_
 NLs1 done best val cache/sm_NL1_it300.pt 0.8847 0.886 | best pooled cache/sm_NLs1_it300.pt 0.8861 | last4 val 0.8823 00:23:53
 np done 00:23:53
 NF1 start cache/sm_NL1_it300.pt near_NLs1 --pfd-w 10.0 --real-bs 2048 00:27:54
+NF2 start cache/sm_NL1_it300.pt near_NLs1 --pfd-w 10.0 --real-bs 4096 00:28:54
+NF1 done best val cache/sm_NL1_it300.pt 0.8847 0.8857 | best pooled cache/sm_NL1_it300.pt 0.8852 | last4 val 0.8792 02:09:25
+NF2 done best val cache/sm_NL1_it300.pt 0.8847 0.886 | best pooled cache/sm_NL1_it300.pt 0.8853 | last4 val 0.8781 02:24:35
+nf done 02:24:35

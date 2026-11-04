@@ -23,3 +23,4 @@ A64 done best val cache/sm_A64_it200.pt 0.8489 0.8572 | last4 val 0.8474 11:18:4
 A64R start cache/sm_A64_it200.pt 11:22:52
 official A64R2 it200 (64): {"epoch": 5, "train_loss": 1.835523009300232, "validation_accuracy": 0.8498765432098765} 15:21:40
 A64R rounds 4-6 from cache/sm_A64R3_it200.pt 17:05:21
+A64R seeds done 01:14:23
