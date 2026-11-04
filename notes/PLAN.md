@@ -1220,6 +1220,15 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     `runs/vm2_t6.sh` (3 jobs en parallèle, une cible ceiling3 prend ~11 Go) : **E11c** = n = 11 rangé, cible 3 000 it,
     300 it (mesure de la vitesse de remontée) ; **NT6** = 224 depuis NL1 it300, **cible de 6 000 it** (graine 2) ;
     **A64T6** = 64 depuis A64R3 it200, cible de 6 000 it (graine 8). Journal `runs/vm2_t6.log`.
+  - **4/11 06:10. E11c (n = 11, un seul tour) : 44,6 → 87,14 % de val** (it300, hold 87,43), et ça monte encore
+    à la fin (it200 86,72, it260 86,96, it280 87,04). La remontée est très rapide : le contenu des images survit au
+    changement de vues. Il faut ≥ 89,44 de val à n = 11 pour battre NL1 it300 (88,47 à n = 10) au score.
+    Cibles : near_E11c 92,69 (3 000 it), **near_NT6 92,59 (6 000 it)**, near_A64T6 90,91 (6 000 it).
+    `runs/vm2_round.sh <tag> <départ> <vues> <NIT> <graine> [IT] [pid]` = un tour générique (journal `runs/vm2_round.log`).
+    Lancés : **E11c2** (tour 2 depuis E11c it300, graine 1) ; **P10** = saut de bassin à n = 10 : NL1 it300 avec ses
+    lignes mélangées (`work/perm_set.py`, graine 1 : chaque image reçoit d'autres vues aux 5 epochs, it0 34,2 %),
+    jumeau n = 10 du test n = 11, après NT6 ; **E64c** (n = 11 en 64, rangé, it0 39,1 %) après A64T6. Le set 64
+    mélangé (`cache/p10_A64R3.pt`) part de 38,5 %.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

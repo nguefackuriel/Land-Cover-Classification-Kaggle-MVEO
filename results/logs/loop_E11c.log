@@ -15,3 +15,6 @@ val 0.44592592592592595
   x = torch.load(f)
 {"tag": "near_E11c", "init_val": 0.4459}
 {"tag": "near_E11c", "it": 1, "T": 0.282, "loss": 1.597, "val_acc": 0.5089, "edge": 0.044}
+{"tag": "near_E11c", "it": 1000, "T": 0.063, "loss": 0.1475, "val_acc": 0.9267, "edge": 0.622}
+{"tag": "near_E11c", "it": 2000, "T": 0.063, "loss": 0.1815, "val_acc": 0.9279, "edge": 0.683}
+{"tag": "near_E11c", "it": 3000, "T": 0.04, "loss": 0.0718, "val_acc": 0.9269, "edge": 0.794}
