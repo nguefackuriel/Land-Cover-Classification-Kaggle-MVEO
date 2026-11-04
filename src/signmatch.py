@@ -40,6 +40,9 @@ ap.add_argument('--path', default='target', choices=['target', 'actual'])  # act
 ap.add_argument('--opt', default='maxnorm', choices=['maxnorm', 'adam'])   # adam: pixels directly, lr in 1/255 levels
 ap.add_argument('--flip-w', type=float, default=1.)   # weight x this where the target sign differs from --flip-ref's
 ap.add_argument('--flip-ref', default='')                # run end state of the start set (climb_target.py targets)
+ap.add_argument('--mask', default='')        # fragility.py counts: weights the images can toggle
+ap.add_argument('--mask-min', type=int, default=1)
+ap.add_argument('--mask-out', type=float, default=1.)   # weight x this outside the mask (they barely move anyway)
 ap.add_argument('--block-w', default='')   # JSON {block: factor} (L00..L11, embed, top): multiply the weights of a block
 ap.add_argument('--weight', default='uniform', choices=['uniform', 'grad', 'delta'])  # grad: |dCE_T/dtheta| at the corner; delta: |theta*-theta0|/R
 a = ap.parse_args()
@@ -116,6 +119,15 @@ if a.block_w:               # per-block factors (corner_mix.py: whole late block
     _m = sum(w.sum().item() for w in W.values()) / NT
     W = {k: w / _m for k, w in W.items()}
     print(json.dumps({'block_w': _bw}), flush=True)
+if a.mask and a.mask_out != 1:
+    _c = torch.load(a.mask, map_location=dev)
+    W = W or {k: torch.ones_like(t) for k, t in th0.items()}
+    W = {k: torch.where(_c[k] >= a.mask_min, w, w * a.mask_out) for k, w in W.items()}
+    _in = sum((_c[k] >= a.mask_min).sum().item() for k in th0) / NT
+    del _c
+    _m = sum(w.sum().item() for w in W.values()) / NT
+    W = {k: w / _m for k, w in W.items()}
+    print(json.dumps({'mask_in': round(_in, 4), 'mask_out': a.mask_out}), flush=True)
 if a.flip_ref and a.flip_w != 1:     # focus on the few weights the (climbed) target wants flipped
     _r = torch.load(a.flip_ref, map_location=dev)
     _r = _r.get('model', _r) if isinstance(_r, dict) and 'model' in _r else _r

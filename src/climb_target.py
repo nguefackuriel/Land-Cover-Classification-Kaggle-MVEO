@@ -20,6 +20,8 @@ ap.add_argument('--iters', type=int, default=20)
 ap.add_argument('--save', default='')
 ap.add_argument('--undecided', type=float, default=0.)   # > 0: only weights with |theta5 - theta0| / R below this
 ap.add_argument('--bs', type=int, default=2048)
+ap.add_argument('--mask', default='')       # fragility.py counts: only weights whose sign changed in >= --mask-min copies
+ap.add_argument('--mask-min', type=int, default=1)
 a = ap.parse_args()
 save = {int(s) for s in a.save.split(',') if s}
 dev = 'cuda'
@@ -36,6 +38,10 @@ cand = {k: torch.ones_like(s, dtype=torch.bool) for k, s in S.items()}
 if a.undecided > 0:
     cand = {k: c & ((act[k].float() - th0[k]).abs() / R < a.undecided) for k, c in cand.items()}
 del act
+if a.mask:
+    _c = torch.load(a.mask, map_location=dev)
+    cand = {k: c & (_c[k] >= a.mask_min) for k, c in cand.items()}
+    del _c
 if a.near:
     near = torch.load(a.near, map_location=dev)
     cand = {k: c & (torch.sign(near[k].float() - th0[k]) == -S[k]) for k, c in cand.items()}
