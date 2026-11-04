@@ -38,6 +38,7 @@ ap.add_argument('--pfd-tmult', type=float, default=1.)   # PFD term: real CE at 
 ap.add_argument('--real-bs', type=int, default=512)        # linear lr warmup over this many iterations
 ap.add_argument('--path', default='target', choices=['target', 'actual'])  # actual: score each step where the real run is
 ap.add_argument('--opt', default='maxnorm', choices=['maxnorm', 'adam'])   # adam: pixels directly, lr in 1/255 levels
+ap.add_argument('--block-w', default='')   # JSON {block: factor} (L00..L11, embed, top): multiply the weights of a block
 ap.add_argument('--weight', default='uniform', choices=['uniform', 'grad', 'delta'])  # grad: |dCE_T/dtheta| at the corner; delta: |theta*-theta0|/R
 a = ap.parse_args()
 dev = 'cuda'
@@ -99,6 +100,20 @@ if a.weight == 'grad':      # how much the real loss cares about each weight at 
     mean_w = sum(w.sum().item() for w in W.values()) / NT
     W = {k: w / mean_w for k, w in W.items()}
     print(json.dumps({'weight': 'grad', 'T_corner': T, 'pow': a.weight_pow}), flush=True)
+if a.block_w:               # per-block factors (corner_mix.py: whole late blocks are worth more than early ones)
+    import re as _re
+    _bw = json.loads(open(a.block_w).read())
+
+    def _grp(k):
+        g = _re.search(r'encoder_layer_(\d+)', k)
+        if g:
+            return 'L%02d' % int(g.group(1))
+        return 'embed' if k.startswith('conv_proj') or 'pos_embedding' in k or 'class_token' in k else 'top'
+    W = W or {k: torch.ones_like(t) for k, t in th0.items()}
+    W = {k: w * float(_bw.get(_grp(k), 1.)) for k, w in W.items()}
+    _m = sum(w.sum().item() for w in W.values()) / NT
+    W = {k: w / _m for k, w in W.items()}
+    print(json.dumps({'block_w': _bw}), flush=True)
 
 
 B1, B2, EPS = 0.9, 0.999, 1e-8
