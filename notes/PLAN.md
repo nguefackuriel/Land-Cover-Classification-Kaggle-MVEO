@@ -1188,6 +1188,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     0,005, 100 it) ; **NLs1** = tour frais depuis NL1 it300 avec une cible de graine 1 (3 000 it), 300 it.
   - **3/11 22:45.** **NP1** (polissage) : val 88,15–88,27, sous son départ (88,47). Le polissage seul n'apporte rien ;
     NL1 it300 est un pic local sur cette cible.
+  - **4/11 00:30.** **NLs1** (cible graine 1) : it300 val 88,47 / hold 88,75, moyenne des 4 derniers 88,23. Trois suites
+    depuis NL1 it300 (NL2, NL2x, NLs1) finissent toutes à 88,42–88,47 : plateau net avec les réglages actuels.
+    **A64R6** (graine 6) : max 84,99, sous A64R3 (85,04) ; A64R7 en cours. `runs/vm2_nf.sh` : méta-gradient exact plus
+    fort, même départ et même cible que NLs1, 300 it : **NF1** = `--pfd-w 10 --real-bs 2048`, **NF2** = `--pfd-w 10
+    --real-bs 4096` (real_grad découpe par 128 : pas de mémoire en plus, seulement du temps).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
