@@ -11,3 +11,6 @@ P10 done best val cache/sm_P10_it280.pt 0.8323 0.8354 | best pooled cache/sm_P10
 E11c3 target ready {"tag": "near_E11c3", "it": 3000, "T": 0.056, "loss": 0.1477, "val_acc": 0.9274, "edge": 0.792} 10:36:31
 E64c2 start cache/sm_E64c_it280.pt views cache/views_n11_s42.pt target 3000 its seed 1, 300 its 10:37:24
 E11d3 start cache/sm_E11c2_it300.pt views cache/views_n11_s42_sz224.pt target 3000 its seed 3, 300 its 10:37:44
+E64c2 target ready {"tag": "near_E64c2", "it": 3000, "T": 0.071, "loss": 0.1461, "val_acc": 0.9059, "edge": 0.835} 11:46:52
+E11d3 target ready {"tag": "near_E11d3", "it": 3000, "T": 0.045, "loss": 0.1056, "val_acc": 0.9264, "edge": 0.792} 11:47:24
+E11c3 done best val cache/sm_E11c3_it300.pt 0.88 0.8831 | best pooled cache/sm_E11c3_it300.pt 0.8815 | last4 val 0.8787 12:55:17

@@ -1239,6 +1239,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     abandonnée. **E64c** (n = 11 en 64) : 39,1 → val max 84,32 (it160), poolé 84,66 (it280). Lancés : **E64c2** (64,
     depuis E64c it280, graine 1) et **E11d3** (deuxième branche du tour 3 en 224, depuis E11c2 it300, graine 3 ; E11c3
     part d'it260 avec la graine 2).
+  - **4/11 13:00.** **E11c3** (n = 11, tour 3) : it260 87,85 ; it280 87,95 ; **it300 val 88,00 / hold 88,31** ; moyenne
+    des 4 derniers 87,87. Tours n = 11 : 87,14 → 87,75 → 88,00 (+0,61 puis +0,25) : ça tend vers ~88,5, le même plafond
+    qu'à n = 10, et pas vers les 89,44 nécessaires. **La 11ᵉ image n'apporte pas de capacité utile ; n = 10 reste le
+    bon choix.** Pas de nouveau tour n = 11 après E11d3 et E64c2 (E64c2 : 84,54 à it180). Vérification officielle
+    64 de A64R3 it160 et it200 (`runs/vm2_off64.sh`, sets `sets/n10_A64R3i{160,200}_64` sur VM2).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
