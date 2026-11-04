@@ -1,0 +1,25 @@
+{"disagree": 0.2332, "act": 0.8575, "near": 0.9089}
+{"block": "L00", "params": 7087872, "disagree": 0.2632, "near_only_here": 0.856, "near_except_here": 0.9064}
+{"block": "L01", "params": 7087872, "disagree": 0.2414, "near_only_here": 0.8565, "near_except_here": 0.9064}
+{"block": "L02", "params": 7087872, "disagree": 0.2233, "near_only_here": 0.8593, "near_except_here": 0.9059}
+{"block": "L03", "params": 7087872, "disagree": 0.2221, "near_only_here": 0.8593, "near_except_here": 0.9037}
+{"block": "L04", "params": 7087872, "disagree": 0.2291, "near_only_here": 0.8598, "near_except_here": 0.9047}
+{"block": "L05", "params": 7087872, "disagree": 0.233, "near_only_here": 0.8602, "near_except_here": 0.9037}
+{"block": "L06", "params": 7087872, "disagree": 0.2305, "near_only_here": 0.8595, "near_except_here": 0.9044}
+{"block": "L07", "params": 7087872, "disagree": 0.239, "near_only_here": 0.861, "near_except_here": 0.904}
+{"block": "L08", "params": 7087872, "disagree": 0.2374, "near_only_here": 0.8605, "near_except_here": 0.9032}
+{"block": "L09", "params": 7087872, "disagree": 0.2411, "near_only_here": 0.8595, "near_except_here": 0.9022}
+{"block": "L10", "params": 7087872, "disagree": 0.2237, "near_only_here": 0.8605, "near_except_here": 0.9002}
+{"block": "L11", "params": 7087872, "disagree": 0.2146, "near_only_here": 0.8568, "near_except_here": 0.9037}
+{"block": "embed", "params": 742656, "disagree": 0.2378, "near_only_here": 0.8568, "near_except_here": 0.9062}
+{"block": "top", "params": 9226, "disagree": 0.1613, "near_only_here": 0.8583, "near_except_here": 0.9091}
+{"seed": 0, "frac": 0.1, "acc": 0.8605}
+{"seed": 0, "frac": 0.25, "acc": 0.8672}
+{"seed": 0, "frac": 0.5, "acc": 0.882}
+{"seed": 0, "frac": 0.75, "acc": 0.8953}
+{"seed": 0, "frac": 0.9, "acc": 0.9035}
+{"seed": 1, "frac": 0.1, "acc": 0.8607}
+{"seed": 1, "frac": 0.25, "acc": 0.8677}
+{"seed": 1, "frac": 0.5, "acc": 0.882}
+{"seed": 1, "frac": 0.75, "acc": 0.8956}
+{"seed": 1, "frac": 0.9, "acc": 0.9035}

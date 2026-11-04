@@ -38,6 +38,8 @@ ap.add_argument('--pfd-tmult', type=float, default=1.)   # PFD term: real CE at 
 ap.add_argument('--real-bs', type=int, default=512)        # linear lr warmup over this many iterations
 ap.add_argument('--path', default='target', choices=['target', 'actual'])  # actual: score each step where the real run is
 ap.add_argument('--opt', default='maxnorm', choices=['maxnorm', 'adam'])   # adam: pixels directly, lr in 1/255 levels
+ap.add_argument('--flip-w', type=float, default=1.)   # weight x this where the target sign differs from --flip-ref's
+ap.add_argument('--flip-ref', default='')                # run end state of the start set (climb_target.py targets)
 ap.add_argument('--block-w', default='')   # JSON {block: factor} (L00..L11, embed, top): multiply the weights of a block
 ap.add_argument('--weight', default='uniform', choices=['uniform', 'grad', 'delta'])  # grad: |dCE_T/dtheta| at the corner; delta: |theta*-theta0|/R
 a = ap.parse_args()
@@ -114,6 +116,18 @@ if a.block_w:               # per-block factors (corner_mix.py: whole late block
     _m = sum(w.sum().item() for w in W.values()) / NT
     W = {k: w / _m for k, w in W.items()}
     print(json.dumps({'block_w': _bw}), flush=True)
+if a.flip_ref and a.flip_w != 1:     # focus on the few weights the (climbed) target wants flipped
+    _r = torch.load(a.flip_ref, map_location=dev)
+    _r = _r.get('model', _r) if isinstance(_r, dict) and 'model' in _r else _r
+    W = W or {k: torch.ones_like(t) for k, t in th0.items()}
+    _nf = 0
+    for k in th0:
+        _f = torch.sign(_r[k].float() - th0[k]) != S[k]
+        W[k] = torch.where(_f, W[k] * a.flip_w, W[k]); _nf += _f.sum().item()
+    del _r
+    _m = sum(w.sum().item() for w in W.values()) / NT
+    W = {k: w / _m for k, w in W.items()}
+    print(json.dumps({'flip_w': a.flip_w, 'flip_frac': round(_nf / NT, 5)}), flush=True)
 
 
 B1, B2, EPS = 0.9, 0.999, 1e-8

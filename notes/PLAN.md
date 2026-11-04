@@ -1277,6 +1277,26 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     jusqu'au bout (NL1 : 14,4 / 31,0 / 70,1 / 86,4 / 88,5 ; A64R3 : 18,3 / 46,7 / 74,3 / 83,8 / 85,0), donc époque 5.
     Lancé : `corner_mix.py` (diagnostic) : retournements **au hasard** entre notre coin et le coin de la cible, puis bloc
     par bloc, pour savoir si le paysage est accidenté partout ou seulement pour les retournements classés.
+  - **4/11 17:00. Quatre diagnostics qui changent la lecture du plateau.**
+    1. **Le chemin entre notre coin et celui de la cible est lisse et presque linéaire si les retournements sont tirés
+       au hasard** (`corner_mix.py`, 2 graines à ±0,05) : part f des désaccords retournés 0 / 10 / 25 / 50 / 75 / 90 / 100 % →
+       224 : 88,84 / 89,41 / 90,07 / 91,17 / 92,10 / 92,65 / 93,01 ; 64 : 85,75 / 86,05 / 86,72 / 88,20 / 89,53 / 90,35 /
+       90,89. Bloc par bloc aussi : les signes de la cible dans un seul bloc aident (224 : L09 89,70, L10 89,53 ; 64 : ≤ +0,3).
+    2. **Les retournements classés cassaient à cause d'un décalage des a priori de classe** (`bias_diag.py`, décalage par
+       classe ajusté sur le hold) : coin 224 avec 5 % des désaccords classés 79,95 → **90,17** une fois les classes
+       recalées ; 64 : 83,01 → 86,67. Nos propres runs n'ont pas ce biais (NL1 88,44 → 88,27 avec décalage).
+    3. **Un tour ne change le signe net que de 2–3 % des poids** (`agree_round.py`, début / fin de tour contre sa cible) :
+       A64T6 : désaccords 23,32 → 22,96 %, corrigés 1,75 %, cassés 1,38 % ; NLs1 : 18,84 → 18,77 %, 1,01 / 0,94 %. Et
+       l'accord par pas ne bouge pas pendant le tour (A64T6 pas 1 : 0,7516 → 0,7543) : avec `--pfd-w 5` le tour est
+       presque du PFD pur (la perte réelle baisse : 0,447 → 0,435). D'où l'indifférence à la cible (soi-même, 6 000 it…).
+    4. **Croisement d'images** entre sets voisins de la lignée 64 (`crossover.py`, 80 échanges d'une image depuis 9
+       sets) : rien (poolé max 85,50 contre 85,47).
+    **Nouvelle cible « coin grimpé »** (`climb_target.py`) : partir des signes de notre fin de run, retourner 0,1 % des
+    poids à la fois parmi les désaccords avec la cible proche, classés par gain au premier ordre, en recalculant le
+    gradient (2 048 images réelles) après chaque paquet. 224 : 88,84 → 90,02 val / 90,14 hold avec 0,5 % des poids (au
+    hasard, même part : ~89,0) ; 64 : 85,75 → 86,74 / 87,48 avec 0,6 %. Sans la restriction aux désaccords, ça
+    s'effondre (64 : 77–81 %). `signmatch.py --flip-w 20 --flip-ref <état>` multiplie le poids des retournements voulus.
+    `runs/vm2_cl.sh` : **CL224** (NL1 it300), **CL64** (A64R3 it200), **CL64p** (idem, `--pfd-w 2`), 300 it.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
