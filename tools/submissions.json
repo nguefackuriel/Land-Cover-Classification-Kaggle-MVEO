@@ -75,5 +75,26 @@
   "n": 10,
   "val": 0.8701,
   "score": 0.81875
+ },
+ {
+  "name": "n10_NS2_224",
+  "folder": "2026-11-03_n10_224_step_weighted_long_targets",
+  "n": 10,
+  "val": 0.8817,
+  "score": 0.8232
+ },
+ {
+  "name": "n10_NL1_224",
+  "folder": "2026-11-04_n10_224_300it_rounds",
+  "n": 10,
+  "val": 0.8847,
+  "score": 0.8248
+ },
+ {
+  "name": "n10_A64R3_64",
+  "folder": "2026-11-04_n10_64_all_knobs_step_weighted",
+  "n": 10,
+  "val": 0.8504,
+  "score": 0.81011
  }
 ]

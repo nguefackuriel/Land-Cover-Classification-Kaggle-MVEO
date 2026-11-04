@@ -1,0 +1,13 @@
+fa start 13:24:02
+{"disagree_frac": 0.1884, "T": 0.08912510424852371, "pos_delta_frac": 0.6439, "acc_act_corner": 0.8884, "acc_near_corner": 0.9301}
+{"frac": 0.005, "flips": 0.0009, "acc_corner": 0.8906}
+{"frac": 0.01, "flips": 0.0019, "acc_corner": 0.8802}
+{"frac": 0.02, "flips": 0.0038, "acc_corner": 0.8593}
+{"frac": 0.03, "flips": 0.0057, "acc_corner": 0.8356}
+{"frac": 0.05, "flips": 0.0094, "acc_corner": 0.8002}
+{"disagree_frac": 0.2332, "T": 0.1258925497531891, "pos_delta_frac": 0.6342, "acc_act_corner": 0.8575, "acc_near_corner": 0.9089}
+{"frac": 0.005, "flips": 0.0012, "acc_corner": 0.856}
+{"frac": 0.01, "flips": 0.0023, "acc_corner": 0.856}
+{"frac": 0.02, "flips": 0.0047, "acc_corner": 0.8504}
+{"frac": 0.03, "flips": 0.007, "acc_corner": 0.842}
+{"frac": 0.05, "flips": 0.0117, "acc_corner": 0.8286}

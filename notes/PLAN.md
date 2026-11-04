@@ -134,6 +134,9 @@ Scripts : `work/proto.py` (réplique GPU rapide du protocole), `work/oracle_step
 | 15/10 13:44 | `work/submissions/n10_exact_s2_it280.csv` (images : `work/sets/n10_exact_s2_it280`, `cache/pfd3_n10_exact_s2_it280.pt` ; archive + manifeste sha256). Palier 2 sur la trajectoire exacte du seed 42 | 10 | 80,62 % | **0,78530** (test ≈ 80,44 %) | **1ᵉʳ**, +0,0446 sur Lynch James |
 | 19/10 16:20 | `work/submissions/n10_sm_r3_pf.csv` (images : `work/sets/n10_sm_r3_pf`, `cache/pfd3_pf_r3n_best.pt` ; archive `work/submissions/n10_sm_r3_pf_images/` + manifeste sha256 ; deux relances officielles identiques). Sign matching vers une cible proche (3 tours) + polissage PFD, trajectoire exacte du seed 42 | 10 | 83,88 % | **0,80357** (test ≈ 84,10 %) | 2ᵉ, à 0,00185 de vinicius simm (0,80542) |
 | 19/10 18:15 | `work/submissions/n10_hyb3_it120.csv` (images : `work/sets/n10_hyb3_it120`, `cache/sm_hyb3_it120.pt` ; archive `work/submissions/n10_hyb3_it120_images/` + manifeste sha256 ; deux relances officielles identiques). Hybride sign matching + méta-gradient PFD exact (poids 3), depuis le set à 0,80357. Précision poolée val + 8k train : 84,99 % (contre 84,28 %) | 10 | 84,35 % | **0,80567** (test ≈ 84,52 %) | **1ᵉʳ**, +0,00025 sur vinicius simm |
+| … | (soumissions du 20/10 au 3/11 : voir le journal, sections 2.5 nonies et suivantes ; dernière : NS2 224, 0,82320) | | | | |
+| 4/11 13:35 | `work/submissions/n10_NL1_224.csv` (images 224×224 : `work/submissions/n10_NL1_224_images/` + manifeste sha256, `cache/sm_NL1_it300.pt` ; deux runs officiels identiques). Tour hybride de 300 it, cible proche de 3 000 it, step-w | 10 | 88,47 % | **0,82480** (test ≈ 88,34 %) | **1ᵉʳ**, +0,00605 sur vinicius simm |
+| 4/11 13:35 | `work/submissions/n10_A64R3_64.csv` (images **64×64** : `work/submissions/n10_A64R3_64_images/` + manifeste sha256, `cache/sm_A64R3_it160.pt` ; deux runs officiels identiques). Lignée 64 avec tous les réglages 224 + step-w | 10 | 85,04 % | **0,81011** (test ≈ 85,41 %) | candidat 64 de la sélection finale |
 
 ### 2.3 Prototype PFD (`work/pfd.py`)
 Le test rapide du 12/10 fonctionne : 5 pas déroulés, ViT-B/16 complet, 3,6 s par itération, **30 Go** de mémoire
@@ -1246,6 +1249,15 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     64 de A64R3 it160 et it200 (`runs/vm2_off64.sh`, sets `sets/n10_A64R3i{160,200}_64` sur VM2).
   - **4/11 13:05. `baseline.py` officiel : A64R3 it160 val 85,037, it200 val 85,012** (= rejeu exact). **Meilleur 64 :
     A64R3 it160** (`sets/n10_A64R3i160_64`), pas soumis. E11d3 à it240 87,65, E64c2 84,52 : sous les seuils n = 11.
+  - **4/11 13:35. Soumissions (accord de l'utilisateur) : NL1 it300 (224) → public 0,82480 (test ≈ 88,34, val 88,47) ;
+    A64R3 it160 (64) → public 0,81011 (test ≈ 85,41, val 85,04).** 1ᵉʳ seul (vinicius 0,81875, Lynch James 0,80184).
+    finalize_sub.sh sur VM2 : deux runs officiels identiques pour chacun, PNG 224×224 / 64×64 RGB, sha256 OK sur la
+    machine principale. Ce sont les deux candidats de la sélection finale (un 224 + un 64). Attention : notre 64
+    (0,81011) reste sous vinicius (0,81875) si seul le 64 compte.
+    En cours (`runs/vm2_fa.sh`) : **cibles « petit pas »** (`flip_target.py` mode act, jamais testé en tour complet) :
+    garder le motif de signes de notre fin de run et ne prendre la cible proche que sur les f % de désaccords les plus
+    utiles au premier ordre. FA2 / FA1 = 224 depuis NL1 it300 (near_NLs1, f = 2 % / 1 %) ; FA64 = 64 depuis A64R3 it200
+    (near_A64T6, f = 2 %).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
