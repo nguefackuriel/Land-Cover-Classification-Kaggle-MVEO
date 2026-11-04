@@ -6,3 +6,8 @@ E64c target ready {"tag": "near_E64c", "it": 3000, "T": 0.079, "loss": 0.1726, "
 P10 target ready {"tag": "near_P10", "it": 3000, "T": 0.079, "loss": 0.1918, "val_acc": 0.9007, "edge": 0.816} 08:21:48
 E11c2 done best val cache/sm_E11c2_it260.pt 0.8775 0.8804 | best pooled cache/sm_E11c2_it260.pt 0.879 | last4 val 0.8765 09:36:06
 E11c3 start cache/sm_E11c2_it260.pt views cache/views_n11_s42_sz224.pt target 3000 its seed 2, 300 its 09:36:41
+E64c done best val cache/sm_E64c_it160.pt 0.8432 0.8418 | best pooled cache/sm_E64c_it280.pt 0.8466 | last4 val 0.8418 10:33:26
+P10 done best val cache/sm_P10_it280.pt 0.8323 0.8354 | best pooled cache/sm_P10_it300.pt 0.8351 | last4 val 0.8317 10:34:05
+E11c3 target ready {"tag": "near_E11c3", "it": 3000, "T": 0.056, "loss": 0.1477, "val_acc": 0.9274, "edge": 0.792} 10:36:31
+E64c2 start cache/sm_E64c_it280.pt views cache/views_n11_s42.pt target 3000 its seed 1, 300 its 10:37:24
+E11d3 start cache/sm_E11c2_it300.pt views cache/views_n11_s42_sz224.pt target 3000 its seed 3, 300 its 10:37:44

@@ -1235,6 +1235,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     87,68 ; moyenne des 4 derniers 87,65 (+0,6 sur le tour 1). E11c3 lancé depuis it260 (graine 2). En cours à it180 :
     P10 (n = 10 mélangé) 83,06, plus lent qu'E11c (86,74 au même point ; sa cible ne fait que 90,07 car elle part d'un
     état à 34 %) ; E64c (n = 11 en 64) 84,17, déjà près du plafond 64 (85,04 ; il faut 86,01 à n = 11).
+  - **4/11 10:37.** **P10** (n = 10 mélangé) : 34,2 → val max 83,23, plat dès it180 : trop loin de 88,47, piste
+    abandonnée. **E64c** (n = 11 en 64) : 39,1 → val max 84,32 (it160), poolé 84,66 (it280). Lancés : **E64c2** (64,
+    depuis E64c it280, graine 1) et **E11d3** (deuxième branche du tour 3 en 224, depuis E11c2 it300, graine 3 ; E11c3
+    part d'it260 avec la graine 2).
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 
