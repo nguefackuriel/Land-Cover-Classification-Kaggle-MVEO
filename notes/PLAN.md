@@ -1244,6 +1244,8 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     qu'à n = 10, et pas vers les 89,44 nécessaires. **La 11ᵉ image n'apporte pas de capacité utile ; n = 10 reste le
     bon choix.** Pas de nouveau tour n = 11 après E11d3 et E64c2 (E64c2 : 84,54 à it180). Vérification officielle
     64 de A64R3 it160 et it200 (`runs/vm2_off64.sh`, sets `sets/n10_A64R3i{160,200}_64` sur VM2).
+  - **4/11 13:05. `baseline.py` officiel : A64R3 it160 val 85,037, it200 val 85,012** (= rejeu exact). **Meilleur 64 :
+    A64R3 it160** (`sets/n10_A64R3i160_64`), pas soumis. E11d3 à it240 87,65, E64c2 84,52 : sous les seuils n = 11.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

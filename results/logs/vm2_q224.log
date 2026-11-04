@@ -41,3 +41,5 @@ NF2 start cache/sm_NL1_it300.pt near_NLs1 --pfd-w 10.0 --real-bs 4096 00:28:54
 NF1 done best val cache/sm_NL1_it300.pt 0.8847 0.8857 | best pooled cache/sm_NL1_it300.pt 0.8852 | last4 val 0.8792 02:09:25
 NF2 done best val cache/sm_NL1_it300.pt 0.8847 0.886 | best pooled cache/sm_NL1_it300.pt 0.8853 | last4 val 0.8781 02:24:35
 nf done 02:24:35
+official A64R3 it160 (64): {"epoch": 5, "train_loss": 1.8166296482086182, "validation_accuracy": 0.8503703703703703} 13:02:16
+official A64R3 it200 (64): {"epoch": 5, "train_loss": 1.8225910663604736, "validation_accuracy": 0.8501234567901235} 13:05:08
