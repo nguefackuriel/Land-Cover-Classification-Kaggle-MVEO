@@ -1258,6 +1258,16 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     garder le motif de signes de notre fin de run et ne prendre la cible proche que sur les f % de désaccords les plus
     utiles au premier ordre. FA2 / FA1 = 224 depuis NL1 it300 (near_NLs1, f = 2 % / 1 %) ; FA64 = 64 depuis A64R3 it200
     (near_A64T6, f = 2 %).
+  - **4/11 13:50. Cibles « petit pas » : abandon avant les runs.** Diagnostic de `flip_target.py` (mode act) :
+    224 (NL1 it300 / near_NLs1) : 18,8 % de désaccords, coin de la cible 93,01, **coin de notre run 88,84** ; avec les
+    f % de retournements les plus utiles au premier ordre : 0,5 % → 89,06 ; 1 % → 88,02 ; 2 % → 85,93 ; 5 % → 80,02.
+    64 (A64R3 it200 / near_A64T6) : 23,3 % de désaccords, coin cible 90,89, **coin de notre run 85,75** ; 0,5–1 % →
+    85,60, 2 % → 85,04 : rien. Le premier ordre ne tient que sur ~0,1 % des poids : paysage en signes très accidenté.
+    **Constat utile : le coin de notre propre run bat le run** (224 : 88,84 contre 88,47 ; 64 : 85,75 contre 85,01).
+    Les poids dont le gradient change de signe d'un pas à l'autre s'arrêtent dans la boîte (l'élan d'Adam se compense).
+    `runs/vm2_sc.sh` : **cible = notre propre coin** (l'état rejoué sert directement de `--target`) pour que les 5 pas
+    suivent le signe final du run. **SC2a** = 224 soi-même ; **SC2b** = 224 soi-même + 0,5 % de retournements (coin
+    89,06) ; **SC64** = 64 soi-même. 300 it, tous les réglages, après E11d3 et E64c2.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
 

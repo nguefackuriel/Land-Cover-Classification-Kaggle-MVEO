@@ -11,3 +11,4 @@ fa start 13:24:02
 {"frac": 0.02, "flips": 0.0047, "acc_corner": 0.8504}
 {"frac": 0.03, "flips": 0.007, "acc_corner": 0.842}
 {"frac": 0.05, "flips": 0.0117, "acc_corner": 0.8286}
+fa stopped before the runs: act-ranked flips beyond 0.5% lower the corner (224: 88.84 -> 89.06 at 0.5%, 88.02 at 1%, 85.93 at 2%; 64: no f helps) 13:37:45
