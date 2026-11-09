@@ -1318,6 +1318,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     garde un poids plein que s'il a basculé dans au moins une des 8 copies bruitées (8,5 % des poids en 224), ×0,1
     ailleurs. MK224 = NL1 it300 + cible near_NLs1 (comparer à NLs1 : 88,47 / 88,23) ; puis MK64 = A64R3 it200 + near_A64T6
     (comparer à A64T6 : 85,01 / 84,93). README mis à jour, `notes/image_size_224.md` = justification du 224 pour la remise.
+  - **9/11 17:40.** **MK224 (masque de fragilité) : rien.** Max val 88,35 (it300), moyenne des 4 derniers 88,18, contre
+    88,47 / 88,23 pour NLs1 (même départ, même cible) : même chute au début (it20 87,41) et même remontée. **Lignées 64,
+    tour 1** (recette complète) : L64Q 84,44 → 84,81 val (it260, hold 85,74, poolé 85,28) ; L64P 84,37 → 84,84 (it260,
+    poolé 85,21). +0,4 en un tour, mais encore sous A64R3 (val 85,04). Tours 2 en cours, MK64 vers 18:10.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
