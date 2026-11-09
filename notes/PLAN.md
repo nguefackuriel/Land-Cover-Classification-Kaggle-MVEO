@@ -1299,6 +1299,18 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     `runs/vm2_cl.sh` : **CL224** (NL1 it300), **CL64** (A64R3 it200), **CL64p** (idem, `--pfd-w 2`), 300 it.
   - Un tour 64 ne bouge les pixels que de 0,58 niveau en moyenne (D64_1 → W64_1 ; depuis les médoïdes : 5,8 en 64, 4,9
     en 224). `runs/vm2_k64b.sh` (après vm2_k64) : **K64lr** = lr pixels 0,5 → 0,05 au lieu de 0,2 → 0,02.
+  - **4/11 18:30. Tours vers les cibles « coin grimpé » : rien.** CL224 (depuis NL1 it300) : max 88,32 (it300), moyenne des
+    4 derniers 88,17 ; CL64 : max 85,01 (it220), 84,86 ; CL64p (`--pfd-w 2`) arrêté à it60 : un tour ne réalise que ~10 %
+    des retournements voulus et en casse 20 fois plus. `fragility.py` (±1 niveau sur 50 % des pixels, 8 copies) :
+    224 88,47 → 87,65–88,25 (2,9 % des signes nets changent par copie), 64 85,01 → 84,32–84,62 (5 %). Les deux sets
+    soumis sont au sommet d'un plancher de bruit d'environ ±0,5 point. Rien n'a tourné du 5 au 8/11.
+  - **9/11 (dernière semaine).** Classement : nous 0,82480 (1ᵉʳ), vinicius simm 0,81875 (inchangé depuis le 26/10), Lynch
+    James 0,80184, Kakapo 0,79950, cris woz 0,79900 (soumis ce matin). Le VM2 s'arrête dimanche 15/11 vers 21:00 UTC,
+    soit 3 h avant la deadline : tout calcul doit finir dimanche après-midi. Plan : (1) robustesse numérique des deux
+    sets soumis (`views_robust.py`, TF32 / bf16) ; (2) `runs/vm2_last64.sh` : recette complète (dither, weight grad,
+    tau 0,15, pfd-w 5, lots de 2 048, step-w, 300 it, cibles de 3 000 it) sur les deux autres lignées 64 les plus hautes,
+    Q4J0G5 (poolé 84,85) et P8J3H4 (84,59), 4 tours chacune (la même recette a mené hyb3 de ~84,6 à 85,04) ;
+    (3) README, paper et dossier de vérification à jour (justification du 224 prête pour la remise, jamais sur le forum).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

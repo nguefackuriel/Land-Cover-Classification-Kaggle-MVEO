@@ -30,11 +30,14 @@ All validation numbers below come from the unmodified `baseline.py`. Kaggle scor
 | 21 Oct | 10 | same, five combined rounds | 86.07 | not measured | 0.81184 |
 | 21 Oct | 10 | same, seven combined rounds | 86.44 | not measured | 0.81357 |
 | 23 Oct | 10 | same, three more rounds from a dithered start | 86.49 | not measured | 0.81394 |
-| 23 Oct | 10 | same, one more round with the sign loss weighted by the real-loss gradient | **87.01** | not measured | **0.81875** |
+| 23 Oct | 10 | same, one more round with the sign loss weighted by the real-loss gradient | 87.01 | not measured | 0.81875 |
+| 3 Nov | 10 | same, more rounds with a stronger real-loss term, a step-weighted sign loss and 3,000-step targets | 88.17 | not measured | 0.82320 |
+| 4 Nov | 10 | same, one longer round (300 pixel steps instead of 200) | **88.47** | not measured | **0.82480** |
+| 4 Nov | 10 | 64x64 images: the 19 Oct 64x64 sets, then the same rounds as the 224x224 ones | 85.04 | not measured | 0.81011 |
 
 "Val, other seeds" means `baseline.py --seed s` for other values of `s`. For the 120-image sets it is the mean over
-seeds 42 and 0 to 4. The last three sets are tuned to the run that `baseline.py` makes with its default settings, so
-they only work for that run. Please read [About the seed-42 sets](#about-the-seed-42-sets) below.
+seeds 42 and 0 to 4. All the 10-image sets from 15 Oct on are tuned to the run that `baseline.py` makes with its
+default settings, so they only work for that run. Please read [About the seed-42 sets](#about-the-seed-42-sets) below.
 
 ## What is in the repo
 
@@ -188,6 +191,25 @@ Those training images are not held out by default: the near target and the real-
 train split, so after a few rounds the train score goes up without test following (the third 224 round). With
 `DD_HOLDOUT=k` (see `src/dd_lib.py`) the first k of those rows are never sampled by `ceiling3.py`, `signmatch.py` or
 `pfd3.py`, and `exact_eval.py` scores them as `hold` instead.
+
+### Later rounds (23 Oct to 4 Nov)
+
+From 21 Oct on, every gain came from more rounds on the same 224x224 lineage, plus a few changes to `signmatch.py`.
+Each one was kept only if it raised validation accuracy over several rounds:
+
+* `--dither 0.98`: each pixel starts at a random point inside its 8-bit level. Before this, the first steps of a
+  round lost about 2 points and the round spent its time getting them back.
+* `--weight grad`: the sign loss of each weight is weighted by the size of the real-loss gradient at the edge point
+  of the target, so the images stop spending effort on weights that do not change the predictions.
+* `--pfd-w 5 --real-bs 2048 --tau 0.15`: a stronger and less noisy real-loss term, and a sharper softplus in the sign
+  loss.
+* `--step-w 1,0.462,0.205,0.071,0.014`: the sign loss of step k is weighted by how much step k moves the final
+  AdamW displacement. The first step counts most, since Adam's first step is a pure sign step.
+* Targets from 3,000 search steps (`ceiling3.py --iters 3000`) instead of 1,000, and 300 pixel steps per round.
+
+The best 224x224 set (88.47%) and the best 64x64 set (85.04%) came from these rounds. After that, rounds stopped
+helping. A set sits at a local optimum: moving half of its pixels by one level costs about 0.5 point (64x64: 0.6),
+and a round changes the net sign of only 2 to 3% of the weights.
 
 ### Randomness
 
