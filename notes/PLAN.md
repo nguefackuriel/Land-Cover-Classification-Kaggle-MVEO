@@ -1311,6 +1311,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     tau 0,15, pfd-w 5, lots de 2 048, step-w, 300 it, cibles de 3 000 it) sur les deux autres lignées 64 les plus hautes,
     Q4J0G5 (poolé 84,85) et P8J3H4 (84,59), 4 tours chacune (la même recette a mené hyb3 de ~84,6 à 85,04) ;
     (3) README, paper et dossier de vérification à jour (justification du 224 prête pour la remise, jamais sur le forum).
+    **Robustesse (14:10)** : NL1 it300 (réplique 88,40) : TF32 matmul 88,40, sans TF32 conv 88,37, les deux 88,42 ;
+    A64R3 it160 (85,09) : 85,09 / 85,06 / 85,09. Écart ≤ 0,05 point : un autre GPU ne doit pas changer le résultat.
+    Entraînement en bf16 : 7 % pour les deux, mais `baseline.py` n'utilise pas de précision mixte.
+    **Masque de fragilité** (`runs/vm2_mask.sh`, option `--mask` codée le 4/11, jamais lancée) : la perte de signes ne
+    garde un poids plein que s'il a basculé dans au moins une des 8 copies bruitées (8,5 % des poids en 224), ×0,1
+    ailleurs. MK224 = NL1 it300 + cible near_NLs1 (comparer à NLs1 : 88,47 / 88,23) ; puis MK64 = A64R3 it200 + near_A64T6
+    (comparer à A64T6 : 85,01 / 84,93). README mis à jour, `notes/image_size_224.md` = justification du 224 pour la remise.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

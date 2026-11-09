@@ -13,8 +13,9 @@ explains why our best set has 224x224 images, and what we give for the 64x64 cas
 Both sets come from the same method and the same code. Each image is one synthetic image with one label. There
 are no grids or tiles of several images. Both reproduce with the unmodified `baseline.py` and its default
 arguments (seed 42, 2 workers). On our A100 two runs of each set gave the same predictions as the file we sent to
-Kaggle, and switching TF32 on or off for matrix products and convolutions moves the 224x224 result by at most 0.05
-point (88.40 / 88.40 / 88.37 / 88.42 in our replica).
+Kaggle. Switching TF32 on or off for matrix products and convolutions moves the result by at most 0.05 point in our
+replica (224x224: 88.40 / 88.40 / 88.37 / 88.42; 64x64: 85.09 / 85.09 / 85.06 / 85.09), so another GPU should give
+the same accuracy within the tolerance the organizers gave.
 
 ## Why 224x224
 
