@@ -1,0 +1,6 @@
+{"set": "NL1i300", "seed": 0, "best_val": 0.3901}
+{"set": "NL1i300", "seed": 1, "best_val": 0.4452}
+{"set": "NL1i300", "seed": 2, "best_val": 0.4326}
+{"set": "NL1i300", "seed": 3, "best_val": 0.3598}
+{"set": "NL1i300", "seed": 4, "best_val": 0.3637}
+{"set": "NL1i300", "seeds": [0, 1, 2, 3, 4], "mean": 0.3983, "std": 0.0391}

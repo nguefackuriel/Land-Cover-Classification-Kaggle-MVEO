@@ -42,7 +42,7 @@ described by the signs of its weight changes, so we add a sign-matching loss tha
 towards one of them. With $224\times224$ images, repeated rounds, a dithered start, and a loss weighted by how much
 each weight and each step matter, ten images reach 88.5\% validation and 88.3\% test accuracy (score 0.825, first
 place on the leaderboard at the time of writing). The same method with $64\times64$ images stops at 85.0\%, whatever
-the starting images. These images are fitted to one run: with other seeds they give much lower accuracy. We study
+the starting images. These images are fitted to one run: with other seeds they give 40\% on average. We study
 why the rounds stop, and discuss what single-run evaluation means for challenges on distilled data. Code and all
 submitted images are released.
 \end{abstract}
@@ -95,7 +95,7 @@ validation and 88.3\% test accuracy: a random start inside each pixel's 8-bit le
 weights and the training steps that matter most, and longer rounds. Choosing checkpoints became the hard part. A
 block of training images kept out of the distillation first predicted the test accuracy better than the validation
 set, but after many rounds of selection it became optimistic too. Sets fitted to the seed-42 run are not good
-training sets in general: the same ten images give much lower accuracy with other seeds, while the 120-image sets
+training sets in general: the same ten images give 40\% on average with other seeds, while the 120-image sets
 behave the same on every seed. We report both kinds of results and keep them apart in every table. Finally, the
 rounds stop at the same level whatever the starting images, and we look at why: a round changes the sign of only
 2--3\% of the weight updates, and the images cannot reach the better sign patterns that lie close by.
@@ -617,7 +617,7 @@ against 89.27\%).
 \includegraphics[width=\textwidth]{figures/per_seed.pdf}
 \caption{Official validation accuracy for each seed of \texttt{baseline.py}. Left: sets of 120 images built for all
 seeds. Right: sets of 10 images fitted to the seed-42 run, either to its head only, to the whole recorded run with
-exact PFD, or our best set ($224\times224$, sign matching and seven hybrid rounds).}
+exact PFD, or our best set ($224\times224$, final recipe).}
 \label{fig:perseed}
 \end{figure*}
 
@@ -908,17 +908,18 @@ $n$ & Set & val.\ (42) & other seeds & Kaggle \\
 10$^\dagger$ & \quad + 3 dithered rounds & 86.49 & -- & 0.8139 \\
 10$^\dagger$ & \quad + weights $w_i$ & 87.01 & -- & 0.8188 \\
 10$^\dagger$ & \quad + 6 rounds, later changes & 88.17 & -- & 0.8232 \\
-10$^\dagger$ & \quad + 2 rounds, 300 iterations & \textbf{88.47} & SEEDS224 & \textbf{0.8248} \\
-10 & $64\times64$, final recipe & 85.04 & SEEDS64 & 0.8101 \\
+10$^\dagger$ & \quad + 2 rounds, 300 iterations & \textbf{88.47} & 39.83 (5) & \textbf{0.8248} \\
+10 & $64\times64$, final recipe & 85.04 & 42.37 (5) & 0.8101 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Table~\ref{tab:submissions} lists all our submissions. The difference between the two groups is large. The 120-image
 sets score the same on every seed: their seed-42 result is even below their mean. The 10-image sets are 12 to
-43 points better on seed 42 than on the other seeds, because the evaluation reuses the run they were fitted to.
-Our best set gives 42.4, 50.3, 47.5, 37.9 and 38.6\% with seeds 0 to 4. It gains six points over our first
-ten-image set on the seed-42 run, and loses nine on the other seeds (43.4\% against 52.2\%). The sets are not fragile to small numerical changes of the run
+49 points better on seed 42 than on the other seeds, because the evaluation reuses the run they were fitted to.
+Our best set gives 39.0, 44.5, 43.3, 36.0 and 36.4\% with seeds 0 to 4. It gains eight points over our first
+ten-image set on the seed-42 run, and loses twelve on the other seeds (39.8\% against 52.2\%). Our best
+$64\times64$ set behaves the same way (42.4\% on average). The sets are not fragile to small numerical changes of the run
 itself: with TF32 matrix products or convolutions, the 64-pixel hybrid set moved by 0.02 point and our two final
 sets by at most 0.05 point (88.37 to 88.42\% and 85.06 to 85.09\% in the exact replay), and two official runs of
 every set we submitted gave identical predictions. Training in bfloat16 mixed precision, which the official script
@@ -953,7 +954,7 @@ batch order and its augmentations. In our case it was worth about 25 points over
 seeds (88.5\% against 61.2\%), and it moved our score from 0.703 to 0.825. Challenges and benchmarks that train
 once with a fixed seed reward this, whether or not it is intended. A simple remedy is to train several times with
 seeds chosen at evaluation time and to score the mean. The gap between the evaluation seed and the other seeds is a useful check. It was below
-one point for our 120-image sets and 43 points for a set fitted to one run. If a single run must be used,
+one point for our 120-image sets and 49 points for our best set fitted to one run. If a single run must be used,
 its seed and loader settings should stay hidden.
 
 \emph{Image size.} The score counts images, not pixels. Since the official script resizes every image to

@@ -1330,6 +1330,12 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     Lancé 13:10 `runs/vm2_last224.sh` : même recette complète sur les deux autres lignées 224, depuis leur plateau de
     l'ancienne recette, C8J0H6 it140 (85,56 / 85,55) et C2J1H5 it160 (85,09 / 85,42), 10 tours chacune en parallèle.
     Question : le 224 converge-t-il aussi vers ~88,5 quelle que soit la lignée ? (C2J0 : 86,44 → 88,47.)
+  - **10/11 13:45. Paper mis à jour** (accord de l'utilisateur) : résumé, intro et conclusion à 88,5 / 88,3 (0,825) ;
+    méthode : « Later changes » + équation pondérée (`eq:smw`) ; nouvelles sections « From 86.4% to 88.5% » (tableau
+    `tab:late`, sélection, recette en 64) et « Why the rounds stop » (coins, retournements, fragilité, masque) ; échecs
+    (n = 11, `--disp`, coin propre) ; tableau des soumissions complété ; paragraphe « Image size » dans la discussion.
+    Seeds 0–4 officiels (VM2) : **NL1 it300 39,0 / 44,5 / 43,3 / 36,0 / 36,4 (moyenne 39,83)** ; **A64R3 it160 42,3 / 46,5
+    / 50,5 / 39,8 / 32,7 (42,37)**. Figure per_seed refaite avec NL1. TODO dans main.tex : résultat des lignées L224C8/C2.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

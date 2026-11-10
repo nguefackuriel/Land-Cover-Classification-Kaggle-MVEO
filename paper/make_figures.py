@@ -136,7 +136,7 @@ def fig_seeds():
     axs[0].legend(frameon=False, ncol=2, loc='upper center', bbox_to_anchor=(0.5, -0.3), fontsize=6.5)
     head = [best_val('off_n10_head42b_it400_s42')] + [best_val(f'off_n10_head42b_it400_s{s}') for s in (0, 1, 2)] + [None, None]
     exact = [best_val('off_n10_exact_s2_it280_s42')] + [best_val(f'off_final_n10_s{s}') for s in (0, 1, 2, 3, 4)]
-    best = [best_val('sub_n10_C2J0H7_224')] + [best_val(f'off_n10_C2J0H7_s{s}') for s in (0, 1, 2, 3, 4)]
+    best = [best_val('sub_n10_NL1_224')] + [best_val(f'off_NL1i300_s{s}') for s in (0, 1, 2, 3, 4)]
     w = 0.27
     for k, (lab, vals, c) in enumerate([('seed-42 head', head, 'C4'), ('exact seed-42 run', exact, 'C3'),
                                         ('best set, 224 px', best, 'C2')]):

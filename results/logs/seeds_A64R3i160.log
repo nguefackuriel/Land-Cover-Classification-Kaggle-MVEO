@@ -1,0 +1,6 @@
+{"set": "A64R3i160", "seed": 0, "best_val": 0.423}
+{"set": "A64R3i160", "seed": 1, "best_val": 0.4654}
+{"set": "A64R3i160", "seed": 2, "best_val": 0.5054}
+{"set": "A64R3i160", "seed": 3, "best_val": 0.3978}
+{"set": "A64R3i160", "seed": 4, "best_val": 0.3269}
+{"set": "A64R3i160", "seeds": [0, 1, 2, 3, 4], "mean": 0.4237, "std": 0.0679}
