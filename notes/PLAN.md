@@ -1360,6 +1360,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     réplique exacte vérifiée en 112 (`baseline.py` officiel 39,26 % au départ, comme la réplique). But : une courbe
     précision / taille propre pour la note sur le 224 et le papier. Troisième job à côté de L224C8 / L224C2 (~20 Go
     chacun, pas de quatrième job).
+  - **10/11 17:00. VM1 et VM3 rejoignent le challenge** (question de l'utilisateur : « sont-ils tous occupés ? » ; les
+    deux GPU étaient libres). Environnement du VM2 copié tel quel (pyenv 3.10.13 + `~/dd-env` lié en
+    `/home/ubuntu/vllm-env`, torch 2.5.1, torchvision 0.20.1, Pillow 12.3, poids ViT), plus `data/`, `ext/`, le code de
+    `work/` et le cache utile (train/validation.pt, vues, inits, NL1 it300…). Rejeu exact vérifié sur le VM3 : NL1 it300
+    88,47 / 88,60, comme ici. **Courbe de taille répartie** : 112 / 160 / 224 en parallèle sur le VM3
+    (`runs/vm3_curve.sh`, 15:52 heure VM), le 64 reste sur le VM2 (boucle `vm2_curve.sh` arrêtée après le lancement du
+    tour 1 du 64, suite par `runs/vm2_curve64.sh`). Rapatriement : `pull_vm3.sh`, `pull_vm1.sh` (copies de
+    `pull_vm2.sh`). VM1 : pas encore utilisé, un script AlertLens (`inference_cost.py clearscope`) venait d'y tourner.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

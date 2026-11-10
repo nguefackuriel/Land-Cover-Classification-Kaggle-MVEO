@@ -28,7 +28,7 @@ def real_ce(model):
     Ts = torch.logspace(-2, 1, 61, device='cuda')
     ces = torch.stack([F.cross_entropy(o / t, yb) for t in Ts])
     return round(ces.min().item(), 4), round(Ts[ces.argmin()].item(), 4), round(F.cross_entropy(o, yb).item(), 4)
-for c in (1.0, 1.02, 1.05, 1.08):
+for c in [float(v) for v in (sys.argv[3] if len(sys.argv) > 3 else "1.0,1.02,1.05,1.08").split(",")]:
     for clip in (False, True):
         if c == 1.0 and clip:
             continue
