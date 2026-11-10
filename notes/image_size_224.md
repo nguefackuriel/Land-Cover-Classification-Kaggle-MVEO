@@ -33,7 +33,9 @@ the same accuracy within the tolerance the organizers gave.
 
 3. **The extra pixels are used, and we measured it.** With the same ten starting images, the same recipe and the
    same held-out block, a 64x64 lineage and a 224x224 lineage were 0.7 point apart after the first round and 1.2
-   points apart after five rounds. The 64x64 lineage stopped improving after its fourth round. Our final sets
+   points apart after five rounds. The 64x64 lineage stopped improving after its fourth round. This limit does not
+   depend on the starting images: three 64x64 lineages started from different k-means medoids and run with our final
+   recipe all stop at 84.9-85.0% validation accuracy. Our final sets
    differ by 3.4 points on validation (88.47 vs 85.04) and 2.9 points on the Kaggle test (88.34 vs 85.41).
    The 224x224 sets are not 64x64 images in disguise: bringing the best 224x224 set down to 64x64 drops it from
    87.0% to 30-43% (box filter, bilinear filter, or a least-squares fit to the training views). The two sizes also

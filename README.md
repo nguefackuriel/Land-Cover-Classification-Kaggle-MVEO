@@ -270,5 +270,13 @@ These are in `results/logs` and in the paper:
 * pulling the end of the training run toward a good network through the unrolled loop (`pfd3.py --target`)
 * a sigmoid or weighted version of the sign matching loss, and "corner descent" (`cornerdesc.py`)
 * small greedy pixel changes on the 8-bit grid (`polish_sparse.py`): within noise
+* after our best sets (23 Oct to 10 Nov): rounds of 400 or 600 pixel steps, targets from 6,000 search steps, a
+  meta-gradient weight of 10, a final polish, pixel averages of sets of one lineage (`soup_set.py`), swapping images
+  between sets (`crossover.py`), a loss on the final AdamW displacement (`--disp`), our own run end as the target,
+  targets with a few chosen sign flips (`flip_target.py`, `climb_target.py`), and a loss restricted to the weights
+  the images can flip (`fragility.py`, `--mask`)
+* 11 images: the recorded run changes, the set falls to 45% and comes back to about 88% after three rounds, not
+  the 89.4% that would be needed to pay for the extra image
+* new 64x64 starting images: with the final recipe, three 64x64 lineages all stop at 84.9 to 85.0%
 
 At n = 120 every variant of the method ends near 90% (6 official seeds).

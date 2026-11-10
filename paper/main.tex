@@ -39,10 +39,11 @@ accuracy of the official script goes from 87.2\% for k-means medoids to 89.9\%, 
 organizers verify each submission with the default seed of the script, so we then fit ten images to that one run.
 Exact unrolling stops near 80.6\%, although networks that five steps can reach exceed 88\%. Such a network is
 described by the signs of its weight changes, so we add a sign-matching loss that pulls every recorded step
-towards one of them. With $224\times224$ images, repeated rounds, and 4\,096 training images kept out of the
-distillation to choose checkpoints, ten images reach 86.4\% validation and 86.1\% test accuracy (score 0.814, first
-place at the time of writing). These images are fitted to one run: with other seeds they give 43\% on average. We
-discuss what this means for challenges that evaluate distilled data with a single training run. Code and all
+towards one of them. With $224\times224$ images, repeated rounds, a dithered start, and a loss weighted by how much
+each weight and each step matter, ten images reach 88.5\% validation and 88.3\% test accuracy (score 0.825, first
+place on the leaderboard at the time of writing). The same method with $64\times64$ images stops at 85.0\%, whatever
+the starting images. These images are fitted to one run: with other seeds they give much lower accuracy. We study
+why the rounds stop, and discuss what single-run evaluation means for challenges on distilled data. Code and all
 submitted images are released.
 \end{abstract}
 
@@ -61,7 +62,7 @@ pre-trained model and fine-tune it briefly on a small labeled set.
 
 The Data-Centric Land Cover Classification Challenge of the MVEO 2026 workshop~\cite{mveo2026} puts this setting
 into a clean form. The model (ViT-B/16 pre-trained on ImageNet~\cite{dosovitskiy2021vit}) and the training script
-are fixed. Participants submit a set of labeled $64\times64$ RGB images, the organizers fine-tune the model on them
+are fixed. Participants submit a set of labeled RGB images ($64\times64$ preferred), the organizers fine-tune the model on them
 with the official script, and the predictions on a hidden EuroSAT~\cite{helber2019eurosat} test set give the
 accuracy. The score adds a term that falls with the number of images $n$, so ten good images can beat a few hundred
 average ones.
@@ -89,11 +90,15 @@ them to 80.6\%, and then stopped. Yet a direct search shows that five steps of t
 88\%, and that such a network is fully described by the signs of its weight changes. We therefore added a
 sign-matching loss: it asks the gradient of each recorded training step to point towards a good reachable network,
 and it needs no unrolling. Combined with the exact meta-gradient, with $224\times224$ images and with repeated
-rounds, it brought the ten images to 86.4\% validation and 86.1\% test accuracy. Choosing checkpoints became the hard
-part: validation accuracy was biased by our own selection, and a block of training images kept out of the
-distillation predicted the test accuracy much better. Sets fitted to the seed-42 run are not good training sets in
-general: the same ten images give 43\% on average with other seeds, while the 120-image sets behave the same on
-every seed. We report both kinds of results and keep them apart in every table.
+rounds, it brought the ten images to 86.4\% validation accuracy. A few changes to the loss then took them to 88.5\%
+validation and 88.3\% test accuracy: a random start inside each pixel's 8-bit level, weights that favor the network
+weights and the training steps that matter most, and longer rounds. Choosing checkpoints became the hard part. A
+block of training images kept out of the distillation first predicted the test accuracy better than the validation
+set, but after many rounds of selection it became optimistic too. Sets fitted to the seed-42 run are not good
+training sets in general: the same ten images give much lower accuracy with other seeds, while the 120-image sets
+behave the same on every seed. We report both kinds of results and keep them apart in every table. Finally, the
+rounds stop at the same level whatever the starting images, and we look at why: a round changes the sign of only
+2--3\% of the weight updates, and the images cannot reach the better sign patterns that lie close by.
 
 Our contributions are:
 \begin{itemize}
@@ -101,9 +106,10 @@ Our contributions are:
 updates, the frozen head, and the gap between the real-data oracle and what a few steps can reach;
 \item PFD, a distillation method that unrolls the full official training of ViT-B/16 with constant memory, with a
 smoothed Adam backward pass and a scale-free outer loss;
-\item sign matching towards a reachable network, which takes ten images fitted to one run from 80.6\% to 86.4\%;
+\item sign matching towards a reachable network, which takes ten images fitted to one run from 80.6\% to 88.5\%;
 \item a careful evaluation with the official script, including a held-out block of training images for model
-selection, the noise of the leaderboard, and a list of ideas that did not help;
+selection, the noise of the leaderboard, a controlled comparison of $64\times64$ and $224\times224$ images, an
+analysis of where the rounds stop, and a list of ideas that did not help;
 \item a measurement of how much a distilled set can gain by fitting a single evaluation run, with simple
 recommendations for future challenges.
 \end{itemize}
@@ -418,6 +424,26 @@ it and run the hybrid loss again, and call this one round. A round takes about 2
 lineage starts from real images: 400 iterations of exact PFD, two rounds of near target, sign matching alone and a
 short PFD polish, then hybrid rounds.
 
+\emph{Later changes.} Four changes, each kept only if it raised the validation accuracy over several rounds, gave our
+final sets. First, a dithered start. At the start of a round every pixel sits exactly on an 8-bit level, and Adam
+moves all pixels by the same amount, so they all cross a rounding boundary at about the same iteration. The exact
+run then lost up to 4 points within 20 iterations (sign agreement with the target fell from 83 to 72\% by iteration
+10) and the round spent its time winning them back. We now start each pixel at a random point of its rounding
+interval, which leaves the PNG file unchanged. Second, weights in (\ref{eq:sm}). The loss counts every weight and
+every step equally, but they do not matter equally. We weight weight $i$ by $w_i=|\partial\mathcal{L}/\partial
+\theta_i|$, the gradient of the loss (\ref{eq:scalefree}) on real images at the corner of the target, divided by its
+mean, and step $k$ by $c_k$, the share of the sign of $g_k$ in the final AdamW displacement $\theta_5-\theta_0$
+through the learning rates and the bias-corrected first moment, $c=(1, 0.462, 0.205, 0.071, 0.014)$. The loss
+becomes
+\begin{equation}
+\mathcal{L}_{\mathrm{sm}}(x) = \frac{1}{P}\sum_{k=1}^{5}c_k\sum_{i=1}^{P}w_i\,
+\operatorname{softplus}\!\left(\frac{g_{k,i}(x)\,s_i}{\tau\,\rho_{k,i}}\right).
+\label{eq:smw}
+\end{equation}
+Third, a stronger and less noisy real-loss term: $\hat g_{\mathrm{sm}}+5\,\hat g_{\mathrm{pfd}}$ with 2\,048 real
+images, and $\tau=0.15$. Fourth, longer searches and rounds: near targets from 3\,000 iterations of box search
+instead of 1\,000, and 300 pixel iterations per round instead of 200.
+
 \subsection{Held-out training images for selection}
 \label{sec:holdout}
 Each round gives a checkpoint every 20 iterations, and we have to pick one. After many rounds of picking the best
@@ -426,7 +452,8 @@ training images cannot replace them, since both the near target and the real los
 therefore keep a fixed block of 4\,096 training images (the first rows of a fixed random permutation, which is about
 balanced across classes) out of everything the distillation samples, and we score each checkpoint on the validation
 set and on this block with the exact replay. We keep the checkpoint with the best mean of the two, and start the
-next round from it.
+next round from it. Section~\ref{sec:selection} shows that this rule helps at first but that, after many rounds,
+gains on the validation set alone are the safer guide.
 
 \section{Experiments}
 
@@ -657,12 +684,13 @@ $^\dagger$ \quad + second hybrid round & 84.74 & 0.8080 \\
 $^\dagger$ new lineage from medoids, 1 hybrid round & 85.06 & 0.8067 \\
 $^\dagger$ \quad + 2 hybrid rounds & 85.60 & 0.8083 \\
 $^\dagger$ \quad + 4 hybrid rounds & 86.07 & 0.8118 \\
-$^\dagger$ \quad + 6 hybrid rounds & \textbf{86.44} & \textbf{0.8136} \\
+$^\dagger$ \quad + 6 hybrid rounds & 86.44 & 0.8136 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:stages} follows our ten-image sets from the end of exact unrolling to our best submission. The first
+Table~\ref{tab:stages} follows our ten-image sets from the end of exact unrolling to the seventh hybrid round
+(Section~\ref{sec:late} continues from there). The first
 sign-matching run, towards a near target of 88.1\%, raised the official accuracy from 80.62 to 82.32\%, the first gain
 beyond the plateau of unrolling. Exact PFD, which could not improve its own optimum, became useful again after sign
 matching (+0.4 point), and again after the second sign-matching run (+0.6 point in our replica). The target has to be both strong and near. From
@@ -730,21 +758,121 @@ followed it within a few tenths of a point. The other lineages rose too, by 0.6 
 between 85.1 and 85.6\% (two of them after five rounds only). After the first hybrid round all five were within
 about 0.3 point of each other (84.40 to 84.72\% on the block), and the best of them at that point ended 0.7 point
 below the best lineage. The start of a lineage says little about where its rounds will take it, so it pays to run
-several and keep the best one on the held-out block. Our best set, after seven
-hybrid rounds on the first lineage, has an official validation accuracy of 86.44\% and a test accuracy of 86.10\% (score
+several and keep the best one on the held-out block. After seven
+hybrid rounds, the first lineage had an official validation accuracy of 86.44\% and a test accuracy of 86.10\% (score
 0.8136).
+
+\subsection{From 86.4\% to 88.5\%}
+\label{sec:late}
+
+\begin{table}[t]
+\centering
+\caption{Later rounds on the first lineage ($224\times224$), with the changes of Section~\ref{sec:signmatch}, and
+the same recipe at $64\times64$. Official validation accuracy (seed 42), held-out block, and test accuracy computed
+from the Kaggle score for the sets we submitted.}
+\label{tab:late}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccc}
+\toprule
+Stage & val.\ (42) & held-out & test \\
+\midrule
+seven hybrid rounds (Section~\ref{sec:rounds}) & 86.44 & 86.23 & 86.10 \\
+\quad + 3 rounds, dithered start & 86.49 & 86.94 & 86.17 \\
+\quad + 1 round, weights $w_i$ & 87.01 & 87.13 & 87.13 \\
+\quad + 3 rounds, $5\,\hat g_{\mathrm{pfd}}$, 2\,048 images, $\tau=0.15$ & 87.70 & 87.84 & -- \\
+\quad + 1 round, 3\,000-iteration target & 87.83 & 87.96 & -- \\
+\quad + 2 rounds, step weights $c_k$ & 88.17 & 88.43 & 88.02 \\
+\quad + 2 rounds, the last one of 300 iterations & \textbf{88.47} & 88.70 & \textbf{88.34} \\
+\midrule
+$64\times64$, final recipe & 85.04 & 85.79 & 85.41 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:late} follows the first lineage after its seventh round. Each change of Section~\ref{sec:signmatch}
+gave a few tenths of a point, and together they gave two points. The dithered start removed the drop at the
+beginning of each round (85.2\% at iteration 20 instead of 82.6\%), but the rounds that followed stopped near the
+same level. Weighting each network weight by the size of its real-loss gradient gave the first clear gain since the
+seventh round: +0.52 point on validation and +0.96 point on the test set. The stronger real-loss term and the sharper
+softplus added about 0.7 point over three rounds. Near targets searched for 3\,000 iterations instead of 1\,000 are
+better networks (92.7\% against about 89\% on validation) and raised the best checkpoint of a round. The step weights
+$c_k$ did not raise the best checkpoint but steadied the end of each round: from the same start and target, the mean
+of the last four checkpoints was 87.67\% with them and 87.49\% without. Rounds of 300 iterations gained 0.3 point over
+rounds of 200, and the best checkpoint was almost always one of the last ones, when the step size of the pixels
+reaches its smallest value.
+
+Nothing went further. From our best set, rounds of 400 and 600 iterations reached 88.47 and 88.42\%, a new target
+with another data seed 88.47\%, a target searched for 6\,000 iterations 88.40\%, a meta-gradient weight of 10
+instead of 5 88.00\%, a polish with a small step size 88.27\%, and the pixel average of four sets of the lineage
+88.42\%.
+
+\emph{Selection, again.} The held-out block helped us at first (Section~\ref{sec:selection}), but after dozens of
+checkpoints chosen on it over many rounds, it also became optimistic. The three rounds with a dithered start raised
+it by 0.7 point and the test accuracy by only 0.07 point, while the validation set (+0.05 point) was right. The near
+targets and the run itself score the same on the block and on the validation set (92.14 and 92.27\%; 86.08 and
+86.10\%), so the gap comes from selection, not from a shift between the two sets of images. From then on we judged a
+change by its gain on the validation set, confirmed on several checkpoints (the mean of the last four), and used the
+block as a check. With this rule, the three $224\times224$ sets we submitted afterwards were each better on the test
+set than the one before. From the seventh round to our best set, validation rose by 2.03 points and the test accuracy by 2.24.
+
+\emph{The same recipe at $64\times64$.} We applied every change to our $64\times64$ lineage as well. Each one helped
+less than at $224\times224$: the dithered start with weights $w_i$ gave +0.3 point, the step weights +0.2, the
+stronger real-loss term +0.1, and three more rounds +0.15. Our best $64\times64$ set reaches 85.04\% on validation and 85.41\% on the test set,
+3.4 and 2.9 points below the $224\times224$ set. To check that this is not the fault of one starting set, we ran
+the final recipe for four rounds on two other $64\times64$ lineages, started from other medoids. They stopped at
+85.04 and 84.86\%. At $64\times64$ the method has a ceiling near 85\%, whatever the starting images.
+% TODO 224 lineages L224C8 / L224C2 (final recipe from C8J0H6 / C2J1H5), results expected 12-13/11.
+
+\subsection{Why the rounds stop}
+\label{sec:plateau}
+Both sizes stop well below their near targets. We ran a few checks on our best sets to see what blocks them. In
+each check a network is scored by the validation accuracy of its corner, $\theta_0+R\,\mathrm{sign}(\theta-\theta_0)$.
+
+\emph{Better sign patterns lie close by.} The corner of our own run is already better than the run itself (88.84\%
+against 88.47\% at $224\times224$, 85.75\% against 85.01\% at $64\times64$): the weights whose gradient changes sign
+from one step to the next stop inside the box. The corner of the near target reaches 93.01\% and 90.89\%, and differs
+from ours on 18.8\% and 23.3\% of the weights. If we take the target's sign on a random share $f$ of these weights,
+the accuracy rises smoothly and almost linearly with $f$: 89.41, 90.07, 91.17, 92.10 and 93.01\% for $f$ = 10, 25,
+50, 75 and 100\% ($224\times224$), and 86.05, 86.72, 88.20, 89.53 and 90.89\% ($64\times64$). Flipping instead the
+weights with the largest first-order gain fails (5\% of them: 79.95\%), but only because it shifts the class priors:
+with one logit offset per class fitted on the held-out block, the same network reaches 90.17\%. Re-ranking the
+candidates after every 0.1\% of flips avoids the shift. This climb reaches 90.02\% at $224\times224$ by flipping 0.5\%
+of the weights (a random choice of the same size gives about 89.0\%) and 86.74\% at $64\times64$. The sign landscape
+is therefore not the obstacle.
+
+\emph{The images cannot make those flips.} Comparing the start and the end of a round with its target, a round
+fixes the sign of about 1\% of the weights and breaks almost as many (1.01 and 0.94\% at $224\times224$, 1.75 and
+1.38\% at $64\times64$). With $5\,\hat g_{\mathrm{pfd}}$, the sign agreement at each step hardly moves during a round
+(0.752 to 0.754 at the first step, $64\times64$), so the rounds behave almost like exact PFD. When we used a climbed
+corner as the target and gave its flips 20 times more weight, the round realized about a tenth of the wanted flips
+and broke twenty times more signs. The sets also sit on a noise floor. Moving a random half of the pixels by one
+gray level changes the sign of 2.9\% ($224\times224$) or 5.0\% ($64\times64$) of the weight updates and costs 0.2 to
+0.8 point (87.65--88.25\% and 84.32--84.62\% over eight copies). Restricting the loss to the 8.5\% of weights whose
+sign changed in at least one of these copies did not help either (best checkpoint 88.35\%).
+
+Our reading is that ten images steer the five updates through a narrow channel. The pixel changes that a round can
+make flip a few percent of the signs, mostly at random, while the better corners need many flips that agree with
+each other. More pixels per image widen the channel. This fits the 3.4 points between $224\times224$ and $64\times64$
+images, and the common ceiling of the $64\times64$ lineages.
 
 \subsection{What did not help with ten images}
 \label{sec:negative10}
 \emph{Fewer or more images.} Removing the image of the easiest class (Forest) and fitting nine images to the nine-image
 run gave 70.7\%: the other classes reached about 85\%, but Forest was never predicted. With hard labels, the head
 row of a class without an image only receives gradients that push it away. Adding an eleventh image changes the
-whole recorded run, and the set started again from 30\% (76.4\% after 160 iterations).
+whole recorded run, and the set started again from 30\% (76.4\% after 160 iterations). We tried again with our final
+recipe, adding a copy of the image of the weakest class (Permanent Crop) to our best set. With the rows ordered so
+that each old image keeps its crop of the first epoch, the set still fell to 44.6\%, because the shuffles and crops
+of the four other epochs change. It came back fast (87.14, 87.75 and 88.00\% after three rounds) but tended to the
+ten-image level, while matching our ten-image score needs 89.44\% with eleven images.
 
 \emph{Other losses.} Pulling the end of the unrolled run towards the target with an $L_2$ loss did not reduce the
 distance. A sigmoid in (\ref{eq:sm}), which counts agreeing signs, made the accuracy collapse (84 to 66\%). Weighting
 each weight by how decided its target sign is, $|\theta^\ast_i-\theta_{0,i}|/R$, or using the signs shared by two
-targets, was worse than uniform weights.
+targets, was worse than uniform weights. A loss on the final AdamW displacement of each weight, which includes the
+momentum, instead of one term per step, was worse (85.9 against 86.4\% on validation and held-out together). So was
+the corner of our own run used as the target, so that every step follows the final sign of the run (87.98\% against
+88.47\%).
 
 \emph{Small steps.} Near the optimum of exact PFD, a step of 0.1 gray level along the meta-gradient lowered the
 accuracy to 75.9\%, while random noise of the same size changed nothing. A greedy search over single gray levels on
@@ -776,7 +904,12 @@ $n$ & Set & val.\ (42) & other seeds & Kaggle \\
 10$^\dagger$ & medoid lineage, hybrid & 85.06 & -- & 0.8067 \\
 10$^\dagger$ & \quad + 2 hybrid rounds & 85.60 & -- & 0.8083 \\
 10$^\dagger$ & \quad + 4 hybrid rounds & 86.07 & -- & 0.8118 \\
-10$^\dagger$ & \quad + 6 hybrid rounds & 86.44 & 43.36 (5) & \textbf{0.8136} \\
+10$^\dagger$ & \quad + 6 hybrid rounds & 86.44 & 43.36 (5) & 0.8136 \\
+10$^\dagger$ & \quad + 3 dithered rounds & 86.49 & -- & 0.8139 \\
+10$^\dagger$ & \quad + weights $w_i$ & 87.01 & -- & 0.8188 \\
+10$^\dagger$ & \quad + 6 rounds, later changes & 88.17 & -- & 0.8232 \\
+10$^\dagger$ & \quad + 2 rounds, 300 iterations & \textbf{88.47} & SEEDS224 & \textbf{0.8248} \\
+10 & $64\times64$, final recipe & 85.04 & SEEDS64 & 0.8101 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -786,8 +919,10 @@ sets score the same on every seed: their seed-42 result is even below their mean
 43 points better on seed 42 than on the other seeds, because the evaluation reuses the run they were fitted to.
 Our best set gives 42.4, 50.3, 47.5, 37.9 and 38.6\% with seeds 0 to 4. It gains six points over our first
 ten-image set on the seed-42 run, and loses nine on the other seeds (43.4\% against 52.2\%). The sets are not fragile to small numerical changes of the run
-itself: with TF32 matrix products or convolutions, the 64-pixel hybrid set moved by 0.02 point, and two official
-runs of every $224\times224$ set gave identical predictions.
+itself: with TF32 matrix products or convolutions, the 64-pixel hybrid set moved by 0.02 point and our two final
+sets by at most 0.05 point (88.37 to 88.42\% and 85.06 to 85.09\% in the exact replay), and two official runs of
+every set we submitted gave identical predictions. Training in bfloat16 mixed precision, which the official script
+does not use, breaks them completely (7\%).
 
 \section{Discussion}
 
@@ -802,28 +937,39 @@ the first update, which changes where the second gradient is computed, and so on
 meta-gradient was a poor local model: a step of 0.1 gray level along it cost 5 points. Sign matching fixes the path
 in advance with (\ref{eq:path}) and asks each step separately to point the right way, so its loss stays smooth. It
 does not know which signs matter for accuracy, which the exact meta-gradient does, and the two work best together.
-Both remain limited by what ten images can say. In the seventh round, the run agreed with its near target on about
-83\% of the weights at every step, and the near target itself reached 92.3\%, six points above our set.
+Both remain limited by what ten images can say. In our last rounds, the run still disagreed with its near target on
+19\% of the weights, and the corner of that target reached 93.0\%, 4.5 points above our set
+(Section~\ref{sec:plateau}).
 
 \emph{Model selection is part of the method.} Once the remaining gains are a few tenths of a point, each round gives
 several checkpoints that differ by less than the noise of 4\,050 validation images. Picking the best one again and
 again makes the validation accuracy optimistic, and it misled us once. A held-out block of training images costs
 nothing here, since the distillation never needs all 18\,900 images, and it predicted the test accuracy much
-better.
+better at first. It wears out in the same way, though: after many rounds chosen on it, it overstated a gain tenfold.
+A fresh block for each stage of a long search, or gains confirmed on several checkpoints, are safer.
 
 \emph{Evaluation of distilled data.} A training set can be fitted to a single training run: its initialization, its
 batch order and its augmentations. In our case it was worth about 25 points over our best 10-image set built for all
-seeds (86.4\% against 61.2\%), and it moved our score from 0.703 to 0.814. Challenges and benchmarks that train
+seeds (88.5\% against 61.2\%), and it moved our score from 0.703 to 0.825. Challenges and benchmarks that train
 once with a fixed seed reward this, whether or not it is intended. A simple remedy is to train several times with
 seeds chosen at evaluation time and to score the mean. The gap between the evaluation seed and the other seeds is a useful check. It was below
-one point for our 120-image sets and 43 points for our best set fitted to one run. If a single run must be used,
+one point for our 120-image sets and 43 points for a set fitted to one run. If a single run must be used,
 its seed and loader settings should stay hidden.
+
+\emph{Image size.} The score counts images, not pixels. Since the official script resizes every image to
+$224\times224$, the size of the files is a free capacity knob, and in our runs it was worth 3.4 points of validation
+accuracy at equal effort. The extra pixels are really used: bringing a $224\times224$ set down to $64\times64$
+drops it to 30--43\%. The organizers asked for $64\times64$ files by preference, and we report both sizes. A
+challenge that wants to compare methods at a fixed budget should state the image size as a rule, or count the
+budget in pixels.
 
 \emph{Limits.} We studied one dataset, one model and one training recipe. Our sets are made for that recipe, and we
 did not test them with other optimizers, learning rates or architectures. The distillation is costly: three to four
 GPU hours for a 120-image set, with 21~GB of CPU memory for the stored states, and about five hours for a ten-image
-lineage with seven hybrid rounds. It is also not exactly repeatable, because the GPU kernels are not deterministic,
-and two lineages from similar starts ended one point apart. For this reason we release the exact images rather than
+lineage with seven hybrid rounds, and roughly one more day of A100 time for the later rounds of our best set. It is
+also not exactly repeatable, because the GPU kernels are not deterministic. With the hybrid rounds of
+Section~\ref{sec:rounds}, two lineages from similar starts ended one point apart; with the final recipe, three
+$64\times64$ lineages ended within 0.2 point. For this reason we release the exact images rather than
 only the code. Finally, our numbers come from the validation set and from the public leaderboard of a challenge that
 was still running when we wrote this.
 
@@ -833,9 +979,11 @@ They are real images with small changes that steer the few sign-like updates in 
 official protocol exactly, back-propagating through all its steps, and using a loss that ignores the scale of the
 logits gave 120-image sets that beat the medoids on every seed by 2.7 points on average. For the single run that
 the challenge evaluates, asking each step to move the weights towards a network that the recipe can reach, with
-$224\times224$ images, repeated rounds and a held-out block for selection, took ten images from 80.6\% to 86.4\%.
-The same tools show that a training set can be fitted to the evaluation run itself, which matters for anyone who
-evaluates distilled data with a single training run.
+$224\times224$ images, repeated rounds, a loss weighted by the weights and steps that matter, and careful selection,
+took ten images from 80.6\% to 88.5\% (88.3\% on the test set). At $64\times64$ the same method stops near 85\%
+for any starting images. Better networks lie a few percent of sign flips away, but the images cannot make those flips
+together. The same tools show that a training set can be fitted to the evaluation run itself, which matters for
+anyone who evaluates distilled data with a single training run.
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs}

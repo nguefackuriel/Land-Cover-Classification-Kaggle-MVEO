@@ -1322,6 +1322,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     88,47 / 88,23 pour NLs1 (même départ, même cible) : même chute au début (it20 87,41) et même remontée. **Lignées 64,
     tour 1** (recette complète) : L64Q 84,44 → 84,81 val (it260, hold 85,74, poolé 85,28) ; L64P 84,37 → 84,84 (it260,
     poolé 85,21). +0,4 en un tour, mais encore sous A64R3 (val 85,04). Tours 2 en cours, MK64 vers 18:10.
+  - **10/11 13:00. Les lignées 64 convergent toutes vers ~85,0.** MK64 (masque) : rien (max = départ 85,01, moyenne des
+    4 derniers 84,87 contre 84,93 pour A64T6). L64Q, tours 2–4 : val max 84,81 → 84,86 (it240 du tour 3) → 84,84, poolé
+    85,42 ; L64P : 84,91 → 84,89 → **85,04** (L64P4 it240, hold 85,77, poolé 85,45). Trois lignées 64 parties de médoïdes
+    différents, même recette : 85,04 / 85,04 / 84,86. Le plafond 64 de la méthode est ~85,0 et ne dépend pas de la
+    lignée (argument pour la note sur le 224). VM2 resté inactif de 23:50 à 13:00. Le classement n'a pas bougé.
+    Lancé 13:10 `runs/vm2_last224.sh` : même recette complète sur les deux autres lignées 224, depuis leur plateau de
+    l'ancienne recette, C8J0H6 it140 (85,56 / 85,55) et C2J1H5 it160 (85,09 / 85,42), 10 tours chacune en parallèle.
+    Question : le 224 converge-t-il aussi vers ~88,5 quelle que soit la lignée ? (C2J0 : 86,44 → 88,47.)
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
