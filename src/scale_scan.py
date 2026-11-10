@@ -15,8 +15,8 @@ for batches in V['epochs']:
 d = {k: t.detach().clone() - th0[k] for k, t in m.state_dict().items()}
 def grp(k):
     return 'head' if k.startswith('heads') else ('embed' if k.startswith('conv_proj') or 'pos_embedding' in k or 'class_token' in k else 'body')
-for name, sel in [('all', None), ('body', 'body'), ('head', 'head'), ('embed', 'embed')]:
-    for c in ([0.9, 0.95, 1.05, 1.1, 1.15] if sel is None else [0.9, 1.1, 1.25]):
+for name, sel in [('all', None)] + ([] if len(sys.argv) < 4 else [('body', 'body'), ('head', 'head'), ('embed', 'embed')]):
+    for c in ([0.95, 1.02, 1.05, 1.08, 1.1] if sel is None else [0.9, 1.1, 1.25]):
         m.load_state_dict({k: th0[k] + (c if sel is None or grp(k) == sel else 1.0) * d[k] for k in th0})
         va = P.evaluate(m, D.xva, D.yva); ho = P.evaluate(m, D.xtr[D.HOLD], D.ytr[D.HOLD])
         print(json.dumps({'group': name, 'c': c, 'val': round(va, 4), 'hold': round(ho, 4)}), flush=True)

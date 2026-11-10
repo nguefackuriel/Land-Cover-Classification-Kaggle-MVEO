@@ -1336,6 +1336,30 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     (n = 11, `--disp`, coin propre) ; tableau des soumissions complété ; paragraphe « Image size » dans la discussion.
     Seeds 0–4 officiels (VM2) : **NL1 it300 39,0 / 44,5 / 43,3 / 36,0 / 36,4 (moyenne 39,83)** ; **A64R3 it160 42,3 / 46,5
     / 50,5 / 39,8 / 32,7 (42,37)**. Figure per_seed refaite avec NL1. TODO dans main.tex : résultat des lignées L224C8/C2.
+  - **10/11 16:30. Le run s'arrête un peu trop tôt, mais c'est la boîte d'Adam qui l'arrête.** Demande de l'utilisateur :
+    creuser encore. Trois diagnostics sur la machine principale (GPU partagé, 11 Go libres) :
+    1. **Soupe de modèles** (`work/soup_eval.py`, moyenne des θ5 exacts de NL1 it300, NLs1 it300, NL2 it400, NT6 it300) :
+       88,47 / 88,53 (val / hold), rien. Ces sets sont presque identiques (val 88,47 pour trois d'entre eux ;
+       NL2x_best et NF1_best sont NL1 it300 lui-même, leur meilleur checkpoint étant le départ). θ0 + 1,25·moyenne :
+       66,8 % ; ×1,5 : 34,8 %.
+    2. **Échelle du déplacement** (`work/scale_scan.py`, θ0 + c·(θ5 − θ0) pour NL1 it300, val / hold) : c = 0,9 → 78,86 /
+       78,54 ; 0,95 → 84,59 / 84,81 ; **1 → 88,47 / 88,62** ; 1,02 → 88,96 / 89,62 ; **1,05 → 89,14 / 89,48** ; 1,08 →
+       88,52 / 89,04 ; 1,1 → 87,65 / 88,18 ; 1,15 → 82,84 / 84,06. Par groupe : la tête n'y fait rien (×0,9 à ×1,25 :
+       88,4–88,6), l'embedding ×0,9 ou ×1,1 fait perdre ~1 point, le corps ×1,1 87,75 / 88,70.
+    3. **Boîte d'Adam** (`work/box_scan.py`) : |u_k| ≤ 1 (≤ 1,01 au mieux aux pas 2–5), donc chaque poids bouge d'au plus
+       R = Σ lr_k = 9e-5. Pour NL1, |θ5 − θ0| / R : moyenne 0,84, médiane 0,965, **56 % des poids ≥ 0,95 R, 29 % ≥
+       0,99 R**. La CE réelle (T ajusté) baisse aussi avec c (0,367 → 0,344 à 1,02 → 0,331 à 1,05) : pas de désaccord
+       entre la perte et la précision. Mais restreint à la boîte (clip à ±R) : 1,02 → 88,67 / 88,89 ; 1,05 → 88,77 /
+       89,21 ; 1,08 → 88,81 / 89,31, soit le coin de notre propre run (88,84, 4/11). Lecture : la moitié des poids est
+       déjà au bord de la boîte ; au mieux un réglage d'amplitude dans la boîte vaut +0,35 val / +0,7 hold, et nos tours
+       ne le réalisent pas (« coin propre » comme cible : 87,98). Le reste du gain demanderait plus de pas que le
+       protocole n'en donne. Pour le papier : le budget de 5 pas est la contrainte qui lie.
+    **Courbe de taille lancée sur VM2 (15:18, `runs/vm2_curve.sh`)** : les mêmes dix médoïdes (`init_c4j0`, bicubique
+    pour 112 / 160 / 224), la recette finale, 3 tours par taille, tours alternés 64 → 112 → 160 → 224. Journaux
+    `runs/vm2_curve.log`, `runs/dither_SC<taille>r.log`. Vues officielles 112 et 160 enregistrées (`views_for_n.py`) ;
+    réplique exacte vérifiée en 112 (`baseline.py` officiel 39,26 % au départ, comme la réplique). But : une courbe
+    précision / taille propre pour la note sur le 224 et le papier. Troisième job à côté de L224C8 / L224C2 (~20 Go
+    chacun, pas de quatrième job).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

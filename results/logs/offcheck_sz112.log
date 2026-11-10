@@ -1,2 +1,3 @@
 {"set": "c4j0sz112", "seed": 42, "best_val": 0.3926}
 {"set": "c4j0sz112", "seeds": [42], "mean": 0.3926, "std": 0}
+{"set": "cache/init_c4j0_sz112.pt", "val": 0.3926, "train8k": 0.3907, "pooled": 0.3914}

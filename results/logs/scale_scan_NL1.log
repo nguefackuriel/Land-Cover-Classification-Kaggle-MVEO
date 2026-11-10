@@ -15,3 +15,8 @@
 {"group": "body", "c": 1.1, "val": 0.8775, "hold": 0.887}
 {"group": "body", "c": 1.25, "val": 0.74, "hold": 0.7502}
 {"group": "head", "c": 0.9, "val": 0.8844, "hold": 0.8853}
+{"group": "head", "c": 1.1, "val": 0.8854, "hold": 0.8865}
+{"group": "head", "c": 1.25, "val": 0.8857, "hold": 0.8872}
+{"group": "embed", "c": 0.9, "val": 0.876, "hold": 0.8809}
+{"group": "embed", "c": 1.1, "val": 0.8753, "hold": 0.8772}
+{"group": "embed", "c": 1.25, "val": 0.8279, "hold": 0.8335}
