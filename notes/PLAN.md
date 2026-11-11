@@ -1378,6 +1378,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
       64 82,73 < 112 83,27 < 224 84,02.
     - Relance, un job à la fois par GPU : VM3 `runs/vm3_curve2.sh` (160, tours 1–3) ; VM2 `runs/vm2_curve2.sh` (224
       tours 2–3 depuis sm_SC224r1_it300, tag SC224b, puis 112 tours 2–3 depuis sm_SC112r3_it280, tag SC112b).
+      **21:22 : l'utilisateur donne le VM1.** La 112 (SC112b, tours 2–3) part sur le VM1 (`runs/vm1_curve.sh`, code
+      identique vérifié par md5) ; sur le VM2, le script parent est arrêté après la 224, qui continue seule.
+      Rapatriement toutes les 15 min par `pull_all_until_done.sh` jusqu'à la fin des trois. Sur le VM1, un job
+      AlertLens (`run_experiment.py clearscope baselines`) tourne en parallèle, sur CPU seulement (~100 Go de RAM).
     - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux
