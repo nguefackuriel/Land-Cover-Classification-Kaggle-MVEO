@@ -1,0 +1,7 @@
+round 1 start cache/init_c4j0_sz112.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 15:52:20
+round 1 done best cache/init_c4j0_sz112.pt pooled 0.3949 17:30:38
+round 2 start cache/init_c4j0_sz112.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 17:30:38
+round 2 done best cache/init_c4j0_sz112.pt pooled 0.3943 17:33:17
+round 3 start cache/init_c4j0_sz112.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 17:33:17
+round 3 done best cache/sm_SC112r3_it280.pt pooled 0.8327 21:03:37
+done 21:03:37

@@ -1,0 +1,9 @@
+round 1 start cache/sm_P8J3H4_it160.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 14:04:28
+round 1 done best cache/sm_L64P1_it280.pt pooled 0.8522 17:06:40
+round 2 start cache/sm_L64P1_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 17:06:40
+round 2 done best cache/sm_L64P2_it260.pt pooled 0.854 19:36:51
+round 3 start cache/sm_L64P2_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 19:36:51
+round 3 done best cache/sm_L64P3_it300.pt pooled 0.8539 21:43:54
+round 4 start cache/sm_L64P3_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 21:43:54
+round 4 done best cache/sm_L64P4_it280.pt pooled 0.8545 23:51:45
+done 23:51:45

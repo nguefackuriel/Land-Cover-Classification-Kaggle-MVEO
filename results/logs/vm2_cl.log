@@ -1,0 +1,9 @@
+cl start targets cache/climbNL1_it20.pt cache/climbA64_it20.pt 16:45:07
+CL224 start cache/sm_NL1_it300.pt target cache/climbNL1_it20.pt pfd-w 5.0 16:45:07
+CL64 start cache/sm_A64R3_it200.pt target cache/climbA64_it20.pt pfd-w 5.0 16:46:07
+CL64p start cache/sm_A64R3_it200.pt target cache/climbA64_it20.pt pfd-w 2.0 16:47:07
+CL64p killed at it~60: rounds realize ~10% of climbed flips and break 20x more (agree_round it60) 17:26:23
+CL64p done best val cache/sm_A64R3_it200.pt 0.8501 0.8591 | best pooled cache/sm_A64R3_it200.pt 0.8547 | last4 val 0.8433 17:30:11
+CL224 done best val cache/sm_NL1_it300.pt 0.8847 0.8862 | best pooled cache/sm_NL1_it300.pt 0.8855 | last4 val 0.8817 18:32:57
+CL64 done best val cache/sm_A64R3_it200.pt 0.8501 0.8589 | best pooled cache/sm_A64R3_it200.pt 0.8545 | last4 val 0.8486 18:33:24
+cl done 18:33:24

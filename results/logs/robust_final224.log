@@ -1,0 +1,1 @@
+{"set": "cache/sm_NL1_it300.pt", "official": 0.884, "tf32_matmul": 0.884, "no_tf32_conv": 0.8837, "tf32mm_fp32conv": 0.8842, "bf16_train": 0.0709}

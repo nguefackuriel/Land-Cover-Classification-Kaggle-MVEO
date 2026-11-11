@@ -1,0 +1,21 @@
+round 1 start cache/sm_C2J1H5_it160.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 13:07:51
+round 1 done best cache/sm_L224C21_it280.pt pooled 0.8618 15:41:55
+round 2 start cache/sm_L224C21_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 15:41:55
+round 2 done best cache/sm_L224C22_it300.pt pooled 0.8631 18:53:17
+round 3 start cache/sm_L224C22_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 18:53:17
+round 3 done best cache/sm_L224C23_it300.pt pooled 0.8629 22:07:04
+round 4 start cache/sm_L224C23_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 22:07:04
+round 4 done best cache/sm_L224C24_it300.pt pooled 0.8632 01:15:19
+round 5 start cache/sm_L224C24_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 01:15:19
+round 5 done best cache/sm_L224C25_it300.pt pooled 0.8648 04:07:38
+round 6 start cache/sm_L224C25_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 04:07:38
+round 6 done best cache/sm_L224C25_it300.pt pooled 0.8648 06:58:34
+round 7 start cache/sm_L224C25_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 06:58:34
+round 7 done best cache/sm_L224C25_it300.pt pooled 0.8648 09:51:05
+round 8 start cache/sm_L224C25_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 09:51:05
+round 8 done best cache/sm_L224C28_it220.pt pooled 0.8651 12:38:19
+round 9 start cache/sm_L224C28_it220.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 12:38:19
+round 9 done best cache/sm_L224C28_it220.pt pooled 0.8647 15:23:48
+round 10 start cache/sm_L224C28_it220.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 15:23:48
+round 10 done best cache/sm_L224C210_it280.pt pooled 0.8651 17:38:31
+done 17:38:31

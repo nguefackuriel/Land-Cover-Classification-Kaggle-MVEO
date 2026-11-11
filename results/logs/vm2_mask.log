@@ -1,0 +1,5 @@
+MK224 start cache/sm_NL1_it300.pt target cache/ceiling3_near_NLs1_it3000.pt mask cache/fragNL1.pt 14:08:32
+MK224 done best val cache/sm_NL1_it300.pt 0.8847 0.8862 | best pooled cache/sm_NL1_it300.pt 0.8855 | last4 val 0.8818 16:14:21
+MK64 start cache/sm_A64R3_it200.pt target cache/ceiling3_near_A64T6_it6000.pt mask cache/fragA64R3.pt 16:14:21
+MK64 done best val cache/sm_A64R3_it200.pt 0.8501 0.8594 | best pooled cache/sm_A64R3_it200.pt 0.8548 | last4 val 0.8487 18:22:28
+mask done 18:22:28

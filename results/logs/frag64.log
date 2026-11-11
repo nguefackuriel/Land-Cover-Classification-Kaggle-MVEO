@@ -1,0 +1,9 @@
+{"base_val": 0.8501}
+{"copy": 0, "val": 0.8432, "changed": 0.0504, "fragile_so_far": 0.0504}
+{"copy": 1, "val": 0.8454, "changed": 0.0499, "fragile_so_far": 0.0754}
+{"copy": 2, "val": 0.844, "changed": 0.0485, "fragile_so_far": 0.091}
+{"copy": 3, "val": 0.8452, "changed": 0.0488, "fragile_so_far": 0.1032}
+{"copy": 4, "val": 0.8444, "changed": 0.049, "fragile_so_far": 0.1125}
+{"copy": 5, "val": 0.8437, "changed": 0.0474, "fragile_so_far": 0.1187}
+{"copy": 6, "val": 0.8462, "changed": 0.05, "fragile_so_far": 0.1251}
+{"copy": 7, "val": 0.8432, "changed": 0.049, "fragile_so_far": 0.1304}

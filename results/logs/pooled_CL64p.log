@@ -1,0 +1,4 @@
+{"set": "cache/sm_A64R3_it200.pt", "val": 0.8501, "hold": 0.8591, "pooled": 0.8547}
+{"set": "cache/sm_CL64p_it20.pt", "val": 0.8393, "hold": 0.8438, "pooled": 0.8415}
+{"set": "cache/sm_CL64p_it40.pt", "val": 0.8407, "hold": 0.8445, "pooled": 0.8426}
+{"set": "cache/sm_CL64p_it60.pt", "val": 0.8432, "hold": 0.8489, "pooled": 0.8461}

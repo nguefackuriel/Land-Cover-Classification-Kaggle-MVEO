@@ -1,0 +1,8 @@
+round 1 start cache/init_c4j0.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 15:17:59
+round 1 done best cache/sm_SC64r1_it240.pt pooled 0.8279 18:32:14
+done 18:32:14
+round 2 start cache/sm_SC64r1_it240.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 18:33:07
+round 2 done best cache/sm_SC64r2_it280.pt pooled 0.8394 21:50:36
+round 3 start cache/sm_SC64r2_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 21:50:36
+round 3 done best cache/sm_SC64r3_it300.pt pooled 0.8457 01:03:10
+done 01:03:10

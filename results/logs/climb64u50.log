@@ -1,0 +1,22 @@
+{"candidates": 0.0631}
+{"it": 0, "flipped": 0.0, "val": 0.8575, "hold": 0.8687}
+{"it": 1, "flipped": 0.001, "val": 0.861, "hold": 0.8716}
+{"it": 2, "flipped": 0.002, "val": 0.862, "hold": 0.8721}
+{"it": 3, "flipped": 0.003, "val": 0.8627, "hold": 0.8723}
+{"it": 4, "flipped": 0.004, "val": 0.8622, "hold": 0.8755}
+{"it": 5, "flipped": 0.005, "val": 0.8632, "hold": 0.8738}
+{"it": 6, "flipped": 0.006, "val": 0.8647, "hold": 0.8772}
+{"it": 7, "flipped": 0.007, "val": 0.8654, "hold": 0.8767}
+{"it": 8, "flipped": 0.008, "val": 0.8664, "hold": 0.8762}
+{"it": 9, "flipped": 0.009, "val": 0.8667, "hold": 0.8767}
+{"it": 10, "flipped": 0.01, "val": 0.8667, "hold": 0.8792}
+{"it": 11, "flipped": 0.011, "val": 0.8691, "hold": 0.8787}
+{"it": 12, "flipped": 0.012, "val": 0.8684, "hold": 0.8789}
+{"it": 13, "flipped": 0.013, "val": 0.8679, "hold": 0.8799}
+{"it": 14, "flipped": 0.014, "val": 0.8679, "hold": 0.8789}
+{"it": 15, "flipped": 0.015, "val": 0.8691, "hold": 0.8796}
+{"it": 16, "flipped": 0.016, "val": 0.8696, "hold": 0.8809}
+{"it": 17, "flipped": 0.017, "val": 0.8701, "hold": 0.8806}
+{"it": 18, "flipped": 0.018, "val": 0.8711, "hold": 0.8816}
+{"it": 19, "flipped": 0.019, "val": 0.8716, "hold": 0.8806}
+{"it": 20, "flipped": 0.02, "val": 0.8714, "hold": 0.8811}

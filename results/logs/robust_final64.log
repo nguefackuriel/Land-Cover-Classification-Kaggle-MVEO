@@ -1,0 +1,1 @@
+{"set": "cache/sm_A64R3_it160.pt", "official": 0.8509, "tf32_matmul": 0.8509, "no_tf32_conv": 0.8506, "tf32mm_fp32conv": 0.8509, "bf16_train": 0.0706}

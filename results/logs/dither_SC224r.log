@@ -1,0 +1,7 @@
+round 1 start cache/init_c4j0_sz224.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 15:56:20
+round 1 done best cache/sm_SC224r1_it300.pt pooled 0.8402 19:41:32
+round 2 start cache/sm_SC224r1_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 19:41:32
+round 2 done best cache/sm_SC224r1_it300.pt pooled 0.8408 20:49:57
+round 3 start cache/sm_SC224r1_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 20:49:57
+round 3 done best cache/sm_SC224r1_it300.pt pooled 0.8407 21:43:34
+done 21:43:34
