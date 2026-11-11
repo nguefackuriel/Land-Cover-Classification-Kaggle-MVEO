@@ -1368,6 +1368,20 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     (`runs/vm3_curve.sh`, 15:52 heure VM), le 64 reste sur le VM2 (boucle `vm2_curve.sh` arrêtée après le lancement du
     tour 1 du 64, suite par `runs/vm2_curve64.sh`). Rapatriement : `pull_vm3.sh`, `pull_vm1.sh` (copies de
     `pull_vm2.sh`). VM1 : pas encore utilisé, un script AlertLens (`inference_cost.py clearscope`) venait d'y tourner.
+  - **11/11 21:20 UTC. Bilan de la nuit, courbe de taille relancée.**
+    - Lignées 224 L224C8 / L224C2 (VM2, 10 tours chacune, finies le 10/11 vers 17:40) : meilleur poolé 87,17
+      (L224C810 it280, val 86,91 / hold 87,43) et 86,51 (L224C210 it280). Sous NL1 (88,53 poolé) : on garde NL1.
+    - Courbe 64 (VM2) : 82,73 → 83,94 → **84,57** poolé (SC64r3 it300, val 84,22 / hold 84,91).
+    - **VM3 : erreur de ma part.** Les trois tailles en parallèle ont manqué de mémoire GPU (le job 224 prend 45–47 Go).
+      Points valables : 224 tour 1 = 84,02 poolé (val 84,12 / hold 83,91) ; 112, le seul tour qui a tourné (étiqueté
+      « tour 3 ») = 83,27 (val 83,19 / hold 83,35) ; 160 : rien. Au premier tour la courbe monte avec la taille :
+      64 82,73 < 112 83,27 < 224 84,02.
+    - Relance, un job à la fois par GPU : VM3 `runs/vm3_curve2.sh` (160, tours 1–3) ; VM2 `runs/vm2_curve2.sh` (224
+      tours 2–3 depuis sm_SC224r1_it300, tag SC224b, puis 112 tours 2–3 depuis sm_SC112r3_it280, tag SC112b).
+    - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
+    - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
+      87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux
+      85,36 / 86,69 (c=1,2). Même lecture qu'en 224 : environ +0,3 val dans la boîte, le reste hors de portée en 5 pas.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
