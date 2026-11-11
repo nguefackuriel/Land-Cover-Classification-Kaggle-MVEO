@@ -6,3 +6,5 @@ round 3 start cache/init_c4j0_sz160.pt --weight grad --tau 0.15 --pfd-w 5.0 --re
 round 3 done best cache/init_c4j0_sz160.pt pooled 0.3876 17:40:56
 done 17:40:56
 round 1 start cache/init_c4j0_sz160.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 21:17:38
+round 1 done best cache/sm_SC160r1_it300.pt pooled 0.8362 22:26:03
+round 2 start cache/sm_SC160r1_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 22:26:03
