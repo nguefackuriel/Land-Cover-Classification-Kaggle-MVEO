@@ -4,3 +4,5 @@ round 3 start cache/sm_SC112b2_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --r
 round 3 done best cache/sm_SC112b3_it260.pt pooled 0.8571 23:35:40
 done 23:35:40
 round 4 start cache/sm_SC112b3_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 00:26:19
+round 4 done best cache/sm_SC112b4_it300.pt pooled 0.8619 01:33:59
+round 5 start cache/sm_SC112b4_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 01:33:59
