@@ -1,0 +1,89 @@
+/home/ubuntu/Uriel/data_centric/work/proto.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  x, y = torch.load(f)
+/home/ubuntu/Uriel/data_centric/work/signmatch.py:58: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  TG = [torch.load(t) for t in a.target.split(',')]     # several targets: consensus sign, weight = |mean sign|
+/home/ubuntu/Uriel/data_centric/work/signmatch.py:68: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  V = torch.load(a.views)
+/home/ubuntu/Uriel/data_centric/work/dd_lib.py:70: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  d = torch.load(p)
+{"weight": "grad", "T_corner": 0.05623413249850273, "pow": 1.0}
+/home/ubuntu/Uriel/data_centric/work/pfd3.py:99: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  VIEWS = torch.load(a.views) if a.views else None
+/home/ubuntu/Uriel/data_centric/work/proto.py:170: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  x = torch.load(f)
+{"it": 0, "exact_acc": 0.8857, "exact_score": 0.8259}
+{"it": 0, "agree": [0.7999, 0.8054, 0.8022, 0.7857, 0.7524], "loss": [0.52663, 0.50624, 0.52478, 0.61221, 0.81377], "real": 0.3275911947712302, "sec": 10.81, "peak_gb": 15.9}
+{"it": 5, "agree": [0.7933, 0.8023, 0.8006, 0.785, 0.7508], "loss": [0.55091, 0.52151, 0.53309, 0.61731, 0.82281], "real": 0.34670276660472155, "sec": 7.56, "peak_gb": 16.0}
+{"it": 10, "agree": [0.7933, 0.8009, 0.7987, 0.7836, 0.7514], "loss": [0.55091, 0.53046, 0.54535, 0.62662, 0.82064], "real": 0.3331221817061305, "sec": 7.66, "peak_gb": 16.0}
+{"it": 15, "agree": [0.7913, 0.8007, 0.7987, 0.7826, 0.7505], "loss": [0.56045, 0.52901, 0.54448, 0.62722, 0.82744], "real": 0.3235219642519951, "sec": 7.78, "peak_gb": 16.0}
+{"it": 20, "exact_acc": 0.8773, "exact_score": 0.8217}
+{"it": 20, "agree": [0.7913, 0.8009, 0.7984, 0.783, 0.7498], "loss": [0.55949, 0.52744, 0.54592, 0.62608, 0.83242], "real": 0.3576667243614793, "sec": 7.63, "peak_gb": 16.0}
+{"it": 25, "agree": [0.7924, 0.8009, 0.7983, 0.7839, 0.751], "loss": [0.55375, 0.52699, 0.54449, 0.62442, 0.82871], "real": 0.3540960382670164, "sec": 7.47, "peak_gb": 16.0}
+{"it": 30, "agree": [0.7929, 0.8013, 0.799, 0.7838, 0.75], "loss": [0.55185, 0.52728, 0.54223, 0.62807, 0.83209], "real": 0.34115744195878506, "sec": 7.51, "peak_gb": 16.0}
+{"it": 35, "agree": [0.7918, 0.7996, 0.7985, 0.783, 0.7496], "loss": [0.55804, 0.5334, 0.544, 0.62761, 0.83328], "real": 0.33782550785690546, "sec": 7.62, "peak_gb": 16.0}
+{"it": 40, "exact_acc": 0.8775, "exact_score": 0.8218}
+{"it": 40, "agree": [0.7921, 0.8005, 0.7995, 0.7832, 0.7503], "loss": [0.55509, 0.52927, 0.54057, 0.62646, 0.8281], "real": 0.3488483941182494, "sec": 7.9, "peak_gb": 16.0}
+{"it": 45, "agree": [0.7918, 0.7998, 0.7985, 0.7832, 0.7505], "loss": [0.55659, 0.53515, 0.54377, 0.62835, 0.82906], "real": 0.3497672826051712, "sec": 7.81, "peak_gb": 16.0}
+{"it": 50, "agree": [0.7921, 0.8008, 0.7995, 0.7834, 0.7508], "loss": [0.55447, 0.52876, 0.53878, 0.62648, 0.82858], "real": 0.3349475543946028, "sec": 8.06, "peak_gb": 16.0}
+{"it": 55, "agree": [0.7927, 0.8007, 0.7991, 0.7829, 0.7496], "loss": [0.5536, 0.52877, 0.54138, 0.62699, 0.83348], "real": 0.33211052510887384, "sec": 7.63, "peak_gb": 16.0}
+{"it": 60, "exact_acc": 0.8798, "exact_score": 0.823}
+{"it": 60, "agree": [0.7926, 0.8019, 0.7997, 0.784, 0.7496], "loss": [0.55302, 0.52302, 0.53807, 0.62251, 0.83176], "real": 0.3438458740711212, "sec": 7.63, "peak_gb": 16.0}
+{"it": 65, "agree": [0.793, 0.801, 0.7992, 0.7839, 0.7511], "loss": [0.55027, 0.52591, 0.5387, 0.62092, 0.82504], "real": 0.3478890676051378, "sec": 7.73, "peak_gb": 16.0}
+{"it": 70, "agree": [0.7929, 0.8023, 0.8003, 0.7846, 0.75], "loss": [0.55163, 0.52053, 0.53412, 0.61862, 0.83431], "real": 0.33086921088397503, "sec": 7.76, "peak_gb": 16.0}
+{"it": 75, "agree": [0.792, 0.8015, 0.7996, 0.783, 0.7503], "loss": [0.5562, 0.52435, 0.53797, 0.62548, 0.82871], "real": 0.33395377453416586, "sec": 7.77, "peak_gb": 16.0}
+{"it": 80, "exact_acc": 0.8746, "exact_score": 0.8204}
+{"it": 80, "agree": [0.7938, 0.8017, 0.8003, 0.7842, 0.7511], "loss": [0.54618, 0.52344, 0.53569, 0.62402, 0.82095], "real": 0.3501431094482541, "sec": 7.83, "peak_gb": 16.0}
+{"it": 85, "agree": [0.7929, 0.8016, 0.7996, 0.7841, 0.751], "loss": [0.5498, 0.52468, 0.53884, 0.62196, 0.82699], "real": 0.3443227717652917, "sec": 7.44, "peak_gb": 16.0}
+{"it": 90, "agree": [0.7937, 0.8022, 0.8005, 0.7846, 0.7512], "loss": [0.54623, 0.52038, 0.53266, 0.61982, 0.82066], "real": 0.32711517438292503, "sec": 7.5, "peak_gb": 16.0}
+{"it": 95, "agree": [0.7935, 0.8019, 0.7999, 0.7835, 0.7506], "loss": [0.54817, 0.52241, 0.53726, 0.62677, 0.82477], "real": 0.3275161711499095, "sec": 7.53, "peak_gb": 16.0}
+{"it": 100, "exact_acc": 0.8822, "exact_score": 0.8242}
+{"it": 100, "agree": [0.7946, 0.8032, 0.8009, 0.7846, 0.751], "loss": [0.54203, 0.517, 0.53256, 0.61784, 0.82303], "real": 0.33754259906709194, "sec": 7.42, "peak_gb": 16.0}
+{"it": 105, "agree": [0.7943, 0.803, 0.8001, 0.7849, 0.7517], "loss": [0.54255, 0.5169, 0.53483, 0.61696, 0.81933], "real": 0.34380616154521704, "sec": 7.58, "peak_gb": 16.0}
+{"it": 110, "agree": [0.794, 0.8028, 0.8007, 0.7845, 0.7507], "loss": [0.54542, 0.51697, 0.53156, 0.61926, 0.82495], "real": 0.3298011366277933, "sec": 7.67, "peak_gb": 16.0}
+{"it": 115, "agree": [0.7941, 0.8029, 0.8009, 0.7847, 0.7514], "loss": [0.54542, 0.51828, 0.5316, 0.61795, 0.81975], "real": 0.32062222715467215, "sec": 7.65, "peak_gb": 16.0}
+{"it": 120, "exact_acc": 0.879, "exact_score": 0.8226}
+{"it": 120, "agree": [0.7949, 0.8033, 0.8012, 0.7849, 0.7519], "loss": [0.54082, 0.51588, 0.53072, 0.61662, 0.81797], "real": 0.3363784598186612, "sec": 7.72, "peak_gb": 16.0}
+{"it": 125, "agree": [0.7948, 0.8029, 0.8005, 0.7849, 0.7521], "loss": [0.54011, 0.51636, 0.53296, 0.61764, 0.81697], "real": 0.3441661046817899, "sec": 7.71, "peak_gb": 16.0}
+{"it": 130, "agree": [0.7951, 0.8031, 0.801, 0.7842, 0.7513], "loss": [0.54173, 0.51845, 0.53069, 0.62016, 0.82117], "real": 0.32942529674619436, "sec": 7.96, "peak_gb": 16.0}
+{"it": 135, "agree": [0.7949, 0.8035, 0.8012, 0.7846, 0.7517], "loss": [0.54141, 0.51494, 0.53123, 0.61984, 0.82013], "real": 0.31916750501841307, "sec": 7.77, "peak_gb": 16.0}
+{"it": 140, "exact_acc": 0.8775, "exact_score": 0.8218}
+{"it": 140, "agree": [0.7952, 0.8037, 0.8015, 0.7854, 0.752], "loss": [0.53893, 0.51358, 0.52932, 0.61601, 0.81639], "real": 0.3375412095338106, "sec": 7.68, "peak_gb": 16.0}
+{"it": 145, "agree": [0.7955, 0.804, 0.8009, 0.7853, 0.7516], "loss": [0.53659, 0.51173, 0.53076, 0.61473, 0.81996], "real": 0.33885437808930874, "sec": 7.49, "peak_gb": 16.0}
+{"it": 150, "agree": [0.7953, 0.8031, 0.8009, 0.7847, 0.7517], "loss": [0.53906, 0.51601, 0.53147, 0.6196, 0.81868], "real": 0.32978582847863436, "sec": 7.55, "peak_gb": 16.0}
+{"it": 155, "agree": [0.7955, 0.8036, 0.8014, 0.7849, 0.7518], "loss": [0.53882, 0.51485, 0.52819, 0.61685, 0.81744], "real": 0.3166491277515888, "sec": 7.92, "peak_gb": 16.0}
+{"it": 160, "exact_acc": 0.881, "exact_score": 0.8236}
+{"it": 160, "agree": [0.7961, 0.8038, 0.8018, 0.7837, 0.7514], "loss": [0.53604, 0.51217, 0.52741, 0.62081, 0.82251], "real": 0.3352960329502821, "sec": 7.4, "peak_gb": 16.0}
+{"it": 165, "agree": [0.7958, 0.8041, 0.8016, 0.7857, 0.7527], "loss": [0.53669, 0.51199, 0.52813, 0.61269, 0.81141], "real": 0.34507426153868437, "sec": 7.6, "peak_gb": 16.0}
+{"it": 170, "agree": [0.7962, 0.8036, 0.8015, 0.7855, 0.752], "loss": [0.53426, 0.51208, 0.5269, 0.6123, 0.81304], "real": 0.3213812969624996, "sec": 7.69, "peak_gb": 16.0}
+{"it": 175, "agree": [0.7961, 0.8045, 0.8018, 0.7854, 0.7524], "loss": [0.53585, 0.51179, 0.52759, 0.61562, 0.81218], "real": 0.3082180442288518, "sec": 7.36, "peak_gb": 16.0}
+{"it": 180, "exact_acc": 0.8817, "exact_score": 0.8239}
+{"it": 180, "agree": [0.7961, 0.804, 0.8015, 0.7852, 0.7522], "loss": [0.53579, 0.513, 0.5286, 0.61603, 0.81691], "real": 0.3326353905722499, "sec": 7.91, "peak_gb": 16.0}
+{"it": 185, "agree": [0.7965, 0.8041, 0.8015, 0.7856, 0.7527], "loss": [0.53259, 0.51075, 0.52816, 0.61348, 0.80919], "real": 0.34682642947882414, "sec": 7.59, "peak_gb": 16.0}
+{"it": 190, "agree": [0.7968, 0.8051, 0.8017, 0.7863, 0.7517], "loss": [0.53062, 0.50577, 0.52544, 0.60863, 0.8145], "real": 0.3193742102012038, "sec": 7.83, "peak_gb": 16.0}
+{"it": 195, "agree": [0.7972, 0.8051, 0.8026, 0.7862, 0.7525], "loss": [0.53022, 0.50749, 0.5229, 0.6091, 0.81099], "real": 0.31024694722145796, "sec": 8.09, "peak_gb": 16.0}
+{"it": 200, "exact_acc": 0.8802, "exact_score": 0.8232}
+{"it": 200, "agree": [0.7968, 0.8054, 0.8025, 0.7857, 0.7522], "loss": [0.5328, 0.50569, 0.52238, 0.60865, 0.81251], "real": 0.33373456448316574, "sec": 8.09, "peak_gb": 16.0}
+{"it": 205, "agree": [0.7976, 0.8054, 0.8025, 0.7861, 0.753], "loss": [0.52818, 0.50494, 0.52302, 0.60836, 0.80666], "real": 0.33437649346888065, "sec": 7.64, "peak_gb": 16.0}
+{"it": 210, "agree": [0.7978, 0.8048, 0.8019, 0.7862, 0.7529], "loss": [0.52642, 0.5067, 0.52545, 0.60864, 0.80871], "real": 0.3210927154868841, "sec": 7.48, "peak_gb": 16.0}
+{"it": 215, "agree": [0.7981, 0.8057, 0.8029, 0.7865, 0.753], "loss": [0.52604, 0.5038, 0.52021, 0.60611, 0.80651], "real": 0.3008250296115875, "sec": 7.33, "peak_gb": 16.0}
+{"it": 220, "exact_acc": 0.8862, "exact_score": 0.8262}
+{"it": 220, "agree": [0.7985, 0.8056, 0.8029, 0.7862, 0.7528], "loss": [0.52485, 0.50349, 0.51992, 0.60621, 0.80859], "real": 0.3274767892435193, "sec": 7.38, "peak_gb": 16.0}
+{"it": 225, "agree": [0.7979, 0.8054, 0.8024, 0.7864, 0.7535], "loss": [0.52658, 0.50498, 0.52294, 0.60774, 0.80571], "real": 0.3353712251409888, "sec": 7.88, "peak_gb": 16.0}
+{"it": 230, "agree": [0.7986, 0.806, 0.803, 0.7864, 0.7528], "loss": [0.52295, 0.50176, 0.51967, 0.606, 0.80856], "real": 0.31710433680564165, "sec": 7.69, "peak_gb": 16.0}
+{"it": 235, "agree": [0.7981, 0.8058, 0.8028, 0.7866, 0.7529], "loss": [0.52504, 0.50193, 0.52016, 0.60672, 0.80664], "real": 0.29770911391824484, "sec": 7.58, "peak_gb": 16.0}
+{"it": 240, "exact_acc": 0.881, "exact_score": 0.8236}
+{"it": 240, "agree": [0.7992, 0.8064, 0.8032, 0.7867, 0.7526], "loss": [0.52281, 0.50032, 0.51886, 0.60516, 0.80983], "real": 0.3298738384619355, "sec": 7.58, "peak_gb": 16.0}
+{"it": 245, "agree": [0.7979, 0.8054, 0.8029, 0.7867, 0.753], "loss": [0.52569, 0.50416, 0.5201, 0.60548, 0.8072], "real": 0.33516407757997513, "sec": 8.0, "peak_gb": 16.0}
+{"it": 250, "agree": [0.7987, 0.8065, 0.8033, 0.7868, 0.7531], "loss": [0.52284, 0.49921, 0.51838, 0.60399, 0.80536], "real": 0.31729899905622005, "sec": 7.62, "peak_gb": 16.0}
+{"it": 255, "agree": [0.799, 0.8065, 0.8032, 0.7868, 0.753], "loss": [0.52084, 0.49895, 0.51926, 0.60511, 0.80469], "real": 0.2977171204984188, "sec": 7.39, "peak_gb": 16.0}
+{"it": 260, "exact_acc": 0.8877, "exact_score": 0.8269}
+{"it": 260, "agree": [0.7999, 0.8064, 0.8035, 0.7869, 0.7536], "loss": [0.51882, 0.4998, 0.51803, 0.60508, 0.80371], "real": 0.32646650820970535, "sec": 7.61, "peak_gb": 16.0}
+{"it": 265, "agree": [0.7992, 0.806, 0.8031, 0.7868, 0.7537], "loss": [0.52097, 0.50126, 0.51876, 0.60567, 0.80278], "real": 0.33052174281328917, "sec": 7.64, "peak_gb": 16.0}
+{"it": 270, "agree": [0.7987, 0.8065, 0.8034, 0.7868, 0.7536], "loss": [0.52176, 0.49891, 0.51755, 0.60456, 0.80302], "real": 0.3160399794578552, "sec": 7.65, "peak_gb": 16.0}
+{"it": 275, "agree": [0.7995, 0.8066, 0.8035, 0.7871, 0.7532], "loss": [0.51795, 0.49801, 0.51727, 0.60314, 0.80572], "real": 0.29602697025984526, "sec": 7.5, "peak_gb": 16.0}
+{"it": 280, "exact_acc": 0.8847, "exact_score": 0.8254}
+{"it": 280, "agree": [0.8004, 0.8069, 0.8037, 0.787, 0.7532], "loss": [0.51642, 0.49744, 0.51709, 0.60427, 0.80707], "real": 0.32510363310575485, "sec": 7.65, "peak_gb": 16.0}
+{"it": 285, "agree": [0.7994, 0.8061, 0.8032, 0.7871, 0.7535], "loss": [0.51973, 0.50011, 0.51794, 0.60314, 0.80452], "real": 0.32855565566569567, "sec": 7.61, "peak_gb": 16.0}
+{"it": 290, "agree": [0.799, 0.8063, 0.8032, 0.7869, 0.7538], "loss": [0.52041, 0.49881, 0.51778, 0.60425, 0.80324], "real": 0.3161809789016843, "sec": 7.56, "peak_gb": 16.0}
+{"it": 295, "agree": [0.7997, 0.8066, 0.8032, 0.787, 0.7533], "loss": [0.51758, 0.49804, 0.51788, 0.60389, 0.80546], "real": 0.29648964665830135, "sec": 7.6, "peak_gb": 16.0}
+{"it": 300, "exact_acc": 0.884, "exact_score": 0.8251}

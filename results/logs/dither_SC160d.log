@@ -5,3 +5,5 @@ round 7 done best cache/sm_SC160d7_it300.pt pooled 0.8829 08:35:32
 round 8 start cache/sm_SC160d7_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 08:35:32
 round 8 done best cache/sm_SC160d7_it300.pt pooled 0.8826 09:43:57
 round 9 start cache/sm_SC160d7_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 09:43:57
+round 9 done best cache/sm_SC160d7_it300.pt pooled 0.8826 10:51:25
+round 10 start cache/sm_SC160d7_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 10:51:25
