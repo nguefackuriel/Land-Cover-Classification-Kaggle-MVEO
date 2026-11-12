@@ -3,3 +3,4 @@ round 2 done best cache/sm_SC224b2_it260.pt pooled 0.8585 22:24:53
 round 3 start cache/sm_SC224b2_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 22:24:53
 round 3 done best cache/sm_SC224b3_it300.pt pooled 0.8677 23:32:09
 done 23:32:09
+round 4 start cache/sm_SC224b3_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 03:51:15
