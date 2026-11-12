@@ -9,3 +9,5 @@ round 5 start cache/sm_SC224b4_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --r
 round 5 done best cache/sm_SC224b5_it300.pt pooled 0.8787 06:09:23
 done 06:09:23
 round 6 start cache/sm_SC224b5_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 06:16:43
+round 6 done best cache/sm_SC224b6_it300.pt pooled 0.8804 07:25:48
+round 7 start cache/sm_SC224b6_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 07:25:48
