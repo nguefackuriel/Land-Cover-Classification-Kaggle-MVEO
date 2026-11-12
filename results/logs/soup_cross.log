@@ -1,0 +1,14 @@
+{"mix": "sm_NL1_it300.pt", "val": 0.8847, "hold": 0.886, "pooled": 0.8853}
+{"mix": "sm_SC224b11_it260.pt", "val": 0.8877, "hold": 0.8835, "pooled": 0.8856}
+{"mix": "sm_SC224b9_it220.pt", "val": 0.8862, "hold": 0.8843, "pooled": 0.8852}
+{"mix": "sm_SC224b10_it260.pt", "val": 0.8857, "hold": 0.8831, "pooled": 0.8844}
+{"mix": "mean_all x1.0", "val": 0.8667, "hold": 0.8665, "pooled": 0.8666}
+{"mix": "mean_all x1.25", "val": 0.7672, "hold": 0.7708, "pooled": 0.769}
+{"mix": "mean_all x1.5", "val": 0.3896, "hold": 0.4016, "pooled": 0.3957}
+{"mix": "majority_sign x mean|d|", "val": 0.8822, "hold": 0.8794, "pooled": 0.8808}
+{"mix": "pair 0+1", "val": 0.8511, "hold": 0.8501, "pooled": 0.8506}
+{"mix": "pair 0+2", "val": 0.8491, "hold": 0.8481, "pooled": 0.8486}
+{"mix": "pair 0+3", "val": 0.8499, "hold": 0.8499, "pooled": 0.8499}
+{"agree_0_vs": 1, "frac": 0.7714}
+{"agree_0_vs": 2, "frac": 0.7673}
+{"agree_0_vs": 3, "frac": 0.7713}

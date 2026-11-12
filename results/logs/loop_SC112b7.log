@@ -15,3 +15,4 @@ val 0.8696296296296296
   x = torch.load(f)
 {"tag": "near_SC112b7", "init_val": 0.8696}
 {"tag": "near_SC112b7", "it": 1, "T": 0.089, "loss": 0.3509, "val_acc": 0.8714, "edge": 0.265}
+{"tag": "near_SC112b7", "it": 500, "T": 0.079, "loss": 0.2397, "val_acc": 0.9136, "edge": 0.607}

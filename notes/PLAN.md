@@ -1422,6 +1422,17 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     160 plafonne ~0,25 sous le 224. 112 : t6 87,06, suite en cours (VM1). Bruit de rescoring d'un même set : ±0,03.
     Vérif officielle de SC224b11 it260 (`baseline.py`, VM1, `runs/offcheck_SC224b11i260.log`) et soupe croisée NL1 ×
     SC224b (`runs/soup_cross.sh` → `runs/soup_cross.log`) : en cours. SC224b t12 en cours sur le VM2.
+  - **12/11 13:30 UTC.** **`baseline.py` officiel, SC224b11 it260 : 88,77 %** = réplique (set exporté
+    `work/sets/SC224b11i260` sur le VM1). **Soupe croisée** (θ5 exacts de NL1 it300 et de SC224b t9/t10/t11) : les deux
+    lignées ne s'accordent que sur **77 % des signes de déplacement** (contre 98 % dans une même lignée) ; moyenne NL1 +
+    SC224b11 : **85,06 / 85,01** ; moyenne des quatre 86,67 ; signe majoritaire × |d| moyen 88,22 / 87,94. Mélanger deux
+    lignées détruit le déplacement là où elles divergent : pas de levier. Pour le papier : au même plafond, deux
+    solutions très différentes (23 % des poids bougent en sens opposé).
+    **Question suivante : le plafond 224 dépend-il des images de départ ou de l'histoire de la lignée ?** NL1 et
+    SC224b partent tous deux des médoïdes c4j0 ; L224C8 / C2 partaient d'autres médoïdes avec des tours de l'ancienne
+    recette avant (87,17 / 86,51). `runs/fresh224.sh` : recette finale dès le départ, 11 tours, **F224C8** depuis
+    `init_c8s1j0_sz224` (VM2, après SC224b t12) et **F224C2** depuis `init_c4j1_sz224` (VM1, après la 112). Fin prévue
+    vendredi matin. Si l'un dépasse NL1 nettement (poolé > 88,70), vérif officielle puis accord de l'utilisateur.
     - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux
