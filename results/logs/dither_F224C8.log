@@ -1,1 +1,3 @@
 round 1 start cache/init_c8s1j0_sz224.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 14:12:27
+round 1 done best cache/sm_F224C81_it300.pt pooled 0.8413 15:21:49
+round 2 start cache/sm_F224C81_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 15:21:49
