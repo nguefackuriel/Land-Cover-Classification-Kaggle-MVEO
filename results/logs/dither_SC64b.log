@@ -1,0 +1,1 @@
+round 4 start cache/sm_SC64r3_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 02:42:35
