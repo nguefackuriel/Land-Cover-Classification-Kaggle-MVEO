@@ -1398,6 +1398,22 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     puis 224 tours 4–5) ; VM1 `runs/vm1_curve2.sh` (112 tours 4–5, puis 64 tours 4–5, tag SC64b). Rapatriement par
     `pull_all_until_done.sh`. Note : les sets ciblés seed 42 tombent à ~40 % sur les autres seeds (NL1 39,8 ± 3,9,
     A64R3 42,4 ± 6,8, `runs/seeds_*.log`), donc évaluer la courbe sur plusieurs seeds n'apprendrait rien.
+  - **12/11 06:16 UTC. Courbe de taille, 5 tours** (poolé ; 160 tours 3–5 = SC160c sur le VM2, 64 tours 4–5 = SC64b sur
+    le VM1 ; aucun plantage) :
+
+    | taille | t1 | t2 | t3 | t4 | t5 (val / hold) |
+    |---|---|---|---|---|---|
+    | 64 | 82,73 | 83,94 | 84,57 | 84,70 | 85,00 (84,25 / 85,42 ; it280 84,84) |
+    | 112 | 83,27 | 84,52 | 85,71 | 86,19 | 86,80 (86,79 / 86,82) |
+    | 160 | 83,62 | 85,69 | 86,63 | 87,27 | 87,71 (87,93 / 87,50) |
+    | 224 | 84,02 | 85,85 | 86,77 | 87,52 | **87,87** (87,90 / 87,84) |
+
+    Le 64 plafonne (85,0, comme toutes les lignées 64) ; 112, 160 et 224 montent encore de +0,4 à +0,6 par tour. Entre
+    160 et 224 l'écart se resserre (+0,16 au tour 5). **La lignée 224 fraîche (SC224b) fait déjà mieux que L224C8 / C2
+    après 10 tours (87,17 / 86,51)** et monte encore : on la prolonge (VM2, `runs/vm2_curve4.sh`, tours 6–12). VM1
+    (`runs/vm1_curve3.sh`) : 160 tours 6–10 (tag SC160d) puis 112 tours 6–10, pour voir si 160 et 224 finissent au même
+    plateau. `pull_all_until_done.sh` s'arrête dès qu'un tour de SC224b passe 88,53 poolé (à vérifier alors avec
+    `baseline.py` officiel avant toute soumission).
     - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux
