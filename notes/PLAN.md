@@ -1414,6 +1414,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     (`runs/vm1_curve3.sh`) : 160 tours 6–10 (tag SC160d) puis 112 tours 6–10, pour voir si 160 et 224 finissent au même
     plateau. `pull_all_until_done.sh` s'arrête dès qu'un tour de SC224b passe 88,53 poolé (à vérifier alors avec
     `baseline.py` officiel avant toute soumission).
+  - **12/11 13:05 UTC. La lignée 224 fraîche rejoint NL1, sans le dépasser.** SC224b (poolé, meilleur du tour) : t6 88,04 ;
+    t7 88,15 ; t8 88,44 ; t9 88,52 (it220, val 88,62 / hold 88,43) ; t10 aucun gain ; **t11 88,57 (it260, val 88,77 /
+    hold 88,38)**. NL1 it300 : 88,47 / 88,60, poolé 88,53. Égalité : +0,30 en val, −0,22 en hold. Deux lignées
+    indépendantes (inits, recettes et historiques différents) finissent au même ~88,5 : c'est le plafond de la méthode,
+    pas un accident de NL1. 160 (SC160d) : t6 87,96 ; t7 88,29 (val 88,49 / hold 88,09), puis plus rien (t8–t10) ; le
+    160 plafonne ~0,25 sous le 224. 112 : t6 87,06, suite en cours (VM1). Bruit de rescoring d'un même set : ±0,03.
+    Vérif officielle de SC224b11 it260 (`baseline.py`, VM1, `runs/offcheck_SC224b11i260.log`) et soupe croisée NL1 ×
+    SC224b (`runs/soup_cross.sh` → `runs/soup_cross.log`) : en cours. SC224b t12 en cours sur le VM2.
     - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux

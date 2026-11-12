@@ -1,0 +1,2 @@
+Device: cuda; train=10, validation=4050
+{"epoch": 1, "train_loss": 2.4631218910217285, "validation_accuracy": 0.15851851851851853}
