@@ -1382,6 +1382,22 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
       identique vérifié par md5) ; sur le VM2, le script parent est arrêté après la 224, qui continue seule.
       Rapatriement toutes les 15 min par `pull_all_until_done.sh` jusqu'à la fin des trois. Sur le VM1, un job
       AlertLens (`run_experiment.py clearscope baselines`) tourne en parallèle, sur CPU seulement (~100 Go de RAM).
+  - **12/11 00:25 UTC. Courbe de taille, 3 tours** (poolé val + hold, meilleur checkpoint du tour ; mêmes médoïdes
+    `init_c4j0`, même recette) :
+
+    | taille | tour 1 | tour 2 | tour 3 |
+    |---|---|---|---|
+    | 64 | 82,73 | 83,94 | 84,57 (val 84,22) |
+    | 112 | 83,27 | 84,52 | 85,71 (val 85,80) |
+    | 160 | 83,62 | 85,69 (val 85,73) | planté |
+    | 224 | 84,02 | 85,85 | **86,77** (val 86,86) |
+
+    La précision monte avec la taille à chaque tour, et l'écart 64 → 224 grandit (+1,3 au tour 1, +2,2 au tour 3).
+    Le tour 3 de la 160 a planté (OOM) : un job vLLM (`vllm_answer_judge.py`, autre projet) a pris 66 Go du GPU du
+    VM3 à 00:17. **On laisse le VM3 à ce job.** Suite (00:26) : VM2 `runs/vm2_curve3.sh` (160 tours 3–5, tag SC160c,
+    puis 224 tours 4–5) ; VM1 `runs/vm1_curve2.sh` (112 tours 4–5, puis 64 tours 4–5, tag SC64b). Rapatriement par
+    `pull_all_until_done.sh`. Note : les sets ciblés seed 42 tombent à ~40 % sur les autres seeds (NL1 39,8 ± 3,9,
+    A64R3 42,4 ± 6,8, `runs/seeds_*.log`), donc évaluer la courbe sur plusieurs seeds n'apprendrait rien.
     - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux

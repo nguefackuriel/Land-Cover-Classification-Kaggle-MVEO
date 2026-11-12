@@ -3,3 +3,4 @@ curve loop moved: 64 here (vm2_curve64.sh), 112/160/224 on VM3 15:48:07
 curve64 done 01:03:10
 curve2 start 21:17:37
 curve2: 112 moved to VM1, only SC224b here 21:22:31
+curve3 start 00:26:12

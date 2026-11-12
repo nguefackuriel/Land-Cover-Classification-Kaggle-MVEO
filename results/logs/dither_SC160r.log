@@ -10,3 +10,5 @@ round 1 done best cache/sm_SC160r1_it300.pt pooled 0.8362 22:26:03
 round 2 start cache/sm_SC160r1_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 22:26:03
 round 2 done best cache/sm_SC160r2_it280.pt pooled 0.8569 23:36:19
 round 3 start cache/sm_SC160r2_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 23:36:19
+round 3 done best cache/sm_SC160r2_it280.pt pooled 0.8569 00:21:15
+done 00:21:15
