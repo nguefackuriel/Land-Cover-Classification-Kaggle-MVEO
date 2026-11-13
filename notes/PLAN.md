@@ -1449,6 +1449,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     GPU. VM2 : c8s1j2 / j3 / j4 (S224J2–J4) ; VM1 : c8s1j5 / j6 / j7 (S224J5–J7). Fin ~17:00 UTC. Ensuite, les
     meilleurs (poolé au tour 3 au-dessus de 86,77, celui de c4j0) continuent jusqu'à dimanche midi. Fin des GPU dimanche
     ~15:00 UTC. VM3 libre (0 Mo) mais pas utilisé sans l'accord de l'utilisateur (ses jobs vLLM).
+  - **13/11 16:25 UTC. Résultat du criblage** (poolé t1 / t2 / t3) : c8s1j2 83,62 / 85,39 / 86,24 ; c8s1j3 83,91 / 85,01 /
+    85,67 ; c8s1j4 83,34 / 85,31 / 86,08 ; c8s1j5 84,24 / 85,89 / 86,62 ; **c8s1j6 84,56 / 86,16 / 87,06** ; c8s1j7
+    84,21 / 85,43 / 85,83. Repère c4j0 : 84,02 / 85,85 / 86,77. **c8s1j6 est devant c4j0 à chaque tour** (+0,29 au
+    tour 3). Suite lancée (`runs/cont224.sh`, tours 4 à 30, arrêt à la main dimanche) : S224J6 sur le VM1 (depuis
+    sm_S224J63_it260), S224K5 sur le VM2 (c8s1j5, depuis sm_S224J53_it300, autre tag pour ne pas écraser le journal du
+    VM1). Repère c4j0 : t5 87,87, t8 88,44, t11 88,57. L'utilisateur autorise le VM3 s'il est libre : à 16:23 il ne
+    l'est pas (vLLM judge 75 Go + `inference_cost.py trace`), donc pas utilisé.
     - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux
