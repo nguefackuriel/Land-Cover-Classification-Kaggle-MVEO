@@ -15,3 +15,5 @@ round 7 done best cache/sm_F224C27_it280.pt pooled 0.8629 01:43:39
 round 8 start cache/sm_F224C27_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 01:43:39
 round 8 done best cache/sm_F224C28_it280.pt pooled 0.8644 02:50:17
 round 9 start cache/sm_F224C28_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 02:50:17
+round 9 done best cache/sm_F224C29_it260.pt pooled 0.8653 03:57:51
+round 10 start cache/sm_F224C29_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 03:57:51
