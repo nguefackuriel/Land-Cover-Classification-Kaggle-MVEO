@@ -1433,6 +1433,22 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     recette avant (87,17 / 86,51). `runs/fresh224.sh` : recette finale dès le départ, 11 tours, **F224C8** depuis
     `init_c8s1j0_sz224` (VM2, après SC224b t12) et **F224C2** depuis `init_c4j1_sz224` (VM1, après la 112). Fin prévue
     vendredi matin. Si l'un dépasse NL1 nettement (poolé > 88,70), vérif officielle puis accord de l'utilisateur.
+  - **13/11 06:30 UTC. Le plafond 224 dépend des images de départ, pas de l'histoire de la lignée.** Recette finale dès
+    le départ, 11 tours (poolé, meilleur du tour) :
+
+    | départ | t1 | t3 | t5 | t11 (val / hold) | même départ, autre histoire |
+    |---|---|---|---|---|---|
+    | c4j0 (SC224b) | 84,02 | 86,77 | 87,87 | 88,57 (88,77 / 88,38) | NL1 88,53 |
+    | c8s1j0 (F224C8) | 84,13 | 86,12 | 86,61 | 87,34 (86,94 / 87,74) | L224C8 87,17 |
+    | c4j1 (F224C2) | 83,60 | 85,24 | 86,02 | 86,57 (86,44 / 86,69) | L224C2 86,51 |
+
+    Même départ, même plafond à ±0,2, quelle que soit l'histoire ; d'un départ à l'autre, 2 points d'écart. L'ordre
+    est déjà le bon au tour 3 (et c'était aussi l'ordre des plateaux de l'ancienne recette en octobre : C2J0 > C8J0 >
+    C2J1). 112 (SC112b) : t9 87,64, t10 87,69 (fin de la courbe : 64 85,0 / 112 87,7 / 160 88,3 / 224 88,6).
+    **Criblage lancé (06:28, `runs/screen224b.sh`)** : six départs jamais essayés en 224, 3 tours chacun, un job par
+    GPU. VM2 : c8s1j2 / j3 / j4 (S224J2–J4) ; VM1 : c8s1j5 / j6 / j7 (S224J5–J7). Fin ~17:00 UTC. Ensuite, les
+    meilleurs (poolé au tour 3 au-dessus de 86,77, celui de c4j0) continuent jusqu'à dimanche midi. Fin des GPU dimanche
+    ~15:00 UTC. VM3 libre (0 Mo) mais pas utilisé sans l'accord de l'utilisateur (ses jobs vLLM).
     - Les GPU sont restés inactifs ~20 h (VM3 depuis le 10/11 21:43, VM2 depuis le 11/11 01:03).
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux
