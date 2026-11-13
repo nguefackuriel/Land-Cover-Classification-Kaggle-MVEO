@@ -1474,6 +1474,25 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     continuent (tours 9+). En attendant : `percls_eval.py` (rappel par classe et confusions, poolé) sur les départs
     bruts, les tours 3 et les fins de lignée, pour voir quelles classes séparent les niveaux. VM3 : GPU libre mais
     l'utilisateur y fait tourner la vérification AlertLens (`verif_vm3*.sh`, CUDA ouvert), donc pas touché.
+  - **13/11 22:35 UTC. Rappel par classe** (`percls_eval.py`, journal `runs/percls.log`, poolé val + hold, ~30 s par set) :
+    - **Les départs bruts ne prédisent rien** : 29–43 % au départ, et c4j1 (39,6 %, plafond 86,6) vaut c4j0 (39,3 %,
+      plafond 88,6). Pas de criblage bon marché sur l'image brute.
+    - **Ce qui sépare les niveaux, c'est River / Highway.** La confusion River ↔ Highway est la première partout
+      (120–160 erreurs sur 8 146), puis PermCrop → Herbaceous / AnnualCrop (~100). F224C8 (plafond 87,3) : River 72,9
+      contre 82,7 pour c4j0 au tour 11 (River → Highway 92). Au tour 3, c8s1j6 menait grâce à River 80,4 (c4j0 76,9)
+      et Highway 78,2 (76,3) ; c4j0 était devant sur AnnualCrop (+0,9), PermCrop (+1,7), Forest, Residential.
+    - Fins du niveau haut (c4j0 t11, NL1, J6 t8, K5 t8) : River 81,8–82,9, Highway 78,4–79,4, PermCrop 77,3–78,7.
+  - **22:49 UTC. Échanges d'une image entre fins de lignée** (`crossover.py`, `runs/xover224_*.log`) : **toujours
+    perdant, de 1 à 13 points.** NL1 (88,57) avec une image de J6 t8 : 75,6 (Forest) à 86,5 (Residential) ; avec une
+    image de SC224b t11 (même départ c4j0 !) : 81,6 à 85,4 ; J6 t8 (88,30) avec une image de NL1 : 82,3 à 87,3. Les dix
+    images ne sont pas dix prototypes indépendants : elles sont réglées ensemble pour les 5 pas d'Adam, et deux lignées
+    du même départ finissent sur des réglages incompatibles (cf. 77 % d'accord de signe NL1 / SC224b). Les échanges
+    entre voisins d'une même lignée (64, 4/11) ne faisaient rien non plus.
+  - **Départs hybrides** (`make_hybrid.py`) : comme les médoïdes bruts ne sont pas encore réglés ensemble, on peut
+    mélanger au départ. **hybA** = c4j0 avec Highway + River de c8s1j6 ; **hybB** = c8s1j6 avec AnnualCrop + PermCrop
+    de c4j0. `runs/switch224.sh` arrête une lignée après un tour donné et lance la nouvelle (`cont224.sh`, tours 1–30) :
+    VM2 HYA après le tour 9 de S224K5 (~23:10), VM1 HYB après le tour 11 de S224J6 (~01:45). Repère au tour 3 :
+    c8s1j6 87,06, c4j0 86,77.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus

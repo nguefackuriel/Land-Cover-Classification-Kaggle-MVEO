@@ -1,0 +1,12 @@
+{"base": "cache/sm_S224J68_it280.pt", "val": 0.8857, "hold": 0.8804, "pooled": 0.883}
+{"donor": "cache/sm_NL1_it300.pt", "row": 0, "label": 0, "val": 0.8257, "hold": 0.821, "pooled": 0.8233}
+{"donor": "cache/sm_NL1_it300.pt", "row": 1, "label": 1, "val": 0.8728, "hold": 0.8699, "pooled": 0.8713}
+{"donor": "cache/sm_NL1_it300.pt", "row": 2, "label": 2, "val": 0.8309, "hold": 0.8328, "pooled": 0.8318}
+{"donor": "cache/sm_NL1_it300.pt", "row": 3, "label": 3, "val": 0.8669, "hold": 0.8677, "pooled": 0.8673}
+{"donor": "cache/sm_NL1_it300.pt", "row": 4, "label": 4, "val": 0.8657, "hold": 0.8633, "pooled": 0.8645}
+{"donor": "cache/sm_NL1_it300.pt", "row": 5, "label": 5, "val": 0.8664, "hold": 0.8691, "pooled": 0.8678}
+{"donor": "cache/sm_NL1_it300.pt", "row": 6, "label": 6, "val": 0.8644, "hold": 0.8699, "pooled": 0.8672}
+{"donor": "cache/sm_NL1_it300.pt", "row": 7, "label": 7, "val": 0.8756, "hold": 0.8699, "pooled": 0.8727}
+{"donor": "cache/sm_NL1_it300.pt", "row": 8, "label": 8, "val": 0.8721, "hold": 0.8662, "pooled": 0.8691}
+{"donor": "cache/sm_NL1_it300.pt", "row": 9, "label": 9, "val": 0.8323, "hold": 0.8333, "pooled": 0.8328}
+xover done 22:49:00
