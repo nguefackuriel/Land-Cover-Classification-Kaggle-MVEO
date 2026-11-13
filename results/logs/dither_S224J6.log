@@ -8,3 +8,5 @@ done 12:59:37
 round 4 start cache/sm_S224J63_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 16:23:54
 round 4 done best cache/sm_S224J64_it260.pt pooled 0.8765 17:30:40
 round 5 start cache/sm_S224J64_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 17:30:40
+round 5 done best cache/sm_S224J65_it280.pt pooled 0.877 18:37:27
+round 6 start cache/sm_S224J65_it280.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 18:37:27
