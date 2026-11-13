@@ -1460,6 +1460,20 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     - Échelle du déplacement sur d'autres sets (val / hold) : KT2 c=1,05 → 88,59 / 88,67 ; C8J0H6 c=1,08 → 87,04 /
       87,21. Boîte sur A64R3 : départ 85,04 / 85,84 ; c=1,1 sans clip 86,54 / 87,60 ; dans la boîte (clip ±R) au mieux
       85,36 / 86,69 (c=1,2). Même lecture qu'en 224 : environ +0,3 val dans la boîte, le reste hors de portée en 5 pas.
+  - **13/11 22:15 UTC. Les deux suites au tour 8 : aucune ne bat NL1.** Poolé t4 → t8 :
+
+    | départ | t3 | t4 | t5 | t6 | t7 | t8 |
+    |---|---|---|---|---|---|---|
+    | c8s1j6 (S224J6, VM1) | 87,06 | 87,65 | 87,70 | 87,90 | 88,08 | 88,33 (88,57 / 88,09) |
+    | c8s1j5 (S224K5, VM2) | 86,62 | 87,16 | 87,66 | 87,86 | 88,19 | 88,17 (88,22 / 88,11) |
+    | c4j0 (SC224b) | 86,77 | 87,52 | 87,87 | 88,04 | 88,15 | 88,44 |
+
+    L'avance de c8s1j6 au tour 3 (+0,29) a disparu dès le tour 5 : le tour 3 classe les départs par niveau (bas :
+    c4j1 85,24 → 86,57 ; moyen : c8s1j0 86,12 → 87,34 ; haut : c4j0 / j5 / j6 ≥ 86,6 → ≥ 88,2 au tour 8), mais pas à
+    l'intérieur du niveau haut. Les bons départs semblent converger vers le même plafond (~88,3–88,6). Les deux suites
+    continuent (tours 9+). En attendant : `percls_eval.py` (rappel par classe et confusions, poolé) sur les départs
+    bruts, les tours 3 et les fins de lignée, pour voir quelles classes séparent les niveaux. VM3 : GPU libre mais
+    l'utilisateur y fait tourner la vérification AlertLens (`verif_vm3*.sh`, CUDA ouvert), donc pas touché.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
