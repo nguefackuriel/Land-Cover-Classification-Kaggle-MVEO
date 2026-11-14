@@ -821,7 +821,28 @@ stronger real-loss term +0.1, and three more rounds +0.15. Our best $64\times64$
 3.4 and 2.9 points below the $224\times224$ set. To check that this is not the fault of one starting set, we ran
 the final recipe for four rounds on two other $64\times64$ lineages, started from other medoids. They stopped at
 85.04 and 84.86\%. At $64\times64$ the method has a ceiling near 85\%, whatever the starting images.
-% TODO 224 lineages L224C8 / L224C2 (final recipe from C8J0H6 / C2J1H5), results expected 12-13/11.
+
+\emph{Starting images at $224\times224$.} At $224\times224$ the starting images matter more. We ran the final recipe
+from scratch for eleven rounds from three sets of medoids, and scored each round on the validation set and the
+held-out block together (8\,146 images). From the medoids of our first lineage, the new run stopped at 88.57\%, level
+with our best set (88.53\%): the older rounds and the changes tried along the way left no trace. From two other medoid
+sets it stopped at 87.34 and 86.57\%, and our older lineages started from them had stopped at the same places (87.17
+and 86.51\%). The order was already clear after three rounds, so we screened six more medoid sets with three rounds
+each and carried on with the two best. The best one led at each of the first four rounds, then fell back onto the
+same curve and also stopped at 88.53\% after eleven rounds. The second reached 88.29\% after nine. The raw medoids give
+no hint of this: before the first round they all score between 29 and 43\%. Per class, the three levels differ mostly
+on River and Highway, the two classes that the network confuses most (120 to 160 errors in every set).
+
+\emph{The ten images work as a whole.} Replacing one image of a finished set by the image of the same class from
+another lineage always cost between 1 and 13 points, even between two lineages started from the same medoids. The ten
+images are not ten class prototypes: each one is tuned to the others for the five updates. At the start, before the
+images are tuned to each other, mixing does work. Our best screened start with the Permanent Crop image of our first
+medoids reached 87.44\% after three rounds, the best third round we saw. With the Annual Crop image as well, it led
+every other start up to round 6 (88.23\% against 88.04\% for our medoids), met their curve at round 8 (88.44\%) and
+stopped at 88.56\% after eleven rounds. The opposite mix, River and Highway from the screened start in our medoids,
+fell to the lowest level (85.34\% after three rounds). A good start reaches the ceiling sooner, not a higher one: the
+four lineages of the top level, from three different starts, ended between 88.53 and 88.57\%.
+% HYC (PermCrop only) r8 88.47; update with its round 11 (expected 14/11 ~17:30 UTC).
 
 \subsection{Why the rounds stop}
 \label{sec:plateau}
@@ -853,7 +874,10 @@ sign changed in at least one of these copies did not help either (best checkpoin
 Our reading is that ten images steer the five updates through a narrow channel. The pixel changes that a round can
 make flip a few percent of the signs, mostly at random, while the better corners need many flips that agree with
 each other. More pixels per image widen the channel. This fits the 3.4 points between $224\times224$ and $64\times64$
-images, and the common ceiling of the $64\times64$ lineages.
+images, and the common ceiling of the $64\times64$ lineages. It also fits a size curve: from the same ten medoids with
+the same recipe, five rounds gave 85.00, 86.80, 87.71 and 87.87\% at 64, 112, 160 and 224 pixels (validation and
+held-out block together), and with more rounds the $160\times160$ set stopped at 88.29\% and the $224\times224$ set at
+88.57\%.
 
 \subsection{What did not help with ten images}
 \label{sec:negative10}
@@ -957,7 +981,7 @@ seeds chosen at evaluation time and to score the mean. The gap between the evalu
 one point for our 120-image sets and 49 points for our best set fitted to one run. If a single run must be used,
 its seed and loader settings should stay hidden.
 
-\emph{Image size.} The score counts images, not pixels. Since the official script resizes every image to
+\emph{Image size.} The score counts images, not pixels. Since the official script crops and resizes every image to
 $224\times224$, the size of the files is a free capacity knob, and in our runs it was worth 3.4 points of validation
 accuracy at equal effort. The extra pixels are really used: bringing a $224\times224$ set down to $64\times64$
 drops it to 30--43\%. The organizers asked for $64\times64$ files by preference, and we report both sizes. A

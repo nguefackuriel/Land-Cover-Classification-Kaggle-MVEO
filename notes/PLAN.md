@@ -1517,6 +1517,13 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     t5 = 88,03 / 88,12 (c4j0 87,52 / 87,87). Un bon départ arrive plus vite au plafond, pas plus haut. Suite :
     hybB jusqu'au tour 11 (~13:45), HYC jusqu'au tour 8 (~14:10), puis le paragraphe du papier (brouillon prêt, TODO
     de sec:late) avec les chiffres finaux.
+  - **14/11 14:25 UTC. hybB t9 / t10 / t11 = 88,46 / 88,55 / 88,56** (sm_HYB11_it300, val 88,64 / hold 88,48) : même
+    plafond. HYC t6 / t7 / t8 = 88,26 / 88,39 / 88,47. Quatre lignées du niveau haut, trois départs : 88,53–88,57.
+    Plus rien à gagner pour le score avec ce qui reste de GPU : `runs/stop224.sh` arrête hybB après le tour 12 (VM1)
+    et HYC après le tour 11 (VM2, ~17:30, pour le papier). Le 448 avait déjà été essayé le 20/10 (0,4–0,5 point sous
+    le 224 à chaque étape), donc pas de taille au-delà de 224. Papier : TODO de sec:late remplacé (départs 224, images
+    réglées ensemble, hybrides), courbe de taille ajoutée dans sec:plateau, « resizes » → « crops and resizes »
+    (le script officiel fait un RandomResizedCrop(224, scale 0,75–1) sur l'image d'origine). 14 pages, compile.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
