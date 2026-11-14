@@ -1533,6 +1533,11 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     HYC à partir du tour 12 (VM2) et hybB à partir du tour 13 (VM1). `runs/stop_at.sh` arrête les deux dimanche
     15/11 14:30 UTC. Le leaderboard porte sur 100 % du test, 5 soumissions par jour : si la vérif officielle confirme,
     soumettre HYC10 it260 (accord de l'utilisateur d'abord).
+  - **14/11 18:05 UTC. `baseline.py` officiel (seed 42) = réplique exacte :** HYC10 it260 **88,77**, HYC11 it260 88,84,
+    hybB12 it260 88,64. CSV Kaggle prêt et revérifié (deux runs officiels, prédictions identiques) :
+    `work/submissions/n10_HYC10_224.csv` (+ images et manifeste sha256). Accord avec NL1 sur le test : 91,7 % des
+    4 050 images. Leaderboard inchangé (nous 0,82480, vinicius 0,81875, Lynch 0,80184, Kakapo 0,79962). Soumission
+    en attente de l'accord de l'utilisateur.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
