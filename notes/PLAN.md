@@ -1513,6 +1513,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
   - **14/11 08:30 UTC.** hybB t6 = **88,23** (c4j0 88,04, c8s1j6 87,90). HYC (c8s1j6 + PermCrop de c4j0) t2 / t3 =
     86,68 / **87,44** : le meilleur tour 3 de tous, au niveau de hybB. Une seule image changée au départ (PermCrop)
     suffit à placer c8s1j6 au-dessus de c4j0. Prochains repères : hybB t8 (c4j0 88,44) vers 10:15, HYC t5 vers 10:45.
+  - **14/11 10:50 UTC. hybB rejoint la courbe de c4j0** : t7 / t8 = 88,36 / **88,44** (c4j0 88,15 / 88,44). HYC t4 /
+    t5 = 88,03 / 88,12 (c4j0 87,52 / 87,87). Un bon départ arrive plus vite au plafond, pas plus haut. Suite :
+    hybB jusqu'au tour 11 (~13:45), HYC jusqu'au tour 8 (~14:10), puis le paragraphe du papier (brouillon prêt, TODO
+    de sec:late) avec les chiffres finaux.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
