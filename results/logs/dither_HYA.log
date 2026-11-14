@@ -3,3 +3,5 @@ round 1 done best cache/sm_HYA1_it300.pt pooled 0.8378 00:25:04
 round 2 start cache/sm_HYA1_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 00:25:04
 round 2 done best cache/sm_HYA2_it260.pt pooled 0.8473 01:32:55
 round 3 start cache/sm_HYA2_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 01:32:55
+round 3 done best cache/sm_HYA3_it300.pt pooled 0.8534 02:40:46
+round 4 start cache/sm_HYA3_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 02:40:46

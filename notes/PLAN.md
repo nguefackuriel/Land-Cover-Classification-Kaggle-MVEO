@@ -1493,6 +1493,14 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     de c4j0. `runs/switch224.sh` arrête une lignée après un tour donné et lance la nouvelle (`cont224.sh`, tours 1–30) :
     VM2 HYA après le tour 9 de S224K5 (~23:10), VM1 HYB après le tour 11 de S224J6 (~01:45). Repère au tour 3 :
     c8s1j6 87,06, c4j0 86,77.
+  - **14/11 03:00 UTC.** Fins : S224K5 tour 9 = 88,29 (arrêté) ; **S224J6 tours 9 / 10 / 11 = 88,37 / 88,46 / 88,53**
+    (sm_S224J611_it300), exactement le plafond de c4j0 (88,57) et de NL1 (88,53). Trois bons départs, un même
+    plafond. **hybA s'effondre** : poolé t1 / t2 / t3 = 83,78 / 84,73 / 85,34, niveau bas (comme c4j1), alors que ses
+    deux parents sont en haut. Les images River / Highway de c8s1j6 ne marchent qu'avec les autres images de c8s1j6 :
+    le rappel par classe ne se transporte pas d'un départ à l'autre. Arrêté à 02:55. **hybB part fort** : t1 =
+    **84,97**, meilleur tour 1 vu jusqu'ici (c8s1j6 84,56, c4j0 84,02). VM2 (`runs/vm2_hybr1.sh`) : un tour chacun
+    pour d'autres hybrides sur la base c8s1j6 : HYC (+ PermCrop de c4j0), HYD (+ AnnualCrop), HYE (+ AnnualCrop,
+    Forest, PermCrop, Residential), pour voir lequel des deux échanges de hybB compte.
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
