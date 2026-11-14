@@ -20,3 +20,4 @@ val 0.8812345679012346
 {"tag": "near_HYC6", "it": 1500, "T": 0.071, "loss": 0.213, "val_acc": 0.9235, "edge": 0.662}
 {"tag": "near_HYC6", "it": 2000, "T": 0.071, "loss": 0.1971, "val_acc": 0.9237, "edge": 0.692}
 {"tag": "near_HYC6", "it": 2500, "T": 0.063, "loss": 0.1601, "val_acc": 0.9249, "edge": 0.758}
+{"tag": "near_HYC6", "it": 3000, "T": 0.045, "loss": 0.0826, "val_acc": 0.9262, "edge": 0.802}
