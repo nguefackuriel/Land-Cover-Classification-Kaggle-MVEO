@@ -1524,6 +1524,15 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     le 224 à chaque étape), donc pas de taille au-delà de 224. Papier : TODO de sec:late remplacé (départs 224, images
     réglées ensemble, hybrides), courbe de taille ajoutée dans sec:plateau, « resizes » → « crops and resizes »
     (le script officiel fait un RandomResizedCrop(224, scale 0,75–1) sur l'image d'origine). 14 pages, compile.
+  - **14/11 17:45 UTC. HYC passe le plafond : t9 / t10 / t11 = 88,62 / 88,76 / 88,76.** sm_HYC10_it260 : val
+    **88,77** / hold **88,75** (NL1 : 88,47 / 88,60, poolé 88,53), donc +0,30 en val et +0,15 sur le bloc tenu à
+    part. sm_HYC11_it260 : 88,84 / 88,67. hybB t12 = 88,63 (it260, 88,64 / 88,62). Les deux départs mélangés
+    dépassent les quatre lignées non mélangées (88,53–88,57) de 0,1 à 0,2 point : « plus vite, pas plus haut » était
+    faux, le papier est corrigé (sec:late). Arrêts de 14:51 (hybB) et 17:32 (HYC) bien faits. Relance :
+    `runs/final_off.sh` = export + `baseline.py` officiel seed 42 (HYC10/HYC11 sur le VM2, HYB12 sur le VM1), puis
+    HYC à partir du tour 12 (VM2) et hybB à partir du tour 13 (VM1). `runs/stop_at.sh` arrête les deux dimanche
+    15/11 14:30 UTC. Le leaderboard porte sur 100 % du test, 5 soumissions par jour : si la vérif officielle confirme,
+    soumettre HYC10 it260 (accord de l'utilisateur d'abord).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
