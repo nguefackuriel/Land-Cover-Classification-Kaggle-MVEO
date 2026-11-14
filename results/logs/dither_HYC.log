@@ -12,3 +12,5 @@ round 5 done best cache/sm_HYC5_it300.pt pooled 0.8812 10:47:20
 round 6 start cache/sm_HYC5_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 10:47:20
 round 6 done best cache/sm_HYC6_it300.pt pooled 0.8826 11:55:26
 round 7 start cache/sm_HYC6_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 11:55:26
+round 7 done best cache/sm_HYC7_it240.pt pooled 0.8839 13:03:19
+round 8 start cache/sm_HYC7_it240.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 13:03:19
