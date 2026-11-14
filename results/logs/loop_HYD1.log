@@ -17,3 +17,7 @@ val 0.3646913580246914
 {"tag": "near_HYD1", "it": 1, "T": 0.398, "loss": 1.8636, "val_acc": 0.381, "edge": 0.068}
 {"tag": "near_HYD1", "it": 500, "T": 0.112, "loss": 0.3704, "val_acc": 0.8884, "edge": 0.642}
 {"tag": "near_HYD1", "it": 1000, "T": 0.089, "loss": 0.2517, "val_acc": 0.8978, "edge": 0.688}
+{"tag": "near_HYD1", "it": 1500, "T": 0.089, "loss": 0.3145, "val_acc": 0.902, "edge": 0.707}
+{"tag": "near_HYD1", "it": 2000, "T": 0.079, "loss": 0.2433, "val_acc": 0.9049, "edge": 0.729}
+{"tag": "near_HYD1", "it": 2500, "T": 0.079, "loss": 0.2321, "val_acc": 0.9035, "edge": 0.782}
+{"tag": "near_HYD1", "it": 3000, "T": 0.063, "loss": 0.179, "val_acc": 0.903, "edge": 0.816}

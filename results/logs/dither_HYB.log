@@ -3,3 +3,5 @@ round 1 done best cache/sm_HYB1_it300.pt pooled 0.8497 02:27:53
 round 2 start cache/sm_HYB1_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 02:27:53
 round 2 done best cache/sm_HYB2_it240.pt pooled 0.8668 03:35:24
 round 3 start cache/sm_HYB2_it240.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 03:35:24
+round 3 done best cache/sm_HYB3_it300.pt pooled 0.8736 04:42:50
+round 4 start cache/sm_HYB3_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 04:42:50
