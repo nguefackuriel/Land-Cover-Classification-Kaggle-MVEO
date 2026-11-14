@@ -16,3 +16,8 @@ val 0.8827160493827161
 {"tag": "near_HYC8", "init_val": 0.883}
 {"tag": "near_HYC8", "it": 1, "T": 0.089, "loss": 0.3235, "val_acc": 0.8802, "edge": 0.274}
 {"tag": "near_HYC8", "it": 500, "T": 0.063, "loss": 0.18, "val_acc": 0.921, "edge": 0.6}
+{"tag": "near_HYC8", "it": 1000, "T": 0.063, "loss": 0.1471, "val_acc": 0.9281, "edge": 0.641}
+{"tag": "near_HYC8", "it": 1500, "T": 0.063, "loss": 0.1995, "val_acc": 0.9252, "edge": 0.663}
+{"tag": "near_HYC8", "it": 2000, "T": 0.071, "loss": 0.2029, "val_acc": 0.9259, "edge": 0.689}
+{"tag": "near_HYC8", "it": 2500, "T": 0.063, "loss": 0.1546, "val_acc": 0.9242, "edge": 0.756}
+{"tag": "near_HYC8", "it": 3000, "T": 0.045, "loss": 0.0853, "val_acc": 0.9267, "edge": 0.802}

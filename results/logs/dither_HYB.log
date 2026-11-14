@@ -19,3 +19,5 @@ round 9 done best cache/sm_HYB9_it300.pt pooled 0.8846 11:28:22
 round 10 start cache/sm_HYB9_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 11:28:22
 round 10 done best cache/sm_HYB10_it260.pt pooled 0.8855 12:35:53
 round 11 start cache/sm_HYB10_it260.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 12:35:53
+round 11 done best cache/sm_HYB11_it300.pt pooled 0.8856 13:43:48
+round 12 start cache/sm_HYB11_it300.pt --weight grad --tau 0.15 --pfd-w 5.0 --real-bs 2048 --step-w 1,0.462,0.205,0.071,0.014 13:43:48
