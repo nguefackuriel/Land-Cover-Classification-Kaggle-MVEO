@@ -1,2 +1,4 @@
 S224K5 stopped after round 9, start HYA from cache/init_hybA_sz224.pt 23:18:01
 HYA stopped 02:55:20
+hyb r1 done 06:16:42
+best round 1: HYC 0.849 (cache/sm_HYC1_it300.pt), continued from round 2 06:17:10

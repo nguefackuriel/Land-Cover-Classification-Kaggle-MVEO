@@ -1506,6 +1506,10 @@ matching → PFD) → 1 tour hybride → score poolé de chaque étape dans `run
     c8s1j6 sur c4j0, avance perdue au tour 5). **HYC** (c8s1j6 + PermCrop de c4j0 seulement) : t1 84,90, presque
     hybB : l'image PermCrop fait l'essentiel. `runs/vm2_hybcont.sh` continue sur le VM2 le meilleur tour 1 de
     HYC / HYD / HYE dès la fin de HYE (~06:20). Repères c4j0 : t5 87,87, t8 88,44, t11 88,57.
+  - **14/11 07:00 UTC. hybB tient son avance : t4 / t5 = 87,86 / 88,09** (c4j0 87,52 / 87,87 ; c8s1j6 87,65 / 87,70),
+    soit environ un tour et demi d'avance sur c4j0 (88,04 au t6, 88,15 au t7). Tours 1 des autres hybrides : HYC
+    84,90, HYD (+ AnnualCrop) 84,42, HYE (+ 4 images de c4j0) 83,96. Prendre plus d'images à c4j0 dégrade : le bon
+    mélange est petit. HYC continue sur le VM2 depuis 06:17 (tours 2+).
 
 ### 2.6 Idée : les budgets n = 32k+1
 Avec `drop_last=False`, une image de plus que 32k ajoute un batch d'une image par epoch, donc 5 pas de plus
